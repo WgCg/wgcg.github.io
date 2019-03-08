@@ -134,30 +134,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[快速排序]]></title>
-    <url>%2F2019%2F03%2F08%2F%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F.html</url>
-    <content type="text"><![CDATA[1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556/* 快速排序时间复杂度：O(N*logN)算法介绍：http://developer.51cto.com/art/201403/430986.htm疑问点：基数在左边，为什么要从右边先开始查找？答：从代码层面分析，因为最后找到的一个数也就是小标为i的数需要与基数对换，而基数在最左边，说明最后一个数会放到最左边，也就是最后一个数必须必基数小，而从右边开始查找的是必基数小的数，终止查找的可能性：从右侧开始查找终止查找的可能性：1. 前一次对调结束，j找到i所在位置，此时i是比基数小的，i下标对应的数与基数对换没有问题2. 前一次对调结束，j找到最后一个数，这个数比基数小，j停止，i开始查找比基数大的数，走到j的位置，i不小于j，停止，i下标对应的数与基数对换没有问题从左侧开始查找终止查找的可能性：1. 前一次对调结束，i找到j所在位置，此时i是比基数大的，i下标对应的数与基数对换出错2. 前一次对调结束，i找到最后一个数，这个数比基数大，i停止，j开始查找比基数小的数，走到i的位置，i不小于j，停止，i下标对应的数与基数对换出错*/function quickSort (_left, _right, _arr) &#123; if (!(_arr instanceof Array)) &#123; return &#125; if (_left &gt;= _right) &#123; return &#125; let baseNum = _arr[_left] let i = _left let j = _right while (i !== j) &#123; while (_arr[j] &gt;= baseNum &amp;&amp; i &lt; j) &#123; j-- &#125; while (_arr[i] &lt;= baseNum &amp;&amp; i &lt; j) &#123; i++ &#125; if (i &lt; j) &#123; let tempNum = _arr[i] _arr[i] = _arr[j] _arr[j] = tempNum &#125; &#125; _arr[_left] = _arr[i] _arr[i] = baseNum console.log(_arr) quickSort(_left, i - 1, _arr) quickSort(i + 1, _right, _arr)&#125;let arr = [6, 1, 2, 7, 9, 3, 4, 5, 10, 8]// let arr = [5, 80, 55, 40, 42, 85]quickSort(0, arr.length - 1, arr)console.log(arr)]]></content>
-      <categories>
-        <category>算法</category>
-        <category>排序</category>
-      </categories>
-      <tags>
-        <tag>算法，排序</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[选择排序]]></title>
-    <url>%2F2019%2F03%2F08%2F%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F.html</url>
-    <content type="text"><![CDATA[123456789101112131415161718192021222324252627282930/* 选择排序时间复杂度：O(n2)算法介绍：https://www.cnblogs.com/shen-hua/p/5424059.html*/function selectionSort (arr) &#123; if (!(arr instanceof Array)) &#123; console.error('param type is not array!') return [] &#125; for (let i = 0; i &lt; arr.length; i++) &#123; let minNumIndex = i let tempNum = arr[i] for (let j = i; j &lt; arr.length; j++) &#123; if (arr[j] &lt; arr[minNumIndex]) &#123; minNumIndex = j &#125; &#125; arr[i] = arr[minNumIndex] arr[minNumIndex] = tempNum &#125;&#125;let arr = [5, 2, 8, 4, 9, 1]selectionSort(arr)console.log(arr)]]></content>
-      <categories>
-        <category>算法</category>
-        <category>排序</category>
-      </categories>
-      <tags>
-        <tag>算法，排序</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[冒泡排序]]></title>
     <url>%2F2019%2F03%2F08%2F%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F.html</url>
     <content type="text"><![CDATA[12345678910111213141516171819202122232425/* 冒泡排序时间复杂度：O(n2)算法介绍：https://blog.csdn.net/shuaizai88/article/details/73250615*/function bubbleSort (arr) &#123; if (!(arr instanceof Array)) &#123; return [] &#125; for (let i = arr.length - 1; i &gt; 0; i--) &#123; for (let j = i; j &gt; 0; j--) &#123; if (arr[j] &lt; arr[j - 1]) &#123; let tempNum = arr[j] arr[j] = arr[j - 1] arr[j - 1] = tempNum &#125; &#125; &#125;&#125;let arr = [5, 2, 8, 4, 9, 1]bubbleSort(arr)console.log(arr)]]></content>
@@ -173,6 +149,30 @@
     <title><![CDATA[插入排序]]></title>
     <url>%2F2019%2F03%2F08%2F%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F.html</url>
     <content type="text"><![CDATA[123456789101112131415161718192021222324252627282930/*插入排序时间复杂度：最好：O(n) 最坏O(n2)算法介绍：https://www.cnblogs.com/hapjin/p/5517667.html*/function insertSort (arr) &#123; if (!(arr instanceof Array)) &#123; return [] &#125; const arrLen = arr.length for (let i = 1; i &lt; arrLen; i++) &#123; let tempNum = arr[i] for (let j = 0; j &lt; i; j++) &#123; if (arr[i] &lt; arr[j]) &#123; arr.splice(i, 1) arr.splice(j, 0, tempNum) break &#125; &#125; &#125;&#125;let arr = [5, 2, 8, 4, 9, 1]insertSort(arr)console.log(arr)]]></content>
+      <categories>
+        <category>算法</category>
+        <category>排序</category>
+      </categories>
+      <tags>
+        <tag>算法，排序</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[快速排序]]></title>
+    <url>%2F2019%2F03%2F08%2F%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F.html</url>
+    <content type="text"><![CDATA[1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556/* 快速排序时间复杂度：O(N*logN)算法介绍：http://developer.51cto.com/art/201403/430986.htm疑问点：基数在左边，为什么要从右边先开始查找？答：从代码层面分析，因为最后找到的一个数也就是小标为i的数需要与基数对换，而基数在最左边，说明最后一个数会放到最左边，也就是最后一个数必须必基数小，而从右边开始查找的是必基数小的数，终止查找的可能性：从右侧开始查找终止查找的可能性：1. 前一次对调结束，j找到i所在位置，此时i是比基数小的，i下标对应的数与基数对换没有问题2. 前一次对调结束，j找到最后一个数，这个数比基数小，j停止，i开始查找比基数大的数，走到j的位置，i不小于j，停止，i下标对应的数与基数对换没有问题从左侧开始查找终止查找的可能性：1. 前一次对调结束，i找到j所在位置，此时i是比基数大的，i下标对应的数与基数对换出错2. 前一次对调结束，i找到最后一个数，这个数比基数大，i停止，j开始查找比基数小的数，走到i的位置，i不小于j，停止，i下标对应的数与基数对换出错*/function quickSort (_left, _right, _arr) &#123; if (!(_arr instanceof Array)) &#123; return &#125; if (_left &gt;= _right) &#123; return &#125; let baseNum = _arr[_left] let i = _left let j = _right while (i !== j) &#123; while (_arr[j] &gt;= baseNum &amp;&amp; i &lt; j) &#123; j-- &#125; while (_arr[i] &lt;= baseNum &amp;&amp; i &lt; j) &#123; i++ &#125; if (i &lt; j) &#123; let tempNum = _arr[i] _arr[i] = _arr[j] _arr[j] = tempNum &#125; &#125; _arr[_left] = _arr[i] _arr[i] = baseNum console.log(_arr) quickSort(_left, i - 1, _arr) quickSort(i + 1, _right, _arr)&#125;let arr = [6, 1, 2, 7, 9, 3, 4, 5, 10, 8]// let arr = [5, 80, 55, 40, 42, 85]quickSort(0, arr.length - 1, arr)console.log(arr)]]></content>
+      <categories>
+        <category>算法</category>
+        <category>排序</category>
+      </categories>
+      <tags>
+        <tag>算法，排序</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[选择排序]]></title>
+    <url>%2F2019%2F03%2F08%2F%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F.html</url>
+    <content type="text"><![CDATA[123456789101112131415161718192021222324252627282930/* 选择排序时间复杂度：O(n2)算法介绍：https://www.cnblogs.com/shen-hua/p/5424059.html*/function selectionSort (arr) &#123; if (!(arr instanceof Array)) &#123; console.error('param type is not array!') return [] &#125; for (let i = 0; i &lt; arr.length; i++) &#123; let minNumIndex = i let tempNum = arr[i] for (let j = i; j &lt; arr.length; j++) &#123; if (arr[j] &lt; arr[minNumIndex]) &#123; minNumIndex = j &#125; &#125; arr[i] = arr[minNumIndex] arr[minNumIndex] = tempNum &#125;&#125;let arr = [5, 2, 8, 4, 9, 1]selectionSort(arr)console.log(arr)]]></content>
       <categories>
         <category>算法</category>
         <category>排序</category>

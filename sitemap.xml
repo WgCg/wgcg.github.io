@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2019/02/12/typescript.html</loc>
+    
+    <lastmod>2019-03-08T09:43:05.935Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/03/08/git%E7%BB%93%E5%90%88beyond-compare.html</loc>
     
     <lastmod>2019-03-08T07:14:00.514Z</lastmod>
@@ -138,13 +145,6 @@
     <loc>http://yoursite.com/2019/03/08/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BANodeJs%EF%BC%88%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%89.html</loc>
     
     <lastmod>2019-03-08T05:49:02.478Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2019/02/12/typescript.html</loc>
-    
-    <lastmod>2019-02-15T05:54:37.842Z</lastmod>
     
   </url>
   

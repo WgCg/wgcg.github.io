@@ -1,0 +1,1616 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5">
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=6.7.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="业务需求页面中存在输入框，点击输入框需要弹出数字键盘，且只能输入合法数字 解决方案 自己开发一个键盘组件 input type=”number”  input type=”number”存在的问题（只调查了部分机型，不一定完全准确）   机型 键盘类型 表现 输入限制     ios 自带键盘 调起带数字的特殊符号键盘，可以切换成英文键盘 可以输入任何字符，输入的不是合法的数字，则取到的value">
+<meta name="keywords" content="移动端,input,type=&quot;number&quot;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="input之type=number">
+<meta property="og:url" content="http://yoursite.com/2019/03/08/input之type-number.html">
+<meta property="og:site_name" content="WgCg Blog">
+<meta property="og:description" content="业务需求页面中存在输入框，点击输入框需要弹出数字键盘，且只能输入合法数字 解决方案 自己开发一个键盘组件 input type=”number”  input type=”number”存在的问题（只调查了部分机型，不一定完全准确）   机型 键盘类型 表现 输入限制     ios 自带键盘 调起带数字的特殊符号键盘，可以切换成英文键盘 可以输入任何字符，输入的不是合法的数字，则取到的value">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-08T06:55:59.815Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="input之type=number">
+<meta name="twitter:description" content="业务需求页面中存在输入框，点击输入框需要弹出数字键盘，且只能输入合法数字 解决方案 自己开发一个键盘组件 input type=”number”  input type=”number”存在的问题（只调查了部分机型，不一定完全准确）   机型 键盘类型 表现 输入限制     ios 自带键盘 调起带数字的特殊符号键盘，可以切换成英文键盘 可以输入任何字符，输入的不是合法的数字，则取到的value">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="WgCg Blog" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/03/08/input之type-number.html">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>input之type=number | WgCg Blog</title>
+  
+
+
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?0f283e802c778d7b81eb39bcc6caac80";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband">
+    </div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">WgCg Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Keep Learning and Never Give Up</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">29</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">18</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">22</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-schedule">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/schedule/" rel="section"><i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>日程表</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-sitemap">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/sitemap.xml" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>站点地图</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/08/input之type-number.html">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cong.Wang">
+      <meta itemprop="description" content="WgCg、Cong.Wang、WangCong、Vue、Webpack、HTML、CSS、JS">
+      <meta itemprop="image" content="/uploads/mine/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WgCg Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">input之type=number
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-03-08 14:51:56 / 修改时间：14:55:59" itemprop="dateCreated datePublished" datetime="2019-03-08T14:51:56+08:00">2019-03-08</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/移动端开发/" itemprop="url" rel="index"><span itemprop="name">移动端开发</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/移动端开发/问题积累/" itemprop="url" rel="index"><span itemprop="name">问题积累</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/03/08/input之type-number.html#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/03/08/input之type-number.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/03/08/input之type-number.html" class="leancloud_visitors" data-flag-title="input之type=number">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">4.6k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">4 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="业务需求"><a href="#业务需求" class="headerlink" title="业务需求"></a>业务需求</h1><p>页面中存在输入框，点击输入框需要弹出数字键盘，且只能输入合法数字</p>
+<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><ol>
+<li>自己开发一个键盘组件</li>
+<li>input type=”number”</li>
+</ol>
+<h1 id="input-type-”number”存在的问题（只调查了部分机型，不一定完全准确）"><a href="#input-type-”number”存在的问题（只调查了部分机型，不一定完全准确）" class="headerlink" title="input type=”number”存在的问题（只调查了部分机型，不一定完全准确）"></a>input type=”number”存在的问题（只调查了部分机型，不一定完全准确）</h1><table>
+<thead>
+<tr>
+<th>机型</th>
+<th>键盘类型</th>
+<th>表现</th>
+<th>输入限制</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ios</td>
+<td>自带键盘</td>
+<td>调起带数字的特殊符号键盘，可以切换成英文键盘</td>
+<td>可以输入任何字符，输入的不是合法的数字，则取到的value为空</td>
+</tr>
+<tr>
+<td>ios</td>
+<td>非自带键盘</td>
+<td>调起数字键盘，可以切换成英文键盘</td>
+<td>可以输入任何字符，输入的不是合法的数字，则取到的value为空</td>
+</tr>
+<tr>
+<td>android</td>
+<td>自带键盘</td>
+<td>调起纯数字键盘，可以切换成英文键盘</td>
+<td>可以输入数字，-、小数点，输入的不是合法的数字时，取到的value为空</td>
+</tr>
+<tr>
+<td>android</td>
+<td>非自带键盘</td>
+<td>调起纯数字键盘，可以切换成英文键盘</td>
+<td>可以输入数字，-、小数点和e，输入的不是合法的数字或带有e时，取到的value为空</td>
+</tr>
+</tbody>
+</table>
+<p>由上表可知，尽管input设置了type=”number”，但是在不同的机型与输入法下，所弹出的键盘和能输入的字符是不同的，并不能保证用户输入的是合法的数字，所以我们要对用户的输入进行限制。通过监听input事件，在用户进行输入后，进行正则校验替换非法字符，但是设置了type=”number”后，如果用户输入的不是合法的数字，取到的value为空，根本无法进行合法性校验与替换操作，在Android下还好，它已经帮我们限制了英文、符号等非法字符的输入，用户的输入得到了一定的保证，我们可以在input的blur事件中进行最终的合法性校验，并给予用户一定的提示。但是在ios下，用户可以输入任意的字符，也就是说用户输入非法的字符的可能性提高了很多，若同样在blur事件中进行校验与替换操作，给用户带来的体验过差，所以在ios下使用type=”number”并不可行</p>
+<h1 id="那么在ios下是否有其它调起纯数字键盘的方法"><a href="#那么在ios下是否有其它调起纯数字键盘的方法" class="headerlink" title="那么在ios下是否有其它调起纯数字键盘的方法"></a>那么在ios下是否有其它调起纯数字键盘的方法</h1><p>答案是肯定的，以下两种方法可以调起纯数字键盘，但是调起来的数字键盘是不带小数点的，如果需要输入小数的话，这种方法是不可行的</p>
+<ol>
+<li>type=”tel”</li>
+<li>pattern=”[0-9]*”</li>
+<li>如果是webview，调用native的事件貌似可以，但需要native人员的支持</li>
+</ol>
+<h1 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h1><p>综上所诉，type设置为number的方法是不可行的，无法实现我们对用户的输入进行实时的控制，但是把type设置为text，每次调起的都是英文键盘，用户还得切换一下键盘，才能愉快的进行输入，这个体验实在是太糟糕了，如果你的页面只有一个输入框，用户或许还能勉为其难的接受，但是如果存在多个，每次用户进行输入都得切换以下，可能砸手机的心态都有了😡，可见，把type设置为text的方法更加不可行</p>
+<h1 id="回到我们的需求"><a href="#回到我们的需求" class="headerlink" title="回到我们的需求"></a>回到我们的需求</h1><ol>
+<li>弹出数字键盘</li>
+<li>限制用户输入</li>
+</ol>
+<p>首先要满足弹出数字键盘，就必须设置type=”number”，但是设置了type=”number”之后，该怎么限制用户的输入呢？把type设回text就行了，于是有了以下处理方案：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;input type=<span class="string">"number"</span> :model=<span class="string">"price"</span> @focus=<span class="string">"focusHandler($event)"</span> @blur=<span class="string">"blurHandler($event)"</span>/&gt;</span><br><span class="line">&lt;<span class="regexp">/template&gt;</span></span><br><span class="line"><span class="regexp">&lt;script&gt;</span></span><br><span class="line"><span class="regexp">    export default &#123;</span></span><br><span class="line"><span class="regexp">        watch: &#123;</span></span><br><span class="line"><span class="regexp">            price: function () &#123;</span></span><br><span class="line"><span class="regexp">                const newPrice = /</span><span class="regexp">/ 正则替换操作</span></span><br><span class="line"><span class="regexp">                return newPrice</span></span><br><span class="line"><span class="regexp">            &#125;</span></span><br><span class="line"><span class="regexp">        &#125;,</span></span><br><span class="line"><span class="regexp">        methods: &#123;</span></span><br><span class="line"><span class="regexp">            blurHandler (e) &#123;</span></span><br><span class="line"><span class="regexp">                e.target.type = 'number'</span></span><br><span class="line"><span class="regexp">            &#125;,</span></span><br><span class="line"><span class="regexp">            focusHandler (e) &#123;</span></span><br><span class="line"><span class="regexp">                setTimeOut(() =&gt; &#123;</span></span><br><span class="line"><span class="regexp">                    e.target.type = 'text'</span></span><br><span class="line"><span class="regexp">                &#125;, 100)</span></span><br><span class="line"><span class="regexp">            &#125;</span></span><br><span class="line"><span class="regexp">        &#125;</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">&lt;/</span>script&gt;</span><br></pre></td></tr></table></figure>
+<p>在输入框获取焦点，弹起了数字键盘后，再把input的type设回text，这样当用户输入的是非数字字符时，也能获取到正常的value值了，然后进行合法性校验和替换，在失去焦点的时候，再把type设回number，以防下次点击的时候弹出非数字键盘，经过测试这种实现方法在ios下操作正常，但是在android下根本无法弹出键盘，于是有了下面的解决方案</p>
+<h1 id="最终方案"><a href="#最终方案" class="headerlink" title="最终方案"></a>最终方案</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"demo"</span>&gt;</span><br><span class="line">        &lt;input type=<span class="string">"number"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"demo--input"</span></span><br><span class="line">        	v-model=<span class="string">"realValue"</span> </span><br><span class="line">   			@focus=<span class="string">"inputFocusHandler($event)"</span></span><br><span class="line">        	@blur=<span class="string">"inputBlurHandler($event)"</span></span><br><span class="line">        	@input=<span class="string">"inputHandler"</span>&gt;</span><br><span class="line">    &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    name: <span class="string">"DemoInput"</span>,</span><br><span class="line">    props: &#123;</span><br><span class="line">   &#125;,</span><br><span class="line">    data() &#123;</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            realValue: <span class="string">""</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    computed: &#123;</span><br><span class="line">    &#125;,</span><br><span class="line">    created() &#123;</span><br><span class="line">    &#125;,</span><br><span class="line">    watch: &#123;</span><br><span class="line">        realValue: <span class="function"><span class="keyword">function</span>(<span class="params">newValue</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">let</span> realValue = newValue.replace(<span class="regexp">/[^0-9.]|(^\.)/g</span>, <span class="string">""</span>)</span><br><span class="line">            <span class="keyword">if</span> (realValue.charAt(realValue.length - <span class="number">1</span>) === <span class="string">"."</span>) &#123;</span><br><span class="line">                <span class="keyword">let</span> tempValue = realValue.slice(<span class="number">0</span>, <span class="number">-1</span>)</span><br><span class="line">                <span class="keyword">this</span>.realValue = <span class="regexp">/\./g</span>.test(tempValue) ? tempValue : realValue</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">this</span>.realValue = realValue</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods: &#123;</span><br><span class="line">        validateValue () &#123;</span><br><span class="line">            <span class="keyword">const</span> &#123; realValue &#125; = <span class="keyword">this</span></span><br><span class="line">            <span class="comment">// 校验输入的是否是数字</span></span><br><span class="line">            <span class="keyword">if</span> (</span><br><span class="line">                realValue !== <span class="string">""</span> &amp;&amp;</span><br><span class="line">                !<span class="regexp">/^[0-9]+(\.[0-9]+)?$/</span>.test(realValue)</span><br><span class="line">            ) &#123;</span><br><span class="line">                <span class="keyword">this</span>.realValue = <span class="string">""</span></span><br><span class="line">                alet(<span class="string">'请输入正确的数字！'</span>)</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 去除数字前面多余的0</span></span><br><span class="line">            <span class="keyword">if</span> ((<span class="regexp">/\./g</span>).test(realValue)) &#123;</span><br><span class="line">                <span class="keyword">this</span>.realValue = realValue.replace(<span class="regexp">/^0+\./</span>, <span class="string">"0."</span>)</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">this</span>.realValue = realValue.replace(<span class="regexp">/^0+/</span>, <span class="string">""</span>)</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">        &#125;,</span><br><span class="line">        inputBlurHandler(e) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">window</span>.APP_TYPE === <span class="string">"ios"</span>) &#123;</span><br><span class="line">                e.target.type = <span class="string">"number"</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">this</span>.validateValue()</span><br><span class="line">        &#125;,</span><br><span class="line">        inputHandler(e) &#123;</span><br><span class="line">        	<span class="comment">// 长度输入限制</span></span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">this</span>.realValue.length &gt; <span class="number">7</span>) &#123;</span><br><span class="line">                <span class="keyword">this</span>.realValue = <span class="keyword">this</span>.realValue.slice(<span class="number">0</span>, <span class="number">7</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        inputFocusHandler(e) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">window</span>.APP_TYPE === <span class="string">"ios"</span>) &#123;</span><br><span class="line">                setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">                    e.target.type = <span class="string">"text"</span></span><br><span class="line">                &#125;, <span class="number">100</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;style lang="scss" scoped&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>style&gt;</span><br></pre></td></tr></table></figure>
+<h1 id="Tip"><a href="#Tip" class="headerlink" title="Tip"></a>Tip</h1><ol>
+<li>移动端自定义指令v-focus仍然无法实现点击某个按钮，使input自动获取焦点，在pc端可行</li>
+</ol>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/移动端/" rel="tag"># 移动端</a>
+          
+            <a href="/tags/input/" rel="tag"># input</a>
+          
+            <a href="/tags/type-number/" rel="tag"># type="number"</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div class="social_share">
+            
+            
+               <div id="needsharebutton-postbottom">
+                 <span class="btn">
+                    <i class="fa fa-share-alt" aria-hidden="true"></i>
+                 </span>
+               </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/08/八种方法实现CSS页面底部固定.html" rel="next" title="八种方法实现CSS页面底部固定">
+                <i class="fa fa-chevron-left"></i> 八种方法实现CSS页面底部固定
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/08/滚动穿透问题.html" rel="prev" title="滚动穿透问题">
+                滚动穿透问题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/uploads/mine/head.jpg" alt="Cong.Wang">
+            
+              <p class="site-author-name" itemprop="name">Cong.Wang</p>
+              <p class="site-description motion-element" itemprop="description">WgCg、Cong.Wang、WangCong、Vue、Webpack、HTML、CSS、JS</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">22</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">29</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#业务需求"><span class="nav-number">1.</span> <span class="nav-text">业务需求</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解决方案"><span class="nav-number">2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#input-type-”number”存在的问题（只调查了部分机型，不一定完全准确）"><span class="nav-number">3.</span> <span class="nav-text">input type=”number”存在的问题（只调查了部分机型，不一定完全准确）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#那么在ios下是否有其它调起纯数字键盘的方法"><span class="nav-number">4.</span> <span class="nav-text">那么在ios下是否有其它调起纯数字键盘的方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#思考"><span class="nav-number">5.</span> <span class="nav-text">思考</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#回到我们的需求"><span class="nav-number">6.</span> <span class="nav-text">回到我们的需求</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#最终方案"><span class="nav-number">7.</span> <span class="nav-text">最终方案</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Tip"><span class="nav-number">8.</span> <span class="nav-text">Tip</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Cong.Wang</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">137k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="站点阅读时长">2:04</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+    
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
+  
+
+  
+    <script id="dsq-count-scr" src="https://aaaa.disqus.com/count.js" async></script>
+  
+
+  
+    <script>
+      var disqus_config = function () {
+        this.page.url = "http://yoursite.com/2019/03/08/input之type-number.html";
+        this.page.identifier = "2019/03/08/input之type-number.html";
+        this.page.title = 'input之type=number';
+        };
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://aaaa.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+      
+        loadComments();
+      
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function ({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', `/classes/Counter/${counter.objectId}`, JSON.stringify({ time: { "__op":"Increment", "amount":1 } }))
+            
+            .done(function () {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.time + 1);
+            })
+            
+            .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+            })
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
+            
+          }
+        })
+      .fail(function ({ responseJSON }) {
+        console.log('LeanCloud Counter Error:' + responseJSON.code + " " + responseJSON.error);
+      });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + "Snnrz3T8cyFAvfrigABOEySh-gzGzoHsz")
+        .done(function ({ api_server }) {
+          var Counter = function (method, url, data) {
+            return $.ajax({
+              method: method,
+              url: `https://${api_server}/1.1${url}`,
+              headers: {
+                'X-LC-Id': "Snnrz3T8cyFAvfrigABOEySh-gzGzoHsz",
+                'X-LC-Key': "fvRMLVR3k87Xglv5rclYX1mu",
+                'Content-Type': 'application/json',
+              },
+              data: data,
+            });
+          };
+          
+          addCount(Counter);
+          
+        })
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+  <script>
+    
+      pbOptions = {};
+      
+        pbOptions.iconStyle = "box";
+      
+        pbOptions.boxForm = "horizontal";
+      
+        pbOptions.position = "bottomCenter";
+      
+        pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/love.js"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":100,"height":200},"mobile":{"show":false},"log":false});</script></body>
+</html>

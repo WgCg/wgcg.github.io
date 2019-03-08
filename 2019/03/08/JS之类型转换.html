@@ -1,0 +1,1730 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5">
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=6.7.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="JS之类型转换文档JavaScript核心概念：类型转换  运算符优先级运算符优先级表 ==运算符的隐式转换原则ECMAScript® 2019 : 7.2.14 Abstract Equality Comparison 规范描述：The comparison x == y, where x and y are values, produces true or false. Such a comp">
+<meta name="keywords" content="javascript，类型转换">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS之类型转换">
+<meta property="og:url" content="http://yoursite.com/2019/03/08/JS之类型转换.html">
+<meta property="og:site_name" content="WgCg Blog">
+<meta property="og:description" content="JS之类型转换文档JavaScript核心概念：类型转换  运算符优先级运算符优先级表 ==运算符的隐式转换原则ECMAScript® 2019 : 7.2.14 Abstract Equality Comparison 规范描述：The comparison x == y, where x and y are values, produces true or false. Such a comp">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/assets/js/2.webp">
+<meta property="og:image" content="http://yoursite.com/assets/js/1.png">
+<meta property="og:updated_time" content="2019-03-08T06:33:29.361Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS之类型转换">
+<meta name="twitter:description" content="JS之类型转换文档JavaScript核心概念：类型转换  运算符优先级运算符优先级表 ==运算符的隐式转换原则ECMAScript® 2019 : 7.2.14 Abstract Equality Comparison 规范描述：The comparison x == y, where x and y are values, produces true or false. Such a comp">
+<meta name="twitter:image" content="http://yoursite.com/assets/js/2.webp">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="WgCg Blog" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/03/08/JS之类型转换.html">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>JS之类型转换 | WgCg Blog</title>
+  
+
+
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?0f283e802c778d7b81eb39bcc6caac80";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband">
+    </div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">WgCg Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Keep Learning and Never Give Up</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">29</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">18</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">22</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-schedule">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/schedule/" rel="section"><i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>日程表</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-sitemap">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/sitemap.xml" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>站点地图</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/08/JS之类型转换.html">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cong.Wang">
+      <meta itemprop="description" content="WgCg、Cong.Wang、WangCong、Vue、Webpack、HTML、CSS、JS">
+      <meta itemprop="image" content="/uploads/mine/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WgCg Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JS之类型转换
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-03-08 14:27:50 / 修改时间：14:33:29" itemprop="dateCreated datePublished" datetime="2019-03-08T14:27:50+08:00">2019-03-08</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/编程语言/" itemprop="url" rel="index"><span itemprop="name">编程语言</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/编程语言/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/03/08/JS之类型转换.html#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/03/08/JS之类型转换.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/03/08/JS之类型转换.html" class="leancloud_visitors" data-flag-title="JS之类型转换">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">11k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">10 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="JS之类型转换"><a href="#JS之类型转换" class="headerlink" title="JS之类型转换"></a>JS之类型转换</h1><h2 id="文档"><a href="#文档" class="headerlink" title="文档"></a>文档</h2><p><a href="https://mp.weixin.qq.com/s/wd8JLGtnsoQYfm3K7KXO0g" target="_blank" rel="noopener">JavaScript核心概念：类型转换</a></p>
+<p><img width="500" src="/assets/js/2.webp"></p>
+<h2 id="运算符优先级"><a href="#运算符优先级" class="headerlink" title="运算符优先级"></a>运算符优先级</h2><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Operator_Precedence#Table" target="_blank" rel="noopener">运算符优先级表</a></p>
+<h2 id="运算符的隐式转换原则"><a href="#运算符的隐式转换原则" class="headerlink" title="==运算符的隐式转换原则"></a>==运算符的隐式转换原则</h2><p><a href="https://tc39.github.io/ecma262/#sec-abstract-equality-comparison" target="_blank" rel="noopener">ECMAScript® 2019 : 7.2.14 Abstract Equality Comparison</a></p>
+<p>规范描述：The comparison x == y, where x and y are values, produces true or false. Such a comparison is performed as follows:</p>
+<ol>
+<li>If Type(x) is the same as Type(y)<ul>
+<li>then Return the result of performing Strict Equality Comparison x === y.</li>
+</ul>
+</li>
+<li>If x is null and y is undefined, return true.</li>
+<li>If x is undefined and y is null, return true.</li>
+<li>If Type(x) is Number and Type(y) is String, return the result of the comparison x == ! ToNumber(y).</li>
+<li>If Type(x) is String and Type(y) is Number, return the result of the comparison ! ToNumber(x) == y.</li>
+<li>If Type(x) is Boolean, return the result of the comparison ! ToNumber(x) == y.</li>
+<li>If Type(y) is Boolean, return the result of the comparison x == ! ToNumber(y).</li>
+<li>If Type(x) is either String, Number, or Symbol and Type(y) is Object, return the result of the comparison x == ToPrimitive(y).</li>
+<li>If Type(x) is Object and Type(y) is either String, Number, or Symbol, return the result of the comparison ToPrimitive(x) == y.</li>
+<li>Return false.</li>
+</ol>
+<h3 id="ToNumber"><a href="#ToNumber" class="headerlink" title="ToNumber"></a>ToNumber</h3><p><a href="https://tc39.github.io/ecma262/#sec-tonumber" target="_blank" rel="noopener">ECMAScript® 2019 : 7.1.3ToNumber</a></p>
+<p><img width="500" src="/assets/js/1.png"></p>
+<h3 id="ToPrimitive"><a href="#ToPrimitive" class="headerlink" title="ToPrimitive"></a>ToPrimitive</h3><p><a href="https://tc39.github.io/ecma262/#sec-toprimitive" target="_blank" rel="noopener">ECMAScript® 2019 : 7.1.1ToPrimitive ( input [ , PreferredType ] )</a></p>
+<p>The abstract operation ToPrimitive takes an input argument and an optional argument PreferredType. The abstract operation ToPrimitive converts its input argument to a non-Object type[尝试转换为原始对象]. If an object is capable of converting to more than one primitive type, it may use the optional hint PreferredType to favour that type. Conversion occurs according to the following algorithm[如果对象能够转换为多个基本类型，则可以使用可选提示PreferredType来支持该类型。根据以下算法进行转换]:</p>
+<ol>
+<li>Assert: input is an ECMAScript language value.</li>
+<li>If Type(input) is Object, then<ol>
+<li>If PreferredType is not present, let hint be “default”.</li>
+<li>Else if PreferredType is hint String, let hint be “string”.</li>
+<li>Else PreferredType is hint Number, let hint be “number”.</li>
+<li>Let exoticToPrim be ? GetMethod(input, @@toPrimitive).</li>
+<li>If exoticToPrim is not undefined, then<ol>
+<li>Let result be ? Call(exoticToPrim, input, « hint »).</li>
+<li>If Type(result) is not Object, return result.</li>
+<li>Throw a TypeError exception.</li>
+</ol>
+</li>
+<li>If hint is “default”, set hint to “number”.</li>
+<li>Return ? OrdinaryToPrimitive(input, hint).</li>
+</ol>
+</li>
+<li>Return input.</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// Assert: input is an ECMAScript language value.</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ToPrimitive</span> (<span class="params">input, PreferredType</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> input === <span class="string">'object'</span>) &#123;</span><br><span class="line">        <span class="keyword">let</span> hint = <span class="string">''</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">switch</span> (<span class="keyword">typeof</span> PreferredType) &#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">'undefined'</span>:</span><br><span class="line">                hint = <span class="string">'default'</span></span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">case</span> <span class="string">'string'</span>:</span><br><span class="line">                hint = <span class="string">'string'</span></span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">default</span>:</span><br><span class="line">                hint = <span class="string">'number'</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">let</span> exoticToPrim = GetMethod(input, @@toPrimitive)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (exoticToPrim !== <span class="literal">undefined</span>) &#123;</span><br><span class="line">            <span class="keyword">let</span> result = Call(exoticToPrim, input, &lt;&lt; hint &gt;&gt;)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">typeof</span> result !== <span class="string">'object'</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> result</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="built_in">TypeError</span>()</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (hint === <span class="string">'default'</span>) &#123;</span><br><span class="line">            hint = <span class="string">'number'</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> OrdinaryToPrimitive(input, hint)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> input</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="GetMethod"><a href="#GetMethod" class="headerlink" title="GetMethod"></a>GetMethod</h3><p><a href="https://tc39.github.io/ecma262/#sec-getmethod" target="_blank" rel="noopener">ECMAScript® 2019 : 7.3.9GetMethod ( V, P )</a></p>
+<p>The abstract operation GetMethod is used to get the value of a specific property of an ECMAScript language value when the value of the property is expected to be a function. The operation is called with arguments V and P where V is the ECMAScript language value, P is the property key. This abstract operation performs the following steps:</p>
+<ol>
+<li>Assert: IsPropertyKey(P) is true.</li>
+<li>Let func be ? GetV(V, P).</li>
+<li>If func is either undefined or null, return undefined.</li>
+<li>If IsCallable(func) is false, throw a TypeError exception.</li>
+<li>Return func.</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// Assert: IsPropertyKey(P) is true.</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">GetMethod</span> (<span class="params">V, P</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> func = GetV(V, P)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (func === <span class="literal">undefined</span> || func === <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!IsCallable(func)) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="built_in">TypeError</span>()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> func</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="IsPropertyKey"><a href="#IsPropertyKey" class="headerlink" title="IsPropertyKey"></a>IsPropertyKey</h3><p><a href="https://tc39.github.io/ecma262/#sec-ispropertykey" target="_blank" rel="noopener">ECMAScript® 2019 : 7.2.7IsPropertyKey ( argument )</a></p>
+<p>The abstract operation IsPropertyKey determines if argument, which must be an ECMAScript language value, is a value that may be used as a property key.</p>
+<ol>
+<li>If Type(argument) is String, return true.</li>
+<li>If Type(argument) is Symbol, return true.</li>
+<li>Return false.</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">IsPropertyKey</span> (<span class="params">argument</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">switch</span> (<span class="keyword">typeof</span> argument) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'string'</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'symbol'</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="GetV"><a href="#GetV" class="headerlink" title="GetV"></a>GetV</h3><p><a href="https://tc39.github.io/ecma262/#sec-getv" target="_blank" rel="noopener">ECMAScript® 2019 : 7.3.2GetV ( V, P )</a></p>
+<p>The abstract operation GetV is used to retrieve the value of a specific property of an ECMAScript language value. If the value is not an object, the property lookup is performed using a wrapper object appropriate for the type of the value. The operation is called with arguments V and P where V is the value and P is the property key. This abstract operation performs the following steps:</p>
+<ol>
+<li>Assert: IsPropertyKey(P) is true.</li>
+<li>Let O be ? ToObject(V).</li>
+<li>Return ? O.<a href="P, V">[Get]</a>.</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// Assert: IsPropertyKey(P) is true.</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">GetV</span> (<span class="params">V, P</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> O = ToObject(V)</span><br><span class="line">    <span class="keyword">return</span> O.[[Get]](P, V)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="ToObject"><a href="#ToObject" class="headerlink" title="ToObject"></a>ToObject</h3><p><a href="https://tc39.github.io/ecma262/#sec-toobject" target="_blank" rel="noopener">ECMAScript® 2019 : 7.1.13ToObject ( argument )</a></p>
+<p>The abstract operation ToObject converts argument to a value of type Object according to below Table:</p>
+<table>
+<thead>
+<tr>
+<th>Argument Type</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Undefined</td>
+<td>Throw a TypeError exception.</td>
+</tr>
+<tr>
+<td>Null</td>
+<td>Throw a TypeError exception.</td>
+</tr>
+<tr>
+<td>Boolean</td>
+<td>Return a new Boolean object whose [[BooleanData]] internal slot is set to argument.</td>
+</tr>
+<tr>
+<td>Number</td>
+<td>Return a new Number object whose [[NumberData]] internal slot is set to argument.</td>
+</tr>
+<tr>
+<td>String</td>
+<td>Return a new String object whose [[StringData]] internal slot is set to argument.</td>
+</tr>
+<tr>
+<td>Symbol</td>
+<td>Return a new Symbol object whose [[SymbolData]] internal slot is set to argument.</td>
+</tr>
+<tr>
+<td>Object</td>
+<td>Return argument.</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ToObject</span> (<span class="params">argument</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (argument === <span class="literal">undefined</span> || argument === <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="built_in">TypeError</span>()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">switch</span> (<span class="keyword">typeof</span> argument) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'boolean'</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Boolean</span>(argument)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">case</span> <span class="string">'number'</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Number</span>(argument)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">case</span> <span class="string">'string'</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">String</span>(argument)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">case</span>: <span class="string">'symbol'</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">Symbol</span>(argument)</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="keyword">return</span> argument</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="IsCallable"><a href="#IsCallable" class="headerlink" title="IsCallable"></a>IsCallable</h3><p><a href="https://tc39.github.io/ecma262/#sec-iscallable" target="_blank" rel="noopener">ECMAScript® 2019 : 7.2.3IsCallable ( argument )</a></p>
+<p>The abstract operation IsCallable determines if argument, which must be an ECMAScript language value, is a callable function with a [[Call]] internal method.</p>
+<ol>
+<li>If Type(argument) is not Object, return false.</li>
+<li>If argument has a [[Call]] internal method, return true.</li>
+<li>Return false.</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">IsCallable</span> (<span class="params">argument</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> argument !== <span class="string">'object'</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> argument.__proto__.call === <span class="string">'function'</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Call"><a href="#Call" class="headerlink" title="Call"></a>Call</h3><p><a href="https://tc39.github.io/ecma262/#sec-call" target="_blank" rel="noopener">ECMAScript® 2019 : 7.3.12Call ( F, V [ , argumentsList ] )</a></p>
+<p>The abstract operation Call is used to call the [[Call]] internal method of a function object. The operation is called with arguments F, V, and optionally argumentsList where F is the function object, V is an ECMAScript language value that is the this value of the [[Call]], and argumentsList is the value passed to the corresponding argument of the internal method. If argumentsList is not present, a new empty List is used as its value. This abstract operation performs the following steps:</p>
+<ol>
+<li>If argumentsList is not present, set argumentsList to a new empty List.</li>
+<li>If IsCallable(F) is false, throw a TypeError exception.</li>
+<li>Return ? F.<a href="V, argumentsList">[Call]</a>.</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Call</span> (<span class="params">F, V, ...argumentsList</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!argumentsList) &#123;</span><br><span class="line">        argumentsList = []</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (IsCallable(F)) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="built_in">TypeError</span>()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> F.call(V, argumentsList)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="OrdinaryToPrimitive"><a href="#OrdinaryToPrimitive" class="headerlink" title="OrdinaryToPrimitive"></a>OrdinaryToPrimitive</h3><p><a href="https://tc39.github.io/ecma262/#sec-ordinarytoprimitive" target="_blank" rel="noopener">ECMAScript® 2019 : 7.1.1.1OrdinaryToPrimitive ( O, hint )</a></p>
+<p>When the abstract operation OrdinaryToPrimitive is called with arguments O and hint, the following steps are taken:</p>
+<ol>
+<li>Assert: Type(O) is Object.</li>
+<li>Assert: Type(hint) is String and its value is either “string” or “number”.</li>
+<li>If hint is “string”, then</li>
+<li>Let methodNames be « “toString”, “valueOf” ».</li>
+<li>Else,</li>
+<li>Let methodNames be « “valueOf”, “toString” ».</li>
+<li>For each name in methodNames in List order, do</li>
+<li>Let method be ? Get(O, name).</li>
+<li>If IsCallable(method) is true, then</li>
+<li>Let result be ? Call(method, O).</li>
+<li>If Type(result) is not Object, return result.</li>
+<li>Throw a TypeError exception.</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// Assert: Type(O) is Object</span></span><br><span class="line"><span class="comment">// Assert: Type(hint) is String and its value is either "string" or "number"</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">OrdinaryToPrimitive</span> (<span class="params">O, hint</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> methodNames = [<span class="string">'valueOf'</span>, <span class="string">'toString'</span>]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> hint === <span class="string">'string'</span>) &#123;</span><br><span class="line">        methodNames = [<span class="string">'toString'</span>, <span class="string">'valueOf'</span>]</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    methodNames.forEach(<span class="function">(<span class="params">name, nameIndex</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> method = Get(O, name)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (IsCallable(method)) &#123;</span><br><span class="line">            <span class="keyword">let</span> result = Call(method, O)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">typeof</span> result !== <span class="string">'object'</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> result</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">throw</span> <span class="built_in">TypeError</span>()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Get"><a href="#Get" class="headerlink" title="Get"></a>Get</h3><p><a href="https://tc39.github.io/ecma262/#sec-get-o-p" target="_blank" rel="noopener">ECMAScript® 2019 : 7.3.1Get ( O, P )</a></p>
+<p>The abstract operation Get is used to retrieve the value of a specific property of an object. The operation is called with arguments O and P where O is the object and P is the property key. This abstract operation performs the following steps:</p>
+<ol>
+<li>Assert: Type(O) is Object.</li>
+<li>Assert: IsPropertyKey(P) is true.</li>
+<li>Return ? O.<a href="P, O">[Get]</a>.</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// Assert: Type(O) is Object.</span></span><br><span class="line"><span class="comment">// Assert: IsPropertyKey(P) is true.</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Get</span> (<span class="params">O, P</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> O.[[Get]](P, O)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Get-1"><a href="#Get-1" class="headerlink" title="[[Get]]"></a>[[Get]]</h3><p>[ECMAScript® 2019 : 9.1.8<a href="https://tc39.github.io/ecma262/#sec-ordinary-object-internal-methods-and-internal-slots-get-p-receiver" target="_blank" rel="noopener">[Get]] ( P, Receiver )</a></p>
+<p>When the [[Get]] internal method of O is called with property key P and ECMAScript language value Receiver, the following steps are taken:</p>
+<ol>
+<li>Return ? OrdinaryGet(O, P, Receiver).</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">function [[Get]] (P, Receiver) &#123;</span><br><span class="line">    <span class="keyword">return</span>  OrdinaryGet(O, P, Receiver)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="OrdinaryGet"><a href="#OrdinaryGet" class="headerlink" title="OrdinaryGet"></a>OrdinaryGet</h3><p><a href="https://tc39.github.io/ecma262/#sec-ordinary-object-internal-methods-and-internal-slots-get-p-receiver" target="_blank" rel="noopener">ECMAScript® 2019 : 9.1.8.1OrdinaryGet ( O, P, Receiver ))</a></p>
+<p>When the abstract operation OrdinaryGet is called with Object O, property key P, and ECMAScript language value Receiver, the following steps are taken:</p>
+<ol>
+<li>Assert: IsPropertyKey(P) is true.</li>
+<li>Let desc be ? O.<a href="P">[GetOwnProperty]</a>.</li>
+<li>If desc is undefined, then.<ul>
+<li>Let parent be ? O.<a href="">[GetPrototypeOf]</a>.</li>
+<li>If parent is null, return undefined.</li>
+<li>Return ? parent.<a href="P, Receiver">[Get]</a>.</li>
+</ul>
+</li>
+<li>If IsDataDescriptor(desc) is true, return desc.[[Value]].</li>
+<li>Assert: IsAccessorDescriptor(desc) is true.</li>
+<li>Let getter be desc.[[Get]].</li>
+<li>If getter is undefined, return undefined.</li>
+<li>Return ? Call(getter, Receiver).</li>
+</ol>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/javascript，类型转换/" rel="tag"># javascript，类型转换</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div class="social_share">
+            
+            
+               <div id="needsharebutton-postbottom">
+                 <span class="btn">
+                    <i class="fa fa-share-alt" aria-hidden="true"></i>
+                 </span>
+               </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/08/插入排序.html" rel="next" title="插入排序">
+                <i class="fa fa-chevron-left"></i> 插入排序
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/08/JS之引擎.html" rel="prev" title="JS之引擎">
+                JS之引擎 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/uploads/mine/head.jpg" alt="Cong.Wang">
+            
+              <p class="site-author-name" itemprop="name">Cong.Wang</p>
+              <p class="site-description motion-element" itemprop="description">WgCg、Cong.Wang、WangCong、Vue、Webpack、HTML、CSS、JS</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">22</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">29</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JS之类型转换"><span class="nav-number">1.</span> <span class="nav-text">JS之类型转换</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#文档"><span class="nav-number">1.1.</span> <span class="nav-text">文档</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运算符优先级"><span class="nav-number">1.2.</span> <span class="nav-text">运算符优先级</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运算符的隐式转换原则"><span class="nav-number">1.3.</span> <span class="nav-text">==运算符的隐式转换原则</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ToNumber"><span class="nav-number">1.3.1.</span> <span class="nav-text">ToNumber</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ToPrimitive"><span class="nav-number">1.3.2.</span> <span class="nav-text">ToPrimitive</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GetMethod"><span class="nav-number">1.3.3.</span> <span class="nav-text">GetMethod</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IsPropertyKey"><span class="nav-number">1.3.4.</span> <span class="nav-text">IsPropertyKey</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GetV"><span class="nav-number">1.3.5.</span> <span class="nav-text">GetV</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ToObject"><span class="nav-number">1.3.6.</span> <span class="nav-text">ToObject</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IsCallable"><span class="nav-number">1.3.7.</span> <span class="nav-text">IsCallable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Call"><span class="nav-number">1.3.8.</span> <span class="nav-text">Call</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OrdinaryToPrimitive"><span class="nav-number">1.3.9.</span> <span class="nav-text">OrdinaryToPrimitive</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Get"><span class="nav-number">1.3.10.</span> <span class="nav-text">Get</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Get-1"><span class="nav-number">1.3.11.</span> <span class="nav-text">[[Get]]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OrdinaryGet"><span class="nav-number">1.3.12.</span> <span class="nav-text">OrdinaryGet</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Cong.Wang</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">137k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="站点阅读时长">2:04</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+    
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
+  
+
+  
+    <script id="dsq-count-scr" src="https://aaaa.disqus.com/count.js" async></script>
+  
+
+  
+    <script>
+      var disqus_config = function () {
+        this.page.url = "http://yoursite.com/2019/03/08/JS之类型转换.html";
+        this.page.identifier = "2019/03/08/JS之类型转换.html";
+        this.page.title = 'JS之类型转换';
+        };
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://aaaa.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+      
+        loadComments();
+      
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function ({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', `/classes/Counter/${counter.objectId}`, JSON.stringify({ time: { "__op":"Increment", "amount":1 } }))
+            
+            .done(function () {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.time + 1);
+            })
+            
+            .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+            })
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
+            
+          }
+        })
+      .fail(function ({ responseJSON }) {
+        console.log('LeanCloud Counter Error:' + responseJSON.code + " " + responseJSON.error);
+      });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + "Snnrz3T8cyFAvfrigABOEySh-gzGzoHsz")
+        .done(function ({ api_server }) {
+          var Counter = function (method, url, data) {
+            return $.ajax({
+              method: method,
+              url: `https://${api_server}/1.1${url}`,
+              headers: {
+                'X-LC-Id': "Snnrz3T8cyFAvfrigABOEySh-gzGzoHsz",
+                'X-LC-Key': "fvRMLVR3k87Xglv5rclYX1mu",
+                'Content-Type': 'application/json',
+              },
+              data: data,
+            });
+          };
+          
+          addCount(Counter);
+          
+        })
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+  <script>
+    
+      pbOptions = {};
+      
+        pbOptions.iconStyle = "box";
+      
+        pbOptions.boxForm = "horizontal";
+      
+        pbOptions.position = "bottomCenter";
+      
+        pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/love.js"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":100,"height":200},"mobile":{"show":false},"log":false});</script></body>
+</html>

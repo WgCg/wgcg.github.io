@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[TypeScript笔记]]></title>
+    <url>%2F2019%2F03%2F09%2FTypeScript%E7%AC%94%E8%AE%B0.html</url>
+    <content type="text"><![CDATA[TypeScript入门教程 null和undefined是所有类型的子类型，也就说null和undefined类型的变量可以赋值给任意类型的变量，而void类型的变量却不行。 在any类型的变量上访问任何属性或者调用任何方法都是允许的，声明一个变量为any后，对它的任何操作，返回的内容的类型都是任意值。 变量如果在声明的时候，未指定其类型，那么它会被识别为any类型。 当TypeScript不确定一个联合类型的变量是哪个类型的时候，我们只能访问此联合类型的所有类型里共有的属性和方法。 12345function getLength(something: string | number): number &#123; return something.length;&#125;// index.ts(2,22): error TS2339: Property 'length' does not exist on type 'string | number'.// Property 'length' does not exist on type 'number'. 赋值的时候，变量的形状必须与接口的形状保持一致。 接口一旦定义了索引签名，那么确定属性和可选属性的类型都必须是它的类型的子集。 123456interface Person &#123; name: string; age?: number; [propName: string]: string;&#125;// index.ts(3,5): error TS2411: Property 'age' of type 'number' is not assignable to string index type 'string'. 只读属性的约束存在于第一次给对象赋值的时候，而不是第一次给只读属性赋值的时候。 1234567891011121314151617interface Person &#123; readonly id: number; name: string; age?: number; [propName: string]: any;&#125;let tom: Person = &#123; name: 'Tom', gender: 'male'&#125;;tom.id = 89757;// index.ts(8,5): error TS2322: Type '&#123; name: string; gender: string; &#125;' is not assignable to type 'Person'.// Property 'id' is missing in type '&#123; name: string; gender: string; &#125;'.// index.ts(13,5): error TS2540: Cannot assign to 'id' because it is a constant or a read-only property. 调用函数时，输入多余的（或者少于要求的）参数，是不被允许的，可以使用可选参数。 可选参数后面不允许再出现必须参数了。 TypeScript会将添加了默认值的参数识别为可选参数，此时就不受「可选参数必须接在必需参数后面」的限制了。 当发生函数重载的时候，TypeScript会优先从最前面的函数定义开始匹配，所以多个函数定义如果有包含关系，需要优先把精确的定义写在前面。 类型断言不是类型转换，断言成一个联合类型中不存在的类型是不允许的。 123456function toBoolean(something: string | number): boolean &#123; return &lt;boolean&gt;something;&#125;// index.ts(2,10): error TS2352: Type 'string | number' cannot be converted to type 'boolean'.// Type 'number' is not comparable to type 'boolean'. declare var a 与 var a的区别在于declare并没有对变量a进行声明，在编译结果中会被删除，而var a声明了这个变量。 1234567891011121314decalre var a // 说明在某处已经声明过改变量a = 1 // 对变量重新进行赋值// 上述代码编译结果a = 1// -----------var aa = 1// 上述代码编译结果var aa = 1 只有function、class和interface可以直接默认导出，其它的变量需要先定义出来，再默认导出 1234567export default enum Directions &#123;// ERROR: Expression expected. Up, Down, Left, Right&#125; 当为元组类型的变量添加越界的元素时，它的类型会被限制为元组每个类型的联合类型。 枚举项有两种类型：常数项和计算所得项。如果紧接在计算所得项后面的是未手动赋值的项，那么它就会因为无法获得初始值而报错 1234enum Color &#123;Red = "red".length, Green, Blue&#125;;// index.ts(1,33): error TS1061: Enum member must have initializer.// index.ts(1,40): error TS1061: Enum member must have initializer. 常数枚举与普通枚举的区别是，它会在编译阶段被删除，并且不能包含计算成员。 12345678910declare enum Directions &#123; Up, Down, Left, Right&#125;let directions = [Directions.Up, Directions.Down, Directions.Left, Directions.Right];// 上述代码编译为：var directions = [0 /* Up */, 1 /* Down */, 2 /* Left */, 3 /* Right */];]]></content>
+      <categories>
+        <category>编程语言</category>
+        <category>TypeScript</category>
+      </categories>
+      <tags>
+        <tag>typescript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[git结合beyond-compare]]></title>
     <url>%2F2019%2F03%2F08%2Fgit%E7%BB%93%E5%90%88beyond-compare.html</url>
     <content type="text"><![CDATA[beyond compare 无限试用for mac 应用程序 -&gt; beyond cmpare右击显示包内容 -&gt; contents -&gt; macos 在当前目录下新建文件BCompare.sh，把原来的BCompare重命名为BCompare.real 编辑BCompare.sh，输入以下代码: 123#!/bin/bashrm "/Users/$(whoami)/Library/Application Support/Beyond Compare/registry.dat""`dirname "$0"`"/BCompare.real $@ 右击BCompare.sh -&gt; 显示简介 -&gt; 删除文件名后缀.sh .gitconfig配置.gitconfig位于user下, shift + comand + . 显示隐藏文件 12345678910111213141516[alias] dift = &quot;difftool --dir-diff --no-symlinks&quot;[diff] tool = bcomp[difftool] prompt = false[difftool &quot;bcomp&quot;] trustExitCode = true cmd = &quot;/usr/local/bin/bcomp&quot; \&quot;$LOCAL\&quot; \&quot;$REMOTE\&quot;[merge] tool = bcomp[mergetool] prompt = false[mergetool &quot;bcomp&quot;] trustExitCode = true cmd = &quot;/usr/local/bin/bcomp&quot; \&quot;$LOCAL\&quot; \&quot;$REMOTE\&quot; \&quot;$BASE\&quot; \&quot;$MERGED\&quot; git dift origin/dev：当前分支与远程dev分支进行比较]]></content>
@@ -146,6 +158,18 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[选择排序]]></title>
+    <url>%2F2019%2F03%2F08%2F%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F.html</url>
+    <content type="text"><![CDATA[123456789101112131415161718192021222324252627282930/* 选择排序时间复杂度：O(n2)算法介绍：https://www.cnblogs.com/shen-hua/p/5424059.html*/function selectionSort (arr) &#123; if (!(arr instanceof Array)) &#123; console.error('param type is not array!') return [] &#125; for (let i = 0; i &lt; arr.length; i++) &#123; let minNumIndex = i let tempNum = arr[i] for (let j = i; j &lt; arr.length; j++) &#123; if (arr[j] &lt; arr[minNumIndex]) &#123; minNumIndex = j &#125; &#125; arr[i] = arr[minNumIndex] arr[minNumIndex] = tempNum &#125;&#125;let arr = [5, 2, 8, 4, 9, 1]selectionSort(arr)console.log(arr)]]></content>
+      <categories>
+        <category>算法</category>
+        <category>排序</category>
+      </categories>
+      <tags>
+        <tag>算法，排序</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[插入排序]]></title>
     <url>%2F2019%2F03%2F08%2F%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F.html</url>
     <content type="text"><![CDATA[123456789101112131415161718192021222324252627282930/*插入排序时间复杂度：最好：O(n) 最坏O(n2)算法介绍：https://www.cnblogs.com/hapjin/p/5517667.html*/function insertSort (arr) &#123; if (!(arr instanceof Array)) &#123; return [] &#125; const arrLen = arr.length for (let i = 1; i &lt; arrLen; i++) &#123; let tempNum = arr[i] for (let j = 0; j &lt; i; j++) &#123; if (arr[i] &lt; arr[j]) &#123; arr.splice(i, 1) arr.splice(j, 0, tempNum) break &#125; &#125; &#125;&#125;let arr = [5, 2, 8, 4, 9, 1]insertSort(arr)console.log(arr)]]></content>
@@ -161,18 +185,6 @@
     <title><![CDATA[快速排序]]></title>
     <url>%2F2019%2F03%2F08%2F%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F.html</url>
     <content type="text"><![CDATA[1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556/* 快速排序时间复杂度：O(N*logN)算法介绍：http://developer.51cto.com/art/201403/430986.htm疑问点：基数在左边，为什么要从右边先开始查找？答：从代码层面分析，因为最后找到的一个数也就是小标为i的数需要与基数对换，而基数在最左边，说明最后一个数会放到最左边，也就是最后一个数必须必基数小，而从右边开始查找的是必基数小的数，终止查找的可能性：从右侧开始查找终止查找的可能性：1. 前一次对调结束，j找到i所在位置，此时i是比基数小的，i下标对应的数与基数对换没有问题2. 前一次对调结束，j找到最后一个数，这个数比基数小，j停止，i开始查找比基数大的数，走到j的位置，i不小于j，停止，i下标对应的数与基数对换没有问题从左侧开始查找终止查找的可能性：1. 前一次对调结束，i找到j所在位置，此时i是比基数大的，i下标对应的数与基数对换出错2. 前一次对调结束，i找到最后一个数，这个数比基数大，i停止，j开始查找比基数小的数，走到i的位置，i不小于j，停止，i下标对应的数与基数对换出错*/function quickSort (_left, _right, _arr) &#123; if (!(_arr instanceof Array)) &#123; return &#125; if (_left &gt;= _right) &#123; return &#125; let baseNum = _arr[_left] let i = _left let j = _right while (i !== j) &#123; while (_arr[j] &gt;= baseNum &amp;&amp; i &lt; j) &#123; j-- &#125; while (_arr[i] &lt;= baseNum &amp;&amp; i &lt; j) &#123; i++ &#125; if (i &lt; j) &#123; let tempNum = _arr[i] _arr[i] = _arr[j] _arr[j] = tempNum &#125; &#125; _arr[_left] = _arr[i] _arr[i] = baseNum console.log(_arr) quickSort(_left, i - 1, _arr) quickSort(i + 1, _right, _arr)&#125;let arr = [6, 1, 2, 7, 9, 3, 4, 5, 10, 8]// let arr = [5, 80, 55, 40, 42, 85]quickSort(0, arr.length - 1, arr)console.log(arr)]]></content>
-      <categories>
-        <category>算法</category>
-        <category>排序</category>
-      </categories>
-      <tags>
-        <tag>算法，排序</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[选择排序]]></title>
-    <url>%2F2019%2F03%2F08%2F%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F.html</url>
-    <content type="text"><![CDATA[123456789101112131415161718192021222324252627282930/* 选择排序时间复杂度：O(n2)算法介绍：https://www.cnblogs.com/shen-hua/p/5424059.html*/function selectionSort (arr) &#123; if (!(arr instanceof Array)) &#123; console.error('param type is not array!') return [] &#125; for (let i = 0; i &lt; arr.length; i++) &#123; let minNumIndex = i let tempNum = arr[i] for (let j = i; j &lt; arr.length; j++) &#123; if (arr[j] &lt; arr[minNumIndex]) &#123; minNumIndex = j &#125; &#125; arr[i] = arr[minNumIndex] arr[minNumIndex] = tempNum &#125;&#125;let arr = [5, 2, 8, 4, 9, 1]selectionSort(arr)console.log(arr)]]></content>
       <categories>
         <category>算法</category>
         <category>排序</category>

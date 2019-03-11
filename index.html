@@ -323,7 +323,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">22</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">23</span></a>
 
   </li>
         
@@ -426,6 +426,271 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/09/TypeScript笔记.html">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cong.Wang">
+      <meta itemprop="description" content="WgCg、Cong.Wang、WangCong、Vue、Webpack、HTML、CSS、JS">
+      <meta itemprop="image" content="/uploads/mine/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WgCg Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/03/09/TypeScript笔记.html" class="post-title-link" itemprop="url">TypeScript笔记</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-03-09 15:43:06" itemprop="dateCreated datePublished" datetime="2019-03-09T15:43:06+08:00">2019-03-09</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-03-11 16:07:07" itemprop="dateModified" datetime="2019-03-11T16:07:07+08:00">2019-03-11</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/编程语言/" itemprop="url" rel="index"><span itemprop="name">编程语言</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/编程语言/TypeScript/" itemprop="url" rel="index"><span itemprop="name">TypeScript</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/03/09/TypeScript笔记.html#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/03/09/TypeScript笔记.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/03/09/TypeScript笔记.html" class="leancloud_visitors" data-flag-title="TypeScript笔记">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">2.8k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">3 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="TypeScript入门教程"><a href="#TypeScript入门教程" class="headerlink" title="TypeScript入门教程"></a>TypeScript入门教程</h1><ol>
+<li>null和undefined是所有类型的子类型，也就说null和undefined类型的变量可以赋值给任意类型的变量，而void类型的变量却不行。</li>
+<li>在any类型的变量上访问任何属性或者调用任何方法都是允许的，声明一个变量为any后，对它的任何操作，返回的内容的类型都是任意值。</li>
+<li>变量如果在声明的时候，未指定其类型，那么它会被识别为any类型。</li>
+<li><p>当TypeScript不确定一个联合类型的变量是哪个类型的时候，我们只能访问此联合类型的所有类型里共有的属性和方法。</p>
+ <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getLength</span>(<span class="params">something: <span class="built_in">string</span> | <span class="built_in">number</span></span>): <span class="title">number</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> something.length;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// index.ts(2,22): error TS2339: Property 'length' does not exist on type 'string | number'.</span></span><br><span class="line"><span class="comment">//   Property 'length' does not exist on type 'number'.</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>赋值的时候，变量的形状必须与接口的形状保持一致。</p>
+</li>
+<li><p>接口一旦定义了索引签名，那么确定属性和可选属性的类型都必须是它的类型的子集。</p>
+ <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> Person &#123;</span><br><span class="line">    name: <span class="built_in">string</span>;</span><br><span class="line">    age?: <span class="built_in">number</span>;</span><br><span class="line">    [propName: <span class="built_in">string</span>]: <span class="built_in">string</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// index.ts(3,5): error TS2411: Property 'age' of type 'number' is not assignable to string index type 'string'.</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>只读属性的约束存在于第一次给对象赋值的时候，而不是第一次给只读属性赋值的时候。</p>
+ <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> Person &#123;</span><br><span class="line">    readonly id: <span class="built_in">number</span>;</span><br><span class="line">    name: <span class="built_in">string</span>;</span><br><span class="line">    age?: <span class="built_in">number</span>;</span><br><span class="line">    [propName: <span class="built_in">string</span>]: <span class="built_in">any</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> tom: Person = &#123;</span><br><span class="line">    name: <span class="string">'Tom'</span>,</span><br><span class="line">    gender: <span class="string">'male'</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">tom.id = <span class="number">89757</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// index.ts(8,5): error TS2322: Type '&#123; name: string; gender: string; &#125;' is not assignable to type 'Person'.</span></span><br><span class="line"><span class="comment">//   Property 'id' is missing in type '&#123; name: string; gender: string; &#125;'.</span></span><br><span class="line"><span class="comment">// index.ts(13,5): error TS2540: Cannot assign to 'id' because it is a constant or a read-only property.</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>调用函数时，输入多余的（或者少于要求的）参数，是不被允许的，可以使用可选参数。</p>
+</li>
+<li>可选参数后面不允许再出现必须参数了。</li>
+<li>TypeScript会将添加了默认值的参数识别为可选参数，此时就不受「可选参数必须接在必需参数后面」的限制了。</li>
+<li>当发生函数重载的时候，TypeScript会优先从最前面的函数定义开始匹配，所以多个函数定义如果有包含关系，需要优先把精确的定义写在前面。</li>
+<li><p>类型断言不是类型转换，断言成一个联合类型中不存在的类型是不允许的。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">toBoolean</span>(<span class="params">something: <span class="built_in">string</span> | <span class="built_in">number</span></span>): <span class="title">boolean</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &lt;<span class="built_in">boolean</span>&gt;something;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// index.ts(2,10): error TS2352: Type 'string | number' cannot be converted to type 'boolean'.</span></span><br><span class="line"><span class="comment">// Type 'number' is not comparable to type 'boolean'.</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>declare var a 与 var a的区别在于declare并没有对变量a进行声明，在编译结果中会被删除，而var a声明了这个变量。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">decalre <span class="keyword">var</span> a <span class="comment">// 说明在某处已经声明过改变量</span></span><br><span class="line">a = <span class="number">1</span> <span class="comment">// 对变量重新进行赋值</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 上述代码编译结果</span></span><br><span class="line">a = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// -----------</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a</span><br><span class="line">a = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 上述代码编译结果</span></span><br><span class="line"><span class="keyword">var</span> a</span><br><span class="line">a = <span class="number">1</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>只有function、class和interface可以直接默认导出，其它的变量需要先定义出来，再默认导出</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">enum</span> Directions &#123;</span><br><span class="line"><span class="comment">// ERROR: Expression expected.</span></span><br><span class="line">    Up,</span><br><span class="line">    Down,</span><br><span class="line">    Left,</span><br><span class="line">    Right</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>当为元组类型的变量添加越界的元素时，它的类型会被限制为元组每个类型的联合类型。</p>
+</li>
+<li><p>枚举项有两种类型：常数项和计算所得项。如果紧接在计算所得项后面的是未手动赋值的项，那么它就会因为无法获得初始值而报错</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> Color &#123;Red = <span class="string">"red"</span>.length, Green, Blue&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// index.ts(1,33): error TS1061: Enum member must have initializer.</span></span><br><span class="line"><span class="comment">// index.ts(1,40): error TS1061: Enum member must have initializer.</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>常数枚举与普通枚举的区别是，它会在编译阶段被删除，并且不能包含计算成员。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">declare</span> <span class="keyword">enum</span> Directions &#123;</span><br><span class="line">    Up,</span><br><span class="line">    Down,</span><br><span class="line">    Left,</span><br><span class="line">    Right</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> directions = [Directions.Up, Directions.Down, Directions.Left, Directions.Right];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 上述代码编译为：</span></span><br><span class="line"><span class="keyword">var</span> directions = [<span class="number">0</span> <span class="comment">/* Up */</span>, <span class="number">1</span> <span class="comment">/* Down */</span>, <span class="number">2</span> <span class="comment">/* Left */</span>, <span class="number">3</span> <span class="comment">/* Right */</span>];</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -2701,397 +2966,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/08/JS之类型转换.html">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cong.Wang">
-      <meta itemprop="description" content="WgCg、Cong.Wang、WangCong、Vue、Webpack、HTML、CSS、JS">
-      <meta itemprop="image" content="/uploads/mine/head.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WgCg Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/03/08/JS之类型转换.html" class="post-title-link" itemprop="url">JS之类型转换</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-03-08 14:27:50 / 修改时间：14:33:29" itemprop="dateCreated datePublished" datetime="2019-03-08T14:27:50+08:00">2019-03-08</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/编程语言/" itemprop="url" rel="index"><span itemprop="name">编程语言</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/编程语言/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/03/08/JS之类型转换.html#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/03/08/JS之类型转换.html" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2019/03/08/JS之类型转换.html" class="leancloud_visitors" data-flag-title="JS之类型转换">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数：</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">11k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">10 分钟</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="JS之类型转换"><a href="#JS之类型转换" class="headerlink" title="JS之类型转换"></a>JS之类型转换</h1><h2 id="文档"><a href="#文档" class="headerlink" title="文档"></a>文档</h2><p><a href="https://mp.weixin.qq.com/s/wd8JLGtnsoQYfm3K7KXO0g" target="_blank" rel="noopener">JavaScript核心概念：类型转换</a></p>
-<p><img width="500" src="/assets/js/2.webp"></p>
-<h2 id="运算符优先级"><a href="#运算符优先级" class="headerlink" title="运算符优先级"></a>运算符优先级</h2><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Operator_Precedence#Table" target="_blank" rel="noopener">运算符优先级表</a></p>
-<h2 id="运算符的隐式转换原则"><a href="#运算符的隐式转换原则" class="headerlink" title="==运算符的隐式转换原则"></a>==运算符的隐式转换原则</h2><p><a href="https://tc39.github.io/ecma262/#sec-abstract-equality-comparison" target="_blank" rel="noopener">ECMAScript® 2019 : 7.2.14 Abstract Equality Comparison</a></p>
-<p>规范描述：The comparison x == y, where x and y are values, produces true or false. Such a comparison is performed as follows:</p>
-<ol>
-<li>If Type(x) is the same as Type(y)<ul>
-<li>then Return the result of performing Strict Equality Comparison x === y.</li>
-</ul>
-</li>
-<li>If x is null and y is undefined, return true.</li>
-<li>If x is undefined and y is null, return true.</li>
-<li>If Type(x) is Number and Type(y) is String, return the result of the comparison x == ! ToNumber(y).</li>
-<li>If Type(x) is String and Type(y) is Number, return the result of the comparison ! ToNumber(x) == y.</li>
-<li>If Type(x) is Boolean, return the result of the comparison ! ToNumber(x) == y.</li>
-<li>If Type(y) is Boolean, return the result of the comparison x == ! ToNumber(y).</li>
-<li>If Type(x) is either String, Number, or Symbol and Type(y) is Object, return the result of the comparison x == ToPrimitive(y).</li>
-<li>If Type(x) is Object and Type(y) is either String, Number, or Symbol, return the result of the comparison ToPrimitive(x) == y.</li>
-<li>Return false.</li>
-</ol>
-<h3 id="ToNumber"><a href="#ToNumber" class="headerlink" title="ToNumber"></a>ToNumber</h3><p><a href="https://tc39.github.io/ecma262/#sec-tonumber" target="_blank" rel="noopener">ECMAScript® 2019 : 7.1.3ToNumber</a></p>
-<p><img width="500" src="/assets/js/1.png"></p>
-<h3 id="ToPrimitive"><a href="#ToPrimitive" class="headerlink" title="ToPrimitive"></a>ToPrimitive</h3><p><a href="https://tc39.github.io/ecma262/#sec-toprimitive" target="_blank" rel="noopener">ECMAScript® 2019 : 7.1.1ToPrimitive ( input [ , PreferredType ] )</a></p>
-<p>The abstract operation ToPrimitive takes an input argument and an optional argument PreferredType. The abstract operation ToPrimitive converts its input argument to a non-Object type[尝试转换为原始对象]. If an object is capable of converting to more than one primitive type, it may use the optional hint PreferredType to favour that type. Conversion occurs according to the following algorithm[如果对象能够转换为多个基本类型，则可以使用可选提示PreferredType来支持该类型。根据以下算法进行转换]:</p>
-<ol>
-<li>Assert: input is an ECMAScript language value.</li>
-<li>If Type(input) is Object, then<ol>
-<li>If PreferredType is not present, let hint be “default”.</li>
-<li>Else if PreferredType is hint String, let hint be “string”.</li>
-<li>Else PreferredType is hint Number, let hint be “number”.</li>
-<li>Let exoticToPrim be ? GetMethod(input, @@toPrimitive).</li>
-<li>If exoticToPrim is not undefined, then<ol>
-<li>Let result be ? Call(exoticToPrim, input, « hint »).</li>
-<li>If Type(result) is not Object, return result.</li>
-<li>Throw a TypeError exception.</li>
-</ol>
-</li>
-<li>If hint is “default”, set hint to “number”.</li>
-<li>Return ? OrdinaryToPrimitive(input, hint).</li>
-</ol>
-</li>
-<li>Return input.</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// Assert: input is an ECMAScript language value.</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ToPrimitive</span> (<span class="params">input, PreferredType</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> input === <span class="string">'object'</span>) &#123;</span><br><span class="line">        <span class="keyword">let</span> hint = <span class="string">''</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">switch</span> (<span class="keyword">typeof</span> PreferredType) &#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">'undefined'</span>:</span><br><span class="line">                hint = <span class="string">'default'</span></span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">case</span> <span class="string">'string'</span>:</span><br><span class="line">                hint = <span class="string">'string'</span></span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">default</span>:</span><br><span class="line">                hint = <span class="string">'number'</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">let</span> exoticToPrim = GetMethod(input, @@toPrimitive)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (exoticToPrim !== <span class="literal">undefined</span>) &#123;</span><br><span class="line">            <span class="keyword">let</span> result = Call(exoticToPrim, input, &lt;&lt; hint &gt;&gt;)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">typeof</span> result !== <span class="string">'object'</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> result</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="built_in">TypeError</span>()</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (hint === <span class="string">'default'</span>) &#123;</span><br><span class="line">            hint = <span class="string">'number'</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> OrdinaryToPrimitive(input, hint)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> input</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="GetMethod"><a href="#GetMethod" class="headerlink" title="GetMethod"></a>GetMethod</h3><p><a href="https://tc39.github.io/ecma262/#sec-getmethod" target="_blank" rel="noopener">ECMAScript® 2019 : 7.3.9GetMethod ( V, P )</a></p>
-<p>The abstract operation GetMethod is used to get the value of a specific property of an ECMAScript language value when the value of the property is expected to be a function. The operation is called with arguments V and P where V is the ECMAScript language value, P is the property key. This abstract operation performs the following steps:</p>
-<ol>
-<li>Assert: IsPropertyKey(P) is true.</li>
-<li>Let func be ? GetV(V, P).</li>
-<li>If func is either undefined or null, return undefined.</li>
-<li>If IsCallable(func) is false, throw a TypeError exception.</li>
-<li>Return func.</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// Assert: IsPropertyKey(P) is true.</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">GetMethod</span> (<span class="params">V, P</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> func = GetV(V, P)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (func === <span class="literal">undefined</span> || func === <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!IsCallable(func)) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="built_in">TypeError</span>()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> func</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="IsPropertyKey"><a href="#IsPropertyKey" class="headerlink" title="IsPropertyKey"></a>IsPropertyKey</h3><p><a href="https://tc39.github.io/ecma262/#sec-ispropertykey" target="_blank" rel="noopener">ECMAScript® 2019 : 7.2.7IsPropertyKey ( argument )</a></p>
-<p>The abstract operation IsPropertyKey determines if argument, which must be an ECMAScript language value, is a value that may be used as a property key.</p>
-<ol>
-<li>If Type(argument) is String, return true.</li>
-<li>If Type(argument) is Symbol, return true.</li>
-<li>Return false.</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">IsPropertyKey</span> (<span class="params">argument</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">switch</span> (<span class="keyword">typeof</span> argument) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'string'</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'symbol'</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="GetV"><a href="#GetV" class="headerlink" title="GetV"></a>GetV</h3><p><a href="https://tc39.github.io/ecma262/#sec-getv" target="_blank" rel="noopener">ECMAScript® 2019 : 7.3.2GetV ( V, P )</a></p>
-<p>The abstract operation GetV is used to retrieve the value of a specific property of an ECMAScript language value. If the value is not an object, the property lookup is performed using a wrapper object appropriate for the type of the value. The operation is called with arguments V and P where V is the value and P is the property key. This abstract operation performs the following steps:</p>
-<ol>
-<li>Assert: IsPropertyKey(P) is true.</li>
-<li>Let O be ? ToObject(V).</li>
-<li>Return ? O.<a href="P, V">[Get]</a>.</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// Assert: IsPropertyKey(P) is true.</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">GetV</span> (<span class="params">V, P</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> O = ToObject(V)</span><br><span class="line">    <span class="keyword">return</span> O.[[Get]](P, V)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="ToObject"><a href="#ToObject" class="headerlink" title="ToObject"></a>ToObject</h3><p><a href="https://tc39.github.io/ecma262/#sec-toobject" target="_blank" rel="noopener">ECMAScript® 2019 : 7.1.13ToObject ( argument )</a></p>
-<p>The abstract operation ToObject converts argument to a value of type Object according to below Table:</p>
-<table>
-<thead>
-<tr>
-<th>Argument Type</th>
-<th>Result</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Undefined</td>
-<td>Throw a TypeError exception.</td>
-</tr>
-<tr>
-<td>Null</td>
-<td>Throw a TypeError exception.</td>
-</tr>
-<tr>
-<td>Boolean</td>
-<td>Return a new Boolean object whose [[BooleanData]] internal slot is set to argument.</td>
-</tr>
-<tr>
-<td>Number</td>
-<td>Return a new Number object whose [[NumberData]] internal slot is set to argument.</td>
-</tr>
-<tr>
-<td>String</td>
-<td>Return a new String object whose [[StringData]] internal slot is set to argument.</td>
-</tr>
-<tr>
-<td>Symbol</td>
-<td>Return a new Symbol object whose [[SymbolData]] internal slot is set to argument.</td>
-</tr>
-<tr>
-<td>Object</td>
-<td>Return argument.</td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ToObject</span> (<span class="params">argument</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (argument === <span class="literal">undefined</span> || argument === <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="built_in">TypeError</span>()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">switch</span> (<span class="keyword">typeof</span> argument) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'boolean'</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Boolean</span>(argument)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">case</span> <span class="string">'number'</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Number</span>(argument)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">case</span> <span class="string">'string'</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">String</span>(argument)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">case</span>: <span class="string">'symbol'</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">Symbol</span>(argument)</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="keyword">return</span> argument</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="IsCallable"><a href="#IsCallable" class="headerlink" title="IsCallable"></a>IsCallable</h3><p><a href="https://tc39.github.io/ecma262/#sec-iscallable" target="_blank" rel="noopener">ECMAScript® 2019 : 7.2.3IsCallable ( argument )</a></p>
-<p>The abstract operation IsCallable determines if argument, which must be an ECMAScript language value, is a callable function with a [[Call]] internal method.</p>
-<ol>
-<li>If Type(argument) is not Object, return false.</li>
-<li>If argument has a [[Call]] internal method, return true.</li>
-<li>Return false.</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">IsCallable</span> (<span class="params">argument</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> argument !== <span class="string">'object'</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> argument.__proto__.call === <span class="string">'function'</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Call"><a href="#Call" class="headerlink" title="Call"></a>Call</h3><p><a href="https://tc39.github.io/ecma262/#sec-call" target="_blank" rel="noopener">ECMAScript® 2019 : 7.3.12Call ( F, V [ , argumentsList ] )</a></p>
-<p>The abstract operation Call is used to call the [[Call]] internal method of a function object. The operation is called with arguments F, V, and optionally argumentsList where F is the function object, V is an ECMAScript language value that is the this value of the [[Call]], and argumentsList is the value passed to the corresponding argument of the internal method. If argumentsList is not present, a new empty List is used as its value. This abstract operation performs the following steps:</p>
-<ol>
-<li>If argumentsList is not present, set argumentsList to a new empty List.</li>
-<li>If IsCallable(F) is false, throw a TypeError exception.</li>
-<li>Return ? F.<a href="V, argumentsList">[Call]</a>.</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Call</span> (<span class="params">F, V, ...argumentsList</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!argumentsList) &#123;</span><br><span class="line">        argumentsList = []</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (IsCallable(F)) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="built_in">TypeError</span>()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> F.call(V, argumentsList)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="OrdinaryToPrimitive"><a href="#OrdinaryToPrimitive" class="headerlink" title="OrdinaryToPrimitive"></a>OrdinaryToPrimitive</h3><p><a href="https://tc39.github.io/ecma262/#sec-ordinarytoprimitive" target="_blank" rel="noopener">ECMAScript® 2019 : 7.1.1.1OrdinaryToPrimitive ( O, hint )</a></p>
-<p>When the abstract operation OrdinaryToPrimitive is called with arguments O and hint, the following steps are taken:</p>
-<ol>
-<li>Assert: Type(O) is Object.</li>
-<li>Assert: Type(hint) is String and its value is either “string” or “number”.</li>
-<li>If hint is “string”, then</li>
-<li>Let methodNames be « “toString”, “valueOf” ».</li>
-<li>Else,</li>
-<li>Let methodNames be « “valueOf”, “toString” ».</li>
-<li>For each name in methodNames in List order, do</li>
-<li>Let method be ? Get(O, name).</li>
-<li>If IsCallable(method) is true, then</li>
-<li>Let result be ? Call(method, O).</li>
-<li>If Type(result) is not Object, return result.</li>
-<li>Throw a TypeError exception.</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// Assert: Type(O) is Object</span></span><br><span class="line"><span class="comment">// Assert: Type(hint) is String and its value is either "string" or "number"</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">OrdinaryToPrimitive</span> (<span class="params">O, hint</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> methodNames = [<span class="string">'valueOf'</span>, <span class="string">'toString'</span>]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> hint === <span class="string">'string'</span>) &#123;</span><br><span class="line">        methodNames = [<span class="string">'toString'</span>, <span class="string">'valueOf'</span>]</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    methodNames.forEach(<span class="function">(<span class="params">name, nameIndex</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> method = Get(O, name)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (IsCallable(method)) &#123;</span><br><span class="line">            <span class="keyword">let</span> result = Call(method, O)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">typeof</span> result !== <span class="string">'object'</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> result</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">throw</span> <span class="built_in">TypeError</span>()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Get"><a href="#Get" class="headerlink" title="Get"></a>Get</h3><p><a href="https://tc39.github.io/ecma262/#sec-get-o-p" target="_blank" rel="noopener">ECMAScript® 2019 : 7.3.1Get ( O, P )</a></p>
-<p>The abstract operation Get is used to retrieve the value of a specific property of an object. The operation is called with arguments O and P where O is the object and P is the property key. This abstract operation performs the following steps:</p>
-<ol>
-<li>Assert: Type(O) is Object.</li>
-<li>Assert: IsPropertyKey(P) is true.</li>
-<li>Return ? O.<a href="P, O">[Get]</a>.</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// Assert: Type(O) is Object.</span></span><br><span class="line"><span class="comment">// Assert: IsPropertyKey(P) is true.</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Get</span> (<span class="params">O, P</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> O.[[Get]](P, O)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Get-1"><a href="#Get-1" class="headerlink" title="[[Get]]"></a>[[Get]]</h3><p>[ECMAScript® 2019 : 9.1.8<a href="https://tc39.github.io/ecma262/#sec-ordinary-object-internal-methods-and-internal-slots-get-p-receiver" target="_blank" rel="noopener">[Get]] ( P, Receiver )</a></p>
-<p>When the [[Get]] internal method of O is called with property key P and ECMAScript language value Receiver, the following steps are taken:</p>
-<ol>
-<li>Return ? OrdinaryGet(O, P, Receiver).</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">function [[Get]] (P, Receiver) &#123;</span><br><span class="line">    <span class="keyword">return</span>  OrdinaryGet(O, P, Receiver)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="OrdinaryGet"><a href="#OrdinaryGet" class="headerlink" title="OrdinaryGet"></a>OrdinaryGet</h3><p><a href="https://tc39.github.io/ecma262/#sec-ordinary-object-internal-methods-and-internal-slots-get-p-receiver" target="_blank" rel="noopener">ECMAScript® 2019 : 9.1.8.1OrdinaryGet ( O, P, Receiver ))</a></p>
-<p>When the abstract operation OrdinaryGet is called with Object O, property key P, and ECMAScript language value Receiver, the following steps are taken:</p>
-<ol>
-<li>Assert: IsPropertyKey(P) is true.</li>
-<li>Let desc be ? O.<a href="P">[GetOwnProperty]</a>.</li>
-<li>If desc is undefined, then.<ul>
-<li>Let parent be ? O.<a href="">[GetPrototypeOf]</a>.</li>
-<li>If parent is null, return undefined.</li>
-<li>Return ? parent.<a href="P, Receiver">[Get]</a>.</li>
-</ul>
-</li>
-<li>If IsDataDescriptor(desc) is true, return desc.[[Value]].</li>
-<li>Assert: IsAccessorDescriptor(desc) is true.</li>
-<li>Let getter be desc.[[Get]].</li>
-<li>If getter is undefined, return undefined.</li>
-<li>Return ? Call(getter, Receiver).</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -3141,7 +3015,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">22</span>
+                    <span class="site-state-item-count">23</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -3326,7 +3200,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">137k</span>
+    <span title="站点总字数">140k</span>
   
 
   
@@ -3335,7 +3209,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">2:04</span>
+    <span title="站点阅读时长">2:07</span>
   
 </div>
 

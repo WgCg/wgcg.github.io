@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2019/03/08/input%E4%B9%8Btype-number.html</loc>
+    
+    <lastmod>2019-03-11T10:27:03.371Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/03/11/js-%E7%BB%A7%E6%89%BF%E7%9A%845%E7%A7%8D%E6%96%B9%E5%BC%8F.html</loc>
+    
+    <lastmod>2019-03-11T10:25:56.134Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/03/09/TypeScript%E7%AC%94%E8%AE%B0.html</loc>
     
     <lastmod>2019-03-11T08:07:07.188Z</lastmod>
@@ -33,13 +47,6 @@
     <loc>http://yoursite.com/2019/03/08/%E5%8A%A8%E6%80%81%E5%8A%A0%E8%BD%BD%E6%A8%A1%E5%9D%97.html</loc>
     
     <lastmod>2019-03-08T07:08:18.598Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2019/03/08/input%E4%B9%8Btype-number.html</loc>
-    
-    <lastmod>2019-03-08T06:55:59.815Z</lastmod>
     
   </url>
   

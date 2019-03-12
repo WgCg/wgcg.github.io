@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-03-11T10:25:56.134Z</updated>
+  <updated>2019-03-12T07:18:12.244Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Velocity语法</title>
+    <link href="http://yoursite.com/2019/03/12/Velocity%E8%AF%AD%E6%B3%95.html"/>
+    <id>http://yoursite.com/2019/03/12/Velocity语法.html</id>
+    <published>2019-03-12T05:55:09.000Z</published>
+    <updated>2019-03-12T07:18:12.244Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Velocity基本语法介绍"><a href="#Velocity基本语法介绍" class="headerlink" title="Velocity基本语法介绍"></a>Velocity基本语法介绍</h1><h2 id="判断语句"><a href="#判断语句" class="headerlink" title="判断语句"></a>判断语句</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#if($condition)</span><br><span class="line">    ...</span><br><span class="line">#elseif($condition)</span><br><span class="line">    ...</span><br><span class="line">#else</span><br><span class="line">    ...</span><br><span class="line">#end</span><br></pre></td></tr></table></figure><h3 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h3><ol><li>比较符：== != &gt; &gt;= &lt; &lt;=</li><li>逻辑运算符：&amp;&amp; || !</li><li>运算符：+ - * / %</li></ol><h3 id="常用判断"><a href="#常用判断" class="headerlink" title="常用判断"></a>常用判断</h3><ol><li><p>判断是否为null</p><ul><li>#if(( !$condition) &amp;&amp; (“$!condition” == “”) )</li><li>使用NULL工具：#if( $null.isNull($condition) )</li><li><p>使用#ifnull() 或 #ifnotnull()，要使用这个特性必须在velocity.properties文件中加入：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">userdirective = org.apache.velocity.tools.generic.directive.Ifnull</span><br><span class="line">userdirective = org.apache.velocity.tools.generic.directive.Ifnotnull</span><br></pre></td></tr></table></figure></li></ul></li><li><p>判断是否为true：#if( $condition == true )</p></li><li>判断是否为null或false：#if( !$condition )</li><li>判断是否为空字符串：#if( $condition == “” )</li><li>判断是否为null或者空字符串：#if( “$!condition” === “” )</li><li>判断是否是一个数字：#if( $condition == 123 )<blockquote><p>Velocity中的==可以直接比较数值，字符串以及其它对象，如果==两侧的对象是不同的类的对象，在比较前会用toString()转换后再比较。所以当$condition的值为123或”123”时，条件都为真</p></blockquote></li></ol><h2 id="循环语句"><a href="#循环语句" class="headerlink" title="循环语句"></a>循环语句</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#foreach($val in $arr)</span><br><span class="line">...</span><br><span class="line">#end</span><br></pre></td></tr></table></figure><p>$velocityCount和$foreach.count可以获得当前循环次数，初始值为1</p><p>$foreach.hasNext用来判断是否存在下一次循环</p><blockquote><p>#break用于用于跳出循环，经测试，在jello框架里无效</p></blockquote><p>当$arr为对象的时候：$val取到的是value，如果需要在遍历对象的过程中，同时取到对象的keys，可以使用entrySet() 或 keySet()方法</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#foreach($item in $!obj.entrySet())</span><br><span class="line">    $!item.key: $!item.value</span><br><span class="line">#end</span><br><span class="line"></span><br><span class="line">#foreach($key in $!obj.keySet())</span><br><span class="line">    $key: $obj.get($key)</span><br><span class="line">#end</span><br></pre></td></tr></table></figure><blockquote><p>注意：这种集合的遍历是无序的，即遍历顺序可能不同于$obj中元素定义的顺序</p></blockquote><h3 id="Range-Operator"><a href="#Range-Operator" class="headerlink" title="Range Operator"></a>Range Operator</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#foreach($foo in [1..5])</span><br><span class="line">    $foo</span><br><span class="line">#end</span><br><span class="line"></span><br><span class="line">#foreach($bar in [2..-2])</span><br><span class="line">    $bar</span><br><span class="line">#end</span><br></pre></td></tr></table></figure><p>以上输出为：</p><p>Example1：1 2 3 4 5<br>Example2：2 1 0 -1 -2</p><blockquote><p>Example2，经测试，在jello框架中不能包含负数</p></blockquote><h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><p>$str.charAt(index) 获取指定下标的字符</p><p>$str.substring(begin, end)  end不填，截取begin到字符串末尾，不改变原值</p><p>$str.length() 返回字符串的长度</p><p>$str.toUpperCase() 把字符串转换为大写</p><p>$str.toLowerCase() 把字符串转换为小写</p><p>$str.replace(old, new) 替换字符串中指定的子串</p><p>$str.indexOf($substr) 从字符串头部开始检索是否存在某个子串</p><p>$str.lastIndexOf($substr) 从字符串尾部开始检索是否存在某个子串</p><p>字符串拼接：$str + $str1 或 ${str}oo${str1}：</p><p>例如：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#set($str = “AA”)</span><br><span class="line"></span><br><span class="line">#set($str1 = “BB”)</span><br><span class="line"></span><br><span class="line">#set($str2 = $str + $str1)</span><br></pre></td></tr></table></figure><p>则${str}oo${str1}的结果为：AAooBB</p><p>字符串转数字：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#set( $intString = “9” )</span><br><span class="line"></span><br><span class="line">#set( $Integer = 0 )</span><br><span class="line"></span><br><span class="line">$Integer.parseInt($intString)</span><br></pre></td></tr></table></figure><p>同理：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#set( $doubleString = “12.3” )</span><br><span class="line"></span><br><span class="line">#set( $Double = 0.0 )</span><br><span class="line"></span><br><span class="line">$Double.parseDouble( $doubleString )</span><br></pre></td></tr></table></figure><h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><p>$arr.size() 返回数组长度</p><p>$arr.isEmpty() 判断数组是否为空</p><p>$arr.get(index)或$arr[index] 返回数组中指定下标index的值</p><p>$arr.set(1, “test”) 设置数组中指定下标的值</p><p>$arr.add($param) 增加元素</p><h2 id="宏"><a href="#宏" class="headerlink" title="宏"></a>宏</h2><p>宏的定义：#macro(宏的名称 $参数1 $参数2)</p><p>语句体</p><p>   #end</p><p>宏的调用：#macro($参数1  $参数2)//参数之间用空格隔开</p><p>例子:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#macro (tablerows $color $somelist)</span><br><span class="line"></span><br><span class="line">    #foreach($something in $somelist)</span><br><span class="line"></span><br><span class="line">        &lt;tr&gt;&lt;td bgColor=$color&gt;$something&lt;/td&gt;&lt;/tr&gt;</span><br><span class="line"></span><br><span class="line">    #end</span><br><span class="line"></span><br><span class="line">#end</span><br></pre></td></tr></table></figure><p>调用：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#set($color = “blue”)</span><br><span class="line">#set($arr = [“a”, “b”, “c”, “d”])</span><br><span class="line"></span><br><span class="line">&lt;table&gt;</span><br><span class="line"></span><br><span class="line">#tablerows($color $arr)</span><br><span class="line"></span><br><span class="line">&lt;/table&gt;</span><br></pre></td></tr></table></figure><p></p><h1 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h1><ol><li><a href="http://www.blogjava.net/alexwan/archive/2008/06/07/206473.html" target="_blank" rel="noopener">http://www.blogjava.net/alexwan/archive/2008/06/07/206473.html</a></li><li><a href="http://velocity.apache.org/engine/devel/user-guide.html#variables" target="_blank" rel="noopener">http://velocity.apache.org/engine/devel/user-guide.html#variables</a></li><li><a href="http://wiki.apache.org/velocity/VelocityNullSupport" target="_blank" rel="noopener">http://wiki.apache.org/velocity/VelocityNullSupport</a></li><li><a href="http://wiki.apache.org/velocity/CheckingForNull" target="_blank" rel="noopener">http://wiki.apache.org/velocity/CheckingForNull</a></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Velocity基本语法介绍&quot;&gt;&lt;a href=&quot;#Velocity基本语法介绍&quot; class=&quot;headerlink&quot; title=&quot;Velocity基本语法介绍&quot;&gt;&lt;/a&gt;Velocity基本语法介绍&lt;/h1&gt;&lt;h2 id=&quot;判断语句&quot;&gt;&lt;a href=&quot;#判
+      
+    
+    </summary>
+    
+      <category term="编程语言" scheme="http://yoursite.com/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+    
+      <category term="Velocity" scheme="http://yoursite.com/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Velocity/"/>
+    
+    
+      <category term="velocity" scheme="http://yoursite.com/tags/velocity/"/>
+    
+  </entry>
   
   <entry>
     <title>js-继承的5种方式</title>
@@ -377,33 +404,6 @@
   </entry>
   
   <entry>
-    <title>冒泡排序</title>
-    <link href="http://yoursite.com/2019/03/08/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F.html"/>
-    <id>http://yoursite.com/2019/03/08/冒泡排序.html</id>
-    <published>2019-03-08T06:23:21.000Z</published>
-    <updated>2019-03-08T06:25:23.658Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment">冒泡排序</span></span><br><span class="line"><span class="comment">时间复杂度：O(n2)</span></span><br><span class="line"><span class="comment">算法介绍：https://blog.csdn.net/shuaizai88/article/details/73250615</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bubbleSort</span> (<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!(arr <span class="keyword">instanceof</span> <span class="built_in">Array</span>)) &#123;</span><br><span class="line">        <span class="keyword">return</span> []</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = arr.length - <span class="number">1</span>; i &gt; <span class="number">0</span>; i--) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> j = i; j &gt; <span class="number">0</span>; j--) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[j] &lt; arr[j - <span class="number">1</span>]) &#123;</span><br><span class="line">                <span class="keyword">let</span> tempNum = arr[j]</span><br><span class="line">                arr[j] = arr[j - <span class="number">1</span>]</span><br><span class="line">                arr[j - <span class="number">1</span>] = tempNum</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> arr = [<span class="number">5</span>, <span class="number">2</span>, <span class="number">8</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">1</span>]</span><br><span class="line">bubbleSort(arr)</span><br><span class="line"><span class="built_in">console</span>.log(arr)</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span 
-      
-    
-    </summary>
-    
-      <category term="算法" scheme="http://yoursite.com/categories/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="排序" scheme="http://yoursite.com/categories/%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F/"/>
-    
-    
-      <category term="算法，排序" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95%EF%BC%8C%E6%8E%92%E5%BA%8F/"/>
-    
-  </entry>
-  
-  <entry>
     <title>插入排序</title>
     <link href="http://yoursite.com/2019/03/08/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F.html"/>
     <id>http://yoursite.com/2019/03/08/插入排序.html</id>
@@ -465,6 +465,33 @@
     <updated>2019-03-08T06:26:22.696Z</updated>
     
     <content type="html"><![CDATA[<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment">选择排序</span></span><br><span class="line"><span class="comment">时间复杂度：O(n2)</span></span><br><span class="line"><span class="comment">算法介绍：https://www.cnblogs.com/shen-hua/p/5424059.html</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">selectionSort</span> (<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!(arr <span class="keyword">instanceof</span> <span class="built_in">Array</span>)) &#123;</span><br><span class="line">        <span class="built_in">console</span>.error(<span class="string">'param type is not array!'</span>)</span><br><span class="line">        <span class="keyword">return</span> []</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">        <span class="keyword">let</span> minNumIndex = i</span><br><span class="line">        <span class="keyword">let</span> tempNum = arr[i]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> j = i; j &lt; arr.length; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[j] &lt; arr[minNumIndex]) &#123;</span><br><span class="line">                minNumIndex = j</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        arr[i] = arr[minNumIndex]</span><br><span class="line">        arr[minNumIndex] = tempNum</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> arr = [<span class="number">5</span>, <span class="number">2</span>, <span class="number">8</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">1</span>]</span><br><span class="line">selectionSort(arr)</span><br><span class="line"><span class="built_in">console</span>.log(arr)</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span 
+      
+    
+    </summary>
+    
+      <category term="算法" scheme="http://yoursite.com/categories/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="排序" scheme="http://yoursite.com/categories/%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F/"/>
+    
+    
+      <category term="算法，排序" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95%EF%BC%8C%E6%8E%92%E5%BA%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>冒泡排序</title>
+    <link href="http://yoursite.com/2019/03/08/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F.html"/>
+    <id>http://yoursite.com/2019/03/08/冒泡排序.html</id>
+    <published>2019-03-08T06:23:21.000Z</published>
+    <updated>2019-03-08T06:25:23.658Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment">冒泡排序</span></span><br><span class="line"><span class="comment">时间复杂度：O(n2)</span></span><br><span class="line"><span class="comment">算法介绍：https://blog.csdn.net/shuaizai88/article/details/73250615</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bubbleSort</span> (<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!(arr <span class="keyword">instanceof</span> <span class="built_in">Array</span>)) &#123;</span><br><span class="line">        <span class="keyword">return</span> []</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = arr.length - <span class="number">1</span>; i &gt; <span class="number">0</span>; i--) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> j = i; j &gt; <span class="number">0</span>; j--) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[j] &lt; arr[j - <span class="number">1</span>]) &#123;</span><br><span class="line">                <span class="keyword">let</span> tempNum = arr[j]</span><br><span class="line">                arr[j] = arr[j - <span class="number">1</span>]</span><br><span class="line">                arr[j - <span class="number">1</span>] = tempNum</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> arr = [<span class="number">5</span>, <span class="number">2</span>, <span class="number">8</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">1</span>]</span><br><span class="line">bubbleSort(arr)</span><br><span class="line"><span class="built_in">console</span>.log(arr)</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
@@ -581,41 +608,6 @@
       <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
     
       <category term="vue-router" scheme="http://yoursite.com/tags/vue-router/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>video标签使用v-show播放失败</title>
-    <link href="http://yoursite.com/2019/03/08/video%E6%A0%87%E7%AD%BE%E4%BD%BF%E7%94%A8v-show%E6%92%AD%E6%94%BE%E5%A4%B1%E8%B4%A5.html"/>
-    <id>http://yoursite.com/2019/03/08/video标签使用v-show播放失败.html</id>
-    <published>2019-03-08T06:06:52.000Z</published>
-    <updated>2019-03-08T06:10:20.423Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="video-source-src-异步赋值播放失败"><a href="#video-source-src-异步赋值播放失败" class="headerlink" title="video source src 异步赋值播放失败"></a>video source src 异步赋值播放失败</h1><p>如图所示，v-show控制video标签是否显示，showVideo初始值为false，模拟接口异步返回视频链接，然后改变视频的src，但此时视频没有成功播放，Network中也没有去加载对应的视频资源</p><p><img width="500px" src="/assets/vue/problems/10.png"><br><img width="500px" src="/assets/vue/problems/11.png"></p><h1 id="Why"><a href="#Why" class="headerlink" title="Why?"></a>Why?</h1><p>大家都知道v-show控制的css的visibility属性，实际上无论v-show的值是true或者false都会去渲染dom，可见，视频播放失败跟v-show并没有多大的关系，于是我们把v-show去了验证一下：</p><p><img width="500px" src="/assets/vue/problems/12.png"></p><p>同样，视频也播放失败，并且Network中也没有视频资源的加载记录，由此可推断，当video中存在source标签的时候，浏览器渲染之后会自动去加载src对应的资源，后续即便地址改变，浏览器也不会再去获取资源</p><h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><ol><li><p>src属性添加到video标签上</p><p> <img width="500px" src="/assets/vue/problems/15.png"></p></li><li><p>使用v-if替代v-show，触发dom重排</p><p> <img width="500px" src="/assets/vue/problems/13.png"></p></li><li><p>触发video的load方法</p><p> <img width="500px" src="/assets/vue/problems/14.png"></p></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;video-source-src-异步赋值播放失败&quot;&gt;&lt;a href=&quot;#video-source-src-异步赋值播放失败&quot; class=&quot;headerlink&quot; title=&quot;video source src 异步赋值播放失败&quot;&gt;&lt;/a&gt;video sourc
-      
-    
-    </summary>
-    
-      <category term="框架" scheme="http://yoursite.com/categories/%E6%A1%86%E6%9E%B6/"/>
-    
-      <category term="Vue" scheme="http://yoursite.com/categories/%E6%A1%86%E6%9E%B6/Vue/"/>
-    
-      <category term="问题积累" scheme="http://yoursite.com/categories/%E6%A1%86%E6%9E%B6/Vue/%E9%97%AE%E9%A2%98%E7%A7%AF%E7%B4%AF/"/>
-    
-    
-      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
-    
-      <category term="html" scheme="http://yoursite.com/tags/html/"/>
-    
-      <category term="video" scheme="http://yoursite.com/tags/video/"/>
-    
-      <category term="v-show" scheme="http://yoursite.com/tags/v-show/"/>
     
   </entry>
   

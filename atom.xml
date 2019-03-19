@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-03-12T07:18:12.244Z</updated>
+  <updated>2019-03-19T13:52:50.388Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,70 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>vscode+typescript问题记录</title>
+    <link href="http://yoursite.com/2019/03/19/vscode-typescript%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95.html"/>
+    <id>http://yoursite.com/2019/03/19/vscode-typescript问题记录.html</id>
+    <published>2019-03-19T13:14:55.000Z</published>
+    <updated>2019-03-19T13:52:50.388Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="ESLint"><a href="#ESLint" class="headerlink" title="ESLint"></a>ESLint</h1><h2 id="VSCode的ESLint扩展支持-ts-tsx文件"><a href="#VSCode的ESLint扩展支持-ts-tsx文件" class="headerlink" title="VSCode的ESLint扩展支持.ts,.tsx文件"></a>VSCode的ESLint扩展支持.ts,.tsx文件</h2><p>command+shift+p调出命令面板，选择Open Settings(JSON)，在配置中加入以下内容</p><p><img width="500" src="/assets/typescript/problems/5.jpg" title="settings.json" alt="settings.json"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;ESLint&quot;&gt;&lt;a href=&quot;#ESLint&quot; class=&quot;headerlink&quot; title=&quot;ESLint&quot;&gt;&lt;/a&gt;ESLint&lt;/h1&gt;&lt;h2 id=&quot;VSCode的ESLint扩展支持-ts-tsx文件&quot;&gt;&lt;a href=&quot;#VSCode的ESLi
+      
+    
+    </summary>
+    
+      <category term="编程语言" scheme="http://yoursite.com/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+    
+      <category term="typescript" scheme="http://yoursite.com/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/typescript/"/>
+    
+      <category term="问题积累" scheme="http://yoursite.com/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/typescript/%E9%97%AE%E9%A2%98%E7%A7%AF%E7%B4%AF/"/>
+    
+    
+      <category term="typescript" scheme="http://yoursite.com/tags/typescript/"/>
+    
+      <category term="vsoce" scheme="http://yoursite.com/tags/vsoce/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>vue+typescript问题记录</title>
+    <link href="http://yoursite.com/2019/03/19/vue-typescript%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95.html"/>
+    <id>http://yoursite.com/2019/03/19/vue-typescript问题记录.html</id>
+    <published>2019-03-19T13:14:42.000Z</published>
+    <updated>2019-03-19T13:44:50.803Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="文件包含import或export即为模块"><a href="#文件包含import或export即为模块" class="headerlink" title="文件包含import或export即为模块"></a>文件包含import或export即为模块</h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p><img width="500" src="/assets/typescript/problems/1.jpg" title="shims-vue.d.ts" alt="shims-vue.d.ts"></p><p>因为需要在Vue构造函数下追加一些属性而又想把所有Vue相关的类型声明放在一个文件里，所以就直接在shims-vue.d.ts文件中加入了额外的声明，结果发现引入.vue文件时，提示无法找到该模块。</p><p><img width="500" src="/assets/typescript/problems/2.jpg" title="route/index.ts" alt="route/index.ts"></p><h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>产生这个问题的原因是因为在ts中，只要最顶层中含有import或者export语法，该文件即为一个模块，如果没有，则声明默认定义在全局作用域下。正因为我们在shims-vue.d.ts中用了import的语法，导致该文件变成了一个模块，所以就导致*.vue的模块声明语句没有在全局作用域中生效。</p><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>需要声明在全局作用域下的模块单独放在一个文件，在本案例中，把module ‘*.vue’的声明单独放在shims-vue.d.ts中，其它不需要声明在全局作用域下的，例如本案例中扩展Vue构造函数的声明放在另一个文件即可，如下所示：</p><p><img width="500" src="/assets/typescript/problems/3.jpg" title="shims-vue.d.ts" alt="shims-vue.d.ts"></p><p><img width="500" src="/assets/typescript/problems/4.png" title="vue-extend.d.ts" alt="vue-extend.d.ts"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;文件包含import或export即为模块&quot;&gt;&lt;a href=&quot;#文件包含import或export即为模块&quot; class=&quot;headerlink&quot; title=&quot;文件包含import或export即为模块&quot;&gt;&lt;/a&gt;文件包含import或export即为模块&lt;/
+      
+    
+    </summary>
+    
+      <category term="编程语言" scheme="http://yoursite.com/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+    
+      <category term="typescript" scheme="http://yoursite.com/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/typescript/"/>
+    
+      <category term="问题积累" scheme="http://yoursite.com/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/typescript/%E9%97%AE%E9%A2%98%E7%A7%AF%E7%B4%AF/"/>
+    
+    
+      <category term="typescript" scheme="http://yoursite.com/tags/typescript/"/>
+    
+      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
+    
+      <category term="vue-cli" scheme="http://yoursite.com/tags/vue-cli/"/>
+    
+  </entry>
   
   <entry>
     <title>Velocity语法</title>
@@ -404,6 +468,33 @@
   </entry>
   
   <entry>
+    <title>冒泡排序</title>
+    <link href="http://yoursite.com/2019/03/08/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F.html"/>
+    <id>http://yoursite.com/2019/03/08/冒泡排序.html</id>
+    <published>2019-03-08T06:23:21.000Z</published>
+    <updated>2019-03-08T06:25:23.658Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment">冒泡排序</span></span><br><span class="line"><span class="comment">时间复杂度：O(n2)</span></span><br><span class="line"><span class="comment">算法介绍：https://blog.csdn.net/shuaizai88/article/details/73250615</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bubbleSort</span> (<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!(arr <span class="keyword">instanceof</span> <span class="built_in">Array</span>)) &#123;</span><br><span class="line">        <span class="keyword">return</span> []</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = arr.length - <span class="number">1</span>; i &gt; <span class="number">0</span>; i--) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> j = i; j &gt; <span class="number">0</span>; j--) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[j] &lt; arr[j - <span class="number">1</span>]) &#123;</span><br><span class="line">                <span class="keyword">let</span> tempNum = arr[j]</span><br><span class="line">                arr[j] = arr[j - <span class="number">1</span>]</span><br><span class="line">                arr[j - <span class="number">1</span>] = tempNum</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> arr = [<span class="number">5</span>, <span class="number">2</span>, <span class="number">8</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">1</span>]</span><br><span class="line">bubbleSort(arr)</span><br><span class="line"><span class="built_in">console</span>.log(arr)</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span 
+      
+    
+    </summary>
+    
+      <category term="算法" scheme="http://yoursite.com/categories/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="排序" scheme="http://yoursite.com/categories/%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F/"/>
+    
+    
+      <category term="算法，排序" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95%EF%BC%8C%E6%8E%92%E5%BA%8F/"/>
+    
+  </entry>
+  
+  <entry>
     <title>插入排序</title>
     <link href="http://yoursite.com/2019/03/08/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F.html"/>
     <id>http://yoursite.com/2019/03/08/插入排序.html</id>
@@ -485,33 +576,6 @@
   </entry>
   
   <entry>
-    <title>冒泡排序</title>
-    <link href="http://yoursite.com/2019/03/08/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F.html"/>
-    <id>http://yoursite.com/2019/03/08/冒泡排序.html</id>
-    <published>2019-03-08T06:23:21.000Z</published>
-    <updated>2019-03-08T06:25:23.658Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment">冒泡排序</span></span><br><span class="line"><span class="comment">时间复杂度：O(n2)</span></span><br><span class="line"><span class="comment">算法介绍：https://blog.csdn.net/shuaizai88/article/details/73250615</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bubbleSort</span> (<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!(arr <span class="keyword">instanceof</span> <span class="built_in">Array</span>)) &#123;</span><br><span class="line">        <span class="keyword">return</span> []</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = arr.length - <span class="number">1</span>; i &gt; <span class="number">0</span>; i--) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> j = i; j &gt; <span class="number">0</span>; j--) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[j] &lt; arr[j - <span class="number">1</span>]) &#123;</span><br><span class="line">                <span class="keyword">let</span> tempNum = arr[j]</span><br><span class="line">                arr[j] = arr[j - <span class="number">1</span>]</span><br><span class="line">                arr[j - <span class="number">1</span>] = tempNum</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> arr = [<span class="number">5</span>, <span class="number">2</span>, <span class="number">8</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">1</span>]</span><br><span class="line">bubbleSort(arr)</span><br><span class="line"><span class="built_in">console</span>.log(arr)</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span 
-      
-    
-    </summary>
-    
-      <category term="算法" scheme="http://yoursite.com/categories/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="排序" scheme="http://yoursite.com/categories/%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F/"/>
-    
-    
-      <category term="算法，排序" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95%EF%BC%8C%E6%8E%92%E5%BA%8F/"/>
-    
-  </entry>
-  
-  <entry>
     <title>VueRouter之打开新的标签页</title>
     <link href="http://yoursite.com/2019/03/08/VueRouter%E4%B9%8B%E6%89%93%E5%BC%80%E6%96%B0%E7%9A%84%E6%A0%87%E7%AD%BE%E9%A1%B5.html"/>
     <id>http://yoursite.com/2019/03/08/VueRouter之打开新的标签页.html</id>
@@ -545,69 +609,6 @@
       <category term="vue-router" scheme="http://yoursite.com/tags/vue-router/"/>
     
       <category term="window.open" scheme="http://yoursite.com/tags/window-open/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Vue之清空表单</title>
-    <link href="http://yoursite.com/2019/03/08/Vue%E4%B9%8B%E6%B8%85%E7%A9%BA%E8%A1%A8%E5%8D%95.html"/>
-    <id>http://yoursite.com/2019/03/08/Vue之清空表单.html</id>
-    <published>2019-03-08T06:16:02.000Z</published>
-    <updated>2019-03-08T06:17:56.726Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="简单的的表单"><a href="#简单的的表单" class="headerlink" title="简单的的表单"></a>简单的的表单</h1><p>如果所有表单控件都处于当前页面，不包含组件，且都是双向绑定的数据，则清空值就行了</p><h1 id="复杂的表单"><a href="#复杂的表单" class="headerlink" title="复杂的表单"></a>复杂的表单</h1><p>如果表单包含组件级别的控件，层级较深，可以使用一种hack的手段，通过v-if重新渲染组件，清空组件内input里的值，选中的复选框等等，同时将页面内的相关数据清空就行了，如图所示：</p><p><image width="500" src="/assets/vue/problems/17.png"></image></p><image width="500" src="/assets/vue/problems/18.png"></image>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;简单的的表单&quot;&gt;&lt;a href=&quot;#简单的的表单&quot; class=&quot;headerlink&quot; title=&quot;简单的的表单&quot;&gt;&lt;/a&gt;简单的的表单&lt;/h1&gt;&lt;p&gt;如果所有表单控件都处于当前页面，不包含组件，且都是双向绑定的数据，则清空值就行了&lt;/p&gt;
-&lt;h1 id=&quot;复
-      
-    
-    </summary>
-    
-      <category term="框架" scheme="http://yoursite.com/categories/%E6%A1%86%E6%9E%B6/"/>
-    
-      <category term="Vue" scheme="http://yoursite.com/categories/%E6%A1%86%E6%9E%B6/Vue/"/>
-    
-      <category term="问题积累" scheme="http://yoursite.com/categories/%E6%A1%86%E6%9E%B6/Vue/%E9%97%AE%E9%A2%98%E7%A7%AF%E7%B4%AF/"/>
-    
-    
-      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
-    
-      <category term="form" scheme="http://yoursite.com/tags/form/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Vue之改变路由页面回到顶部</title>
-    <link href="http://yoursite.com/2019/03/08/Vue%E4%B9%8B%E6%94%B9%E5%8F%98%E8%B7%AF%E7%94%B1%E9%A1%B5%E9%9D%A2%E5%9B%9E%E5%88%B0%E9%A1%B6%E9%83%A8.html"/>
-    <id>http://yoursite.com/2019/03/08/Vue之改变路由页面回到顶部.html</id>
-    <published>2019-03-08T06:11:30.000Z</published>
-    <updated>2019-03-08T06:15:11.019Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>vue是单页应用，通过改变hash值来实现不同页面之前的跳转，当一个页面滚动到底部时，然后跳转到另一个也面，同样会在页面底部，并不会回到顶部</p><h1 id="vue-router-scrollBehavior"><a href="#vue-router-scrollBehavior" class="headerlink" title="vue-router scrollBehavior"></a>vue-router scrollBehavior</h1><p>当创建一个router实例时，可以提供一个scrollBehavior方法控制路由跳转时页面滚动条的位置</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> VueRouter(&#123;</span><br><span class="line">  routes: [...],</span><br><span class="line">  scrollBehavior (to, <span class="keyword">from</span>, savedPosition) &#123;</span><br><span class="line">    <span class="comment">// return 期望滚动到哪个的位置</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><p>具体的使用方法点<a href="https://router.vuejs.org/zh/guide/advanced/scroll-behavior.html#%E5%BC%82%E6%AD%A5%E6%BB%9A%E5%8A%A8" target="_blank" rel="noopener">这里</a>，但是该方法只在支持history.pushState的浏览器中可用，移动端不存在问题，pc端IE10+以上，因此对pc端的解决方法进行了探索</p><h1 id="vue-router-beforeEach-amp-afterEach中回到顶部操作存在的问题"><a href="#vue-router-beforeEach-amp-afterEach中回到顶部操作存在的问题" class="headerlink" title="vue-router beforeEach&amp;afterEach中回到顶部操作存在的问题"></a>vue-router beforeEach&amp;afterEach中回到顶部操作存在的问题</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">router.afterEach(<span class="function">(<span class="params">to, <span class="keyword">from</span>, next</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">document</span>.documentElement.scrollTop = <span class="number">0</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><p>以上方法在跳转页面时页面会闪烁一下，原因是因为dom的更新操作在触发afterEach的回调函数之后进行，也就是所触发afterEach函数的时候，页面的dom其实还是旧的页面的dom，所以当设置滚动条的位置时，会在旧页面先回到顶部，再更新成新页面的dom，下面是vue-router完整的导航解析流程：</p><p><img width="500" src="/assets/vue/problems/16.png"></p><h1 id="利用定时器"><a href="#利用定时器" class="headerlink" title="利用定时器"></a>利用定时器</h1><p>利用定时器将更改滚动条位置的操作放入到macrotasks事件队列末尾，即在更新dom操作之后就可以解决页面闪烁的问题了</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">router.afterEach(<span class="function">(<span class="params">to, <span class="keyword">from</span>, next</span>) =&gt;</span> &#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">document</span>.documentElement.scrollTop = <span class="number">0</span></span><br><span class="line">    &#125;, <span class="number">0</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><p>还有一个问题是，当刷新当前页面的时候，浏览器会记录当前页面滚动条，并在刷新页面后将滚动条的位置恢复到刷新页面之前，测试了两种浏览器，表现不一致：</p><ol><li>chrome：先回到页面顶部-&gt;再回到刷新之前位置，导致页面闪烁</li><li>firefox：回到页面顶部</li></ol><p>为了解决上述问题，需要对刷新页面的时候进行额外处理，不回到页面顶部，可以根据afterEach回调函数的from参数来判断，当刷新页面或第一次进入页面时，from.name为null：</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">router.afterEach(<span class="function">(<span class="params">to, <span class="keyword">from</span>, next</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">from</span>.name &amp;&amp; setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">document</span>.documentElement.scrollTop = <span class="number">0</span></span><br><span class="line">    &#125;, <span class="number">0</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;问题描述&quot;&gt;&lt;a href=&quot;#问题描述&quot; class=&quot;headerlink&quot; title=&quot;问题描述&quot;&gt;&lt;/a&gt;问题描述&lt;/h1&gt;&lt;p&gt;vue是单页应用，通过改变hash值来实现不同页面之前的跳转，当一个页面滚动到底部时，然后跳转到另一个也面，同样会在页面底部
-      
-    
-    </summary>
-    
-      <category term="框架" scheme="http://yoursite.com/categories/%E6%A1%86%E6%9E%B6/"/>
-    
-      <category term="Vue" scheme="http://yoursite.com/categories/%E6%A1%86%E6%9E%B6/Vue/"/>
-    
-      <category term="问题积累" scheme="http://yoursite.com/categories/%E6%A1%86%E6%9E%B6/Vue/%E9%97%AE%E9%A2%98%E7%A7%AF%E7%B4%AF/"/>
-    
-    
-      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
-    
-      <category term="vue-router" scheme="http://yoursite.com/tags/vue-router/"/>
     
   </entry>
   

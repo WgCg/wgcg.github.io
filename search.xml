@@ -1,6 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[vscode+typescript问题记录]]></title>
+    <url>%2F2019%2F03%2F19%2Fvscode-typescript%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95.html</url>
+    <content type="text"><![CDATA[ESLintVSCode的ESLint扩展支持.ts,.tsx文件command+shift+p调出命令面板，选择Open Settings(JSON)，在配置中加入以下内容]]></content>
+      <categories>
+        <category>编程语言</category>
+        <category>typescript</category>
+        <category>问题积累</category>
+      </categories>
+      <tags>
+        <tag>typescript</tag>
+        <tag>vsoce</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[vue+typescript问题记录]]></title>
+    <url>%2F2019%2F03%2F19%2Fvue-typescript%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95.html</url>
+    <content type="text"><![CDATA[文件包含import或export即为模块问题描述 因为需要在Vue构造函数下追加一些属性而又想把所有Vue相关的类型声明放在一个文件里，所以就直接在shims-vue.d.ts文件中加入了额外的声明，结果发现引入.vue文件时，提示无法找到该模块。 原因产生这个问题的原因是因为在ts中，只要最顶层中含有import或者export语法，该文件即为一个模块，如果没有，则声明默认定义在全局作用域下。正因为我们在shims-vue.d.ts中用了import的语法，导致该文件变成了一个模块，所以就导致*.vue的模块声明语句没有在全局作用域中生效。 解决方案需要声明在全局作用域下的模块单独放在一个文件，在本案例中，把module ‘*.vue’的声明单独放在shims-vue.d.ts中，其它不需要声明在全局作用域下的，例如本案例中扩展Vue构造函数的声明放在另一个文件即可，如下所示：]]></content>
+      <categories>
+        <category>编程语言</category>
+        <category>typescript</category>
+        <category>问题积累</category>
+      </categories>
+      <tags>
+        <tag>typescript</tag>
+        <tag>vue</tag>
+        <tag>vue-cli</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Velocity语法]]></title>
     <url>%2F2019%2F03%2F12%2FVelocity%E8%AF%AD%E6%B3%95.html</url>
     <content type="text"><![CDATA[Velocity基本语法介绍判断语句1234567#if($condition) ...#elseif($condition) ...#else ...#end 运算符 比较符：== != &gt; &gt;= &lt; &lt;= 逻辑运算符：&amp;&amp; || ! 运算符：+ - * / % 常用判断 判断是否为null #if(( !$condition) &amp;&amp; (“$!condition” == “”) ) 使用NULL工具：#if( $null.isNull($condition) ) 使用#ifnull() 或 #ifnotnull()，要使用这个特性必须在velocity.properties文件中加入： 12userdirective = org.apache.velocity.tools.generic.directive.Ifnulluserdirective = org.apache.velocity.tools.generic.directive.Ifnotnull 判断是否为true：#if( $condition == true ) 判断是否为null或false：#if( !$condition ) 判断是否为空字符串：#if( $condition == “” ) 判断是否为null或者空字符串：#if( “$!condition” === “” ) 判断是否是一个数字：#if( $condition == 123 ) Velocity中的==可以直接比较数值，字符串以及其它对象，如果==两侧的对象是不同的类的对象，在比较前会用toString()转换后再比较。所以当$condition的值为123或”123”时，条件都为真 循环语句123#foreach($val in $arr)...#end $velocityCount和$foreach.count可以获得当前循环次数，初始值为1 $foreach.hasNext用来判断是否存在下一次循环 #break用于用于跳出循环，经测试，在jello框架里无效 当$arr为对象的时候：$val取到的是value，如果需要在遍历对象的过程中，同时取到对象的keys，可以使用entrySet() 或 keySet()方法 1234567#foreach($item in $!obj.entrySet()) $!item.key: $!item.value#end#foreach($key in $!obj.keySet()) $key: $obj.get($key)#end 注意：这种集合的遍历是无序的，即遍历顺序可能不同于$obj中元素定义的顺序 Range Operator1234567#foreach($foo in [1..5]) $foo#end#foreach($bar in [2..-2]) $bar#end 以上输出为： Example1：1 2 3 4 5Example2：2 1 0 -1 -2 Example2，经测试，在jello框架中不能包含负数 字符串$str.charAt(index) 获取指定下标的字符 $str.substring(begin, end) end不填，截取begin到字符串末尾，不改变原值 $str.length() 返回字符串的长度 $str.toUpperCase() 把字符串转换为大写 $str.toLowerCase() 把字符串转换为小写 $str.replace(old, new) 替换字符串中指定的子串 $str.indexOf($substr) 从字符串头部开始检索是否存在某个子串 $str.lastIndexOf($substr) 从字符串尾部开始检索是否存在某个子串 字符串拼接：$str + $str1 或 ${str}oo${str1}： 例如： 12345#set($str = “AA”)#set($str1 = “BB”)#set($str2 = $str + $str1) 则${str}oo${str1}的结果为：AAooBB 字符串转数字： 12345#set( $intString = “9” )#set( $Integer = 0 )$Integer.parseInt($intString) 同理： 12345#set( $doubleString = “12.3” )#set( $Double = 0.0 )$Double.parseDouble( $doubleString ) 数组$arr.size() 返回数组长度 $arr.isEmpty() 判断数组是否为空 $arr.get(index)或$arr[index] 返回数组中指定下标index的值 $arr.set(1, “test”) 设置数组中指定下标的值 $arr.add($param) 增加元素 宏宏的定义：#macro(宏的名称 $参数1 $参数2) 语句体 #end 宏的调用：#macro($参数1 $参数2)//参数之间用空格隔开 例子: 123456789#macro (tablerows $color $somelist) #foreach($something in $somelist) &lt;tr&gt;&lt;td bgColor=$color&gt;$something&lt;/td&gt;&lt;/tr&gt; #end#end 调用： 12345678#set($color = “blue”)#set($arr = [“a”, “b”, “c”, “d”])&lt;table&gt;#tablerows($color $arr)&lt;/table&gt; 参考文档 http://www.blogjava.net/alexwan/archive/2008/06/07/206473.html http://velocity.apache.org/engine/devel/user-guide.html#variables http://wiki.apache.org/velocity/VelocityNullSupport http://wiki.apache.org/velocity/CheckingForNull]]></content>
@@ -172,6 +201,18 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[冒泡排序]]></title>
+    <url>%2F2019%2F03%2F08%2F%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F.html</url>
+    <content type="text"><![CDATA[12345678910111213141516171819202122232425/* 冒泡排序时间复杂度：O(n2)算法介绍：https://blog.csdn.net/shuaizai88/article/details/73250615*/function bubbleSort (arr) &#123; if (!(arr instanceof Array)) &#123; return [] &#125; for (let i = arr.length - 1; i &gt; 0; i--) &#123; for (let j = i; j &gt; 0; j--) &#123; if (arr[j] &lt; arr[j - 1]) &#123; let tempNum = arr[j] arr[j] = arr[j - 1] arr[j - 1] = tempNum &#125; &#125; &#125;&#125;let arr = [5, 2, 8, 4, 9, 1]bubbleSort(arr)console.log(arr)]]></content>
+      <categories>
+        <category>算法</category>
+        <category>排序</category>
+      </categories>
+      <tags>
+        <tag>算法，排序</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[插入排序]]></title>
     <url>%2F2019%2F03%2F08%2F%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F.html</url>
     <content type="text"><![CDATA[123456789101112131415161718192021222324252627282930/*插入排序时间复杂度：最好：O(n) 最坏O(n2)算法介绍：https://www.cnblogs.com/hapjin/p/5517667.html*/function insertSort (arr) &#123; if (!(arr instanceof Array)) &#123; return [] &#125; const arrLen = arr.length for (let i = 1; i &lt; arrLen; i++) &#123; let tempNum = arr[i] for (let j = 0; j &lt; i; j++) &#123; if (arr[i] &lt; arr[j]) &#123; arr.splice(i, 1) arr.splice(j, 0, tempNum) break &#125; &#125; &#125;&#125;let arr = [5, 2, 8, 4, 9, 1]insertSort(arr)console.log(arr)]]></content>
@@ -199,18 +240,6 @@
     <title><![CDATA[选择排序]]></title>
     <url>%2F2019%2F03%2F08%2F%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F.html</url>
     <content type="text"><![CDATA[123456789101112131415161718192021222324252627282930/* 选择排序时间复杂度：O(n2)算法介绍：https://www.cnblogs.com/shen-hua/p/5424059.html*/function selectionSort (arr) &#123; if (!(arr instanceof Array)) &#123; console.error('param type is not array!') return [] &#125; for (let i = 0; i &lt; arr.length; i++) &#123; let minNumIndex = i let tempNum = arr[i] for (let j = i; j &lt; arr.length; j++) &#123; if (arr[j] &lt; arr[minNumIndex]) &#123; minNumIndex = j &#125; &#125; arr[i] = arr[minNumIndex] arr[minNumIndex] = tempNum &#125;&#125;let arr = [5, 2, 8, 4, 9, 1]selectionSort(arr)console.log(arr)]]></content>
-      <categories>
-        <category>算法</category>
-        <category>排序</category>
-      </categories>
-      <tags>
-        <tag>算法，排序</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[冒泡排序]]></title>
-    <url>%2F2019%2F03%2F08%2F%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F.html</url>
-    <content type="text"><![CDATA[12345678910111213141516171819202122232425/* 冒泡排序时间复杂度：O(n2)算法介绍：https://blog.csdn.net/shuaizai88/article/details/73250615*/function bubbleSort (arr) &#123; if (!(arr instanceof Array)) &#123; return [] &#125; for (let i = arr.length - 1; i &gt; 0; i--) &#123; for (let j = i; j &gt; 0; j--) &#123; if (arr[j] &lt; arr[j - 1]) &#123; let tempNum = arr[j] arr[j] = arr[j - 1] arr[j - 1] = tempNum &#125; &#125; &#125;&#125;let arr = [5, 2, 8, 4, 9, 1]bubbleSort(arr)console.log(arr)]]></content>
       <categories>
         <category>算法</category>
         <category>排序</category>

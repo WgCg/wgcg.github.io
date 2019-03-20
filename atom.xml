@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-03-19T13:52:50.388Z</updated>
+  <updated>2019-03-20T14:27:17.955Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,92 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>了解Vue这个项目</title>
+    <link href="http://yoursite.com/2019/03/20/%E4%BA%86%E8%A7%A3Vue%E8%BF%99%E4%B8%AA%E9%A1%B9%E7%9B%AE.html"/>
+    <id>http://yoursite.com/2019/03/20/了解Vue这个项目.html</id>
+    <published>2019-03-20T12:59:45.000Z</published>
+    <updated>2019-03-20T14:27:17.955Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>最近在学习Vue源码，学习的路线主要是参考<a href="http://hcysun.me/vue-design/art/2vue-constructor.html" target="_blank" rel="noopener">Vue技术内幕</a>来的，阅读的过程中按照讲解一步步从浅入深，感觉自己还是跟的上的，但是当看完了一半的文章后，回过来想想又感觉自己什么都不懂，再往下读下去，我认为会非常吃力，并且最后的结果很可能是对于某一个知识点自己能稍微说的上来，但是对于整体的架构，某行具体的代码，为什么要这么做，这么做是为了解决什么样的问题等等一无所知，同时也为了以后能有个贯穿整体的复习资料再加上原文有些图片丢失了= =，就决定读完一章，便自己总结一下本章的内容，可能很多东西会跟原文的内容一致，毕竟有蝴蝶效应，但是聊胜于无，毕竟记录下来了，就相当于以自己的思路贯穿了一遍。</p><h1 id="立个Flag"><a href="#立个Flag" class="headerlink" title="立个Flag"></a>立个Flag</h1><p>果然，很多东西不定一个目标是无法达到自己的想要的目的，学习更是如此，每天的工作量不同导致自己看文章拖泥带水，有空的时候看看，没空的时候就不看，说实话，时间都是有的，没空只是安慰自己的借口，工作很累，下班了想要好好休息休息，我总是这么想，导致自己学东西特别的慢，不想利用自己业余时间去学习这个想法是阻碍我前进的根本原因，所以在这里立一个flag，一周之内也就是下周三（2019.3.27号）之前完成Vue源码的阅读，并产出相关的读书记录，希望这个flag能有用吧= =</p><h1 id="Vue目录分析"><a href="#Vue目录分析" class="headerlink" title="Vue目录分析"></a>Vue目录分析</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">├── scripts ------------------------------- 构建相关的文件，一般情况下我们不需要动</span><br><span class="line">│   ├── git-hooks ------------------------- 存放git钩子的目录</span><br><span class="line">│   ├── alias.js -------------------------- 别名配置</span><br><span class="line">│   ├── config.js ------------------------- 生成rollup配置的文件</span><br><span class="line">│   ├── build.js -------------------------- 对 config.js 中所有的rollup配置进行构建</span><br><span class="line">│   ├── ci.sh ----------------------------- 持续集成运行的脚本</span><br><span class="line">│   ├── release.sh ------------------------ 用于自动发布新版本的脚本</span><br><span class="line">├── dist ---------------------------------- 构建后文件的输出目录</span><br><span class="line">├── examples ------------------------------ 存放一些使用Vue开发的应用案例</span><br><span class="line">├── flow ---------------------------------- 类型声明，使用开源项目 [Flow](https://flowtype.org/)</span><br><span class="line">├── packages ------------------------------ 存放独立发布的包的目录</span><br><span class="line">├── <span class="built_in">test</span> ---------------------------------- 包含所有测试文件</span><br><span class="line">├── src ----------------------------------- 这个是我们最应该关注的目录，包含了源码</span><br><span class="line">│   ├── compiler -------------------------- 编译器代码的存放目录，将 template 编译为 render 函数</span><br><span class="line">│   ├── core ------------------------------ 存放通用的，与平台无关的代码</span><br><span class="line">│   │   ├── observer ---------------------- 响应系统，包含数据观测的核心代码</span><br><span class="line">│   │   ├── vdom -------------------------- 包含虚拟DOM创建(creation)和打补丁(patching)的代码</span><br><span class="line">│   │   ├── instance ---------------------- 包含Vue构造函数设计相关的代码</span><br><span class="line">│   │   ├── global-api -------------------- 包含给Vue构造函数挂载全局方法(静态方法)或属性的代码</span><br><span class="line">│   │   ├── components -------------------- 包含抽象出来的通用组件</span><br><span class="line">│   ├── server ---------------------------- 包含服务端渲染(server-side rendering)的相关代码</span><br><span class="line">│   ├── platforms ------------------------- 包含平台特有的相关代码，不同平台的不同构建的入口文件也在这里</span><br><span class="line">│   │   ├── web --------------------------- web平台</span><br><span class="line">│   │   │   ├── entry-runtime.js ---------- 运行时构建的入口，不包含模板(template)到render函数的编译器，所以不支持 `template` 选项，我们使用vue默认导出的就是这个运行时的版本。大家使用的时候要注意</span><br><span class="line">│   │   │   ├── entry-runtime-with-compiler.js -- 独立构建版本的入口，它在 entry-runtime 的基础上添加了模板(template)到render函数的编译器</span><br><span class="line">│   │   │   ├── entry-compiler.js --------- vue-template-compiler 包的入口文件</span><br><span class="line">│   │   │   ├── entry-server-renderer.js -- vue-server-renderer 包的入口文件</span><br><span class="line">│   │   │   ├── entry-server-basic-renderer.js -- 输出 packages/vue-server-renderer/basic.js 文件</span><br><span class="line">│   │   ├── weex -------------------------- 混合应用</span><br><span class="line">│   ├── sfc ------------------------------- 包含单文件组件(.vue文件)的解析逻辑，用于vue-template-compiler包</span><br><span class="line">│   ├── shared ---------------------------- 包含整个代码库通用的代码</span><br><span class="line">├── package.json -------------------------- 不解释</span><br><span class="line">├── yarn.lock ----------------------------- yarn 锁定文件</span><br><span class="line">├── .editorconfig ------------------------- 针对编辑器的编码风格配置文件</span><br><span class="line">├── .flowconfig --------------------------- flow 的配置文件</span><br><span class="line">├── .babelrc ------------------------------ babel 配置文件</span><br><span class="line">├── .eslintrc ----------------------------- eslint 配置文件</span><br><span class="line">├── .eslintignore ------------------------- eslint 忽略配置</span><br><span class="line">├── .gitignore ---------------------------- git 忽略配置</span><br></pre></td></tr></table></figure><h1 id="Vue的不同构建输出"><a href="#Vue的不同构建输出" class="headerlink" title="Vue的不同构建输出"></a>Vue的不同构建输出</h1><p>打开文件scripts/config.js，其中定义了builds对象，builds对象针对平台、环境、构建输出的模块方式、版本、使用方的不同进行了不同的配置，总结为：</p><ul><li>构建平台：web（浏览器）、web-server（服务器）、weex（开发原生应用程序的框架）。</li><li>版本：运行时版本、编译器、完整版本（运行时版本+编译器）。编译器提供了能够在运行时把template编译成render函数的能力，运行时版本比完整版本体积大约小于30%，同时提高了性能。</li><li>环境：development、production。（TODO:具体的差别）</li><li>模块：CommonJS、UMD、ES Module。UMD使得你可以直接通过<code>&lt;script&gt;</code>标签引用，而CommonJS形式的模块就是为<code>webpack 1</code>和<code>browserify</code>提供的，它们在加载模块的时候不能直接加载<code>ES Module</code>，而<code>Webpack 2</code>和<code>Rollup</code>是可以直接加载<code>ES Module</code>的，所以就有了<code>es</code>形式的模块输出。</li><li>使用方：Bundlers（打包工具，例如Webpack，Browserify等）、Browser（浏览器）</li></ul><p>TODO:下方列出了所有的构建项以及它们的大致区别，当然也不仅仅只是这些简单的区别，具体的区别还需要进一步分析。</p><table><thead><tr><th>构建名称</th><th>平台</th><th>版本</th><th>环境</th><th>模块</th><th>使用方</th></tr></thead><tbody><tr><td>web-runtime-cjs-dev</td><td>web</td><td>运行时版</td><td>development</td><td>CommonJS</td><td>Bundlers</td></tr><tr><td>web-runtime-cjs-prod</td><td>web</td><td>运行时版</td><td>production</td><td>CommonJS</td><td>Bundlers</td></tr><tr><td>web-full-cjs-dev</td><td>web</td><td>完整版</td><td>development</td><td>CommonJS</td><td>Browser</td></tr><tr><td>web-full-cjs-prod</td><td>web</td><td>完整版</td><td>production</td><td>CommonJS</td><td>Browser</td></tr><tr><td>web-runtime-esm</td><td>web</td><td>运行时版本</td><td>不区分</td><td>ES Module</td><td>Bundlers</td></tr><tr><td>web-full-esm</td><td>web</td><td>完整版</td><td>不区分</td><td>ES Module</td><td>Bundlers</td></tr><tr><td>web-full-esm-browser-dev</td><td>web</td><td>完整版</td><td>development</td><td>ES Module</td><td>Browser</td></tr><tr><td>web-full-esm-browser-prod</td><td>web</td><td>完整版</td><td>production</td><td>ES Module</td><td>Browser</td></tr><tr><td>web-runtime-dev</td><td>web</td><td>运行时版</td><td>development</td><td>UMD</td><td>Browser</td></tr><tr><td>web-runtime-prod</td><td>web</td><td>运行时版</td><td>production</td><td>UMD</td><td>Browser</td></tr><tr><td>web-full-dev</td><td>web</td><td>完整版</td><td>development</td><td>UMD</td><td>Browser</td></tr><tr><td>web-full-prod</td><td>web</td><td>完整版</td><td>production</td><td>UMD</td><td>Browser</td></tr><tr><td>web-compiler</td><td>web</td><td>编译器</td><td>不区分</td><td>CommonJS</td><td>Bundlers</td></tr><tr><td>web-compiler-browser</td><td>web</td><td>编译器</td><td>development</td><td>UMD</td><td>Browser</td></tr><tr><td>web-server-renderer-dev</td><td>web-server</td><td>不区分</td><td>development</td><td>CommonJS</td><td>不区分</td></tr><tr><td>web-server-renderer-prod</td><td>web-server</td><td>不区分</td><td>production</td><td>CommonJS</td><td>不区分</td></tr><tr><td>web-server-renderer-webpack-server-plugin</td><td>web-server</td><td>不区分</td><td>不区分</td><td>CommonJS</td><td>Webpack Server</td></tr><tr><td>web-server-renderer-webpack-client-plugin</td><td>web-server</td><td>不区分</td><td>不区分</td><td>CommonJS</td><td>Webpack Client</td></tr><tr><td>weex-factory</td><td>weex</td><td>运行时版</td><td>不区分</td><td>CommonJS</td><td>不区分</td></tr><tr><td>weex-framework</td><td>weex</td><td>运行时版</td><td>不区分</td><td>CommonJS</td><td>不区分</td></tr><tr><td>weex-compiler</td><td>weex</td><td>编译器</td><td>不区分</td><td>CommonJS</td><td>Weex’s Webpack Loader</td></tr></tbody></table><h1 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h1><p>package.json中的一些字段和构建命令说明如下：</p><ul><li>main：运行时版本，<code>cjs</code>模块，用于<code>webpack 1</code>或<code>browserify</code></li><li>module：运行时版本，<code>es</code>模块，用于<code>webpack 2+</code>或<code>Rollup</code></li><li>dev：构建完整版<code>umd</code>模块的Vue</li><li>dev:cjs：构建运行时<code>cjs</code>模块的Vue</li><li>dev:esm：构建运行时<code>es</code>模块的Vue</li><li>dev:ssr：构建<code>web-server-renderer</code>包</li><li>dev:compiler：构建<code>Compiler</code>包</li></ul><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"main"</span>: <span class="string">"dist/vue.runtime.common.js"</span>,</span><br><span class="line">    <span class="attr">"module"</span>: <span class="string">"dist/vue.runtime.esm.js"</span>,</span><br><span class="line">    <span class="attr">"scripts"</span>: &#123;</span><br><span class="line">        <span class="attr">"dev"</span>: <span class="string">"rollup -w -c scripts/config.js --environment TARGET:web-full-dev"</span>,</span><br><span class="line">        <span class="attr">"dev:cjs"</span>: <span class="string">"rollup -w -c scripts/config.js --environment TARGET:web-runtime-cjs-dev"</span>,</span><br><span class="line">        <span class="attr">"dev:esm"</span>: <span class="string">"rollup -w -c scripts/config.js --environment TARGET:web-runtime-esm"</span>,</span><br><span class="line">        <span class="attr">"dev:test"</span>: <span class="string">"karma start test/unit/karma.dev.config.js"</span>,</span><br><span class="line">        <span class="attr">"dev:ssr"</span>: <span class="string">"rollup -w -c scripts/config.js --environment TARGET:web-server-renderer"</span>,</span><br><span class="line">        <span class="attr">"dev:compiler"</span>: <span class="string">"rollup -w -c scripts/config.js --environment TARGET:web-compiler "</span>,</span><br><span class="line">        <span class="attr">"dev:weex"</span>: <span class="string">"rollup -w -c scripts/config.js --environment TARGET:weex-framework"</span>,</span><br><span class="line">        <span class="attr">"dev:weex:factory"</span>: <span class="string">"rollup -w -c scripts/config.js --environment TARGET:weex-factory"</span>,</span><br><span class="line">        <span class="attr">"dev:weex:compiler"</span>: <span class="string">"rollup -w -c scripts/config.js --environment TARGET:weex-compiler "</span>,</span><br><span class="line">        <span class="attr">"build"</span>: <span class="string">"node scripts/build.js"</span>,</span><br><span class="line">        <span class="attr">"build:ssr"</span>: <span class="string">"npm run build -- web-runtime-cjs,web-server-renderer"</span>,</span><br><span class="line">        <span class="attr">"build:weex"</span>: <span class="string">"npm run build -- weex"</span>,</span><br><span class="line">        <span class="attr">"test"</span>: <span class="string">"npm run lint &amp;&amp; flow check &amp;&amp; npm run test:types &amp;&amp; npm run test:cover &amp;&amp; npm run test:e2e -- --env phantomjs &amp;&amp; npm run test:ssr &amp;&amp; npm run test:weex"</span>,</span><br><span class="line">        <span class="attr">"test:unit"</span>: <span class="string">"karma start test/unit/karma.unit.config.js"</span>,</span><br><span class="line">        <span class="attr">"test:cover"</span>: <span class="string">"karma start test/unit/karma.cover.config.js"</span>,</span><br><span class="line">        <span class="attr">"test:e2e"</span>: <span class="string">"npm run build -- web-full-prod,web-server-basic-renderer &amp;&amp; node test/e2e/runner.js"</span>,</span><br><span class="line">        <span class="attr">"test:weex"</span>: <span class="string">"npm run build:weex &amp;&amp; jasmine JASMINE_CONFIG_PATH=test/weex/jasmine.js"</span>,</span><br><span class="line">        <span class="attr">"test:ssr"</span>: <span class="string">"npm run build:ssr &amp;&amp; jasmine JASMINE_CONFIG_PATH=test/ssr/jasmine.js"</span>,</span><br><span class="line">        <span class="attr">"test:sauce"</span>: <span class="string">"npm run sauce -- 0 &amp;&amp; npm run sauce -- 1 &amp;&amp; npm run sauce -- 2"</span>,</span><br><span class="line">        <span class="attr">"test:types"</span>: <span class="string">"tsc -p ./types/test/tsconfig.json"</span>,</span><br><span class="line">        <span class="attr">"lint"</span>: <span class="string">"eslint src scripts test"</span>,</span><br><span class="line">        <span class="attr">"flow"</span>: <span class="string">"flow check"</span>,</span><br><span class="line">        <span class="attr">"sauce"</span>: <span class="string">"karma start test/unit/karma.sauce.config.js"</span>,</span><br><span class="line">        <span class="attr">"bench:ssr"</span>: <span class="string">"npm run build:ssr &amp;&amp; node benchmarks/ssr/renderToString.js &amp;&amp; node benchmarks/ssr/renderToStream.js"</span>,</span><br><span class="line">        <span class="attr">"release"</span>: <span class="string">"bash scripts/release.sh"</span>,</span><br><span class="line">        <span class="attr">"release:weex"</span>: <span class="string">"bash scripts/release-weex.sh"</span>,</span><br><span class="line">        <span class="attr">"release:note"</span>: <span class="string">"node scripts/gen-release-note.js"</span>,</span><br><span class="line">        <span class="attr">"commit"</span>: <span class="string">"git-cz"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h1&gt;&lt;p&gt;最近在学习Vue源码，学习的路线主要是参考&lt;a href=&quot;http://hcysun.me/vue-design/art/
+      
+    
+    </summary>
+    
+      <category term="框架" scheme="http://yoursite.com/categories/%E6%A1%86%E6%9E%B6/"/>
+    
+      <category term="Vue" scheme="http://yoursite.com/categories/%E6%A1%86%E6%9E%B6/Vue/"/>
+    
+      <category term="原理" scheme="http://yoursite.com/categories/%E6%A1%86%E6%9E%B6/Vue/%E5%8E%9F%E7%90%86/"/>
+    
+    
+      <category term="Vue" scheme="http://yoursite.com/tags/Vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vue构造函数整理-原型</title>
+    <link href="http://yoursite.com/2019/03/20/Vue%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E6%95%B4%E7%90%86-%E5%8E%9F%E5%9E%8B.html"/>
+    <id>http://yoursite.com/2019/03/20/Vue构造函数整理-原型.html</id>
+    <published>2019-03-20T12:20:35.000Z</published>
+    <updated>2019-03-20T12:22:57.085Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="框架" scheme="http://yoursite.com/categories/%E6%A1%86%E6%9E%B6/"/>
+    
+      <category term="Vue" scheme="http://yoursite.com/categories/%E6%A1%86%E6%9E%B6/Vue/"/>
+    
+      <category term="附录" scheme="http://yoursite.com/categories/%E6%A1%86%E6%9E%B6/Vue/%E9%99%84%E5%BD%95/"/>
+    
+    
+      <category term="Vue" scheme="http://yoursite.com/tags/Vue/"/>
+    
+      <category term="VueConstructor" scheme="http://yoursite.com/tags/VueConstructor/"/>
+    
+      <category term="Prototype" scheme="http://yoursite.com/tags/Prototype/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vue构造函数</title>
+    <link href="http://yoursite.com/2019/03/20/Vue%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0.html"/>
+    <id>http://yoursite.com/2019/03/20/Vue构造函数.html</id>
+    <published>2019-03-20T12:19:50.000Z</published>
+    <updated>2019-03-20T14:05:44.861Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Vue构造函数的原型"><a href="#Vue构造函数的原型" class="headerlink" title="Vue构造函数的原型"></a>Vue构造函数的原型</h1><p>以<code>npm run dev</code>为切入点，查看<strong>package.json</strong>中的<strong>dev script</strong></p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"dev"</span>: <span class="string">"rollup -w -c scripts/config.js --environment TARGET:web-full-dev"</span></span><br></pre></td></tr></table></figure><p>找到scripts下的config.js，builds对象中包含了不同的构建配置</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> builds = &#123;</span><br><span class="line">  <span class="comment">// Runtime only (CommonJS). Used by bundlers e.g. Webpack &amp; Browserify</span></span><br><span class="line">  <span class="string">'web-runtime-cjs-dev'</span>: &#123;</span><br><span class="line">    entry: resolve(<span class="string">'web/entry-runtime.js'</span>),</span><br><span class="line">    dest: resolve(<span class="string">'dist/vue.runtime.common.dev.js'</span>),</span><br><span class="line">    format: <span class="string">'cjs'</span>,</span><br><span class="line">    env: <span class="string">'development'</span>,</span><br><span class="line">    banner</span><br><span class="line">  &#125;,</span><br><span class="line">  ...,</span><br><span class="line">  <span class="comment">// Runtime+compiler development build (Browser)</span></span><br><span class="line">  <span class="string">'web-full-dev'</span>: &#123;</span><br><span class="line">    entry: resolve(<span class="string">'web/entry-runtime-with-compiler.js'</span>),</span><br><span class="line">    dest: resolve(<span class="string">'dist/vue.js'</span>),</span><br><span class="line">    format: <span class="string">'umd'</span>,</span><br><span class="line">    env: <span class="string">'development'</span>,</span><br><span class="line">    alias: &#123; <span class="attr">he</span>: <span class="string">'./entity-decoder'</span> &#125;,</span><br><span class="line">    banner</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Vue构造函数的原型&quot;&gt;&lt;a href=&quot;#Vue构造函数的原型&quot; class=&quot;headerlink&quot; title=&quot;Vue构造函数的原型&quot;&gt;&lt;/a&gt;Vue构造函数的原型&lt;/h1&gt;&lt;p&gt;以&lt;code&gt;npm run dev&lt;/code&gt;为切入点，查看&lt;stron
+      
+    
+    </summary>
+    
+      <category term="框架" scheme="http://yoursite.com/categories/%E6%A1%86%E6%9E%B6/"/>
+    
+      <category term="Vue" scheme="http://yoursite.com/categories/%E6%A1%86%E6%9E%B6/Vue/"/>
+    
+      <category term="原理" scheme="http://yoursite.com/categories/%E6%A1%86%E6%9E%B6/Vue/%E5%8E%9F%E7%90%86/"/>
+    
+    
+      <category term="Vue" scheme="http://yoursite.com/tags/Vue/"/>
+    
+      <category term="VueConstructor" scheme="http://yoursite.com/tags/VueConstructor/"/>
+    
+  </entry>
   
   <entry>
     <title>vscode+typescript问题记录</title>
@@ -468,87 +554,6 @@
   </entry>
   
   <entry>
-    <title>冒泡排序</title>
-    <link href="http://yoursite.com/2019/03/08/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F.html"/>
-    <id>http://yoursite.com/2019/03/08/冒泡排序.html</id>
-    <published>2019-03-08T06:23:21.000Z</published>
-    <updated>2019-03-08T06:25:23.658Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment">冒泡排序</span></span><br><span class="line"><span class="comment">时间复杂度：O(n2)</span></span><br><span class="line"><span class="comment">算法介绍：https://blog.csdn.net/shuaizai88/article/details/73250615</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bubbleSort</span> (<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!(arr <span class="keyword">instanceof</span> <span class="built_in">Array</span>)) &#123;</span><br><span class="line">        <span class="keyword">return</span> []</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = arr.length - <span class="number">1</span>; i &gt; <span class="number">0</span>; i--) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> j = i; j &gt; <span class="number">0</span>; j--) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[j] &lt; arr[j - <span class="number">1</span>]) &#123;</span><br><span class="line">                <span class="keyword">let</span> tempNum = arr[j]</span><br><span class="line">                arr[j] = arr[j - <span class="number">1</span>]</span><br><span class="line">                arr[j - <span class="number">1</span>] = tempNum</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> arr = [<span class="number">5</span>, <span class="number">2</span>, <span class="number">8</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">1</span>]</span><br><span class="line">bubbleSort(arr)</span><br><span class="line"><span class="built_in">console</span>.log(arr)</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span 
-      
-    
-    </summary>
-    
-      <category term="算法" scheme="http://yoursite.com/categories/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="排序" scheme="http://yoursite.com/categories/%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F/"/>
-    
-    
-      <category term="算法，排序" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95%EF%BC%8C%E6%8E%92%E5%BA%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>插入排序</title>
-    <link href="http://yoursite.com/2019/03/08/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F.html"/>
-    <id>http://yoursite.com/2019/03/08/插入排序.html</id>
-    <published>2019-03-08T06:23:21.000Z</published>
-    <updated>2019-03-08T06:25:41.854Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">插入排序</span></span><br><span class="line"><span class="comment">时间复杂度：最好：O(n) 最坏O(n2)</span></span><br><span class="line"><span class="comment">算法介绍：https://www.cnblogs.com/hapjin/p/5517667.html</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">insertSort</span> (<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!(arr <span class="keyword">instanceof</span> <span class="built_in">Array</span>)) &#123;</span><br><span class="line">        <span class="keyword">return</span> []</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> arrLen = arr.length</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; arrLen; i++) &#123;</span><br><span class="line">        <span class="keyword">let</span> tempNum = arr[i]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; i; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[i] &lt; arr[j]) &#123;</span><br><span class="line">                arr.splice(i, <span class="number">1</span>)</span><br><span class="line">                arr.splice(j, <span class="number">0</span>, tempNum)</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> arr = [<span class="number">5</span>, <span class="number">2</span>, <span class="number">8</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">1</span>]</span><br><span class="line">insertSort(arr)</span><br><span class="line"><span class="built_in">console</span>.log(arr)</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span 
-      
-    
-    </summary>
-    
-      <category term="算法" scheme="http://yoursite.com/categories/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="排序" scheme="http://yoursite.com/categories/%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F/"/>
-    
-    
-      <category term="算法，排序" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95%EF%BC%8C%E6%8E%92%E5%BA%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>快速排序</title>
-    <link href="http://yoursite.com/2019/03/08/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F.html"/>
-    <id>http://yoursite.com/2019/03/08/快速排序.html</id>
-    <published>2019-03-08T06:23:21.000Z</published>
-    <updated>2019-03-08T06:26:06.601Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment">快速排序</span></span><br><span class="line"><span class="comment">时间复杂度：O(N*logN)</span></span><br><span class="line"><span class="comment">算法介绍：http://developer.51cto.com/art/201403/430986.htm</span></span><br><span class="line"><span class="comment">疑问点：</span></span><br><span class="line"><span class="comment">基数在左边，为什么要从右边先开始查找？</span></span><br><span class="line"><span class="comment">答：从代码层面分析，因为最后找到的一个数也就是小标为i的数需要与基数对换，而基数在最左边，说明最后一个数会放到最左边，也就是最后一个数必须必基数小，而从右边开始查找的是必基数小的数，终止</span></span><br><span class="line"><span class="comment">查找的可能性：</span></span><br><span class="line"><span class="comment">从右侧开始查找终止查找的可能性：</span></span><br><span class="line"><span class="comment">1. 前一次对调结束，j找到i所在位置，此时i是比基数小的，i下标对应的数与基数对换没有问题</span></span><br><span class="line"><span class="comment">2. 前一次对调结束，j找到最后一个数，这个数比基数小，j停止，i开始查找比基数大的数，走到j的位置，i不小于j，停止，i下标对应的数与基数对换没有问题</span></span><br><span class="line"><span class="comment">从左侧开始查找终止查找的可能性：</span></span><br><span class="line"><span class="comment">1. 前一次对调结束，i找到j所在位置，此时i是比基数大的，i下标对应的数与基数对换出错</span></span><br><span class="line"><span class="comment">2. 前一次对调结束，i找到最后一个数，这个数比基数大，i停止，j开始查找比基数小的数，走到i的位置，i不小于j，停止，i下标对应的数与基数对换出错</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">quickSort</span> (<span class="params">_left, _right, _arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!(_arr <span class="keyword">instanceof</span> <span class="built_in">Array</span>)) &#123;</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (_left &gt;= _right) &#123;</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> baseNum = _arr[_left]</span><br><span class="line">    <span class="keyword">let</span> i = _left</span><br><span class="line">    <span class="keyword">let</span> j = _right</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (i !== j) &#123;</span><br><span class="line">        <span class="keyword">while</span> (_arr[j] &gt;= baseNum &amp;&amp; i &lt; j) &#123;</span><br><span class="line">            j--</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (_arr[i] &lt;= baseNum &amp;&amp; i &lt; j) &#123;</span><br><span class="line">            i++</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (i &lt; j) &#123;</span><br><span class="line">            <span class="keyword">let</span> tempNum = _arr[i]</span><br><span class="line">            _arr[i] = _arr[j]</span><br><span class="line">            _arr[j] = tempNum</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    _arr[_left] = _arr[i]</span><br><span class="line">    _arr[i] = baseNum </span><br><span class="line">    <span class="built_in">console</span>.log(_arr)</span><br><span class="line">    quickSort(_left, i - <span class="number">1</span>, _arr)</span><br><span class="line">    quickSort(i + <span class="number">1</span>, _right, _arr)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> arr = [<span class="number">6</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">7</span>, <span class="number">9</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">10</span>, <span class="number">8</span>]</span><br><span class="line"><span class="comment">// let arr = [5, 80, 55, 40, 42, 85]</span></span><br><span class="line">quickSort(<span class="number">0</span>, arr.length - <span class="number">1</span>, arr)</span><br><span class="line"><span class="built_in">console</span>.log(arr)</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span 
-      
-    
-    </summary>
-    
-      <category term="算法" scheme="http://yoursite.com/categories/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="排序" scheme="http://yoursite.com/categories/%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F/"/>
-    
-    
-      <category term="算法，排序" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95%EF%BC%8C%E6%8E%92%E5%BA%8F/"/>
-    
-  </entry>
-  
-  <entry>
     <title>选择排序</title>
     <link href="http://yoursite.com/2019/03/08/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F.html"/>
     <id>http://yoursite.com/2019/03/08/选择排序.html</id>
@@ -576,39 +581,29 @@
   </entry>
   
   <entry>
-    <title>VueRouter之打开新的标签页</title>
-    <link href="http://yoursite.com/2019/03/08/VueRouter%E4%B9%8B%E6%89%93%E5%BC%80%E6%96%B0%E7%9A%84%E6%A0%87%E7%AD%BE%E9%A1%B5.html"/>
-    <id>http://yoursite.com/2019/03/08/VueRouter之打开新的标签页.html</id>
-    <published>2019-03-08T06:20:37.000Z</published>
-    <updated>2019-03-08T06:21:24.623Z</updated>
+    <title>冒泡排序</title>
+    <link href="http://yoursite.com/2019/03/08/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F.html"/>
+    <id>http://yoursite.com/2019/03/08/冒泡排序.html</id>
+    <published>2019-03-08T06:23:21.000Z</published>
+    <updated>2019-03-08T06:25:23.658Z</updated>
     
-    <content type="html"><![CDATA[<ol><li>router-link添加target=”_blank”属性</li><li>window.open</li></ol><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; href &#125; = <span class="keyword">this</span>.$router.resolve(location, current ?, append ?) <span class="comment">// 解析目标位置</span></span><br><span class="line"><span class="built_in">window</span>.open(href, <span class="string">'_blank'</span>)</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment">冒泡排序</span></span><br><span class="line"><span class="comment">时间复杂度：O(n2)</span></span><br><span class="line"><span class="comment">算法介绍：https://blog.csdn.net/shuaizai88/article/details/73250615</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bubbleSort</span> (<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!(arr <span class="keyword">instanceof</span> <span class="built_in">Array</span>)) &#123;</span><br><span class="line">        <span class="keyword">return</span> []</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = arr.length - <span class="number">1</span>; i &gt; <span class="number">0</span>; i--) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> j = i; j &gt; <span class="number">0</span>; j--) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[j] &lt; arr[j - <span class="number">1</span>]) &#123;</span><br><span class="line">                <span class="keyword">let</span> tempNum = arr[j]</span><br><span class="line">                arr[j] = arr[j - <span class="number">1</span>]</span><br><span class="line">                arr[j - <span class="number">1</span>] = tempNum</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> arr = [<span class="number">5</span>, <span class="number">2</span>, <span class="number">8</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">1</span>]</span><br><span class="line">bubbleSort(arr)</span><br><span class="line"><span class="built_in">console</span>.log(arr)</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;ol&gt;
-&lt;li&gt;router-link添加target=”_blank”属性&lt;/li&gt;
-&lt;li&gt;window.open&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;
+        &lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span 
       
     
     </summary>
     
-      <category term="框架" scheme="http://yoursite.com/categories/%E6%A1%86%E6%9E%B6/"/>
+      <category term="算法" scheme="http://yoursite.com/categories/%E7%AE%97%E6%B3%95/"/>
     
-      <category term="Vue" scheme="http://yoursite.com/categories/%E6%A1%86%E6%9E%B6/Vue/"/>
-    
-      <category term="问题积累" scheme="http://yoursite.com/categories/%E6%A1%86%E6%9E%B6/Vue/%E9%97%AE%E9%A2%98%E7%A7%AF%E7%B4%AF/"/>
+      <category term="排序" scheme="http://yoursite.com/categories/%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F/"/>
     
     
-      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
-    
-      <category term="vue-router" scheme="http://yoursite.com/tags/vue-router/"/>
-    
-      <category term="window.open" scheme="http://yoursite.com/tags/window-open/"/>
+      <category term="算法，排序" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95%EF%BC%8C%E6%8E%92%E5%BA%8F/"/>
     
   </entry>
   

@@ -323,7 +323,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">30</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">31</span></a>
 
   </li>
         
@@ -426,6 +426,260 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/08/Jekins构建结果与本地构建结果Vue版本不同.html">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cong.Wang">
+      <meta itemprop="description" content="WgCg、Cong.Wang、WangCong、Vue、Webpack、HTML、CSS、JS">
+      <meta itemprop="image" content="/uploads/mine/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WgCg Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/03/08/Jekins构建结果与本地构建结果Vue版本不同.html" class="post-title-link" itemprop="url">Jekins构建结果与本地构建结果Vue版本不同</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-03-08 15:00:30 / 修改时间：15:09:09" itemprop="dateCreated datePublished" datetime="2019-03-08T15:00:30+08:00">2019-03-08</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/打包工具/" itemprop="url" rel="index"><span itemprop="name">打包工具</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/打包工具/Webpack/" itemprop="url" rel="index"><span itemprop="name">Webpack</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/打包工具/Webpack/问题积累/" itemprop="url" rel="index"><span itemprop="name">问题积累</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/03/08/Jekins构建结果与本地构建结果Vue版本不同.html#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/03/08/Jekins构建结果与本地构建结果Vue版本不同.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/03/08/Jekins构建结果与本地构建结果Vue版本不同.html" class="leancloud_visitors" data-flag-title="Jekins构建结果与本地构建结果Vue版本不同">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">953</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">1 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>项目迁移到jenkins，通过jenkins进行构建，部署后发现页面报错，但是本地构建出来代码部署后是正常的，报错如下：</p>
+<p><img width="800" src="/assets/webpack/problems/9.png"></p>
+<h1 id="问题排查过程"><a href="#问题排查过程" class="headerlink" title="问题排查过程"></a>问题排查过程</h1><ol>
+<li><p>注释webpack插件UglifyJsPlugin插件，不进行代码压缩</p>
+<p> <img width="500" src="/assets/webpack/problems/13.png"></p>
+</li>
+<li><p>对比本地代码与jenkins构建出来的代码，构建输出目录结构如下：<br> <img width="500" src="/assets/webpack/problems/14.png"></p>
+</li>
+<li><p>对比结果</p>
+<ul>
+<li>app.js中只存在一些变量名和Path的不一致，不会产生错误</li>
+<li>manifest.js完全一致</li>
+<li>vendor.js中Vue的版本不一致，jenkins构建出来的Vue版本是2.5.20，本地构建出来的Vue版本是2.5.21，推测是由此产生的错误</li>
+</ul>
+</li>
+<li>用本地构建出的vendor.js替换jenkins构建出的vendor.js，部署到ftp上，发现问题解决了，确认推测是正确的</li>
+<li><p>对比两个Vue版本代码的不同，发现是以下代码影响的：</p>
+<p> <img width="800" src="/assets/webpack/problems/10.png"></p>
+<p> <img width="500" src="/assets/webpack/problems/8.png"></p>
+<p> <img width="500" src="/assets/webpack/problems/12.png"></p>
+<p> 分析：rendList是v-for的实现方法，在Vue2.5.20中，当入参val属于类型: Array, String, Number, Object（非null）时初始化变量ret为数组并进行相应的处理，然后判断ret变量不为undefined和null时，给ret变量添加属性_isVList为true，然后将ret变量返回，ret的类型可能为undefined, Array，当返回undefined时，对undefined进行一些数组的操作就会发生错误，而控制台所报的错误就是因为取了undefined.length导致的，在Vue2.5.21版本修复了这个Bug，如果ret变量为undefined或null时，初始化ret为[]，这样确保rendList的返回值类型始终为Array</p>
+</li>
+</ol>
+<h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><p>由上可知，产生改问题的原因如下：</p>
+<ul>
+<li>直接原因： Vue2.5.20版本中存在代码漏洞</li>
+<li>根本原因：jenkins服务器安装的Vue版本不正确，而为什么jenkins服务器安装的vue版本和本地安装的不一致，需要进一步排查，已经排除是node版本导致的原因</li>
+</ul>
+<p>因此，只要把package.json中vue依赖的版本号固定为2.5.21（注意：vue-template-compiler版本需要跟vue版本保持一致），问题就可以解决了，如下图：</p>
+<p><img width="500" src="/assets/webpack/problems/15.png"></p>
+<p><img width="500" src="/assets/webpack/problems/11.png"></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -2837,228 +3091,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/08/冒泡排序.html">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cong.Wang">
-      <meta itemprop="description" content="WgCg、Cong.Wang、WangCong、Vue、Webpack、HTML、CSS、JS">
-      <meta itemprop="image" content="/uploads/mine/head.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WgCg Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/03/08/冒泡排序.html" class="post-title-link" itemprop="url">冒泡排序</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-03-08 14:23:21 / 修改时间：14:25:23" itemprop="dateCreated datePublished" datetime="2019-03-08T14:23:21+08:00">2019-03-08</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/算法/排序/" itemprop="url" rel="index"><span itemprop="name">排序</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/03/08/冒泡排序.html#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/03/08/冒泡排序.html" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2019/03/08/冒泡排序.html" class="leancloud_visitors" data-flag-title="冒泡排序">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数：</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">581</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">1 分钟</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment">冒泡排序</span></span><br><span class="line"><span class="comment">时间复杂度：O(n2)</span></span><br><span class="line"><span class="comment">算法介绍：https://blog.csdn.net/shuaizai88/article/details/73250615</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bubbleSort</span> (<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!(arr <span class="keyword">instanceof</span> <span class="built_in">Array</span>)) &#123;</span><br><span class="line">        <span class="keyword">return</span> []</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = arr.length - <span class="number">1</span>; i &gt; <span class="number">0</span>; i--) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> j = i; j &gt; <span class="number">0</span>; j--) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[j] &lt; arr[j - <span class="number">1</span>]) &#123;</span><br><span class="line">                <span class="keyword">let</span> tempNum = arr[j]</span><br><span class="line">                arr[j] = arr[j - <span class="number">1</span>]</span><br><span class="line">                arr[j - <span class="number">1</span>] = tempNum</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> arr = [<span class="number">5</span>, <span class="number">2</span>, <span class="number">8</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">1</span>]</span><br><span class="line">bubbleSort(arr)</span><br><span class="line"><span class="built_in">console</span>.log(arr)</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -3103,7 +3140,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">30</span>
+                    <span class="site-state-item-count">31</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -3318,7 +3355,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">152k</span>
+    <span title="站点总字数">160k</span>
   
 
   
@@ -3327,7 +3364,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">2:18</span>
+    <span title="站点阅读时长">2:26</span>
   
 </div>
 

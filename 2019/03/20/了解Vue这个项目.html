@@ -112,7 +112,7 @@
 <meta property="og:site_name" content="WgCg Blog">
 <meta property="og:description" content="写在前面最近在学习Vue源码，学习的路线主要是参考Vue技术内幕来的，阅读的过程中按照讲解一步步从浅入深，感觉自己还是跟的上的，但是当看完了一半的文章后，回过来想想又感觉自己什么都不懂，再往下读下去，我认为会非常吃力，并且最后的结果很可能是对于某一个知识点自己能稍微说的上来，但是对于整体的架构，某行具体的代码，为什么要这么做，这么做是为了解决什么样的问题等等一无所知，同时也为了以后能有个贯穿整体的">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-21T06:40:38.374Z">
+<meta property="og:updated_time" content="2019-03-26T03:22:59.370Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="了解Vue这个项目">
 <meta name="twitter:description" content="写在前面最近在学习Vue源码，学习的路线主要是参考Vue技术内幕来的，阅读的过程中按照讲解一步步从浅入深，感觉自己还是跟的上的，但是当看完了一半的文章后，回过来想想又感觉自己什么都不懂，再往下读下去，我认为会非常吃力，并且最后的结果很可能是对于某一个知识点自己能稍微说的上来，但是对于整体的架构，某行具体的代码，为什么要这么做，这么做是为了解决什么样的问题等等一无所知，同时也为了以后能有个贯穿整体的">
@@ -323,7 +323,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">31</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">32</span></a>
 
   </li>
         
@@ -502,7 +502,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-03-21 14:40:38" itemprop="dateModified" datetime="2019-03-21T14:40:38+08:00">2019-03-21</time>
+                <time title="修改时间：2019-03-26 11:22:59" itemprop="dateModified" datetime="2019-03-26T11:22:59+08:00">2019-03-26</time>
               
             
           </span>
@@ -822,6 +822,8 @@
 <li>dev:compiler：构建<code>Compiler</code>包</li>
 </ul>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"main"</span>: <span class="string">"dist/vue.runtime.common.js"</span>,</span><br><span class="line">    <span class="attr">"module"</span>: <span class="string">"dist/vue.runtime.esm.js"</span>,</span><br><span class="line">    <span class="attr">"scripts"</span>: &#123;</span><br><span class="line">        <span class="attr">"dev"</span>: <span class="string">"rollup -w -c scripts/config.js --environment TARGET:web-full-dev"</span>,</span><br><span class="line">        <span class="attr">"dev:cjs"</span>: <span class="string">"rollup -w -c scripts/config.js --environment TARGET:web-runtime-cjs-dev"</span>,</span><br><span class="line">        <span class="attr">"dev:esm"</span>: <span class="string">"rollup -w -c scripts/config.js --environment TARGET:web-runtime-esm"</span>,</span><br><span class="line">        <span class="attr">"dev:test"</span>: <span class="string">"karma start test/unit/karma.dev.config.js"</span>,</span><br><span class="line">        <span class="attr">"dev:ssr"</span>: <span class="string">"rollup -w -c scripts/config.js --environment TARGET:web-server-renderer"</span>,</span><br><span class="line">        <span class="attr">"dev:compiler"</span>: <span class="string">"rollup -w -c scripts/config.js --environment TARGET:web-compiler "</span>,</span><br><span class="line">        <span class="attr">"dev:weex"</span>: <span class="string">"rollup -w -c scripts/config.js --environment TARGET:weex-framework"</span>,</span><br><span class="line">        <span class="attr">"dev:weex:factory"</span>: <span class="string">"rollup -w -c scripts/config.js --environment TARGET:weex-factory"</span>,</span><br><span class="line">        <span class="attr">"dev:weex:compiler"</span>: <span class="string">"rollup -w -c scripts/config.js --environment TARGET:weex-compiler "</span>,</span><br><span class="line">        <span class="attr">"build"</span>: <span class="string">"node scripts/build.js"</span>,</span><br><span class="line">        <span class="attr">"build:ssr"</span>: <span class="string">"npm run build -- web-runtime-cjs,web-server-renderer"</span>,</span><br><span class="line">        <span class="attr">"build:weex"</span>: <span class="string">"npm run build -- weex"</span>,</span><br><span class="line">        <span class="attr">"test"</span>: <span class="string">"npm run lint &amp;&amp; flow check &amp;&amp; npm run test:types &amp;&amp; npm run test:cover &amp;&amp; npm run test:e2e -- --env phantomjs &amp;&amp; npm run test:ssr &amp;&amp; npm run test:weex"</span>,</span><br><span class="line">        <span class="attr">"test:unit"</span>: <span class="string">"karma start test/unit/karma.unit.config.js"</span>,</span><br><span class="line">        <span class="attr">"test:cover"</span>: <span class="string">"karma start test/unit/karma.cover.config.js"</span>,</span><br><span class="line">        <span class="attr">"test:e2e"</span>: <span class="string">"npm run build -- web-full-prod,web-server-basic-renderer &amp;&amp; node test/e2e/runner.js"</span>,</span><br><span class="line">        <span class="attr">"test:weex"</span>: <span class="string">"npm run build:weex &amp;&amp; jasmine JASMINE_CONFIG_PATH=test/weex/jasmine.js"</span>,</span><br><span class="line">        <span class="attr">"test:ssr"</span>: <span class="string">"npm run build:ssr &amp;&amp; jasmine JASMINE_CONFIG_PATH=test/ssr/jasmine.js"</span>,</span><br><span class="line">        <span class="attr">"test:sauce"</span>: <span class="string">"npm run sauce -- 0 &amp;&amp; npm run sauce -- 1 &amp;&amp; npm run sauce -- 2"</span>,</span><br><span class="line">        <span class="attr">"test:types"</span>: <span class="string">"tsc -p ./types/test/tsconfig.json"</span>,</span><br><span class="line">        <span class="attr">"lint"</span>: <span class="string">"eslint src scripts test"</span>,</span><br><span class="line">        <span class="attr">"flow"</span>: <span class="string">"flow check"</span>,</span><br><span class="line">        <span class="attr">"sauce"</span>: <span class="string">"karma start test/unit/karma.sauce.config.js"</span>,</span><br><span class="line">        <span class="attr">"bench:ssr"</span>: <span class="string">"npm run build:ssr &amp;&amp; node benchmarks/ssr/renderToString.js &amp;&amp; node benchmarks/ssr/renderToStream.js"</span>,</span><br><span class="line">        <span class="attr">"release"</span>: <span class="string">"bash scripts/release.sh"</span>,</span><br><span class="line">        <span class="attr">"release:weex"</span>: <span class="string">"bash scripts/release-weex.sh"</span>,</span><br><span class="line">        <span class="attr">"release:note"</span>: <span class="string">"node scripts/gen-release-note.js"</span>,</span><br><span class="line">        <span class="attr">"commit"</span>: <span class="string">"git-cz"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>下一篇：<a href="/2019/03/20/Vue构造函数.html">Vue构造函数</a></p>
+
       
     </div>
 
@@ -968,7 +970,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">31</span>
+                    <span class="site-state-item-count">32</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1200,7 +1202,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">160k</span>
+    <span title="站点总字数">168k</span>
   
 
   
@@ -1209,7 +1211,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">2:26</span>
+    <span title="站点阅读时长">2:33</span>
   
 </div>
 

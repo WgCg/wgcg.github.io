@@ -323,7 +323,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">31</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">32</span></a>
 
   </li>
         
@@ -442,6 +442,271 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/26/Vue选项的规范化.html">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cong.Wang">
+      <meta itemprop="description" content="WgCg、Cong.Wang、WangCong、Vue、Webpack、HTML、CSS、JS">
+      <meta itemprop="image" content="/uploads/mine/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WgCg Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/03/26/Vue选项的规范化.html" class="post-title-link" itemprop="url">Vue选项的规范化</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-03-26 11:25:26 / 修改时间：21:54:04" itemprop="dateCreated datePublished" datetime="2019-03-26T11:25:26+08:00">2019-03-26</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/框架/" itemprop="url" rel="index"><span itemprop="name">框架</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/框架/Vue/" itemprop="url" rel="index"><span itemprop="name">Vue</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/框架/Vue/原理/" itemprop="url" rel="index"><span itemprop="name">原理</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/03/26/Vue选项的规范化.html#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/03/26/Vue选项的规范化.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/03/26/Vue选项的规范化.html" class="leancloud_visitors" data-flag-title="Vue选项的规范化">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">3.3k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">3 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>这节主要是对 <code>mergeOptions</code> 方法进行说明，根据<code>core/instance/init.js</code>顶部的引用关系可知，<code>mergeOptions</code>函数来自于<code>src/core/util/options.js</code>文件，事实上不仅仅是<code>mergeOptions</code>函数，整个文件所做的一切都是为了一件事：选项的合并</p>
+<h1 id="弄清楚传递给-mergeOptions-函数的三个参数"><a href="#弄清楚传递给-mergeOptions-函数的三个参数" class="headerlink" title="弄清楚传递给 mergeOptions 函数的三个参数"></a>弄清楚传递给 mergeOptions 函数的三个参数</h1><p>首先，我们需要搞清楚一件事，就是如下代码中传递给<code>mergeOptions</code>函数的三个参数到底是什么</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vm.$options = mergeOptions(</span><br><span class="line">    resolveConstructorOptions(vm.constructor),</span><br><span class="line">    options || &#123;&#125;,</span><br><span class="line">    vm</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<ol>
+<li><p>第一个参数是通过调用<code>resolveConstructorOptions</code>函数得到的，并将<code>vm.constructor</code>作为参数传递进去，这个函数声明在<code>src/core/instance/init.js</code>文件中，如下：</p>
+ <figure class="highlight javascript"><figcaption><span>resolveConstructorOptions</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">resolveConstructorOptions</span> (<span class="params">Ctor: Class&lt;Component&gt;</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> options = Ctor.options</span><br><span class="line">    <span class="keyword">if</span> (Ctor.super) &#123;</span><br><span class="line">        <span class="keyword">const</span> superOptions = resolveConstructorOptions(Ctor.super)</span><br><span class="line">        <span class="keyword">const</span> cachedSuperOptions = Ctor.superOptions</span><br><span class="line">        <span class="keyword">if</span> (superOptions !== cachedSuperOptions) &#123;</span><br><span class="line">        <span class="comment">// super option changed,</span></span><br><span class="line">        <span class="comment">// need to resolve new options.</span></span><br><span class="line">        Ctor.superOptions = superOptions</span><br><span class="line">        <span class="comment">// check if there are any late-modified/attached options (#4976)</span></span><br><span class="line">        <span class="keyword">const</span> modifiedOptions = resolveModifiedOptions(Ctor)</span><br><span class="line">        <span class="comment">// update base extend options</span></span><br><span class="line">        <span class="keyword">if</span> (modifiedOptions) &#123;</span><br><span class="line">            extend(Ctor.extendOptions, modifiedOptions)</span><br><span class="line">        &#125;</span><br><span class="line">        options = Ctor.options = mergeOptions(superOptions, Ctor.extendOptions)</span><br><span class="line">        <span class="keyword">if</span> (options.name) &#123;</span><br><span class="line">            options.components[options.name] = Ctor</span><br><span class="line">        &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> options</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>声明<code>options</code>变量，初始化为当前实例构造函数的<code>options</code>，在这个例子中<code>Ctor</code>是<code>Vue</code>（如果是实例化通过<code>Vue.extend</code>创建的子类，那么这里的<code>Ctor</code>就不是<code>Vue</code>，而是该子类），然后返回<code>options</code>变量</li>
+<li>如果<code>Ctor.super</code>存在（该实例是通过实例化<code>Vue.extend</code>创建的子类实现的），则执行<code>if</code>判断语句里面的代码</li>
+<li><p>该函数的作用就是用来获取当前实例构造者的<code>options</code>属性（在这个例子中就是Vue.options，如下）</p>
+ <figure class="highlight javascript"><figcaption><span>Vue.options</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Vue.options = &#123;</span><br><span class="line">    components: &#123;</span><br><span class="line">        KeepAlive</span><br><span class="line">        Transition,</span><br><span class="line">        TransitionGroup</span><br><span class="line">    &#125;,</span><br><span class="line">    directives:&#123;</span><br><span class="line">        model,</span><br><span class="line">        show</span><br><span class="line">    &#125;,</span><br><span class="line">    filters: <span class="built_in">Object</span>.create(<span class="literal">null</span>),</span><br><span class="line">    _base: Vue</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>第二个参数就是我们调用<code>Vue</code>构造函数传进来的参数</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    el: <span class="string">'#app'</span>,</span><br><span class="line">    data: &#123;</span><br><span class="line">        test: <span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>第三个参数<code>vm</code>是实例对象本身</p>
+</li>
+</ol>
+<h1 id="检查组件名称是否符合要求"><a href="#检查组件名称是否符合要求" class="headerlink" title="检查组件名称是否符合要求"></a>检查组件名称是否符合要求</h1><p>打开<code>src/core/util/options.js</code>，找到<code>mergeOptions</code>方法，这个方法上面有一段注释：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Merge two option objects into a new one.</span></span><br><span class="line"><span class="comment"> * Core utility used in both instantiation and inheritance.</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+<p>合并两个对象为一个对象，这个函数不仅仅在实例化对象（即<code>_init</code>方法中）的时候用到，在继承（<code>Vue.extend</code>）中也有用到，所以这个函数是一个用来合并两个选项对象为一个新对象的通用程序。</p>
+<p>开始的一段代码如下，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (process.env.NODE_ENV !== <span class="string">'production'</span>) &#123;</span><br><span class="line">  checkComponents(child)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在非生产环境下，会以<code>child</code>对象（构造实例时传入的options）为参数，调用<code>checkComponents</code>方法，该方法是用来校验组件名是否符合要求的，组件名的要求如下</p>
+<ol>
+<li>组件的名称需要满足正则表达式：<code>/^[a-zA-Z][\\-\\.0-9_a-zA-Z\u00B7\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u037D\u037F-\u1FFF\u200C-\u200D\u203F-\u2040\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD]*$/</code></li>
+<li>要满足：条件<code>isBuiltInTag(name) || config.isReservedTag(name)</code>不成立<ol>
+<li><code>isBuitlInTag</code>检测是否是内置标签（slot、component）</li>
+<li><code>config.isReservedTag</code>检测是否是保留标签，<code>isReservedTag</code>方法在<code>src/platform/web/runtime/index.js</code>中被初始化，通过查看可知在<code>Vue</code>中<code>html</code>标签和部分<code>SVG</code>标签被认为是保留的</li>
+</ol>
+</li>
+</ol>
+<h1 id="允许合并另一个实例构造者的选项"><a href="#允许合并另一个实例构造者的选项" class="headerlink" title="允许合并另一个实例构造者的选项"></a>允许合并另一个实例构造者的选项</h1><p>我们继续看代码，接下来的一段代码同样是一个<code>if</code>语句块</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> child === <span class="string">'function'</span>) &#123;</span><br><span class="line">  child = child.options</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这说明<code>child</code>参数除了是普通的选项对象外，还可以是一个函数，如果是函数的话就取该函数的<code>options</code>静态属性作为新的<code>child</code>。<code>Vue</code>和通过<code>Vue.extend</code>创造出来的子类拥有<code>options</code>属性。所以这就允许我们在进行选项合并的时候，去合并一个<code>Vue</code>实例构造者的选项了。</p>
+<h1 id="规范化-props（normalizeProps）"><a href="#规范化-props（normalizeProps）" class="headerlink" title="规范化 props（normalizeProps）"></a>规范化 props（normalizeProps）</h1><p>接着看代码，接下来是三个用来规范化选项的函数调用：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">normalizeProps(child, vm)</span><br><span class="line">normalizeInject(child, vm)</span><br><span class="line">normalizeDirectives(child)</span><br></pre></td></tr></table></figure>
+<ol>
+<li>normalizeProps: 将props统一规范为对象的形式</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/21/以一个例子为线索.html">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -491,8 +756,56 @@
             
 
             
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-03-26 11:25:46" itemprop="dateModified" datetime="2019-03-26T11:25:46+08:00">2019-03-26</time>
+              
+            
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/框架/" itemprop="url" rel="index"><span itemprop="name">框架</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/框架/Vue/" itemprop="url" rel="index"><span itemprop="name">Vue</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/框架/Vue/原理/" itemprop="url" rel="index"><span itemprop="name">原理</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -537,7 +850,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">0</span>
+                <span title="本文字数">4.2k</span>
               
 
               
@@ -551,7 +864,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">1 分钟</span>
+                <span title="阅读时长">4 分钟</span>
               
             </div>
           
@@ -573,7 +886,52 @@
       
         
           
-            
+            <p>假设我们有如下模板：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span>&#123;&#123;test&#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>和这样一段 js 代码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el: <span class="string">'#app'</span>,</span><br><span class="line">    data: &#123;</span><br><span class="line">        test: <span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>这段<code>js</code>代码很简单，我们只是简单的调用了<code>Vue</code>，传递了两个选项<code>el</code>和<code>data</code>。这段代码的最终效果就是在页面中渲染如下的<code>DOM</code>：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span>1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>其中<code></code>被替换成了<code>1</code>，并且当我们尝试修改<code>data.set</code>的时候</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vm.$data.test = <span class="number">2</span></span><br><span class="line"><span class="comment">// 或</span></span><br><span class="line">vm.test = <span class="number">2</span></span><br></pre></td></tr></table></figure>
+<p>那么页面的<code>DOM</code>也会随之变化为：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span>2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>我们从<code>new Vue()</code>的操作开始分析，从<a href="/2019/03/20/Vue构造函数.html">Vue 构造函数</a>这章中我们得知<code>Vue</code>构造函数定义在<code>src/core/instance/index.js</code>中</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Vue</span>(<span class="params">options</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (process.env.NODE_ENV !== <span class="string">'production'</span> &amp;&amp; !(<span class="keyword">this</span> <span class="keyword">instanceof</span> Vue)) &#123;</span><br><span class="line">        warn(<span class="string">'Vue is a constructor and should be called with the `new` keyword'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">this</span>._init(options)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>一目了然，这里首先进行了一个判断，在非生产环境不通过<code>new</code>操作符执行<code>Vue</code>函数时，会给予一个警告，然后调用了<code>_init</code>方法，<code>_init</code>方法是在<code>initMixin</code>方法中添加到<code>Vue.prototype</code>上的，<code>initMixin</code>方法是在<code>src/core/instance/init.js</code>中声明的，并把 options 作为参数传入</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">options = &#123;</span><br><span class="line">    el: <span class="string">'#app'</span>,</span><br><span class="line">    data: &#123;</span><br><span class="line">        test: <span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后我们来看看<code>_init</code>方法的具体代码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> vm: Component = <span class="keyword">this</span></span><br><span class="line"><span class="comment">// a uid</span></span><br><span class="line">vm._uid = uid++</span><br></pre></td></tr></table></figure>
+<ol>
+<li>把当前实例对象赋给变量 vm</li>
+<li>往 vm 实例上添加了一个唯一标识_uid，其值为<code>uid</code>，<code>uid</code>是在<code>initMixin</code>上发定义的初始化为 0，每次创建一个<code>Vue</code>实例后，<code>uid</code>的值便会加 1</li>
+</ol>
+<figure class="highlight javascript"><figcaption><span>性能追踪代码</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> startTag, endTag</span><br><span class="line"><span class="comment">/* istanbul ignore if */</span></span><br><span class="line"><span class="keyword">if</span> (process.env.NODE_ENV !== <span class="string">'production'</span> &amp;&amp; config.performance &amp;&amp; mark) &#123;</span><br><span class="line">    startTag = <span class="string">`vue-perf-start:<span class="subst">$&#123;vm._uid&#125;</span>`</span></span><br><span class="line">    endTag = <span class="string">`vue-perf-end:<span class="subst">$&#123;vm._uid&#125;</span>`</span></span><br><span class="line">    mark(startTag)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 中间的代码省略...</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* istanbul ignore if */</span></span><br><span class="line"><span class="keyword">if</span> (process.env.NODE_ENV !== <span class="string">'production'</span> &amp;&amp; config.performance &amp;&amp; mark) &#123;</span><br><span class="line">    vm._name = formatComponentName(vm, <span class="literal">false</span>)</span><br><span class="line">    mark(endTag)</span><br><span class="line">    measure(<span class="string">`vue <span class="subst">$&#123;vm._name&#125;</span> init`</span>, startTag, endTag)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li><code>config.performance</code>来自于<code>src/core/config.js</code>，<code>Vue</code>提供了全局配置<code>Vue.config.performance</code>，我们可以通过将其设置为<code>true</code>，即可开启性能追踪，你可以追踪四个场景的性能：<ol>
+<li>组件初始化（<code>component init</code>），也就是上面的代码</li>
+<li>编译（<code>compiler</code>），将模板（<code>template</code>）编译成渲染函数</li>
+<li>渲染（<code>render</code>），其实就是渲染函数执行并且生成虚拟 DOM（<code>vnode</code>）的性能</li>
+<li>打补丁，将虚拟 DOM 渲染成真实 DOM 的性能</li>
+</ol>
+</li>
+<li><p><code>mark</code>与<code>measure</code>的定义来自于<code>src/core/util/perf.js</code>，实际上调用的 window.performance.mark 与 window.performance.measure</p>
+ <figure class="highlight javascript"><figcaption><span>src/core/util/perf.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">let</span> mark</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">let</span> measure</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (process.env.NODE_ENV !== <span class="string">'production'</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> perf = inBrowser &amp;&amp; <span class="built_in">window</span>.performance</span><br><span class="line">    <span class="comment">/* istanbul ignore if */</span></span><br><span class="line">    <span class="keyword">if</span> (perf &amp;&amp; perf.mark &amp;&amp; perf.measure &amp;&amp; perf.clearMarks &amp;&amp; perf.clearMeasures) &#123;</span><br><span class="line">        mark = <span class="function"><span class="params">tag</span> =&gt;</span> perf.mark(tag)</span><br><span class="line">        measure = <span class="function">(<span class="params">name, startTag, endTag</span>) =&gt;</span> &#123;</span><br><span class="line">            perf.measure(name, startTag, endTag)</span><br><span class="line">            perf.clearMarks(startTag)</span><br><span class="line">            perf.clearMarks(endTag)</span><br><span class="line">            <span class="comment">// perf.clearMeasures(name)</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+ <figure class="highlight javascript"><figcaption><span>window.performance demo</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> perf = <span class="built_in">window</span>.performance</span><br><span class="line"><span class="keyword">const</span> startTag = <span class="string">'perf-start'</span></span><br><span class="line"><span class="keyword">const</span> endTag = <span class="string">'perf-end'</span></span><br><span class="line"></span><br><span class="line">perf &amp;&amp; perf.mark(startTag)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">10000</span>; i++) &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (perf) &#123;</span><br><span class="line">    perf.mark(endTag)</span><br><span class="line">    perf.measure(<span class="string">'performance test'</span>, startTag, endTag)</span><br><span class="line">    <span class="built_in">console</span>.log(perf.getEntries())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在Chorme中可通过<code>Performance Tab</code>下的<code>Timings</code>查看记录的性能</p>
+<p><img src="/assets/vue/theory/devtool-performance.jpg" width="500" title="View Performance Record By Chrome Devtool" alt="devtool-performance.jpg"></p>
+</li>
+</ol>
+<figure class="highlight javascript"><figcaption><span>性能追踪中间的代码</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// a flag to avoid this being observed</span></span><br><span class="line">vm._isVue = <span class="literal">true</span></span><br><span class="line"><span class="comment">// merge options</span></span><br><span class="line"><span class="keyword">if</span> (options &amp;&amp; options._isComponent) &#123;</span><br><span class="line">    <span class="comment">// optimize internal component instantiation</span></span><br><span class="line">    <span class="comment">// since dynamic options merging is pretty slow, and none of the</span></span><br><span class="line">    <span class="comment">// internal component options needs special treatment.</span></span><br><span class="line">    initInternalComponent(vm, options)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    vm.$options = mergeOptions(</span><br><span class="line">    resolveConstructorOptions(vm.constructor),</span><br><span class="line">    options || &#123;&#125;,</span><br><span class="line">    vm</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* istanbul ignore else */</span></span><br><span class="line"><span class="keyword">if</span> (process.env.NODE_ENV !== <span class="string">'production'</span>) &#123;</span><br><span class="line">    initProxy(vm)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    vm._renderProxy = vm</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// expose real self</span></span><br><span class="line">vm._self = vm</span><br><span class="line">initLifecycle(vm)</span><br><span class="line">initEvents(vm)</span><br><span class="line">initRender(vm)</span><br><span class="line">callHook(vm, <span class="string">'beforeCreate'</span>)</span><br><span class="line">initInjections(vm) <span class="comment">// resolve injections before data/props</span></span><br><span class="line">initState(vm)</span><br><span class="line">initProvide(vm) <span class="comment">// resolve provide after data/props</span></span><br><span class="line">callHook(vm, <span class="string">'created'</span>)</span><br></pre></td></tr></table></figure>
+<p>上面的代码是性能追踪代码中间的代码，主要做了以下几件事：</p>
+<ol>
+<li>在<code>Vue</code>实例上增加了<code>_isVue</code>属性，用来表示一个对象是否是<code>Vue</code>实例。这样可以避免被响应系统观测（其实在其它地方也有用到，但是宗旨是一样的）</li>
+<li>判断<code>options._isComponent</code>属性是否存在（该属性是调用<code>Vue.component</code>方法时，追加的一个内部属性），如果存在，TODO:，如果不存在，往当前实例上追加<code>$options</code>属性（在上面代码中一系列init的初始化方法中用到）</li>
+<li>调用了一系列的init初始化方法</li>
+</ol>
+<p>下一篇：<a href="/2019/03/26/Vue选项的规范化.html">Vue选项的规范化</a></p>
+
           
         
       
@@ -691,7 +1049,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-03-21 14:40:38" itemprop="dateModified" datetime="2019-03-21T14:40:38+08:00">2019-03-21</time>
+                <time title="修改时间：2019-03-26 11:22:59" itemprop="dateModified" datetime="2019-03-26T11:22:59+08:00">2019-03-26</time>
               
             
           </span>
@@ -1013,6 +1371,8 @@
 <li>dev:compiler：构建<code>Compiler</code>包</li>
 </ul>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"main"</span>: <span class="string">"dist/vue.runtime.common.js"</span>,</span><br><span class="line">    <span class="attr">"module"</span>: <span class="string">"dist/vue.runtime.esm.js"</span>,</span><br><span class="line">    <span class="attr">"scripts"</span>: &#123;</span><br><span class="line">        <span class="attr">"dev"</span>: <span class="string">"rollup -w -c scripts/config.js --environment TARGET:web-full-dev"</span>,</span><br><span class="line">        <span class="attr">"dev:cjs"</span>: <span class="string">"rollup -w -c scripts/config.js --environment TARGET:web-runtime-cjs-dev"</span>,</span><br><span class="line">        <span class="attr">"dev:esm"</span>: <span class="string">"rollup -w -c scripts/config.js --environment TARGET:web-runtime-esm"</span>,</span><br><span class="line">        <span class="attr">"dev:test"</span>: <span class="string">"karma start test/unit/karma.dev.config.js"</span>,</span><br><span class="line">        <span class="attr">"dev:ssr"</span>: <span class="string">"rollup -w -c scripts/config.js --environment TARGET:web-server-renderer"</span>,</span><br><span class="line">        <span class="attr">"dev:compiler"</span>: <span class="string">"rollup -w -c scripts/config.js --environment TARGET:web-compiler "</span>,</span><br><span class="line">        <span class="attr">"dev:weex"</span>: <span class="string">"rollup -w -c scripts/config.js --environment TARGET:weex-framework"</span>,</span><br><span class="line">        <span class="attr">"dev:weex:factory"</span>: <span class="string">"rollup -w -c scripts/config.js --environment TARGET:weex-factory"</span>,</span><br><span class="line">        <span class="attr">"dev:weex:compiler"</span>: <span class="string">"rollup -w -c scripts/config.js --environment TARGET:weex-compiler "</span>,</span><br><span class="line">        <span class="attr">"build"</span>: <span class="string">"node scripts/build.js"</span>,</span><br><span class="line">        <span class="attr">"build:ssr"</span>: <span class="string">"npm run build -- web-runtime-cjs,web-server-renderer"</span>,</span><br><span class="line">        <span class="attr">"build:weex"</span>: <span class="string">"npm run build -- weex"</span>,</span><br><span class="line">        <span class="attr">"test"</span>: <span class="string">"npm run lint &amp;&amp; flow check &amp;&amp; npm run test:types &amp;&amp; npm run test:cover &amp;&amp; npm run test:e2e -- --env phantomjs &amp;&amp; npm run test:ssr &amp;&amp; npm run test:weex"</span>,</span><br><span class="line">        <span class="attr">"test:unit"</span>: <span class="string">"karma start test/unit/karma.unit.config.js"</span>,</span><br><span class="line">        <span class="attr">"test:cover"</span>: <span class="string">"karma start test/unit/karma.cover.config.js"</span>,</span><br><span class="line">        <span class="attr">"test:e2e"</span>: <span class="string">"npm run build -- web-full-prod,web-server-basic-renderer &amp;&amp; node test/e2e/runner.js"</span>,</span><br><span class="line">        <span class="attr">"test:weex"</span>: <span class="string">"npm run build:weex &amp;&amp; jasmine JASMINE_CONFIG_PATH=test/weex/jasmine.js"</span>,</span><br><span class="line">        <span class="attr">"test:ssr"</span>: <span class="string">"npm run build:ssr &amp;&amp; jasmine JASMINE_CONFIG_PATH=test/ssr/jasmine.js"</span>,</span><br><span class="line">        <span class="attr">"test:sauce"</span>: <span class="string">"npm run sauce -- 0 &amp;&amp; npm run sauce -- 1 &amp;&amp; npm run sauce -- 2"</span>,</span><br><span class="line">        <span class="attr">"test:types"</span>: <span class="string">"tsc -p ./types/test/tsconfig.json"</span>,</span><br><span class="line">        <span class="attr">"lint"</span>: <span class="string">"eslint src scripts test"</span>,</span><br><span class="line">        <span class="attr">"flow"</span>: <span class="string">"flow check"</span>,</span><br><span class="line">        <span class="attr">"sauce"</span>: <span class="string">"karma start test/unit/karma.sauce.config.js"</span>,</span><br><span class="line">        <span class="attr">"bench:ssr"</span>: <span class="string">"npm run build:ssr &amp;&amp; node benchmarks/ssr/renderToString.js &amp;&amp; node benchmarks/ssr/renderToStream.js"</span>,</span><br><span class="line">        <span class="attr">"release"</span>: <span class="string">"bash scripts/release.sh"</span>,</span><br><span class="line">        <span class="attr">"release:weex"</span>: <span class="string">"bash scripts/release-weex.sh"</span>,</span><br><span class="line">        <span class="attr">"release:note"</span>: <span class="string">"node scripts/gen-release-note.js"</span>,</span><br><span class="line">        <span class="attr">"commit"</span>: <span class="string">"git-cz"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>下一篇：<a href="/2019/03/20/Vue构造函数.html">Vue构造函数</a></p>
+
           
         
       
@@ -1353,7 +1713,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-03-21 16:35:15" itemprop="dateModified" datetime="2019-03-21T16:35:15+08:00">2019-03-21</time>
+                <time title="修改时间：2019-03-26 11:23:54" itemprop="dateModified" datetime="2019-03-26T11:23:54+08:00">2019-03-26</time>
               
             
           </span>
@@ -1434,7 +1794,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">9.1k</span>
+                <span title="本文字数">9.2k</span>
               
 
               
@@ -1571,6 +1931,7 @@
 </ol>
 </li>
 </ol>
+<p>下一篇：<a href="/2019/03/21/以一个例子为线索.html">以一个例子为线索</a></p>
 
           
         
@@ -2854,236 +3215,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/08/git结合beyond-compare.html">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cong.Wang">
-      <meta itemprop="description" content="WgCg、Cong.Wang、WangCong、Vue、Webpack、HTML、CSS、JS">
-      <meta itemprop="image" content="/uploads/mine/head.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WgCg Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/03/08/git结合beyond-compare.html" class="post-title-link" itemprop="url">git结合beyond-compare</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-03-08 15:10:44 / 修改时间：15:14:00" itemprop="dateCreated datePublished" datetime="2019-03-08T15:10:44+08:00">2019-03-08</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/其它技术/" itemprop="url" rel="index"><span itemprop="name">其它技术</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/其它技术/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/03/08/git结合beyond-compare.html#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/03/08/git结合beyond-compare.html" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2019/03/08/git结合beyond-compare.html" class="leancloud_visitors" data-flag-title="git结合beyond-compare">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数：</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">933</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">1 分钟</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="beyond-compare-无限试用"><a href="#beyond-compare-无限试用" class="headerlink" title="beyond compare 无限试用"></a>beyond compare 无限试用</h1><h2 id="for-mac"><a href="#for-mac" class="headerlink" title="for mac"></a>for mac</h2><ol>
-<li>应用程序 -&gt; beyond cmpare右击显示包内容 -&gt; contents -&gt; macos</li>
-<li>在当前目录下新建文件BCompare.sh，把原来的BCompare重命名为BCompare.real</li>
-<li><p>编辑BCompare.sh，输入以下代码:</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">rm <span class="string">"/Users/<span class="variable">$(whoami)</span>/Library/Application Support/Beyond Compare/registry.dat"</span></span><br><span class="line"><span class="string">"`dirname "</span><span class="variable">$0</span><span class="string">"`"</span>/BCompare.real <span class="variable">$@</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>右击BCompare.sh -&gt; 显示简介 -&gt; 删除文件名后缀.sh</p>
-</li>
-</ol>
-<h1 id="gitconfig配置"><a href="#gitconfig配置" class="headerlink" title=".gitconfig配置"></a>.gitconfig配置</h1><p>.gitconfig位于user下, shift + comand + . 显示隐藏文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[alias]</span><br><span class="line">    dift = &quot;difftool --dir-diff --no-symlinks&quot;</span><br><span class="line">[diff]</span><br><span class="line">    tool = bcomp</span><br><span class="line">[difftool]</span><br><span class="line">    prompt = false</span><br><span class="line">[difftool &quot;bcomp&quot;]</span><br><span class="line">    trustExitCode = true</span><br><span class="line">    cmd = &quot;/usr/local/bin/bcomp&quot; \&quot;$LOCAL\&quot; \&quot;$REMOTE\&quot;</span><br><span class="line">[merge]</span><br><span class="line">    tool = bcomp</span><br><span class="line">[mergetool]</span><br><span class="line">    prompt = false</span><br><span class="line">[mergetool &quot;bcomp&quot;]</span><br><span class="line">    trustExitCode = true</span><br><span class="line">    cmd = &quot;/usr/local/bin/bcomp&quot; \&quot;$LOCAL\&quot; \&quot;$REMOTE\&quot; \&quot;$BASE\&quot; \&quot;$MERGED\&quot;</span><br></pre></td></tr></table></figure>
-<ol>
-<li>git dift origin/dev：当前分支与远程dev分支进行比较</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -3133,7 +3264,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">31</span>
+                    <span class="site-state-item-count">32</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -3348,7 +3479,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">160k</span>
+    <span title="站点总字数">168k</span>
   
 
   
@@ -3357,7 +3488,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">2:26</span>
+    <span title="站点阅读时长">2:33</span>
   
 </div>
 

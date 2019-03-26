@@ -104,17 +104,18 @@
 
 
 
-  <meta name="description" content="WgCg、Cong.Wang、WangCong、Vue、Webpack、HTML、CSS、JS">
-<meta name="keywords" content="FrontEnd、Life">
-<meta property="og:type" content="website">
-<meta property="og:title" content="WgCg Blog">
-<meta property="og:url" content="http://yoursite.com/categories/编程语言/typescript/index.html">
+  <meta name="description" content="这节主要是对 mergeOptions 方法进行说明，根据core/instance/init.js顶部的引用关系可知，mergeOptions函数来自于src/core/util/options.js文件，事实上不仅仅是mergeOptions函数，整个文件所做的一切都是为了一件事：选项的合并 弄清楚传递给 mergeOptions 函数的三个参数首先，我们需要搞清楚一件事，就是如下代码中传递给">
+<meta name="keywords" content="Vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue选项的规范化">
+<meta property="og:url" content="http://yoursite.com/2019/03/26/Vue选项的规范化.html">
 <meta property="og:site_name" content="WgCg Blog">
-<meta property="og:description" content="WgCg、Cong.Wang、WangCong、Vue、Webpack、HTML、CSS、JS">
+<meta property="og:description" content="这节主要是对 mergeOptions 方法进行说明，根据core/instance/init.js顶部的引用关系可知，mergeOptions函数来自于src/core/util/options.js文件，事实上不仅仅是mergeOptions函数，整个文件所做的一切都是为了一件事：选项的合并 弄清楚传递给 mergeOptions 函数的三个参数首先，我们需要搞清楚一件事，就是如下代码中传递给">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-26T13:54:04.388Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="WgCg Blog">
-<meta name="twitter:description" content="WgCg、Cong.Wang、WangCong、Vue、Webpack、HTML、CSS、JS">
+<meta name="twitter:title" content="Vue选项的规范化">
+<meta name="twitter:description" content="这节主要是对 mergeOptions 方法进行说明，根据core/instance/init.js顶部的引用关系可知，mergeOptions函数来自于src/core/util/options.js文件，事实上不仅仅是mergeOptions函数，整个文件所做的一切都是为了一件事：选项的合并 弄清楚传递给 mergeOptions 函数的三个参数首先，我们需要搞清楚一件事，就是如下代码中传递给">
 
 
 
@@ -123,7 +124,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/编程语言/typescript/">
+  <link rel="canonical" href="http://yoursite.com/2019/03/26/Vue选项的规范化.html">
 
 
 
@@ -133,7 +134,7 @@
   };
 </script>
 
-  <title>分类: typescript | WgCg Blog</title>
+  <title>Vue选项的规范化 | WgCg Blog</title>
   
 
 
@@ -191,7 +192,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband">
     </div>
 
@@ -291,7 +292,7 @@
         
         
           
-          <li class="menu-item menu-item-categories menu-item-active">
+          <li class="menu-item menu-item-categories">
 
     
     
@@ -421,115 +422,327 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block category">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>typescript<small>分类</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
+
+  
 
   <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/26/Vue选项的规范化.html">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cong.Wang">
+      <meta itemprop="description" content="WgCg、Cong.Wang、WangCong、Vue、Webpack、HTML、CSS、JS">
+      <meta itemprop="image" content="/uploads/mine/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WgCg Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-          <a class="post-title-link" href="/2019/03/19/vscode-typescript问题记录.html" itemprop="url">
-            
-              <span itemprop="name">vscode+typescript问题记录</span>
-            
-          </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">Vue选项的规范化
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-03-19T21:14:55+08:00" content="2019-03-19">
-          03-19
-        </time>
-      </div>
+              
+            
+          </h1>
+        
 
-    </header>
-  </article>
+        <div class="post-meta">
+          <span class="post-time">
 
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-03-26 11:25:26 / 修改时间：21:54:04" itemprop="dateCreated datePublished" datetime="2019-03-26T11:25:26+08:00">2019-03-26</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/框架/" itemprop="url" rel="index"><span itemprop="name">框架</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/框架/Vue/" itemprop="url" rel="index"><span itemprop="name">Vue</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/框架/Vue/原理/" itemprop="url" rel="index"><span itemprop="name">原理</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/03/26/Vue选项的规范化.html#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/03/26/Vue选项的规范化.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/03/26/Vue选项的规范化.html" class="leancloud_visitors" data-flag-title="Vue选项的规范化">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">3.3k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">3 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
+      
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/03/19/vue-typescript问题记录.html" itemprop="url">
-            
-              <span itemprop="name">vue+typescript问题记录</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-03-19T21:14:42+08:00" content="2019-03-19">
-          03-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
+        <p>这节主要是对 <code>mergeOptions</code> 方法进行说明，根据<code>core/instance/init.js</code>顶部的引用关系可知，<code>mergeOptions</code>函数来自于<code>src/core/util/options.js</code>文件，事实上不仅仅是<code>mergeOptions</code>函数，整个文件所做的一切都是为了一件事：选项的合并</p>
+<h1 id="弄清楚传递给-mergeOptions-函数的三个参数"><a href="#弄清楚传递给-mergeOptions-函数的三个参数" class="headerlink" title="弄清楚传递给 mergeOptions 函数的三个参数"></a>弄清楚传递给 mergeOptions 函数的三个参数</h1><p>首先，我们需要搞清楚一件事，就是如下代码中传递给<code>mergeOptions</code>函数的三个参数到底是什么</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vm.$options = mergeOptions(</span><br><span class="line">    resolveConstructorOptions(vm.constructor),</span><br><span class="line">    options || &#123;&#125;,</span><br><span class="line">    vm</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<ol>
+<li><p>第一个参数是通过调用<code>resolveConstructorOptions</code>函数得到的，并将<code>vm.constructor</code>作为参数传递进去，这个函数声明在<code>src/core/instance/init.js</code>文件中，如下：</p>
+ <figure class="highlight javascript"><figcaption><span>resolveConstructorOptions</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">resolveConstructorOptions</span> (<span class="params">Ctor: Class&lt;Component&gt;</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> options = Ctor.options</span><br><span class="line">    <span class="keyword">if</span> (Ctor.super) &#123;</span><br><span class="line">        <span class="keyword">const</span> superOptions = resolveConstructorOptions(Ctor.super)</span><br><span class="line">        <span class="keyword">const</span> cachedSuperOptions = Ctor.superOptions</span><br><span class="line">        <span class="keyword">if</span> (superOptions !== cachedSuperOptions) &#123;</span><br><span class="line">        <span class="comment">// super option changed,</span></span><br><span class="line">        <span class="comment">// need to resolve new options.</span></span><br><span class="line">        Ctor.superOptions = superOptions</span><br><span class="line">        <span class="comment">// check if there are any late-modified/attached options (#4976)</span></span><br><span class="line">        <span class="keyword">const</span> modifiedOptions = resolveModifiedOptions(Ctor)</span><br><span class="line">        <span class="comment">// update base extend options</span></span><br><span class="line">        <span class="keyword">if</span> (modifiedOptions) &#123;</span><br><span class="line">            extend(Ctor.extendOptions, modifiedOptions)</span><br><span class="line">        &#125;</span><br><span class="line">        options = Ctor.options = mergeOptions(superOptions, Ctor.extendOptions)</span><br><span class="line">        <span class="keyword">if</span> (options.name) &#123;</span><br><span class="line">            options.components[options.name] = Ctor</span><br><span class="line">        &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> options</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>声明<code>options</code>变量，初始化为当前实例构造函数的<code>options</code>，在这个例子中<code>Ctor</code>是<code>Vue</code>（如果是实例化通过<code>Vue.extend</code>创建的子类，那么这里的<code>Ctor</code>就不是<code>Vue</code>，而是该子类），然后返回<code>options</code>变量</li>
+<li>如果<code>Ctor.super</code>存在（该实例是通过实例化<code>Vue.extend</code>创建的子类实现的），则执行<code>if</code>判断语句里面的代码</li>
+<li><p>该函数的作用就是用来获取当前实例构造者的<code>options</code>属性（在这个例子中就是Vue.options，如下）</p>
+ <figure class="highlight javascript"><figcaption><span>Vue.options</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Vue.options = &#123;</span><br><span class="line">    components: &#123;</span><br><span class="line">        KeepAlive</span><br><span class="line">        Transition,</span><br><span class="line">        TransitionGroup</span><br><span class="line">    &#125;,</span><br><span class="line">    directives:&#123;</span><br><span class="line">        model,</span><br><span class="line">        show</span><br><span class="line">    &#125;,</span><br><span class="line">    filters: <span class="built_in">Object</span>.create(<span class="literal">null</span>),</span><br><span class="line">    _base: Vue</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>第二个参数就是我们调用<code>Vue</code>构造函数传进来的参数</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    el: <span class="string">'#app'</span>,</span><br><span class="line">    data: &#123;</span><br><span class="line">        test: <span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>第三个参数<code>vm</code>是实例对象本身</p>
+</li>
+</ol>
+<h1 id="检查组件名称是否符合要求"><a href="#检查组件名称是否符合要求" class="headerlink" title="检查组件名称是否符合要求"></a>检查组件名称是否符合要求</h1><p>打开<code>src/core/util/options.js</code>，找到<code>mergeOptions</code>方法，这个方法上面有一段注释：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Merge two option objects into a new one.</span></span><br><span class="line"><span class="comment"> * Core utility used in both instantiation and inheritance.</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+<p>合并两个对象为一个对象，这个函数不仅仅在实例化对象（即<code>_init</code>方法中）的时候用到，在继承（<code>Vue.extend</code>）中也有用到，所以这个函数是一个用来合并两个选项对象为一个新对象的通用程序。</p>
+<p>开始的一段代码如下，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (process.env.NODE_ENV !== <span class="string">'production'</span>) &#123;</span><br><span class="line">  checkComponents(child)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在非生产环境下，会以<code>child</code>对象（构造实例时传入的options）为参数，调用<code>checkComponents</code>方法，该方法是用来校验组件名是否符合要求的，组件名的要求如下</p>
+<ol>
+<li>组件的名称需要满足正则表达式：<code>/^[a-zA-Z][\\-\\.0-9_a-zA-Z\u00B7\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u037D\u037F-\u1FFF\u200C-\u200D\u203F-\u2040\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD]*$/</code></li>
+<li>要满足：条件<code>isBuiltInTag(name) || config.isReservedTag(name)</code>不成立<ol>
+<li><code>isBuitlInTag</code>检测是否是内置标签（slot、component）</li>
+<li><code>config.isReservedTag</code>检测是否是保留标签，<code>isReservedTag</code>方法在<code>src/platform/web/runtime/index.js</code>中被初始化，通过查看可知在<code>Vue</code>中<code>html</code>标签和部分<code>SVG</code>标签被认为是保留的</li>
+</ol>
+</li>
+</ol>
+<h1 id="允许合并另一个实例构造者的选项"><a href="#允许合并另一个实例构造者的选项" class="headerlink" title="允许合并另一个实例构造者的选项"></a>允许合并另一个实例构造者的选项</h1><p>我们继续看代码，接下来的一段代码同样是一个<code>if</code>语句块</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> child === <span class="string">'function'</span>) &#123;</span><br><span class="line">  child = child.options</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这说明<code>child</code>参数除了是普通的选项对象外，还可以是一个函数，如果是函数的话就取该函数的<code>options</code>静态属性作为新的<code>child</code>。<code>Vue</code>和通过<code>Vue.extend</code>创造出来的子类拥有<code>options</code>属性。所以这就允许我们在进行选项合并的时候，去合并一个<code>Vue</code>实例构造者的选项了。</p>
+<h1 id="规范化-props（normalizeProps）"><a href="#规范化-props（normalizeProps）" class="headerlink" title="规范化 props（normalizeProps）"></a>规范化 props（normalizeProps）</h1><p>接着看代码，接下来是三个用来规范化选项的函数调用：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">normalizeProps(child, vm)</span><br><span class="line">normalizeInject(child, vm)</span><br><span class="line">normalizeDirectives(child)</span><br></pre></td></tr></table></figure>
+<ol>
+<li>normalizeProps: 将props统一规范为对象的形式</li>
+</ol>
 
       
     </div>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Vue/" rel="tag"># Vue</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div class="social_share">
+            
+            
+               <div id="needsharebutton-postbottom">
+                 <span class="btn">
+                    <i class="fa fa-share-alt" aria-hidden="true"></i>
+                 </span>
+               </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/21/以一个例子为线索.html" rel="next" title="以一个例子为线索">
+                <i class="fa fa-chevron-left"></i> 以一个例子为线索
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -550,8 +763,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -751,6 +973,23 @@
       </div>
 
       
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#弄清楚传递给-mergeOptions-函数的三个参数"><span class="nav-number">1.</span> <span class="nav-text">弄清楚传递给 mergeOptions 函数的三个参数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#检查组件名称是否符合要求"><span class="nav-number">2.</span> <span class="nav-text">检查组件名称是否符合要求</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#允许合并另一个实例构造者的选项"><span class="nav-number">3.</span> <span class="nav-text">允许合并另一个实例构造者的选项</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#规范化-props（normalizeProps）"><span class="nav-number">4.</span> <span class="nav-text">规范化 props（normalizeProps）</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
       
         <div class="back-to-top">
@@ -900,6 +1139,10 @@
 
 
   
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
 
   
 
@@ -914,6 +1157,23 @@
     <script id="dsq-count-scr" src="https://aaaa.disqus.com/count.js" async></script>
   
 
+  
+    <script>
+      var disqus_config = function () {
+        this.page.url = "http://yoursite.com/2019/03/26/Vue选项的规范化.html";
+        this.page.identifier = "2019/03/26/Vue选项的规范化.html";
+        this.page.title = 'Vue选项的规范化';
+        };
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://aaaa.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+      
+        loadComments();
+      
+    </script>
   
 
 
@@ -1259,43 +1519,37 @@
   
   <script>
     
-    function showTime(Counter) {
-      var entries = [];
+    function addCount(Counter) {
       var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
 
-      $visitors.each(function () {
-        entries.push( $(this).attr("id").trim() );
-      });
-
-      Counter('get', '/classes/Counter', { where: JSON.stringify({ url: { "$in": entries } }) })
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
         .done(function ({ results }) {
-          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
-
-          if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0);
-            return;
-          }
-
-          for (var i = 0; i < results.length; i++) {
-            var item = results[i];
-            var url = item.url;
-            var time = item.time;
-            var element = document.getElementById(url);
-
-            $(element).find(COUNT_CONTAINER_REF).text(time);
-          }
-          for(var i = 0; i < entries.length; i++) {
-            var url = entries[i];
-            var element = document.getElementById(url);
-            var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if( countSpan.text() == '') {
-              countSpan.text(0);
-            }
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', `/classes/Counter/${counter.objectId}`, JSON.stringify({ time: { "__op":"Increment", "amount":1 } }))
+            
+            .done(function () {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.time + 1);
+            })
+            
+            .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+            })
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
+            
           }
         })
-        .fail(function ({ responseJSON }) {
-          console.log("LeanCloud Counter Error: " + responseJSON.code + " " + responseJSON.error);
-        });
+      .fail(function ({ responseJSON }) {
+        console.log('LeanCloud Counter Error:' + responseJSON.code + " " + responseJSON.error);
+      });
     }
     
 
@@ -1315,9 +1569,7 @@
             });
           };
           
-          if ($('.post-title-link').length >= 1) {
-            showTime(Counter);
-          }
+          addCount(Counter);
           
         })
     });

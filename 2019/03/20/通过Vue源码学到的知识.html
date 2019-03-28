@@ -104,18 +104,18 @@
 
 
 
-  <meta name="description" content="WgCg、Cong.Wang、WangCong、Vue、Webpack、HTML、CSS、JS">
-<meta name="keywords" content="Vue,VueConstructor,Prototype">
+  <meta name="description" content="src/shared/util.js:  camelizeRE123456const camelizeRE = /-(\w)/gexport const camelize = cached(    (str: string): string =&amp;gt; &amp;#123;        return str.replace(camelizeRE, (_, c) =&amp;gt; (c ? c.toUpper">
+<meta name="keywords" content="Vue">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vue构造函数整理-原型">
-<meta property="og:url" content="http://yoursite.com/2019/03/20/Vue构造函数整理-原型.html">
+<meta property="og:title" content="通过Vue源码学到的知识">
+<meta property="og:url" content="http://yoursite.com/2019/03/20/通过Vue源码学到的知识.html">
 <meta property="og:site_name" content="WgCg Blog">
-<meta property="og:description" content="WgCg、Cong.Wang、WangCong、Vue、Webpack、HTML、CSS、JS">
+<meta property="og:description" content="src/shared/util.js:  camelizeRE123456const camelizeRE = /-(\w)/gexport const camelize = cached(    (str: string): string =&amp;gt; &amp;#123;        return str.replace(camelizeRE, (_, c) =&amp;gt; (c ? c.toUpper">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-20T12:22:57.085Z">
+<meta property="og:updated_time" content="2019-03-27T12:42:59.548Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Vue构造函数整理-原型">
-<meta name="twitter:description" content="WgCg、Cong.Wang、WangCong、Vue、Webpack、HTML、CSS、JS">
+<meta name="twitter:title" content="通过Vue源码学到的知识">
+<meta name="twitter:description" content="src/shared/util.js:  camelizeRE123456const camelizeRE = /-(\w)/gexport const camelize = cached(    (str: string): string =&amp;gt; &amp;#123;        return str.replace(camelizeRE, (_, c) =&amp;gt; (c ? c.toUpper">
 
 
 
@@ -124,7 +124,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/20/Vue构造函数整理-原型.html">
+  <link rel="canonical" href="http://yoursite.com/2019/03/20/通过Vue源码学到的知识.html">
 
 
 
@@ -134,7 +134,7 @@
   };
 </script>
 
-  <title>Vue构造函数整理-原型 | WgCg Blog</title>
+  <title>通过Vue源码学到的知识 | WgCg Blog</title>
   
 
 
@@ -285,7 +285,7 @@
       
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">37</span></a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">36</span></a>
 
   </li>
         
@@ -304,7 +304,7 @@
       
     
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">25</span></a>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">24</span></a>
 
   </li>
         
@@ -323,7 +323,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">32</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">34</span></a>
 
   </li>
         
@@ -442,7 +442,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/20/Vue构造函数整理-原型.html">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/20/通过Vue源码学到的知识.html">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cong.Wang">
@@ -459,7 +459,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Vue构造函数整理-原型
+          <h1 class="post-title" itemprop="name headline">通过Vue源码学到的知识
 
               
             
@@ -485,12 +485,24 @@
                 
               
 
-              <time title="创建时间：2019-03-20 20:20:35 / 修改时间：20:22:57" itemprop="dateCreated datePublished" datetime="2019-03-20T20:20:35+08:00">2019-03-20</time>
+              <time title="创建时间：2019-03-20 20:20:35" itemprop="dateCreated datePublished" datetime="2019-03-20T20:20:35+08:00">2019-03-20</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-03-27 20:42:59" itemprop="dateModified" datetime="2019-03-27T20:42:59+08:00">2019-03-27</time>
               
             
           </span>
@@ -521,7 +533,7 @@
                   ，
                 
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/框架/Vue/附录/" itemprop="url" rel="index"><span itemprop="name">附录</span></a></span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/框架/Vue/原理/" itemprop="url" rel="index"><span itemprop="name">原理</span></a></span>
 
                 
                 
@@ -536,9 +548,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/03/20/Vue构造函数整理-原型.html#comments" itemprop="discussionUrl">
+                <a href="/2019/03/20/通过Vue源码学到的知识.html#comments" itemprop="discussionUrl">
                 
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/03/20/Vue构造函数整理-原型.html" itemprop="commentCount"></span>
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/03/20/通过Vue源码学到的知识.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -546,7 +558,7 @@
 
           
           
-             <span id="/2019/03/20/Vue构造函数整理-原型.html" class="leancloud_visitors" data-flag-title="Vue构造函数整理-原型">
+             <span id="/2019/03/20/通过Vue源码学到的知识.html" class="leancloud_visitors" data-flag-title="通过Vue源码学到的知识">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -571,7 +583,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">0</span>
+                <span title="本文字数">1.8k</span>
               
 
               
@@ -585,7 +597,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">1 分钟</span>
+                <span title="阅读时长">2 分钟</span>
               
             </div>
           
@@ -605,7 +617,34 @@
       
 
       
-        
+        <ol>
+<li><p><code>src/shared/util.js</code>:</p>
+ <figure class="highlight javascript"><figcaption><span>camelizeRE</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> camelizeRE = <span class="regexp">/-(\w)/g</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> camelize = cached(</span><br><span class="line">    (str: string): <span class="function"><span class="params">string</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> str.replace(camelizeRE, (_, c) =&gt; (c ? c.toUpperCase() : <span class="string">''</span>))</span><br><span class="line">    &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p> <code>String.prototype.replace</code>方法第二个参数可以传一个 Callback<code>Function</code>，其返回值将会替换匹配到的字符串</p>
+<ul>
+<li>如果第一个参数为字符串：Callback 的参数为（第一个匹配到的字符串，匹配到的字符串的起始索引，字符串本身）</li>
+<li>如果第一个参数为正则表达式：Callback 的参数为（匹配到的字符串，…所有捕获组，匹配到的字符串的起始索引, 字符串本身）</li>
+</ul>
+</li>
+<li><p><code>src/core/util/options.js</code></p>
+ <figure class="highlight javascript"><figcaption><span>validateComponentName</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">validateComponentName</span>(<span class="params">name: string</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">`^[a-zA-Z][\\-\\.0-9_<span class="subst">$&#123;unicodeLetters&#125;</span>]*$`</span>).test(name)) &#123;</span><br><span class="line">        warn(<span class="string">'Invalid component name: "'</span> + name + <span class="string">'". Component names '</span> + <span class="string">'should conform to valid custom element name in html5 specification.'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (isBuiltInTag(name) || config.isReservedTag(name)) &#123;</span><br><span class="line">        warn(<span class="string">'Do not use built-in or reserved HTML elements as component '</span> + <span class="string">'id: '</span> + name)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>声明一个字符串时如果字符串中包含单<code>\</code>，实际上会被去除，<code>\\</code>的意思才表示<code>\</code></li>
+<li>声明正则表达式时包含单<code>\</code>，会报错</li>
+<li><p>正则表达式定义范围时<code>[]</code>，里面的类似于<code>*.</code>等字符不进行转义处理与进行转义处理的效果是一致的，而<code>\w</code>必须进行转义处理</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// abcd\</span></span><br><span class="line"><span class="keyword">let</span> a = <span class="string">'\abcd\\'</span></span><br><span class="line"><span class="comment">// error</span></span><br><span class="line"><span class="keyword">let</span> reg = <span class="regexp">/abcde\/</span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/ reg1的效果与reg2的效果一致</span></span><br><span class="line"><span class="regexp">let reg1 = /</span>[.*]/</span><br><span class="line"><span class="keyword">let</span> reg1 = <span class="regexp">/[\.\*]/</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>调用<code>Object.defineProperty</code>时，只设置<code>get</code>不设置<code>set</code>，则其相当于<code>readonly</code></p>
+</li>
+<li><p>window.performance的运用，在<code>Chrome devtool</code>中的<code>Performance -&gt; Timing</code>中可以看到性能记录信息</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> perf = <span class="built_in">window</span>.performance</span><br><span class="line"><span class="keyword">const</span> startTag = <span class="string">'perf-start'</span></span><br><span class="line"><span class="keyword">const</span> endTag = <span class="string">'perf-end'</span></span><br><span class="line"></span><br><span class="line">perf &amp;&amp; perf.mark(startTag)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">10000</span>; i++) &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (perf) &#123;</span><br><span class="line">    perf.mark(endTag)</span><br><span class="line">    perf.measure(<span class="string">'performance test'</span>, startTag, endTag)</span><br><span class="line">    <span class="built_in">console</span>.log(perf.getEntries())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Object.keys</code>与<code>Reflect.ownKeys</code>都是遍历对象自身的属性，但是<code>Object.keys</code>无法遍历出<code>Symbol</code>属性且受<code>enumerable</code>影响，而<code>Reflect.ownKeys</code>可以遍历出<code>Sumbol</code>属性且不受<code>enumerable</code>影响</p>
+</li>
+</ol>
+
       
     </div>
 
@@ -629,10 +668,6 @@
         <div class="post-tags">
           
             <a href="/tags/Vue/" rel="tag"># Vue</a>
-          
-            <a href="/tags/VueConstructor/" rel="tag"># VueConstructor</a>
-          
-            <a href="/tags/Prototype/" rel="tag"># Prototype</a>
           
         </div>
       
@@ -747,7 +782,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">32</span>
+                    <span class="site-state-item-count">34</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -808,9 +843,7 @@
                     
                       
                     
-                      
-                    
-                    <span class="site-state-item-count">25</span>
+                    <span class="site-state-item-count">24</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -895,9 +928,7 @@
                     
                       
                     
-                      
-                    
-                    <span class="site-state-item-count">37</span>
+                    <span class="site-state-item-count">36</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -962,7 +993,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">168k</span>
+    <span title="站点总字数">189k</span>
   
 
   
@@ -971,7 +1002,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">2:33</span>
+    <span title="站点阅读时长">2:52</span>
   
 </div>
 
@@ -1100,9 +1131,9 @@
   
     <script>
       var disqus_config = function () {
-        this.page.url = "http://yoursite.com/2019/03/20/Vue构造函数整理-原型.html";
-        this.page.identifier = "2019/03/20/Vue构造函数整理-原型.html";
-        this.page.title = 'Vue构造函数整理-原型';
+        this.page.url = "http://yoursite.com/2019/03/20/通过Vue源码学到的知识.html";
+        this.page.identifier = "2019/03/20/通过Vue源码学到的知识.html";
+        this.page.title = '通过Vue源码学到的知识';
         };
       function loadComments () {
         var d = document, s = d.createElement('script');

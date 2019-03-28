@@ -112,7 +112,7 @@
 <meta property="og:site_name" content="WgCg Blog">
 <meta property="og:description" content="这节主要是对 mergeOptions 方法进行说明，根据core/instance/init.js顶部的引用关系可知，mergeOptions函数来自于src/core/util/options.js文件，事实上不仅仅是mergeOptions函数，整个文件所做的一切都是为了一件事：选项的合并 弄清楚传递给 mergeOptions 函数的三个参数首先，我们需要搞清楚一件事，就是如下代码中传递给">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-26T13:54:04.388Z">
+<meta property="og:updated_time" content="2019-03-27T05:46:16.391Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue选项的规范化">
 <meta name="twitter:description" content="这节主要是对 mergeOptions 方法进行说明，根据core/instance/init.js顶部的引用关系可知，mergeOptions函数来自于src/core/util/options.js文件，事实上不仅仅是mergeOptions函数，整个文件所做的一切都是为了一件事：选项的合并 弄清楚传递给 mergeOptions 函数的三个参数首先，我们需要搞清楚一件事，就是如下代码中传递给">
@@ -285,7 +285,7 @@
       
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">37</span></a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">36</span></a>
 
   </li>
         
@@ -304,7 +304,7 @@
       
     
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">25</span></a>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">24</span></a>
 
   </li>
         
@@ -323,7 +323,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">32</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">34</span></a>
 
   </li>
         
@@ -485,12 +485,24 @@
                 
               
 
-              <time title="创建时间：2019-03-26 11:25:26 / 修改时间：21:54:04" itemprop="dateCreated datePublished" datetime="2019-03-26T11:25:26+08:00">2019-03-26</time>
+              <time title="创建时间：2019-03-26 11:25:26" itemprop="dateCreated datePublished" datetime="2019-03-26T11:25:26+08:00">2019-03-26</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-03-27 13:46:16" itemprop="dateModified" datetime="2019-03-27T13:46:16+08:00">2019-03-27</time>
               
             
           </span>
@@ -571,7 +583,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">3.3k</span>
+                <span title="本文字数">6.1k</span>
               
 
               
@@ -585,7 +597,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">3 分钟</span>
+                <span title="阅读时长">6 分钟</span>
               
             </div>
           
@@ -642,11 +654,23 @@
 <h1 id="允许合并另一个实例构造者的选项"><a href="#允许合并另一个实例构造者的选项" class="headerlink" title="允许合并另一个实例构造者的选项"></a>允许合并另一个实例构造者的选项</h1><p>我们继续看代码，接下来的一段代码同样是一个<code>if</code>语句块</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> child === <span class="string">'function'</span>) &#123;</span><br><span class="line">  child = child.options</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这说明<code>child</code>参数除了是普通的选项对象外，还可以是一个函数，如果是函数的话就取该函数的<code>options</code>静态属性作为新的<code>child</code>。<code>Vue</code>和通过<code>Vue.extend</code>创造出来的子类拥有<code>options</code>属性。所以这就允许我们在进行选项合并的时候，去合并一个<code>Vue</code>实例构造者的选项了。</p>
-<h1 id="规范化-props（normalizeProps）"><a href="#规范化-props（normalizeProps）" class="headerlink" title="规范化 props（normalizeProps）"></a>规范化 props（normalizeProps）</h1><p>接着看代码，接下来是三个用来规范化选项的函数调用：</p>
+<h1 id="规范化选项（props-inject-directives）"><a href="#规范化选项（props-inject-directives）" class="headerlink" title="规范化选项（props, inject, directives）"></a>规范化选项（props, inject, directives）</h1><p>接着看代码，接下来是三个用来规范化选项的函数调用，因为<code>Vue</code>中拥有多种使用方法的选项有很多，例如<code>props</code>，即可以传<code>Array</code>也可以传<code>Object</code>，为了在选项合并的时候能够统一处理，所以需要将其规范成同一种方式：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">normalizeProps(child, vm)</span><br><span class="line">normalizeInject(child, vm)</span><br><span class="line">normalizeDirectives(child)</span><br></pre></td></tr></table></figure>
 <ol>
-<li>normalizeProps: 将props统一规范为对象的形式</li>
+<li><p>normalizeProps: 将props统一规范为对象的形式</p>
+ <figure class="highlight javascript"><figcaption><span>props规范化</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// from</span></span><br><span class="line">&#123;</span><br><span class="line">    props: [<span class="string">'demo-props'</span>] <span class="comment">// 非字符串将会报错</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// to</span></span><br><span class="line">&#123;</span><br><span class="line">    props: &#123;</span><br><span class="line">        demoProps: &#123;</span><br><span class="line">            type: <span class="literal">null</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// from</span></span><br><span class="line">&#123;</span><br><span class="line">    props: &#123;</span><br><span class="line">        DemoProps: &#123;</span><br><span class="line">            type: <span class="built_in">Number</span>,</span><br><span class="line">            <span class="keyword">default</span>: <span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// to</span></span><br><span class="line">&#123;</span><br><span class="line">    props: &#123;</span><br><span class="line">        demoProps: &#123;</span><br><span class="line">            type: <span class="built_in">Number</span>,</span><br><span class="line">            <span class="keyword">default</span>: <span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// from</span></span><br><span class="line">&#123;</span><br><span class="line">    props: &#123;</span><br><span class="line">        DemoProps: <span class="built_in">Number</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// to</span></span><br><span class="line">&#123;</span><br><span class="line">    props: &#123;</span><br><span class="line">        demoProps: &#123;</span><br><span class="line">            type: <span class="built_in">Number</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>normalizeInject: 将inject统一规范为对象的形式</p>
+ <figure class="highlight javascript"><figcaption><span>inject规范化</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// from</span></span><br><span class="line">&#123;</span><br><span class="line">    inject: [<span class="string">'data1'</span>, <span class="string">'data2'</span>]</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// to</span></span><br><span class="line">&#123;</span><br><span class="line">    inject: &#123;</span><br><span class="line">        <span class="string">'data1'</span>: &#123; <span class="attr">from</span>: <span class="string">'data1'</span> &#125;</span><br><span class="line">        <span class="string">'data2'</span>: &#123; <span class="attr">from</span>: <span class="string">'data2'</span> &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// from</span></span><br><span class="line"><span class="keyword">let</span> data1 = <span class="string">'data1'</span></span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    data1,</span><br><span class="line">    d2: <span class="string">'data2'</span>,</span><br><span class="line">    data3: &#123;</span><br><span class="line">        someProperty: <span class="string">'someValue'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// to</span></span><br><span class="line">&#123;</span><br><span class="line">    data1: &#123; <span class="attr">from</span>: <span class="string">'data1'</span> &#125;,</span><br><span class="line">    d2: &#123; <span class="attr">from</span>: <span class="string">'data2'</span> &#125;,</span><br><span class="line">    data3: &#123;</span><br><span class="line">        <span class="keyword">from</span>: <span class="string">'data3'</span>,</span><br><span class="line">        someProperty: <span class="string">'someValue'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>normalizeDirectives：将<code>directives</code>统一规范为对象的形式</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// from</span></span><br><span class="line">&#123;</span><br><span class="line">    directives: &#123;</span><br><span class="line">        test1: <span class="function"><span class="keyword">function</span> (<span class="params">el</span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'v-test1'</span>)</span><br><span class="line">        &#125;,</span><br><span class="line">        test2: &#123;</span><br><span class="line">            bind: <span class="function"><span class="keyword">function</span> (<span class="params">el</span>) </span>&#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">'v-test2'</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// to</span></span><br><span class="line">&#123;</span><br><span class="line">    directives: &#123;</span><br><span class="line">        test1: &#123;</span><br><span class="line">            bind: <span class="function"><span class="keyword">function</span> (<span class="params">el</span>) </span>&#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">'v-test1'</span>)</span><br><span class="line">            &#125;,</span><br><span class="line">            update: <span class="function"><span class="keyword">function</span> (<span class="params">el</span>) </span>&#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">'v-test1'</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        test2: &#123;</span><br><span class="line">            bind: <span class="function"><span class="keyword">function</span> (<span class="params">el</span>) </span>&#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">'v-test2'</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
+<h1 id="处理-extends-和-mixins"><a href="#处理-extends-和-mixins" class="headerlink" title="处理 extends 和 mixins"></a>处理 <code>extends</code> 和 <code>mixins</code></h1><p>规范化<code>props、inject、directives</code>之后的一段代码是：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Apply extends and mixins on the child options,</span></span><br><span class="line"><span class="comment">// but only if it is a raw options object that isn't</span></span><br><span class="line"><span class="comment">// the result of another mergeOptions call.</span></span><br><span class="line"><span class="comment">// Only merged options has the _base property.</span></span><br><span class="line"><span class="keyword">if</span> (!child._base) &#123;</span><br><span class="line">    <span class="keyword">if</span> (child.extends) &#123;</span><br><span class="line">        parent = mergeOptions(parent, child.extends, vm)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (child.mixins) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>, l = child.mixins.length; i &lt; l; i++) &#123;</span><br><span class="line">            parent = mergeOptions(parent, child.mixins[i], vm)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>递归调用<code>mergeOptions</code>方法，将<code>child.exnteds</code>和<code>child.mexins</code>合并到<code>parent</code>上，直到<code>child</code>为<code>Vue</code>时，只有<code>Vue</code>上有<code>_base</code>属性，其直为<code>Vue</code></p>
+<p>下一篇：<a href="/2019/03/27/Vue选项的合并.html">Vue选项的合并</a></p>
 
       
     </div>
@@ -712,6 +736,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/27/Vue选项的合并.html" rel="prev" title="Vue选项的合并">
+                Vue选项的合并 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -790,7 +818,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">32</span>
+                    <span class="site-state-item-count">34</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -851,9 +879,7 @@
                     
                       
                     
-                      
-                    
-                    <span class="site-state-item-count">25</span>
+                    <span class="site-state-item-count">24</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -938,9 +964,7 @@
                     
                       
                     
-                      
-                    
-                    <span class="site-state-item-count">37</span>
+                    <span class="site-state-item-count">36</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -983,7 +1007,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#弄清楚传递给-mergeOptions-函数的三个参数"><span class="nav-number">1.</span> <span class="nav-text">弄清楚传递给 mergeOptions 函数的三个参数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#检查组件名称是否符合要求"><span class="nav-number">2.</span> <span class="nav-text">检查组件名称是否符合要求</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#允许合并另一个实例构造者的选项"><span class="nav-number">3.</span> <span class="nav-text">允许合并另一个实例构造者的选项</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#规范化-props（normalizeProps）"><span class="nav-number">4.</span> <span class="nav-text">规范化 props（normalizeProps）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#弄清楚传递给-mergeOptions-函数的三个参数"><span class="nav-number">1.</span> <span class="nav-text">弄清楚传递给 mergeOptions 函数的三个参数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#检查组件名称是否符合要求"><span class="nav-number">2.</span> <span class="nav-text">检查组件名称是否符合要求</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#允许合并另一个实例构造者的选项"><span class="nav-number">3.</span> <span class="nav-text">允许合并另一个实例构造者的选项</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#规范化选项（props-inject-directives）"><span class="nav-number">4.</span> <span class="nav-text">规范化选项（props, inject, directives）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#处理-extends-和-mixins"><span class="nav-number">5.</span> <span class="nav-text">处理 extends 和 mixins</span></a></li></ol></div>
             
 
           </div>
@@ -1022,7 +1046,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">168k</span>
+    <span title="站点总字数">189k</span>
   
 
   
@@ -1031,7 +1055,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">2:33</span>
+    <span title="站点阅读时长">2:52</span>
   
 </div>
 

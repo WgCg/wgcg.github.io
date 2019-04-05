@@ -323,7 +323,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">34</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">35</span></a>
 
   </li>
         
@@ -426,6 +426,301 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/12/Velocity语法.html">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cong.Wang">
+      <meta itemprop="description" content="WgCg、Cong.Wang、WangCong、Vue、Webpack、HTML、CSS、JS">
+      <meta itemprop="image" content="/uploads/mine/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WgCg Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/03/12/Velocity语法.html" class="post-title-link" itemprop="url">Velocity语法</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-03-12 13:55:09 / 修改时间：15:18:12" itemprop="dateCreated datePublished" datetime="2019-03-12T13:55:09+08:00">2019-03-12</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/编程语言/" itemprop="url" rel="index"><span itemprop="name">编程语言</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/编程语言/Velocity/" itemprop="url" rel="index"><span itemprop="name">Velocity</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/03/12/Velocity语法.html#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/03/12/Velocity语法.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/03/12/Velocity语法.html" class="leancloud_visitors" data-flag-title="Velocity语法">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">2.7k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">2 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Velocity基本语法介绍"><a href="#Velocity基本语法介绍" class="headerlink" title="Velocity基本语法介绍"></a>Velocity基本语法介绍</h1><h2 id="判断语句"><a href="#判断语句" class="headerlink" title="判断语句"></a>判断语句</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#if($condition)</span><br><span class="line">    ...</span><br><span class="line">#elseif($condition)</span><br><span class="line">    ...</span><br><span class="line">#else</span><br><span class="line">    ...</span><br><span class="line">#end</span><br></pre></td></tr></table></figure>
+<h3 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h3><ol>
+<li>比较符：== != &gt; &gt;= &lt; &lt;=</li>
+<li>逻辑运算符：&amp;&amp; || !</li>
+<li>运算符：+ - * / %</li>
+</ol>
+<h3 id="常用判断"><a href="#常用判断" class="headerlink" title="常用判断"></a>常用判断</h3><ol>
+<li><p>判断是否为null</p>
+<ul>
+<li>#if(( !$condition) &amp;&amp; (“$!condition” == “”) )</li>
+<li>使用NULL工具：#if( $null.isNull($condition) )</li>
+<li><p>使用#ifnull() 或 #ifnotnull()，要使用这个特性必须在velocity.properties文件中加入：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">userdirective = org.apache.velocity.tools.generic.directive.Ifnull</span><br><span class="line">userdirective = org.apache.velocity.tools.generic.directive.Ifnotnull</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>判断是否为true：#if( $condition == true )</p>
+</li>
+<li>判断是否为null或false：#if( !$condition )</li>
+<li>判断是否为空字符串：#if( $condition == “” )</li>
+<li>判断是否为null或者空字符串：#if( “$!condition” === “” )</li>
+<li>判断是否是一个数字：#if( $condition == 123 )<blockquote>
+<p>Velocity中的==可以直接比较数值，字符串以及其它对象，如果==两侧的对象是不同的类的对象，在比较前会用toString()转换后再比较。所以当$condition的值为123或”123”时，条件都为真</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="循环语句"><a href="#循环语句" class="headerlink" title="循环语句"></a>循环语句</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#foreach($val in $arr)</span><br><span class="line">...</span><br><span class="line">#end</span><br></pre></td></tr></table></figure>
+<p>$velocityCount和$foreach.count可以获得当前循环次数，初始值为1</p>
+<p>$foreach.hasNext用来判断是否存在下一次循环</p>
+<blockquote>
+<p>#break用于用于跳出循环，经测试，在jello框架里无效</p>
+</blockquote>
+<p>当$arr为对象的时候：$val取到的是value，如果需要在遍历对象的过程中，同时取到对象的keys，可以使用entrySet() 或 keySet()方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#foreach($item in $!obj.entrySet())</span><br><span class="line">    $!item.key: $!item.value</span><br><span class="line">#end</span><br><span class="line"></span><br><span class="line">#foreach($key in $!obj.keySet())</span><br><span class="line">    $key: $obj.get($key)</span><br><span class="line">#end</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：这种集合的遍历是无序的，即遍历顺序可能不同于$obj中元素定义的顺序</p>
+</blockquote>
+<h3 id="Range-Operator"><a href="#Range-Operator" class="headerlink" title="Range Operator"></a>Range Operator</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#foreach($foo in [1..5])</span><br><span class="line">    $foo</span><br><span class="line">#end</span><br><span class="line"></span><br><span class="line">#foreach($bar in [2..-2])</span><br><span class="line">    $bar</span><br><span class="line">#end</span><br></pre></td></tr></table></figure>
+<p>以上输出为：</p>
+<p>Example1：1 2 3 4 5<br>Example2：2 1 0 -1 -2</p>
+<blockquote>
+<p>Example2，经测试，在jello框架中不能包含负数</p>
+</blockquote>
+<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><p>$str.charAt(index) 获取指定下标的字符</p>
+<p>$str.substring(begin, end)  end不填，截取begin到字符串末尾，不改变原值</p>
+<p>$str.length() 返回字符串的长度</p>
+<p>$str.toUpperCase() 把字符串转换为大写</p>
+<p>$str.toLowerCase() 把字符串转换为小写</p>
+<p>$str.replace(old, new) 替换字符串中指定的子串</p>
+<p>$str.indexOf($substr) 从字符串头部开始检索是否存在某个子串</p>
+<p>$str.lastIndexOf($substr) 从字符串尾部开始检索是否存在某个子串</p>
+<p>字符串拼接：$str + $str1 或 ${str}oo${str1}：</p>
+<p>例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#set($str = “AA”)</span><br><span class="line"></span><br><span class="line">#set($str1 = “BB”)</span><br><span class="line"></span><br><span class="line">#set($str2 = $str + $str1)</span><br></pre></td></tr></table></figure>
+<p>则${str}oo${str1}的结果为：AAooBB</p>
+<p>字符串转数字：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#set( $intString = “9” )</span><br><span class="line"></span><br><span class="line">#set( $Integer = 0 )</span><br><span class="line"></span><br><span class="line">$Integer.parseInt($intString)</span><br></pre></td></tr></table></figure>
+<p>同理：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#set( $doubleString = “12.3” )</span><br><span class="line"></span><br><span class="line">#set( $Double = 0.0 )</span><br><span class="line"></span><br><span class="line">$Double.parseDouble( $doubleString )</span><br></pre></td></tr></table></figure>
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><p>$arr.size() 返回数组长度</p>
+<p>$arr.isEmpty() 判断数组是否为空</p>
+<p>$arr.get(index)或$arr[index] 返回数组中指定下标index的值</p>
+<p>$arr.set(1, “test”) 设置数组中指定下标的值</p>
+<p>$arr.add($param) 增加元素</p>
+<h2 id="宏"><a href="#宏" class="headerlink" title="宏"></a>宏</h2><p>宏的定义：#macro(宏的名称 $参数1 $参数2)</p>
+<p>语句体</p>
+<p>   #end</p>
+<p>宏的调用：#macro($参数1  $参数2)//参数之间用空格隔开</p>
+<p>例子:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#macro (tablerows $color $somelist)</span><br><span class="line"></span><br><span class="line">    #foreach($something in $somelist)</span><br><span class="line"></span><br><span class="line">        &lt;tr&gt;&lt;td bgColor=$color&gt;$something&lt;/td&gt;&lt;/tr&gt;</span><br><span class="line"></span><br><span class="line">    #end</span><br><span class="line"></span><br><span class="line">#end</span><br></pre></td></tr></table></figure>
+<p>调用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#set($color = “blue”)</span><br><span class="line">#set($arr = [“a”, “b”, “c”, “d”])</span><br><span class="line"></span><br><span class="line">&lt;table&gt;</span><br><span class="line"></span><br><span class="line">#tablerows($color $arr)</span><br><span class="line"></span><br><span class="line">&lt;/table&gt;</span><br></pre></td></tr></table></figure>
+<p></p>
+<h1 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h1><ol>
+<li><a href="http://www.blogjava.net/alexwan/archive/2008/06/07/206473.html" target="_blank" rel="noopener">http://www.blogjava.net/alexwan/archive/2008/06/07/206473.html</a></li>
+<li><a href="http://velocity.apache.org/engine/devel/user-guide.html#variables" target="_blank" rel="noopener">http://velocity.apache.org/engine/devel/user-guide.html#variables</a></li>
+<li><a href="http://wiki.apache.org/velocity/VelocityNullSupport" target="_blank" rel="noopener">http://wiki.apache.org/velocity/VelocityNullSupport</a></li>
+<li><a href="http://wiki.apache.org/velocity/CheckingForNull" target="_blank" rel="noopener">http://wiki.apache.org/velocity/CheckingForNull</a></li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -2715,278 +3010,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/08/Promise原理.html">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cong.Wang">
-      <meta itemprop="description" content="WgCg、Cong.Wang、WangCong、Vue、Webpack、HTML、CSS、JS">
-      <meta itemprop="image" content="/uploads/mine/head.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WgCg Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/03/08/Promise原理.html" class="post-title-link" itemprop="url">Promise原理</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-03-08 14:29:37 / 修改时间：14:39:14" itemprop="dateCreated datePublished" datetime="2019-03-08T14:29:37+08:00">2019-03-08</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/编程语言/" itemprop="url" rel="index"><span itemprop="name">编程语言</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/编程语言/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/03/08/Promise原理.html#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/03/08/Promise原理.html" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2019/03/08/Promise原理.html" class="leancloud_visitors" data-flag-title="Promise原理">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数：</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">5.3k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">5 分钟</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Promise-雏形"><a href="#Promise-雏形" class="headerlink" title="Promise 雏形"></a>Promise 雏形</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Promise</span>(<span class="params">fn</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> callbackList = []</span><br><span class="line">    <span class="keyword">let</span> state = <span class="string">'pending'</span></span><br><span class="line">    <span class="keyword">let</span> value = <span class="literal">null</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">this</span>.then = <span class="function"><span class="keyword">function</span>(<span class="params">onFulfilled</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="comment">// 这里的resolve是then函数新创建的promise对应的resolve函数，与当前promise中的resolve函数不是一个，运用了闭包原理</span></span><br><span class="line">            handler(&#123;</span><br><span class="line">                onFulfilled: onFulfilled || <span class="literal">null</span>,</span><br><span class="line">                resolve: resolve</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">handler</span>(<span class="params">callback</span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 如果处于未完成状态</span></span><br><span class="line">        <span class="keyword">if</span> (state === <span class="string">'pending'</span>) &#123;</span><br><span class="line">            callbackList.push(callback) <span class="comment">// 往当前callbackList队列push新promise对象</span></span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 已成功状态</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 如果新的promise对象的onFulfilled为空，即调用then方法时没有正确传入函数，则直接调用promise的resolve函数，并传入then调用链中上一个promise resolve的值</span></span><br><span class="line">        <span class="keyword">if</span> (!callback.onFulfilled) &#123;</span><br><span class="line">            callback.resolve(value)</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 如果新的promise对象的onFulfilled不为空，则调用then方法传入的回调函数，取得函数的返回值，调用promise的resolve函数，传入回调函数的返回值到调用链的下一个then方法中</span></span><br><span class="line">        <span class="keyword">const</span> ret = callback.onFulfilled(value)</span><br><span class="line">        callback.resolve(ret)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">resolve</span>(<span class="params">res</span>) </span>&#123;</span><br><span class="line">        <span class="comment">// then中return new Promise()执行拦截</span></span><br><span class="line">        <span class="keyword">if</span> (res &amp;&amp; (<span class="keyword">typeof</span> res === <span class="string">'object'</span> || <span class="keyword">typeof</span> res === <span class="string">'function'</span>)) &#123;</span><br><span class="line">            <span class="keyword">const</span> then = res.then</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">typeof</span> then === <span class="string">'function'</span>) &#123;</span><br><span class="line">                then.call(res, resolve)</span><br><span class="line">                <span class="comment">// res.then(resolve)</span></span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            state = <span class="string">'fulfilled'</span></span><br><span class="line">            value = res</span><br><span class="line">            callbackList.forEach(<span class="function">(<span class="params">callback, callbackIndex</span>) =&gt;</span> &#123;</span><br><span class="line">                handler(callback)</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;, <span class="number">0</span>)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    fn(resolve)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>这里主要用两个 demo 来解释一下整个 promise 的执行过程</p>
-<h3 id="demo1"><a href="#demo1" class="headerlink" title="demo1"></a>demo1</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">        resolve(<span class="number">2</span>)</span><br><span class="line">    &#125;, <span class="number">0</span>)</span><br><span class="line">&#125;)</span><br><span class="line">    .then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">        setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(res)</span><br><span class="line">        &#125;, <span class="number">100</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">    .then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(res)</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
-<p>执行过程说明：</p>
-<p>此处创建了三个 Promise 对象：一个是自己创建的，另外两个是 then 方法创建的</p>
-<p>第一次事件循环</p>
-<ol>
-<li>执行 Promise 中的方法，把 setTimeout 的回调添加到下个事件循环的事件队列中，new 操作符隐式返回 this 对象（记为 promise1），promise1 的状态为 pending</li>
-<li>执行 promise1 的 then 方法，创建 promise2，执行构造 promise2 传入的回调方法时，handler 函数执行的是 promise1 中的 handler 函数，判断 promise1 的状态，此时 promise1 的状态为 pending，把 promise2 push 到 promise1 的 callbackList 队列中，promise1 的 then 方法返回 promise2，promise2 的状态为 pending</li>
-<li>执行 promise2 的 then 方法，创建 promise3，执行构造 promise3 传入的回调方法时，handler 函数执行的是 promise2 中的 handler 函数，判断 promise2 的状态，此时 promise2 的状态为 pending，把 promise3 push 到 promise2 的 callbackList 队列中，promise2 的 then 方法返回 promise3，promise3 的状态为 pending</li>
-<li>截止到上诉步骤 3，此时 promise1 的 callbackList 中有 promise2，promise2 的 callbackList 中有 promise3，promise3 的 callbackList 为空</li>
-</ol>
-<p>第二次事件循环</p>
-<ol start="5">
-<li>promise1 的异步方法执行完成，打印 1，往下个事件循环的时间队列中 push callbackList 执行方法</li>
-</ol>
-<p>第三次事件循环</p>
-<ol start="6">
-<li>开始执行 promise1 的 callbackList，取出 promise2，执行 handler 函数，传入 promise2，此时 promise1 的状态不为 pending，promise2 的 onFulfilled 不为空，执行 onFulfilled 方法，传入 promise1 的 value 值 2，往下个事件循环队列插入回调函数 res=&gt;{setTimeout(()=&gt;{console.log(res)},100)}，返回 undefined，调用 promise2 的 resolve 方法</li>
-<li>往下个事件循环的时间队列中 push promise2 的 callbackList 执行方法</li>
-</ol>
-<p>第四次事件循环</p>
-<ol start="8">
-<li>因为步骤 6 往事件循环中 push 的函数，还没有到执行时机（设置了 100ms，如果设置为 0 会先执行这个），于是执行队列中的下个函数，也就是 promise2 的 callbackList</li>
-<li>promise2 的状态变为 fulfilled，取出 promise2 callbackList 中的 promise3，此时 promise2 的状态不为 pending，promise3 的 onFulfilled 不为空，执行 onFulfilled 方法，传入 promise2 的返回值 undefine，输出 undefined</li>
-</ol>
-<p>在某一事件循环时</p>
-<ol start="10">
-<li>100ms 到达，执行步骤 6 的事件，输出 2</li>
-</ol>
-<p>所以输出顺序是 1 undefined 2</p>
-<h3 id="demo2"><a href="#demo2" class="headerlink" title="demo2"></a>demo2</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">        resolve(<span class="number">2</span>)</span><br><span class="line">    &#125;, <span class="number">0</span>)</span><br><span class="line">&#125;)</span><br><span class="line">    .then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">            setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">                <span class="built_in">console</span>.log(res)</span><br><span class="line">                resolve()</span><br><span class="line">            &#125;, <span class="number">100</span>)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">    .then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(res)</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
-<p>执行过程说明：</p>
-<p>1-5. 对应上述 1-5</p>
-<ol start="6">
-<li>执行 promise2 的 onFulFilled 时，创建了一个中间 promise（mid promise），构造回调传入的参数是 promise2 的 value 值，同样往下个事件循环的事件队列中 push 了 setTimeout 方法，延迟 100ms，但是这时不是返回 undefined，返回的是 mid promise，调用 promise2 的 resolve 方法传入的是 mid promise，命中了 resolve 中的 promise 判断</li>
-<li>promise2 resolve 方法中的 pomise 判断命中，并没有往下个事件循环队列中 push promise2 的 callbackList 执行回调，反而调用了 mid promise 的 then 方法，把 promise2 的 resolve 方法作为回调传入</li>
-<li>mid promise 的 then 方法执行，创建 promise4，promise4 被 push 到 mid promise 的 callbackList 中，等待 mid promise 被 resolve</li>
-</ol>
-<p>在某一事件循环时，假定为 n</p>
-<ol start="9">
-<li>100ms 到达，setTimeout 执行，输出 promise2 的 value 值 2，mid promise 被 resolve，mid promise callbackList 被添加到下一个事件循环执行</li>
-</ol>
-<p>n+1 次事件循环</p>
-<ol start="10">
-<li>mid promise 的 callbackList 中的 promise4 被拿出来执行，而此时的 promise4 的 fulFilled 方法，其实就是 promise2 的 resolve 方法，于是执行 promise2 的 resolve 方法，往下个事件循环的事件队列中 push promise2 的 callbackList 执行回调</li>
-</ol>
-<p>n+2 次事件循环</p>
-<ol start="11">
-<li>对应上述 9</li>
-</ol>
-<p>所以输出顺序为 1 2 undefined</p>
-<h2 id="与原Pomise的不一致行为"><a href="#与原Pomise的不一致行为" class="headerlink" title="与原Pomise的不一致行为"></a>与原Pomise的不一致行为</h2><ol>
-<li><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">        resolve(<span class="number">2</span>)</span><br><span class="line">    &#125;, <span class="number">0</span>)</span><br><span class="line">&#125;)</span><br><span class="line">    .then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">        setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(res)</span><br><span class="line">        &#125;, <span class="number">0</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">    .then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(res)</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -3036,7 +3059,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">34</span>
+                    <span class="site-state-item-count">35</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -3247,7 +3270,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">189k</span>
+    <span title="站点总字数">202k</span>
   
 
   
@@ -3256,7 +3279,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">2:52</span>
+    <span title="站点阅读时长">3:03</span>
   
 </div>
 

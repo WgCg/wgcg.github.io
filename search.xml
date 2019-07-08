@@ -1,6 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[微信小程序之生成二维码]]></title>
+    <url>%2F2019%2F07%2F08%2F%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%B9%8B%E7%94%9F%E6%88%90%E4%BA%8C%E7%BB%B4%E7%A0%81.html</url>
+    <content type="text"><![CDATA[背景微信小程序根据url生成一个带logo的二维码 weapp-qrcode使用weapp-qrcodelib生成二维码 遇到的问题 drawQrcode方法要求传入px，如果页面布局使用的是rpx，需要动态进行转换 绘制二维码时使用到了canvas标签，而canvas标签是原生组件，层级高于普通标签，导致toast提示弹窗被canvas遮挡，于是把canvas隐藏到屏幕外，使用image标签配合wx.canvasToTempFilePath方法实现 要在二维码中绘制图片，使用的是CanvasContext.drawImage方法，但是此方法的图片来源必须是本地图片，所以需要先调用wx.getImageInfo或wx.downloadFile把图片下载到本地，然后用本地图片的路径进行绘制]]></content>
+      <categories>
+        <category>微信小程序</category>
+        <category>问题积累</category>
+        <category>生成二维码</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[字符串的扩展]]></title>
+    <url>%2F2019%2F06%2F25%2F%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%89%A9%E5%B1%95.html</url>
+    <content type="text"></content>
+      <categories>
+        <category>编程语言</category>
+        <category>JavaScript</category>
+        <category>ES6</category>
+      </categories>
+      <tags>
+        <tag>ES6</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[解构赋值]]></title>
+    <url>%2F2019%2F06%2F24%2F%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC.html</url>
+    <content type="text"><![CDATA[数组的解构赋值 如果等号的右边（或隐式转为对象后）不是可遍历的解构（Iterator），那么将会报错。 只有当一个数组成员严格等于（===）undefined时，默认值才会生效。 对象的解构赋值 对象的解构赋值可以取到继承的属性。 由于数组本质是特殊的对象，因此可以对数组进行对象属性的解构。 如果等号右边是字符串、数字、布尔值，则会隐式的转为对象。因为undefined和null无法转为对象，所以会报错。 不能使用圆括号的情况 变量声明语句 函数参数 赋值语句的模式 能使用圆括号的情况 赋值语句的非模式部分]]></content>
+      <categories>
+        <category>编程语言</category>
+        <category>JavaScript</category>
+        <category>ES6</category>
+      </categories>
+      <tags>
+        <tag>ES6</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[let和const命令]]></title>
+    <url>%2F2019%2F06%2F24%2Flet%E5%92%8Cconst%E5%91%BD%E4%BB%A4.html</url>
+    <content type="text"><![CDATA[let 只在块级作用域内有效。 不存在变量提升。 暂时性死区，只要块级作用域内存在let命令，这个区块对这些命令声明的变量，从一开始就形成了封闭作用域。凡是在声明之前使用这些变量，就会报错（无论父级作用域是否定义了这些变量），这意味着typeof不再是一个百分百的安全操作。 不允许重复声明同一个变量。 for循环有一个特别之处，就是设置循环变量的那部分是一个父作用域，而循环体内部是一个单独的子作用域。 块级作用域 ES5 规定函数只能在顶层作用域和函数作用域进行声明，不能再块级作用域中进行声明，但是浏览器为了兼容以前的旧代码，并没有遵守这个规范。 ES6 明确规定允许在块级作用域中声明函数。 ES5 中，函数的整条声明语句会被提升到函数头部或顶级作用域头部 ES6 的浏览器函数声明的限制（其他环境的实现不用遵守，还是将块级作用域中的函数声明当作let处理）： 允许在块级作用域内声明函数 函数声明类似于var，会提升到全局作用域或函数作用域的头部 同时，函数声明还会提升到块级作用域的头部 考虑到环境的行为差异太大，不建议在块级作用域内进行函数声明，如果要使用，最好使用函数表达式。 ES6 的块级作用域必须有大括号，如果没有大括号，JS引擎就认为不存在块级作用域。 const const声明一个常量，一旦声明，常量的值不允许改变。单对于复合类型数据（例如对象，数组），其只能保证指向内存地址的指针不改变，无法保证其数据结构不变。可以使用Object.freeze进行冻结（只能冻结改对象的属性，如果其属性是一个对象，只能保证指针不变，无法保证子对象的属性不变）。 必须立即初始化。 只在块级作用域内有效。 不存在变量提升。 暂时性死区。 不允许重复声明。 ES6 声明变量的六种方法 var function let const import class 顶层对象属性 var和function命令声明的全局变量，依旧是顶层对象的属性。 let、const、class命令声明的全局变量，不属于顶层对象的属性。 globalThis 对象 不同环境中指向顶层对象的变量不同 浏览器：self 和 this Web Worker：self Node: global 全局环境中，this返回的是顶层对象。但是，在ES6模块和Node模块中，this返回的是当前模块。 函数里面的 this，如果函数不是作为对象的方法允许，而是单纯作为函数允许，this会指向顶层对象。但是，在严格模式下，this会返回undefined。 不管是在严格模式还是普通模式，new Function(&#39;return this&#39;)()总是返回全局对象。但是，如果浏览器使用了 CSP（Content Security Policy，内容安全策略），那么eval，new Function这些方法可能无法使用。]]></content>
+      <categories>
+        <category>编程语言</category>
+        <category>JavaScript</category>
+        <category>ES6</category>
+      </categories>
+      <tags>
+        <tag>ES6</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[面试之Web其它]]></title>
+    <url>%2F2019%2F05%2F06%2F%E9%9D%A2%E8%AF%95%E4%B9%8BWeb%E5%85%B6%E5%AE%83.html</url>
+    <content type="text"><![CDATA[SEO什么是SEOSEO（Search Engine Optimization），中文译为“搜索引擎优化”，是一种透过了解搜索引擎的运作规则来调整网站，以提高目的网站在有关搜索引擎内的自然排名的方式。 SEO的分类 白帽SEO：改良和规范网页的设计，使其对搜索引擎和用户更加友好，是一种搜索引擎推荐的做法。 黑帽SEO：利用或者放大搜索引擎的缺陷，使用不正当的手段提高目的网站在搜索引擎的排名。 SEO的主要方面白帽SEO： 合理的title、keywords、description 语义化的HTML 重要的HTML尽量放在前面。搜索引擎抓取HTML的顺序是从上到下的，有些搜索引擎的抓取长度有限，保证重要内容一定会被抓取 重要的内容不要用js输出：搜索引擎不会执行js获取内容 减少iframe的使用：搜索引擎不会抓取iframe中的内容 非装饰性的图片必须加alt 提高网站速度：网站速度是搜索引擎排序的一个重要指标 增加与网页内容相关的外链引用 黑帽SEO： 垃圾索引：透过欺骗技术和滥用搜索算法来推销毫不相关、主要以商业为着眼的网页。 斗篷法：用了两版不同的网页来达到最优化的效果。 关键字隐密字：通常是指设置关键字的颜色和网页背景颜色一样，或透过 css hidden attribute （隐密特性） 来达到优化效果。 桥页：通常是用软件自动生成大量包含关键词的网页，然后从这些网页做自动转向到主页。 付费链接：是利用支付费用方式要求其他网站提供链接至自身网站，借此伪装高信任网站来欺骗搜索引擎。 链接农场：是故意在一些低质量，内容跟自己内容无关的网站上获取大量链接，藉以提高排名。 参考链接 维基百科 https://segmentfault.com/a/1190000002994538 会话跟踪什么是会话跟踪会话跟踪技术是用于维持客户端和服务器端通信信息的技术 引入会话跟踪的原因HTTP是一种无状态协议，每当用户发出请求时，服务器就会做出响应，客户端与服务器之间的联系是离散的、非连续的。当用户在同一网站的多个页面之间转换时，根本无法确定是否是同一个客户以及维持客户的上下文信息，会话跟踪技术就可以解决这个问题。 Web中会话跟踪的方法有哪些 cookie session url重写：动态生成sessionID拼接在url上 隐藏的表单域 ip地址 参考链接 https://blog.csdn.net/qq_38363396/article/details/78289344 https://blog.csdn.net/qfs_v/article/details/2652119]]></content>
+      <categories>
+        <category>面试</category>
+      </categories>
+      <tags>
+        <tag>面试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[面试之HTTP]]></title>
+    <url>%2F2019%2F05%2F05%2F%E9%9D%A2%E8%AF%95%E4%B9%8BHTTP.html</url>
+    <content type="text"><![CDATA[HTTPHTTP Method 一台服务器要与HTTP 1.1兼容、只要为资源实现GET和HEAD方法即可 GET是最常用的方法，通常用于请求服务器发送某个资源 HEAD与GET类似，但服务器在响应中只返回首部，不返回实体的主体部分 PUT让服务器用请求的主体部分来创建一个由所请求的URL命名的新文档，或者，如果那个URL已经存在的话，就用这个主体替代它 POST起初是用来向服务器输入数据的。实际上，通常会用它来支持HTML的表单。表单中填好的数据通常会被送给服务器，然后由服务器将其发送到要去的地方]]></content>
+      <categories>
+        <category>面试</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[面试之Web安全]]></title>
+    <url>%2F2019%2F05%2F05%2F%E9%9D%A2%E8%AF%95%E4%B9%8BWeb%E5%AE%89%E5%85%A8.html</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[面试之Web性能]]></title>
+    <url>%2F2019%2F05%2F05%2F%E9%9D%A2%E8%AF%95%E4%B9%8BWeb%E6%80%A7%E8%83%BD.html</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[面试之Webpack]]></title>
+    <url>%2F2019%2F05%2F05%2F%E9%9D%A2%E8%AF%95%E4%B9%8BWebpack.html</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[面试之Vue]]></title>
+    <url>%2F2019%2F05%2F05%2F%E9%9D%A2%E8%AF%95%E4%B9%8BVue.html</url>
+    <content type="text"><![CDATA[定义Vue组件的方式 单文件组件（Single File Component） 字符串模板（String Template） 渲染函数（Render Function） JSX vue-class-component]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[面试之HTML]]></title>
+    <url>%2F2019%2F05%2F05%2F%E9%9D%A2%E8%AF%95%E4%B9%8BHTML.html</url>
+    <content type="text"><![CDATA[Web语义化什么是Web语义化web语义化是指通过HTML标记表示页面包含的信息，包含了HTML标签的语义化和css命名的语义化。 HTML标签的语义化是指：通过使用包含语义的标签（如h1-h6）恰当地表示文档结构 css命名的语义化是指：为html标签添加有意义的class，id，补充未表达的语义 Web语义化的好处 去掉样式后页面呈现清晰的结构 盲人使用读屏器更好地阅读 搜索引擎更好地理解页面，有利于收录 便于团队项目的可持续运作及维护 doctypedoctype是什么文档类型说明，现代浏览器的html布局引擎通过检查doctype决定使用兼容模式还是标准模式对文档进行渲染，一些浏览器有一个接近标准模型 doctype的特点 &lt;!doctype&gt;声明不是一个HTML标签，是一个用于告诉浏览器当前HTML版本的指令 &lt;!doctype&gt;声明必须处于HTML文档的头部，在&lt;html&gt;标签之前，HTML5中不区分大小写 在HTML4.01中&lt;!doctype&gt;声明指向一个DTD(Document Type Definition，文档类型定义)，由于HTML4.01基于SGML(Standard Generalized Markup Language，标准通用标记语言)，所以DTD指定了标记规则以保证浏览器正确渲染内容 HTML5不基于SGML，所以不用指定DTD 常见的doctype HTML4.01 strict：不允许使用表现性、废弃元素（如font）以及frameset。声明：&lt;!DOCTYPE HTML PUBLIC “-//W3C//DTD HTML 4.01//EN” “http://www.w3.org/TR/html4/strict.dtd&quot;&gt; HTML4.01 Transitional:允许使用表现性、废弃元素（如font），不允许使用frameset。声明：&lt;!DOCTYPE HTML PUBLIC “-//W3C//DTD HTML 4.01 Transitional//EN” “http://www.w3.org/TR/html4/loose.dtd&quot;&gt; HTML4.01 Frameset:允许表现性元素，废气元素以及frameset。声明：&lt;!DOCTYPE HTML PUBLIC “-//W3C//DTD HTML 4.01 Frameset//EN” “http://www.w3.org/TR/html4/frameset.dtd&quot;&gt; XHTML1.0 Strict:不使用允许表现性、废弃元素以及frameset。文档必须是结构良好的XML文档。声明：&lt;!DOCTYPE html PUBLIC “-//W3C//DTD XHTML 1.0 Strict//EN” “http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt; XHTML1.0 Transitional:允许使用表现性、废弃元素，不允许frameset，文档必须是结构良好的XMl文档。声明： &lt;!DOCTYPE html PUBLIC “-//W3C//DTD XHTML 1.0 Transitional//EN” “http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt; XHTML 1.0 Frameset:允许使用表现性、废弃元素以及frameset，文档必须是结构良好的XML文档。声明：&lt;!DOCTYPE html PUBLIC “-//W3C//DTD XHTML 1.0 Frameset//EN” “http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd&quot;&gt; HTML 5: &lt;!doctype html&gt; 参考链接 DTD SGML HTML全局属性有哪些 accesskey:设置快捷键，提供快速访问元素如&lt;a href=&quot;#&quot; accesskey=&quot;a&quot;在windows下的firefox中按alt + shift + a可激活元素 class:为元素设置类标识，多个类名用空格分开，CSS和javascript可通过class属性获取元素 contenteditable: 指定元素内容是否可编辑 contextmenu: 自定义鼠标右键弹出菜单内容 data-*: 为元素增加自定义属性 dir: 设置元素文本方向 draggable: 设置元素是否可拖拽 dropzone: 设置元素拖放类型： copy, move, link hidden: 表示一个元素是否与文档。样式上会导致元素不显示，但是不能用这个属性实现样式效果 id: 元素id，文档内唯一 lang: 元素内容的的语言 spellcheck: 是否启动拼写和语法检查 style: 行内css样式 tabindex: 设置元素可以获得焦点，通过tab可以导航 title: 元素相关的建议信息 translate: 元素和子孙节点内容是否需要本地化 参考资料 MDN &lt;img&gt;的title和alt有什么区别 title是global attributes之一，用于为元素提供附加的advisory information。当鼠标滑动到元素上的时候显示。 alt是&lt;img&gt;的特有属性，是图片内容的等价描述，用于图片无法加载时显示、读屏器阅读图片。可提图片高可访问性，除了纯装饰图片外都必须设置有意义的值，搜索引擎会重点分析。 什么是渐进增强渐进增强是指在Web设计时强调可访问性、语义化HTML标签、外部样式表和脚本。保证所有人都能访问页面的基本内容和功能同时为高级浏览器和高宽带用户提供更好的用户体验。核心原则如下： 所有浏览器都必须能访问基本内容 所有浏览器都必须能使用基本功能 所有内容都包含在语义化的标签中 通过外部CSS提供增强的布局 通过非侵入式、外部javascript提供增强功能 end-user web browser preferences are respected]]></content>
+      <categories>
+        <category>面试</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[面试之CSS]]></title>
+    <url>%2F2019%2F05%2F05%2F%E9%9D%A2%E8%AF%95%E4%B9%8BCSS.html</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[面试之JavaScript]]></title>
+    <url>%2F2019%2F05%2F05%2F%E9%9D%A2%E8%AF%95%E4%B9%8BJavaScript.html</url>
+    <content type="text"><![CDATA[##]]></content>
+      <categories>
+        <category>面试</category>
+      </categories>
+      <tags>
+        <tag>面试</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[webpack加载动态图片]]></title>
     <url>%2F2019%2F04%2F22%2Fwebpack%E5%8A%A0%E8%BD%BD%E5%8A%A8%E6%80%81%E5%9B%BE%E7%89%87.html</url>
     <content type="text"><![CDATA[背景在基于Webpack的项目中，我们加载图片有以下三种方式： 使用img标签的src属性 使用css的background-image 使用require或者import导入图片模块 以上3中方式配合url-loader和file-loader我们可以很轻易对图片进行处理，例如： 为图片增加hash 处理图片url，为其增加assetsPublicPath，把相对路径转化为绝对路径 然而在一些情况下，我们无可避免的需要利用js来控制加载图片，例如：我们要加载list-1、list-2、...list-10 10张图片，有可能你会这么做： 12 &lt;!-- 在vue中 --&gt;&lt;img v-for="index in 10" :src="`../assets/imgs/list-$&#123; index + 1 &#125;.png`" :key="index"/&gt; 但这么做是存在问题的，webpack构建时采用的是静态分析，它不会导入包含变量的文件并对其进行解析，上面代码将导致如下结果： 打包出来的图片目录根本没有list图片，因为webpack会认为你没有导入这些文件，就不会将其输出到打包目录中 图片链接没有进行hash、assetsPublicPath处理 解决方案针对如上问题，我们有两种解决方案： 将图片放到static目录，不经过webpack处理，采用绝对路径引入，但是这样就无法进行hash处理了，而且对于html放在后端的应用而言，图片的host还需要进行额外处理 动态加载图片，如下： 123456let imgList = []for (let i = 1; i &lt;= 10; i++) &#123; const img = require(`../assets/imgs/list-$&#123; i &#125;.png`) imgList.push(img)&#125; 这里要注意几个问题，require的参数不能完全为一个变量，需要将其定位到某一个目录内，例如，如下方式都将导致can&#39;t find module： 12345678910111213// 例1 failfunction resolveUrl(filename) &#123; return '../assets/imgs/' + filename&#125;require('list-1.png')// 例2 failconst imgUrl = '../assets/imgs/list-1.png'require(imgUrl)// 例3 failconst path = '../assets/imgs/'require(path + 'list-1.png') 必须在字符串中将其定义到某个具体目录，例如： 123// successconst imgName = 'imgs/list-1.png'require('../assets/' + imgName) 参考文档https://github.com/webpack/webpack/issues/6680]]></content>
@@ -333,45 +445,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[选择排序]]></title>
-    <url>%2F2019%2F03%2F08%2F%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F.html</url>
-    <content type="text"><![CDATA[123456789101112131415161718192021222324252627282930/* 选择排序时间复杂度：O(n2)算法介绍：https://www.cnblogs.com/shen-hua/p/5424059.html*/function selectionSort (arr) &#123; if (!(arr instanceof Array)) &#123; console.error('param type is not array!') return [] &#125; for (let i = 0; i &lt; arr.length; i++) &#123; let minNumIndex = i let tempNum = arr[i] for (let j = i; j &lt; arr.length; j++) &#123; if (arr[j] &lt; arr[minNumIndex]) &#123; minNumIndex = j &#125; &#125; arr[i] = arr[minNumIndex] arr[minNumIndex] = tempNum &#125;&#125;let arr = [5, 2, 8, 4, 9, 1]selectionSort(arr)console.log(arr)]]></content>
-      <categories>
-        <category>算法</category>
-        <category>排序</category>
-      </categories>
-      <tags>
-        <tag>算法，排序</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[快速排序]]></title>
-    <url>%2F2019%2F03%2F08%2F%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F.html</url>
-    <content type="text"><![CDATA[1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556/* 快速排序时间复杂度：O(N*logN)算法介绍：http://developer.51cto.com/art/201403/430986.htm疑问点：基数在左边，为什么要从右边先开始查找？答：从代码层面分析，因为最后找到的一个数也就是小标为i的数需要与基数对换，而基数在最左边，说明最后一个数会放到最左边，也就是最后一个数必须必基数小，而从右边开始查找的是必基数小的数，终止查找的可能性：从右侧开始查找终止查找的可能性：1. 前一次对调结束，j找到i所在位置，此时i是比基数小的，i下标对应的数与基数对换没有问题2. 前一次对调结束，j找到最后一个数，这个数比基数小，j停止，i开始查找比基数大的数，走到j的位置，i不小于j，停止，i下标对应的数与基数对换没有问题从左侧开始查找终止查找的可能性：1. 前一次对调结束，i找到j所在位置，此时i是比基数大的，i下标对应的数与基数对换出错2. 前一次对调结束，i找到最后一个数，这个数比基数大，i停止，j开始查找比基数小的数，走到i的位置，i不小于j，停止，i下标对应的数与基数对换出错*/function quickSort (_left, _right, _arr) &#123; if (!(_arr instanceof Array)) &#123; return &#125; if (_left &gt;= _right) &#123; return &#125; let baseNum = _arr[_left] let i = _left let j = _right while (i !== j) &#123; while (_arr[j] &gt;= baseNum &amp;&amp; i &lt; j) &#123; j-- &#125; while (_arr[i] &lt;= baseNum &amp;&amp; i &lt; j) &#123; i++ &#125; if (i &lt; j) &#123; let tempNum = _arr[i] _arr[i] = _arr[j] _arr[j] = tempNum &#125; &#125; _arr[_left] = _arr[i] _arr[i] = baseNum console.log(_arr) quickSort(_left, i - 1, _arr) quickSort(i + 1, _right, _arr)&#125;let arr = [6, 1, 2, 7, 9, 3, 4, 5, 10, 8]// let arr = [5, 80, 55, 40, 42, 85]quickSort(0, arr.length - 1, arr)console.log(arr)]]></content>
-      <categories>
-        <category>算法</category>
-        <category>排序</category>
-      </categories>
-      <tags>
-        <tag>算法，排序</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[冒泡排序]]></title>
-    <url>%2F2019%2F03%2F08%2F%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F.html</url>
-    <content type="text"><![CDATA[12345678910111213141516171819202122232425/* 冒泡排序时间复杂度：O(n2)算法介绍：https://blog.csdn.net/shuaizai88/article/details/73250615*/function bubbleSort (arr) &#123; if (!(arr instanceof Array)) &#123; return [] &#125; for (let i = arr.length - 1; i &gt; 0; i--) &#123; for (let j = i; j &gt; 0; j--) &#123; if (arr[j] &lt; arr[j - 1]) &#123; let tempNum = arr[j] arr[j] = arr[j - 1] arr[j - 1] = tempNum &#125; &#125; &#125;&#125;let arr = [5, 2, 8, 4, 9, 1]bubbleSort(arr)console.log(arr)]]></content>
-      <categories>
-        <category>算法</category>
-        <category>排序</category>
-      </categories>
-      <tags>
-        <tag>算法，排序</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[插入排序]]></title>
-    <url>%2F2019%2F03%2F08%2F%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F.html</url>
-    <content type="text"><![CDATA[123456789101112131415161718192021222324252627282930/*插入排序时间复杂度：最好：O(n) 最坏O(n2)算法介绍：https://www.cnblogs.com/hapjin/p/5517667.html*/function insertSort (arr) &#123; if (!(arr instanceof Array)) &#123; return [] &#125; const arrLen = arr.length for (let i = 1; i &lt; arrLen; i++) &#123; let tempNum = arr[i] for (let j = 0; j &lt; i; j++) &#123; if (arr[i] &lt; arr[j]) &#123; arr.splice(i, 1) arr.splice(j, 0, tempNum) break &#125; &#125; &#125;&#125;let arr = [5, 2, 8, 4, 9, 1]insertSort(arr)console.log(arr)]]></content>
+    <title><![CDATA[排序算法]]></title>
+    <url>%2F2019%2F03%2F08%2F%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95.html</url>
+    <content type="text"><![CDATA[排序算法 冒泡排序12345678910111213141516171819202122232425/*冒泡排序时间复杂度：O(n2)算法介绍：https://blog.csdn.net/shuaizai88/article/details/73250615*/function bubbleSort (arr) &#123; if (!(arr instanceof Array)) &#123; return [] &#125; for (let i = arr.length - 1; i &gt; 0; i--) &#123; for (let j = i; j &gt; 0; j--) &#123; if (arr[j] &lt; arr[j - 1]) &#123; let tempNum = arr[j] arr[j] = arr[j - 1] arr[j - 1] = tempNum &#125; &#125; &#125;&#125;let arr = [5, 2, 8, 4, 9, 1]bubbleSort(arr)console.log(arr) 快速排序基数在左边，为什么要从右边先开始查找？ 答：从代码层面分析，因为最后找到的一个数也就是小标为i的数需要与基数对换，而基数在最左边，说明最后一个数会放到最左边，也就是最后一个数必须必基数小，而从右边开始查找的是比基数小的数。 从右侧开始查找终止查找的可能性： 前一次对调结束，j找到i所在位置，此时i是比基数小的，i下标对应的数与基数对换没有问题 前一次对调结束，j找到最后一个数，这个数比基数小，j停止，i开始查找比基数大的数，走到j的位置，i不小于j，停止，i下标对应的数与基数对换没有问题 从左侧开始查找终止查找的可能性： 前一次对调结束，i找到j所在位置，此时i是比基数大的，i下标对应的数与基数对换出错 前一次对调结束，i找到最后一个数，这个数比基数大，i停止，j开始查找比基数小的数，走到i的位置，i不小于j，停止，i下标对应的数与基数对换出错 12345678910111213141516171819202122232425262728293031323334353637383940414243444546/*快速排序时间复杂度：O(N*logN)算法介绍：http://developer.51cto.com/art/201403/430986.htm*/function quickSort (_left, _right, _arr) &#123; if (!(_arr instanceof Array)) &#123; return &#125; if (_left &gt;= _right) &#123; return &#125; let baseNum = _arr[_left] let i = _left let j = _right while (i !== j) &#123; while (_arr[j] &gt;= baseNum &amp;&amp; i &lt; j) &#123; j-- &#125; while (_arr[i] &lt;= baseNum &amp;&amp; i &lt; j) &#123; i++ &#125; if (i &lt; j) &#123; let tempNum = _arr[i] _arr[i] = _arr[j] _arr[j] = tempNum &#125; &#125; _arr[_left] = _arr[i] _arr[i] = baseNum console.log(_arr) quickSort(_left, i - 1, _arr) quickSort(i + 1, _right, _arr)&#125;let arr = [6, 1, 2, 7, 9, 3, 4, 5, 10, 8]// let arr = [5, 80, 55, 40, 42, 85]quickSort(0, arr.length - 1, arr)console.log(arr) 插入排序123456789101112131415161718192021222324252627282930/*插入排序时间复杂度：最好：O(n) 最坏O(n2)算法介绍：https://www.cnblogs.com/hapjin/p/5517667.html*/function insertSort (arr) &#123; if (!(arr instanceof Array)) &#123; return [] &#125; const arrLen = arr.length for (let i = 1; i &lt; arrLen; i++) &#123; let tempNum = arr[i] for (let j = 0; j &lt; i; j++) &#123; if (arr[i] &lt; arr[j]) &#123; arr.splice(i, 1) arr.splice(j, 0, tempNum) break &#125; &#125; &#125;&#125;let arr = [5, 2, 8, 4, 9, 1]insertSort(arr)console.log(arr) 选择排序123456789101112131415161718192021222324252627282930/*选择排序时间复杂度：O(n2)算法介绍：https://www.cnblogs.com/shen-hua/p/5424059.html*/function selectionSort (arr) &#123; if (!(arr instanceof Array)) &#123; console.error('param type is not array!') return [] &#125; for (let i = 0; i &lt; arr.length; i++) &#123; let minNumIndex = i let tempNum = arr[i] for (let j = i; j &lt; arr.length; j++) &#123; if (arr[j] &lt; arr[minNumIndex]) &#123; minNumIndex = j &#125; &#125; arr[i] = arr[minNumIndex] arr[minNumIndex] = tempNum &#125;&#125;let arr = [5, 2, 8, 4, 9, 1]selectionSort(arr)console.log(arr)]]></content>
       <categories>
         <category>算法</category>
         <category>排序</category>

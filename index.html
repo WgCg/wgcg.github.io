@@ -285,7 +285,7 @@
       
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">40</span></a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">44</span></a>
 
   </li>
         
@@ -304,7 +304,7 @@
       
     
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">31</span></a>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">35</span></a>
 
   </li>
         
@@ -323,7 +323,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">51</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">54</span></a>
 
   </li>
         
@@ -442,6 +442,839 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/25/Element与Component与Instance.html">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cong.Wang">
+      <meta itemprop="description" content="WgCg、Cong.Wang、WangCong、Vue、Webpack、HTML、CSS、JS">
+      <meta itemprop="image" content="/uploads/mine/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WgCg Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/09/25/Element与Component与Instance.html" class="post-title-link" itemprop="url">Element与Component与Instance</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-25 16:47:50 / 修改时间：17:05:40" itemprop="dateCreated datePublished" datetime="2019-09-25T16:47:50+08:00">2019-09-25</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/框架/" itemprop="url" rel="index"><span itemprop="name">框架</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/框架/React/" itemprop="url" rel="index"><span itemprop="name">React</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/框架/React/学习笔记/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/09/25/Element与Component与Instance.html#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/09/25/Element与Component与Instance.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/09/25/Element与Component与Instance.html" class="leancloud_visitors" data-flag-title="Element与Component与Instance">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">532</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">1 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Element"><a href="#Element" class="headerlink" title="Element"></a>Element</h2><p>其实就是<code>virtual dom</code>，用js对象来描述一个<code>dom</code>节点，它的<code>type</code>类型可以是字符串（HTML Tag Name）、Components、HTML Node，一个Element Tree最终渲染时只能包含<code>HTML Tag Name</code></p>
+<h2 id="Components"><a href="#Components" class="headerlink" title="Components"></a>Components</h2><p>在React中定义组件的方式有很多中：</p>
+<ol>
+<li>创建一个<code>Class</code>继承自<code>React.Component</code></li>
+<li>单纯的功能组件，是一个<code>Function</code>，返回一个<code>Element</code></li>
+<li>调用<code>React.createClass</code></li>
+</ol>
+<h2 id="Instance"><a href="#Instance" class="headerlink" title="Instance"></a>Instance</h2><p>实例就是我们创建<code>Class Components</code>时，<code>this</code>的指向，它描述了这个组件相关的一些信息，<code>Function Components</code>是没有实例的，对于存储本地状态和对声明周期时间作出反应很有用</p>
+<h2 id="Attention"><a href="#Attention" class="headerlink" title="Attention"></a>Attention</h2><p>但我们创建一个Element时，使用<code>React.createElement</code>、<code>JSX</code>、<code>element factory helper</code>，不要直接使用<code>plain object</code></p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol>
+<li><a href="https://reactjs.org/blog/2015/12/18/react-components-elements-and-instances.html" target="_blank" rel="noopener">https://reactjs.org/blog/2015/12/18/react-components-elements-and-instances.html</a></li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/24/正向代理与反向代理与透明代理.html">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cong.Wang">
+      <meta itemprop="description" content="WgCg、Cong.Wang、WangCong、Vue、Webpack、HTML、CSS、JS">
+      <meta itemprop="image" content="/uploads/mine/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WgCg Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/09/24/正向代理与反向代理与透明代理.html" class="post-title-link" itemprop="url">正向代理、反向代理、透明代理</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-24 22:56:46" itemprop="dateCreated datePublished" datetime="2019-09-24T22:56:46+08:00">2019-09-24</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-09-26 13:30:54" itemprop="dateModified" datetime="2019-09-26T13:30:54+08:00">2019-09-26</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/nginx/" itemprop="url" rel="index"><span itemprop="name">nginx</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/09/24/正向代理与反向代理与透明代理.html#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/09/24/正向代理与反向代理与透明代理.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/09/24/正向代理与反向代理与透明代理.html" class="leancloud_visitors" data-flag-title="正向代理、反向代理、透明代理">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">1.6k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">1 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="正向代理"><a href="#正向代理" class="headerlink" title="正向代理"></a>正向代理</h2><h3 id="什么是正向代理"><a href="#什么是正向代理" class="headerlink" title="什么是正向代理"></a>什么是正向代理</h3><p>正向代理是当客户端获取源服务器的内容时，通过携带上源服务器的域名和端口号访问一个中间服务器，中间服务器接收到需要访问的源服务器域名和端口，然后请求源服务器获取内容，并将内容返回给客户端</p>
+<h3 id="正向代理的特点"><a href="#正向代理的特点" class="headerlink" title="正向代理的特点"></a>正向代理的特点</h3><ol>
+<li>隐藏了客户端，客户端对于源服务器而言是不可见的</li>
+<li>代理了客户端</li>
+<li>客户端需要进行一些特别的设置</li>
+<li>由客户端决定要访问哪个源服务器，代理服务器只做转发功能</li>
+</ol>
+<h3 id="正向代理的应用"><a href="#正向代理的应用" class="headerlink" title="正向代理的应用"></a>正向代理的应用</h3><ol>
+<li>VPN应用，例如Shadowsocks在Mac中的应用，通过设置网络-&gt;网络偏好设置-&gt;高级-&gt;代理-&gt;自动代理-&gt;代理配置文件地址默认为（<a href="http://127.0.0.1:8090/proxy.pac），同时选择一个节点（比如日本1之类的，其实就是中间服务器的地址）。配置成功后，当我们访问外网，例如" target="_blank" rel="noopener">http://127.0.0.1:8090/proxy.pac），同时选择一个节点（比如日本1之类的，其实就是中间服务器的地址）。配置成功后，当我们访问外网，例如</a> <a href="https://www.google.com/" target="_blank" rel="noopener">https://www.google.com/</a> 或 <a href="https://www.facebook.com/" target="_blank" rel="noopener">https://www.facebook.com/</a> 时，这两个域名被包含在在proxy.pac中的rules数组中，所以会走代理，请求你选择的节点（这里为日本1）服务器，并携带上源服务器的地址（这里为 <a href="https://www.google.com/" target="_blank" rel="noopener">https://www.google.com/</a> 或 <a href="https://www.facebook.com/），然后节点服务器接收到请求后，获得你要请求的源服务器地址并发送请求，获得内容然后返回给你" target="_blank" rel="noopener">https://www.facebook.com/），然后节点服务器接收到请求后，获得你要请求的源服务器地址并发送请求，获得内容然后返回给你</a></li>
+<li>手机的代理功能</li>
+</ol>
+<h3 id="正向代理的作用"><a href="#正向代理的作用" class="headerlink" title="正向代理的作用"></a>正向代理的作用</h3><ol>
+<li>访问某些不可达的服务器，例如VPN、客户端与源服务器中间的某个路由器故障导致访问不了等。</li>
+<li>加速访问服务器，这种说法不像以前那么流行了，主要是因为带宽流量的飞速发展。客户端到源服务都是低带宽链路，而客户端到代理服务器、代理服务器到源服务器都是高带宽链路，这样即加快了访问服务器的速度。</li>
+<li>Cache作用。第一次访问某资源时代理服务器将资源缓存到本地，后续再次访问直接返回，不用再去请求源服务器（PS: 这不是nginx的实现原理，nginx采用的是反向代理机制）。</li>
+<li>客户端访问授权。代理服务器进行权限过滤，允许符合权限的客户端访问源服务器，否则访问源服务器时，丢弃数据包（PS: 这里还需要访问源服务器吗？）。</li>
+<li>隐藏客户端</li>
+</ol>
+<h2 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h2><h3 id="什么是反向代理"><a href="#什么是反向代理" class="headerlink" title="什么是反向代理"></a>什么是反向代理</h3><p>反向代理是客户端访问某一服务器时，这个<strong>服务器判断</strong>将请求转发到何处，并将获得的内容返回给客户端</p>
+<h3 id="反向代理的特点"><a href="#反向代理的特点" class="headerlink" title="反向代理的特点"></a>反向代理的特点</h3><ol>
+<li>隐藏了源服务器，源服务器对于客户端是不可见的，对于客户端而言，代理服务器就相对于源服务器</li>
+<li>代理了服务器</li>
+<li>客户端不需要进行设置</li>
+<li>由代理服务器决定访问哪个源服务器</li>
+</ol>
+<h3 id="反向代理的应用"><a href="#反向代理的应用" class="headerlink" title="反向代理的应用"></a>反向代理的应用</h3><ol>
+<li>保护和隐藏原始服务器，例如源服务器的防火墙只允许代理服务器Z进行访问，客户端只能通过访问代理服务器Z来获取源服务器的资源，并不知道源服务器的地址</li>
+<li>负载均衡，当反向代理服务器不只一个时，我们可以把它们做成集群，当更多的用户访问源服务器时，让不同的代理服务器去应答不同的用户，然后发送不同用户需要的资源（CDN技术的核心）</li>
+</ol>
+<h2 id="透明代理"><a href="#透明代理" class="headerlink" title="透明代理"></a>透明代理</h2><p>透明代理的意思是客户端根本不需要知道有代理服务器的存在，它改编你的request fields（报文），并会传送真实IP。注意，加密的透明代理则是属于匿名代理，意思是不用设置使用代理了。</p>
+<h2 id="如何区分正向代理和反向代理"><a href="#如何区分正向代理和反向代理" class="headerlink" title="如何区分正向代理和反向代理"></a>如何区分正向代理和反向代理</h2><p>主要区别：</p>
+<ol>
+<li>客户端是否需要进行配置</li>
+<li>代理服务器的处理方式，是直接取得请求的地址和端口，还是携带的原地址和端口</li>
+</ol>
+<p>正向代理：</p>
+<p>客户端需要配置代理服务器的地址和端口，客户端拦截原请求，转发到代理服务器，并带上原请求的地址和端口，代理服务器取得请求携带的原地址和端口，可以直接把请求转发到原服务器或者进行配置，转发到其它服务器，例如VPN。</p>
+<p>反向代理：</p>
+<p>客户端请求代理服务器，服务器进行配置，根据请求内容转发到不同的源服务器，并将内容返回给客户端，例如nginx负载均衡</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/20/npm之简介.html">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cong.Wang">
+      <meta itemprop="description" content="WgCg、Cong.Wang、WangCong、Vue、Webpack、HTML、CSS、JS">
+      <meta itemprop="image" content="/uploads/mine/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WgCg Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/09/20/npm之简介.html" class="post-title-link" itemprop="url">npm之简介</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-20 11:50:46" itemprop="dateCreated datePublished" datetime="2019-09-20T11:50:46+08:00">2019-09-20</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-09-24 22:55:54" itemprop="dateModified" datetime="2019-09-24T22:55:54+08:00">2019-09-24</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/npm/" itemprop="url" rel="index"><span itemprop="name">npm</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/09/20/npm之简介.html#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/09/20/npm之简介.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/09/20/npm之简介.html" class="leancloud_visitors" data-flag-title="npm之简介">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">1.4k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">1 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="什么是npm"><a href="#什么是npm" class="headerlink" title="什么是npm"></a>什么是npm</h2><p>npm是世界上最大的软件注册表。js包管理工具，包的结构能够使我们轻松的跟踪依赖项和版本。</p>
+<p>npm由三部分组成：</p>
+<ol>
+<li>网站：开发者查找包，设置参数以及管理npm使用体验的主要途径</li>
+<li>注册表：是一个巨大的数据库，保存了每个包的信息</li>
+<li>CLI：通过命令行或终端运行</li>
+</ol>
+<h2 id="如何安装npm-amp-管理npm版本"><a href="#如何安装npm-amp-管理npm版本" class="headerlink" title="如何安装npm&amp;管理npm版本"></a>如何安装npm&amp;管理npm版本</h2><p>安装npm：NodeJs官网进行下载安装</p>
+<p>管理npm版本：使用nvm进行npm多版本管理</p>
+<p>更新npm</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm -v // 显示当前npm版本</span><br><span class="line">npm install npm@latest -g // 安装官方最新测试版本</span><br><span class="line">npm install npm@next -g // 安装即将发布的最新版本</span><br></pre></td></tr></table></figure>
+<h2 id="Semver"><a href="#Semver" class="headerlink" title="Semver"></a>Semver</h2><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>Semver全称Semantic versioning（语义化版本），其作用是当开发者依赖某个包时，当包更新时，开发者能通过Semver明确这次更新的程度与影响范围，并在必要时更改他们的代码来适配新的版本。</p>
+<p>npm使用语义化控制版本，我们可安装一定版本范围内的npm包，npm会选择和你指定的版本<strong>相匹配</strong>的<strong>latest（最新版本）</strong>安装。</p>
+<h3 id="规则"><a href="#规则" class="headerlink" title="规则"></a>规则</h3><p>npm的版本号由三部分组成，变更不同的版本号代表不同的意义：</p>
+<ul>
+<li>主版本号（major）</li>
+<li>次版本号（minor）</li>
+<li>补丁版本号（patch）</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>更改内容</th>
+<th>阶段</th>
+<th>规则</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>第一次发布</td>
+<td>New Product</td>
+<td>把1.0.0作为起始版本</td>
+<td>1.0.0</td>
+</tr>
+<tr>
+<td>向后兼容的Bug修复或极小的改动</td>
+<td>Patch release</td>
+<td>patch版本+1</td>
+<td>1.0.1</td>
+</tr>
+<tr>
+<td>向后兼容的新功能</td>
+<td>Minor release</td>
+<td>minor版本+1</td>
+<td>1.1.0</td>
+</tr>
+<tr>
+<td>不向后兼容的更改</td>
+<td>Major release</td>
+<td>major版本+1</td>
+<td>2.0.0</td>
+</tr>
+</tbody>
+</table>
+<p>有时候为了表达更确切的版本，还会在版本号后面添加<strong>标签</strong>或者<strong>扩展</strong>，来说明是预发布版本或者测试版本等，例如：2.0.2-beta-3。</p>
+<p>常见的标签有：</p>
+<table>
+<thead>
+<tr>
+<th>标签</th>
+<th>意义</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>demo</td>
+<td>demo版本</td>
+<td>可能用于验证问题的版本</td>
+</tr>
+<tr>
+<td>dev</td>
+<td>开发版</td>
+<td>开发阶段使用，bug多，体积较大等特点，功能不完善</td>
+</tr>
+<tr>
+<td>alpha</td>
+<td>α版本</td>
+<td>用于内部交流或者测试人员测试，bug较多</td>
+</tr>
+<tr>
+<td>beta</td>
+<td>测试版本（β版本）</td>
+<td>较α版本，有较大的改进，但是还是有bug</td>
+</tr>
+<tr>
+<td>gamma</td>
+<td>伽马版本（γ版本）</td>
+<td>较α和β版本有很大的改进，与稳定版相差无几，用户可使用</td>
+</tr>
+<tr>
+<td>trial</td>
+<td>试用版本</td>
+<td>本软件通常都有时间限制，过期之后用户如果希望继续使用，一般得交纳一定的费用进行注册或购买。有些试用版软件还在功能上做了一定的限制。</td>
+</tr>
+<tr>
+<td>stable</td>
+<td>稳定版本</td>
+<td></td>
+</tr>
+<tr>
+<td>csp</td>
+<td>内容安全版本</td>
+<td>js库常用</td>
+</tr>
+</tbody>
+</table>
+<h2 id="限制安装包的版本"><a href="#限制安装包的版本" class="headerlink" title="限制安装包的版本"></a>限制安装包的版本</h2><p>在package.json中可以通过一些符号来限制包只能更新到某个版本</p>
+<ul>
+<li>Patch release: 1.0 or 1.0.x or ~1.0.x</li>
+</ul>
+<h2 id="安装包的方式"><a href="#安装包的方式" class="headerlink" title="安装包的方式"></a>安装包的方式</h2><p>安装包有两种方式：本地安装和全局安装，采用何种安装方式取决于要如何使用这个包：</p>
+<ul>
+<li>如果你自己的模块依赖于某个包，并且通过NodeJs的<code>require</code>加载，那么你应该选择本地安装这个包，这也是<code>npm install</code>命令的默认行为</li>
+<li>如果你想将包作为一个命令行工具，比如<code>grunt CLI</code>，那么你应该选择全局安装</li>
+</ul>
+<h3 id="本地包"><a href="#本地包" class="headerlink" title="本地包"></a>本地包</h3><h3 id="全局包"><a href="#全局包" class="headerlink" title="全局包"></a>全局包</h3>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/28/微信小程序之webview常见问题.html">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -487,12 +1320,24 @@
                 
               
 
-              <time title="创建时间：2019-08-28 16:55:48 / 修改时间：16:57:29" itemprop="dateCreated datePublished" datetime="2019-08-28T16:55:48+08:00">2019-08-28</time>
+              <time title="创建时间：2019-08-28 16:55:48" itemprop="dateCreated datePublished" datetime="2019-08-28T16:55:48+08:00">2019-08-28</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-09-20 17:50:11" itemprop="dateModified" datetime="2019-09-20T17:50:11+08:00">2019-09-20</time>
               
             
           </span>
@@ -566,7 +1411,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">956</span>
+                <span title="本文字数">776</span>
               
 
               
@@ -602,8 +1447,8 @@
       
         
           
-            <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>官方汇总链接 <a href="https://developers.weixin.qq.com/blogdetail?action=get_post_info&amp;lang=zh_CN&amp;token=585555149&amp;docid=ebfd9e5ec9986b4f23c41f8d8bbf2730" target="_blank" rel="noopener">https://developers.weixin.qq.com/blogdetail?action=get_post_info&amp;lang=zh_CN&amp;token=585555149&amp;docid=ebfd9e5ec9986b4f23c41f8d8bbf2730</a></p>
-<p>微信小程序内嵌网页的一些（最佳）实践 <a href="https://zhuanlan.zhihu.com/p/33985049" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/33985049</a></p>
+            <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://developers.weixin.qq.com/blogdetail?action=get_post_info&amp;lang=zh_CN&amp;token=585555149&amp;docid=ebfd9e5ec9986b4f23c41f8d8bbf2730" target="_blank" rel="noopener">官方汇总链接</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/33985049" target="_blank" rel="noopener">微信小程序内嵌网页的一些（最佳）实践 </a></p>
 <h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ol>
 <li>web-view 不支持推送服务通知（或称模板消息)</li>
 <li>webview 里面的网页不能调用JSSDK进行微信支付，需要小程序原生页面通过小程序的支付api进行支付</li>
@@ -2184,784 +3029,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/24/解构赋值.html">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cong.Wang">
-      <meta itemprop="description" content="WgCg、Cong.Wang、WangCong、Vue、Webpack、HTML、CSS、JS">
-      <meta itemprop="image" content="/uploads/mine/head.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WgCg Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/06/24/解构赋值.html" class="post-title-link" itemprop="url">解构赋值</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-06-24 21:03:32" itemprop="dateCreated datePublished" datetime="2019-06-24T21:03:32+08:00">2019-06-24</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-06-25 11:30:15" itemprop="dateModified" datetime="2019-06-25T11:30:15+08:00">2019-06-25</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/编程语言/" itemprop="url" rel="index"><span itemprop="name">编程语言</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/编程语言/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/编程语言/JavaScript/ES6/" itemprop="url" rel="index"><span itemprop="name">ES6</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/06/24/解构赋值.html#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/06/24/解构赋值.html" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2019/06/24/解构赋值.html" class="leancloud_visitors" data-flag-title="解构赋值">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数：</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">263</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">1 分钟</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="数组的解构赋值"><a href="#数组的解构赋值" class="headerlink" title="数组的解构赋值"></a>数组的解构赋值</h2><ol>
-<li>如果等号的右边（或隐式转为对象后）不是可遍历的解构（Iterator），那么将会报错。</li>
-<li>只有当一个数组成员严格等于（===）<code>undefined</code>时，默认值才会生效。</li>
-</ol>
-<h2 id="对象的解构赋值"><a href="#对象的解构赋值" class="headerlink" title="对象的解构赋值"></a>对象的解构赋值</h2><ol>
-<li>对象的解构赋值可以取到继承的属性。</li>
-<li>由于数组本质是特殊的对象，因此可以对数组进行对象属性的解构。</li>
-<li>如果等号右边是字符串、数字、布尔值，则会隐式的转为对象。因为<code>undefined</code>和<code>null</code>无法转为对象，所以会报错。</li>
-<li>不能使用圆括号的情况<ul>
-<li>变量声明语句</li>
-<li>函数参数</li>
-<li>赋值语句的模式</li>
-</ul>
-</li>
-<li>能使用圆括号的情况<ul>
-<li>赋值语句的非模式部分</li>
-</ul>
-</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/24/let和const命令.html">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cong.Wang">
-      <meta itemprop="description" content="WgCg、Cong.Wang、WangCong、Vue、Webpack、HTML、CSS、JS">
-      <meta itemprop="image" content="/uploads/mine/head.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WgCg Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/06/24/let和const命令.html" class="post-title-link" itemprop="url">let和const命令</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-06-24 20:01:17 / 修改时间：21:04:02" itemprop="dateCreated datePublished" datetime="2019-06-24T20:01:17+08:00">2019-06-24</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/编程语言/" itemprop="url" rel="index"><span itemprop="name">编程语言</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/编程语言/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/编程语言/JavaScript/ES6/" itemprop="url" rel="index"><span itemprop="name">ES6</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/06/24/let和const命令.html#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/06/24/let和const命令.html" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2019/06/24/let和const命令.html" class="leancloud_visitors" data-flag-title="let和const命令">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数：</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">1.2k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">1 分钟</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="let"><a href="#let" class="headerlink" title="let"></a>let</h2><ol>
-<li>只在块级作用域内有效。</li>
-<li>不存在变量提升。</li>
-<li>暂时性死区，只要块级作用域内存在<code>let</code>命令，这个区块对这些命令声明的变量，从一开始就形成了封闭作用域。凡是在声明之前使用这些变量，就会报错（无论父级作用域是否定义了这些变量），这意味着<code>typeof</code>不再是一个百分百的安全操作。</li>
-<li>不允许重复声明同一个变量。</li>
-<li><code>for</code>循环有一个特别之处，就是设置循环变量的那部分是一个父作用域，而循环体内部是一个单独的子作用域。</li>
-</ol>
-<h2 id="块级作用域"><a href="#块级作用域" class="headerlink" title="块级作用域"></a>块级作用域</h2><ol>
-<li>ES5 规定函数只能在顶层作用域和函数作用域进行声明，不能再块级作用域中进行声明，但是浏览器为了兼容以前的旧代码，并没有遵守这个规范。 ES6 明确规定允许在块级作用域中声明函数。</li>
-<li>ES5 中，函数的整条声明语句会被提升到函数头部或顶级作用域头部</li>
-<li>ES6 的浏览器函数声明的限制（其他环境的实现不用遵守，还是将块级作用域中的函数声明当作<code>let</code>处理）：<ul>
-<li>允许在块级作用域内声明函数</li>
-<li>函数声明类似于<code>var</code>，会提升到全局作用域或函数作用域的头部</li>
-<li>同时，函数声明还会提升到块级作用域的头部</li>
-</ul>
-</li>
-<li>考虑到环境的行为差异太大，不建议在块级作用域内进行函数声明，如果要使用，最好使用函数表达式。</li>
-<li>ES6 的块级作用域必须有大括号，如果没有大括号，<code>JS</code>引擎就认为不存在块级作用域。</li>
-</ol>
-<h2 id="const"><a href="#const" class="headerlink" title="const"></a>const</h2><ol>
-<li><code>const</code>声明一个常量，一旦声明，常量的值不允许改变。单对于复合类型数据（例如对象，数组），其只能保证指向内存地址的指针不改变，无法保证其数据结构不变。可以使用<code>Object.freeze</code>进行冻结（只能冻结改对象的属性，如果其属性是一个对象，只能保证指针不变，无法保证子对象的属性不变）。</li>
-<li>必须立即初始化。</li>
-<li>只在块级作用域内有效。</li>
-<li>不存在变量提升。</li>
-<li>暂时性死区。</li>
-<li>不允许重复声明。</li>
-</ol>
-<h2 id="ES6-声明变量的六种方法"><a href="#ES6-声明变量的六种方法" class="headerlink" title="ES6 声明变量的六种方法"></a>ES6 声明变量的六种方法</h2><ol>
-<li>var</li>
-<li>function</li>
-<li>let</li>
-<li>const</li>
-<li>import</li>
-<li>class</li>
-</ol>
-<h3 id="顶层对象属性"><a href="#顶层对象属性" class="headerlink" title="顶层对象属性"></a>顶层对象属性</h3><ol>
-<li><code>var</code>和<code>function</code>命令声明的全局变量，依旧是顶层对象的属性。</li>
-<li><code>let</code>、<code>const</code>、<code>class</code>命令声明的全局变量，不属于顶层对象的属性。</li>
-</ol>
-<h3 id="globalThis-对象"><a href="#globalThis-对象" class="headerlink" title="globalThis 对象"></a>globalThis 对象</h3><ol>
-<li>不同环境中指向顶层对象的变量不同<ul>
-<li>浏览器：self 和 this</li>
-<li>Web Worker：self</li>
-<li>Node: global</li>
-</ul>
-</li>
-<li>全局环境中，<code>this</code>返回的是顶层对象。但是，在<code>ES6</code>模块和<code>Node</code>模块中，<code>this</code>返回的是当前模块。</li>
-<li>函数里面的 this，如果函数不是作为对象的方法允许，而是单纯作为函数允许，<code>this</code>会指向顶层对象。但是，在严格模式下，<code>this</code>会返回<code>undefined</code>。</li>
-<li>不管是在严格模式还是普通模式，<code>new Function(&#39;return this&#39;)()</code>总是返回全局对象。但是，如果浏览器使用了 CSP（Content Security Policy，内容安全策略），那么<code>eval</code>，<code>new Function</code>这些方法可能无法使用。</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/06/面试之Web其它.html">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cong.Wang">
-      <meta itemprop="description" content="WgCg、Cong.Wang、WangCong、Vue、Webpack、HTML、CSS、JS">
-      <meta itemprop="image" content="/uploads/mine/head.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WgCg Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/05/06/面试之Web其它.html" class="post-title-link" itemprop="url">面试之Web其它</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-05-06 22:44:43 / 修改时间：23:39:19" itemprop="dateCreated datePublished" datetime="2019-05-06T22:44:43+08:00">2019-05-06</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/面试/" itemprop="url" rel="index"><span itemprop="name">面试</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/05/06/面试之Web其它.html#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/05/06/面试之Web其它.html" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2019/05/06/面试之Web其它.html" class="leancloud_visitors" data-flag-title="面试之Web其它">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数：</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">1.1k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">1 分钟</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="SEO"><a href="#SEO" class="headerlink" title="SEO"></a>SEO</h2><h3 id="什么是SEO"><a href="#什么是SEO" class="headerlink" title="什么是SEO"></a>什么是SEO</h3><p>SEO（Search Engine Optimization），中文译为“搜索引擎优化”，是一种透过了解搜索引擎的运作规则来调整网站，以提高目的网站在有关搜索引擎内的自然排名的方式。</p>
-<h3 id="SEO的分类"><a href="#SEO的分类" class="headerlink" title="SEO的分类"></a>SEO的分类</h3><ol>
-<li>白帽SEO：改良和规范网页的设计，使其对搜索引擎和用户更加友好，是一种搜索引擎推荐的做法。</li>
-<li>黑帽SEO：利用或者放大搜索引擎的缺陷，使用不正当的手段提高目的网站在搜索引擎的排名。</li>
-</ol>
-<h3 id="SEO的主要方面"><a href="#SEO的主要方面" class="headerlink" title="SEO的主要方面"></a>SEO的主要方面</h3><p>白帽SEO：</p>
-<ol>
-<li>合理的<code>title</code>、<code>keywords</code>、<code>description</code></li>
-<li>语义化的HTML</li>
-<li>重要的HTML尽量放在前面。搜索引擎抓取HTML的顺序是从上到下的，有些搜索引擎的抓取长度有限，保证重要内容一定会被抓取</li>
-<li>重要的内容不要用<code>js</code>输出：搜索引擎不会执行<code>js</code>获取内容</li>
-<li>减少<code>iframe</code>的使用：搜索引擎不会抓取<code>iframe</code>中的内容</li>
-<li>非装饰性的图片必须加<code>alt</code></li>
-<li>提高网站速度：网站速度是搜索引擎排序的一个重要指标</li>
-<li>增加与网页内容相关的外链引用</li>
-</ol>
-<p>黑帽SEO：</p>
-<ol>
-<li>垃圾索引：透过欺骗技术和滥用搜索算法来推销毫不相关、主要以商业为着眼的网页。</li>
-<li>斗篷法：用了两版不同的网页来达到最优化的效果。</li>
-<li>关键字隐密字：通常是指设置关键字的颜色和网页背景颜色一样，或透过 css hidden attribute （隐密特性） 来达到优化效果。</li>
-<li>桥页：通常是用软件自动生成大量包含关键词的网页，然后从这些网页做自动转向到主页。</li>
-<li>付费链接：是利用支付费用方式要求其他网站提供链接至自身网站，借此伪装高信任网站来欺骗搜索引擎。</li>
-<li>链接农场：是故意在一些低质量，内容跟自己内容无关的网站上获取大量链接，藉以提高排名。</li>
-</ol>
-<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><ol>
-<li><a href="https://zh.wikipedia.org/wiki/%E6%90%9C%E5%B0%8B%E5%BC%95%E6%93%8E%E6%9C%80%E4%BD%B3%E5%8C%96" target="_blank" rel="noopener">维基百科</a></li>
-<li><a href="https://segmentfault.com/a/1190000002994538" target="_blank" rel="noopener">https://segmentfault.com/a/1190000002994538</a></li>
-</ol>
-<h2 id="会话跟踪"><a href="#会话跟踪" class="headerlink" title="会话跟踪"></a>会话跟踪</h2><h3 id="什么是会话跟踪"><a href="#什么是会话跟踪" class="headerlink" title="什么是会话跟踪"></a>什么是会话跟踪</h3><p>会话跟踪技术是用于维持客户端和服务器端通信信息的技术</p>
-<h3 id="引入会话跟踪的原因"><a href="#引入会话跟踪的原因" class="headerlink" title="引入会话跟踪的原因"></a>引入会话跟踪的原因</h3><p>HTTP是一种无状态协议，每当用户发出请求时，服务器就会做出响应，客户端与服务器之间的联系是离散的、非连续的。当用户在同一网站的多个页面之间转换时，根本无法确定是否是同一个客户以及维持客户的上下文信息，会话跟踪技术就可以解决这个问题。</p>
-<h3 id="Web中会话跟踪的方法有哪些"><a href="#Web中会话跟踪的方法有哪些" class="headerlink" title="Web中会话跟踪的方法有哪些"></a>Web中会话跟踪的方法有哪些</h3><ol>
-<li>cookie</li>
-<li>session</li>
-<li>url重写：动态生成<code>sessionID</code>拼接在<code>url</code>上</li>
-<li>隐藏的表单域</li>
-<li>ip地址</li>
-</ol>
-<h3 id="参考链接-1"><a href="#参考链接-1" class="headerlink" title="参考链接"></a>参考链接</h3><ol>
-<li><a href="https://blog.csdn.net/qq_38363396/article/details/78289344" target="_blank" rel="noopener">https://blog.csdn.net/qq_38363396/article/details/78289344</a></li>
-<li><a href="https://blog.csdn.net/qfs_v/article/details/2652119" target="_blank" rel="noopener">https://blog.csdn.net/qfs_v/article/details/2652119</a></li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -3011,7 +3078,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">51</span>
+                    <span class="site-state-item-count">54</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -3086,7 +3153,15 @@
                     
                       
                     
-                    <span class="site-state-item-count">31</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">35</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -3179,7 +3254,15 @@
                     
                       
                     
-                    <span class="site-state-item-count">40</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">44</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -3244,7 +3327,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">254k</span>
+    <span title="站点总字数">257k</span>
   
 
   
@@ -3253,7 +3336,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">3:51</span>
+    <span title="站点阅读时长">3:54</span>
   
 </div>
 

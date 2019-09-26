@@ -1,9 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Element与Component与Instance]]></title>
+    <url>%2F2019%2F09%2F25%2FElement%E4%B8%8EComponent%E4%B8%8EInstance.html</url>
+    <content type="text"><![CDATA[Element其实就是virtual dom，用js对象来描述一个dom节点，它的type类型可以是字符串（HTML Tag Name）、Components、HTML Node，一个Element Tree最终渲染时只能包含HTML Tag Name Components在React中定义组件的方式有很多中： 创建一个Class继承自React.Component 单纯的功能组件，是一个Function，返回一个Element 调用React.createClass Instance实例就是我们创建Class Components时，this的指向，它描述了这个组件相关的一些信息，Function Components是没有实例的，对于存储本地状态和对声明周期时间作出反应很有用 Attention但我们创建一个Element时，使用React.createElement、JSX、element factory helper，不要直接使用plain object Reference https://reactjs.org/blog/2015/12/18/react-components-elements-and-instances.html]]></content>
+      <categories>
+        <category>框架</category>
+        <category>React</category>
+        <category>学习笔记</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[正向代理、反向代理、透明代理]]></title>
+    <url>%2F2019%2F09%2F24%2F%E6%AD%A3%E5%90%91%E4%BB%A3%E7%90%86%E4%B8%8E%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E4%B8%8E%E9%80%8F%E6%98%8E%E4%BB%A3%E7%90%86.html</url>
+    <content type="text"><![CDATA[正向代理什么是正向代理正向代理是当客户端获取源服务器的内容时，通过携带上源服务器的域名和端口号访问一个中间服务器，中间服务器接收到需要访问的源服务器域名和端口，然后请求源服务器获取内容，并将内容返回给客户端 正向代理的特点 隐藏了客户端，客户端对于源服务器而言是不可见的 代理了客户端 客户端需要进行一些特别的设置 由客户端决定要访问哪个源服务器，代理服务器只做转发功能 正向代理的应用 VPN应用，例如Shadowsocks在Mac中的应用，通过设置网络-&gt;网络偏好设置-&gt;高级-&gt;代理-&gt;自动代理-&gt;代理配置文件地址默认为（http://127.0.0.1:8090/proxy.pac），同时选择一个节点（比如日本1之类的，其实就是中间服务器的地址）。配置成功后，当我们访问外网，例如 https://www.google.com/ 或 https://www.facebook.com/ 时，这两个域名被包含在在proxy.pac中的rules数组中，所以会走代理，请求你选择的节点（这里为日本1）服务器，并携带上源服务器的地址（这里为 https://www.google.com/ 或 https://www.facebook.com/），然后节点服务器接收到请求后，获得你要请求的源服务器地址并发送请求，获得内容然后返回给你 手机的代理功能 正向代理的作用 访问某些不可达的服务器，例如VPN、客户端与源服务器中间的某个路由器故障导致访问不了等。 加速访问服务器，这种说法不像以前那么流行了，主要是因为带宽流量的飞速发展。客户端到源服务都是低带宽链路，而客户端到代理服务器、代理服务器到源服务器都是高带宽链路，这样即加快了访问服务器的速度。 Cache作用。第一次访问某资源时代理服务器将资源缓存到本地，后续再次访问直接返回，不用再去请求源服务器（PS: 这不是nginx的实现原理，nginx采用的是反向代理机制）。 客户端访问授权。代理服务器进行权限过滤，允许符合权限的客户端访问源服务器，否则访问源服务器时，丢弃数据包（PS: 这里还需要访问源服务器吗？）。 隐藏客户端 反向代理什么是反向代理反向代理是客户端访问某一服务器时，这个服务器判断将请求转发到何处，并将获得的内容返回给客户端 反向代理的特点 隐藏了源服务器，源服务器对于客户端是不可见的，对于客户端而言，代理服务器就相对于源服务器 代理了服务器 客户端不需要进行设置 由代理服务器决定访问哪个源服务器 反向代理的应用 保护和隐藏原始服务器，例如源服务器的防火墙只允许代理服务器Z进行访问，客户端只能通过访问代理服务器Z来获取源服务器的资源，并不知道源服务器的地址 负载均衡，当反向代理服务器不只一个时，我们可以把它们做成集群，当更多的用户访问源服务器时，让不同的代理服务器去应答不同的用户，然后发送不同用户需要的资源（CDN技术的核心） 透明代理透明代理的意思是客户端根本不需要知道有代理服务器的存在，它改编你的request fields（报文），并会传送真实IP。注意，加密的透明代理则是属于匿名代理，意思是不用设置使用代理了。 如何区分正向代理和反向代理主要区别： 客户端是否需要进行配置 代理服务器的处理方式，是直接取得请求的地址和端口，还是携带的原地址和端口 正向代理： 客户端需要配置代理服务器的地址和端口，客户端拦截原请求，转发到代理服务器，并带上原请求的地址和端口，代理服务器取得请求携带的原地址和端口，可以直接把请求转发到原服务器或者进行配置，转发到其它服务器，例如VPN。 反向代理： 客户端请求代理服务器，服务器进行配置，根据请求内容转发到不同的源服务器，并将内容返回给客户端，例如nginx负载均衡]]></content>
+      <categories>
+        <category>nginx</category>
+      </categories>
+      <tags>
+        <tag>nginx</tag>
+        <tag>正向代理</tag>
+        <tag>反向代理</tag>
+        <tag>透明代理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[npm之简介]]></title>
+    <url>%2F2019%2F09%2F20%2Fnpm%E4%B9%8B%E7%AE%80%E4%BB%8B.html</url>
+    <content type="text"><![CDATA[什么是npmnpm是世界上最大的软件注册表。js包管理工具，包的结构能够使我们轻松的跟踪依赖项和版本。 npm由三部分组成： 网站：开发者查找包，设置参数以及管理npm使用体验的主要途径 注册表：是一个巨大的数据库，保存了每个包的信息 CLI：通过命令行或终端运行 如何安装npm&amp;管理npm版本安装npm：NodeJs官网进行下载安装 管理npm版本：使用nvm进行npm多版本管理 更新npm 123npm -v // 显示当前npm版本npm install npm@latest -g // 安装官方最新测试版本npm install npm@next -g // 安装即将发布的最新版本 Semver介绍Semver全称Semantic versioning（语义化版本），其作用是当开发者依赖某个包时，当包更新时，开发者能通过Semver明确这次更新的程度与影响范围，并在必要时更改他们的代码来适配新的版本。 npm使用语义化控制版本，我们可安装一定版本范围内的npm包，npm会选择和你指定的版本相匹配的latest（最新版本）安装。 规则npm的版本号由三部分组成，变更不同的版本号代表不同的意义： 主版本号（major） 次版本号（minor） 补丁版本号（patch） 更改内容 阶段 规则 示例 第一次发布 New Product 把1.0.0作为起始版本 1.0.0 向后兼容的Bug修复或极小的改动 Patch release patch版本+1 1.0.1 向后兼容的新功能 Minor release minor版本+1 1.1.0 不向后兼容的更改 Major release major版本+1 2.0.0 有时候为了表达更确切的版本，还会在版本号后面添加标签或者扩展，来说明是预发布版本或者测试版本等，例如：2.0.2-beta-3。 常见的标签有： 标签 意义 说明 demo demo版本 可能用于验证问题的版本 dev 开发版 开发阶段使用，bug多，体积较大等特点，功能不完善 alpha α版本 用于内部交流或者测试人员测试，bug较多 beta 测试版本（β版本） 较α版本，有较大的改进，但是还是有bug gamma 伽马版本（γ版本） 较α和β版本有很大的改进，与稳定版相差无几，用户可使用 trial 试用版本 本软件通常都有时间限制，过期之后用户如果希望继续使用，一般得交纳一定的费用进行注册或购买。有些试用版软件还在功能上做了一定的限制。 stable 稳定版本 csp 内容安全版本 js库常用 限制安装包的版本在package.json中可以通过一些符号来限制包只能更新到某个版本 Patch release: 1.0 or 1.0.x or ~1.0.x 安装包的方式安装包有两种方式：本地安装和全局安装，采用何种安装方式取决于要如何使用这个包： 如果你自己的模块依赖于某个包，并且通过NodeJs的require加载，那么你应该选择本地安装这个包，这也是npm install命令的默认行为 如果你想将包作为一个命令行工具，比如grunt CLI，那么你应该选择全局安装 本地包全局包]]></content>
+      <categories>
+        <category>npm</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[微信小程序之webview常见问题]]></title>
     <url>%2F2019%2F08%2F28%2F%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%B9%8Bwebview%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98.html</url>
-    <content type="text"><![CDATA[参考资料官方汇总链接 https://developers.weixin.qq.com/blogdetail?action=get_post_info&amp;lang=zh_CN&amp;token=585555149&amp;docid=ebfd9e5ec9986b4f23c41f8d8bbf2730 微信小程序内嵌网页的一些（最佳）实践 https://zhuanlan.zhihu.com/p/33985049 特点 web-view 不支持推送服务通知（或称模板消息) webview 里面的网页不能调用JSSDK进行微信支付，需要小程序原生页面通过小程序的支付api进行支付 web-view 跟小程序是独立的两个环境，数据完全不通，包括 cookie、session、localStorage 等等； 但小程序内嵌 web-view 跟微信内置浏览器是一套环境，也就是说你在 web-view 里面留下的以上痕迹，到微信里内置浏览器打开也有； 在两种环境下，不太容易区分到底是什么环境，小程序官方给的判断方法是 window.__wxjs_environment === ‘miniprogram’，但是在 web-view 进入第二页时候，安卓机下这个变量就 undefined 了。 常见错误 打开的域名没有在小程序管理后台设置业务域名(注意是业务域名，不是服务器域名)； 打开的页面 302 过去的地址也必须设置过业务域名； 页面可以包含 iframe，但是 iframe 的地址必须为业务域名； 打开的页面必须为 https 服务； 开发者自己检查自己的 https 服务是否正常，测试方法：普通浏览器打开对应的地址； iOS上传图片问题 iOS小程序webview内input选择文件崩溃 webview postmessage 给小程序，data对应的值必须是个对象，不能是字符串https://developers.weixin.qq.com/blogdetail?action=get_post_info&amp;docid=0000429a4004205ecf96ea80c51004&amp;highline=web-view&amp;comment_lvl=1，如下图]]></content>
+    <content type="text"><![CDATA[参考资料官方汇总链接 微信小程序内嵌网页的一些（最佳）实践 特点 web-view 不支持推送服务通知（或称模板消息) webview 里面的网页不能调用JSSDK进行微信支付，需要小程序原生页面通过小程序的支付api进行支付 web-view 跟小程序是独立的两个环境，数据完全不通，包括 cookie、session、localStorage 等等； 但小程序内嵌 web-view 跟微信内置浏览器是一套环境，也就是说你在 web-view 里面留下的以上痕迹，到微信里内置浏览器打开也有； 在两种环境下，不太容易区分到底是什么环境，小程序官方给的判断方法是 window.__wxjs_environment === ‘miniprogram’，但是在 web-view 进入第二页时候，安卓机下这个变量就 undefined 了。 常见错误 打开的域名没有在小程序管理后台设置业务域名(注意是业务域名，不是服务器域名)； 打开的页面 302 过去的地址也必须设置过业务域名； 页面可以包含 iframe，但是 iframe 的地址必须为业务域名； 打开的页面必须为 https 服务； 开发者自己检查自己的 https 服务是否正常，测试方法：普通浏览器打开对应的地址； iOS上传图片问题 iOS小程序webview内input选择文件崩溃 webview postmessage 给小程序，data对应的值必须是个对象，不能是字符串https://developers.weixin.qq.com/blogdetail?action=get_post_info&amp;docid=0000429a4004205ecf96ea80c51004&amp;highline=web-view&amp;comment_lvl=1，如下图]]></content>
       <categories>
         <category>微信小程序</category>
         <category>常见问题</category>

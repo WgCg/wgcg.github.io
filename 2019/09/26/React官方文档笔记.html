@@ -1,0 +1,1776 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5">
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=6.7.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="备注当前笔记基于React v16.8.6 核心概念JSX相关 因为JSX最终会编译成React.createElement的调用形式，所以使用JXS之前必须先引入React 在JSX中允许使用点语法来引用一个组件，例如&amp;lt;MyComponents.DatePicker&amp;gt; React自定义组件必须以大写命名，否则会被认为是一个html标签 props的默认值为true JSX中只支持Ja">
+<meta name="keywords" content="FrontEnd、Life">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React官方文档笔记">
+<meta property="og:url" content="http://yoursite.com/2019/09/26/React官方文档笔记.html">
+<meta property="og:site_name" content="WgCg Blog">
+<meta property="og:description" content="备注当前笔记基于React v16.8.6 核心概念JSX相关 因为JSX最终会编译成React.createElement的调用形式，所以使用JXS之前必须先引入React 在JSX中允许使用点语法来引用一个组件，例如&amp;lt;MyComponents.DatePicker&amp;gt; React自定义组件必须以大写命名，否则会被认为是一个html标签 props的默认值为true JSX中只支持Ja">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-14T07:51:07.398Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React官方文档笔记">
+<meta name="twitter:description" content="备注当前笔记基于React v16.8.6 核心概念JSX相关 因为JSX最终会编译成React.createElement的调用形式，所以使用JXS之前必须先引入React 在JSX中允许使用点语法来引用一个组件，例如&amp;lt;MyComponents.DatePicker&amp;gt; React自定义组件必须以大写命名，否则会被认为是一个html标签 props的默认值为true JSX中只支持Ja">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="WgCg Blog" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/09/26/React官方文档笔记.html">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>React官方文档笔记 | WgCg Blog</title>
+  
+
+
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?0f283e802c778d7b81eb39bcc6caac80";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband">
+    </div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">WgCg Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Keep Learning and Never Give Up</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">44</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">37</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">58</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-schedule">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/schedule/" rel="section"><i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>日程表</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-sitemap">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/sitemap.xml" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>站点地图</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/26/React官方文档笔记.html">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cong.Wang">
+      <meta itemprop="description" content="WgCg、Cong.Wang、WangCong、Vue、Webpack、HTML、CSS、JS">
+      <meta itemprop="image" content="/uploads/mine/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WgCg Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">React官方文档笔记
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-26 19:23:11" itemprop="dateCreated datePublished" datetime="2019-09-26T19:23:11+08:00">2019-09-26</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-10-14 15:51:07" itemprop="dateModified" datetime="2019-10-14T15:51:07+08:00">2019-10-14</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/框架/" itemprop="url" rel="index"><span itemprop="name">框架</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/框架/React/" itemprop="url" rel="index"><span itemprop="name">React</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/框架/React/笔记/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/09/26/React官方文档笔记.html#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/09/26/React官方文档笔记.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/09/26/React官方文档笔记.html" class="leancloud_visitors" data-flag-title="React官方文档笔记">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">6.1k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">6 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="备注"><a href="#备注" class="headerlink" title="备注"></a>备注</h2><p>当前笔记基于<code>React v16.8.6</code></p>
+<h2 id="核心概念"><a href="#核心概念" class="headerlink" title="核心概念"></a>核心概念</h2><h3 id="JSX相关"><a href="#JSX相关" class="headerlink" title="JSX相关"></a>JSX相关</h3><ol>
+<li>因为<code>JSX</code>最终会编译成<code>React.createElement</code>的调用形式，所以使用<code>JXS</code>之前必须先引入<code>React</code></li>
+<li>在<code>JSX</code>中允许使用点语法来引用一个组件，例如<code>&lt;MyComponents.DatePicker&gt;</code></li>
+<li><code>React</code>自定义组件必须以大写命名，否则会被认为是一个<code>html</code>标签</li>
+<li><code>props</code>的默认值为<code>true</code></li>
+<li><code>JSX</code>中只支持<code>JavaScript</code>表达式</li>
+<li>属性名采用驼峰命名，但<code>arial-*</code>除外</li>
+<li><code>class</code>采用<code>className</code>取代</li>
+<li><code>for</code>采用<code>htmlFor</code>取代</li>
+<li>表单组件中，对于后续不需要变化的控件，其值可以使用<code>defualtValue</code>、<code>defaultChecked</code>进行设置</li>
+<li>在<code>JSX</code>中，<code>false</code>、<code>null</code>、<code>undefined</code>、<code>true</code>是合法的子元素，但是它们并不会被渲染，这也就是为什么<code>{ showHeader &amp;&amp; &lt;Header /&gt; }</code>可以正常渲染的原因，值得注意的是有一些<code>falsy</code>的值，例如：数值<code>0</code>仍然会被渲染</li>
+<li>子元素的传递<ol>
+<li><code>props.children</code>，也可以传递一个函数</li>
+<li>通过<code>props</code>传递<code>JSX</code></li>
+</ol>
+</li>
+</ol>
+<h3 id="React哲学"><a href="#React哲学" class="headerlink" title="React哲学"></a>React哲学</h3><h4 id="组件编写顺序"><a href="#组件编写顺序" class="headerlink" title="组件编写顺序"></a>组件编写顺序</h4><ol>
+<li>构建简单应用时，使用自上而下的方式进行构建（先编写层级高的组件）</li>
+<li>构建复杂应用时，使用自下而上的方式进行构建（先编写最基本的组件）</li>
+</ol>
+<h4 id="如何判断数据是否属于state"><a href="#如何判断数据是否属于state" class="headerlink" title="如何判断数据是否属于state"></a>如何判断数据是否属于state</h4><ol>
+<li>该数据是否是由父组件通过props传递而来的？如果是，那它应该不是state</li>
+<li>该数据是否随时间内的推移而保持不变？如果是，那它应该也不是state</li>
+<li>你能否根据其他state或props计算出该数据的值？如果是，那它也不是state</li>
+</ol>
+<h4 id="如何确定state放置的位置"><a href="#如何确定state放置的位置" class="headerlink" title="如何确定state放置的位置"></a>如何确定state放置的位置</h4><ol>
+<li>找到根据这个state进行渲染的所有组件</li>
+<li>找到他们的共同所有者（common owner）组件（在组件层级上高于所有需要该state的组件）</li>
+<li>该共同所有者组件或者比它层级更高的组件应该拥有该state</li>
+<li>如果你找不到一个合适的位置来存放该state,就可以直接创建一个新的组件来存放该state，并将这一新组件置于高于共同所有者组件层级的位置</li>
+</ol>
+<h3 id="高级指引"><a href="#高级指引" class="headerlink" title="高级指引"></a>高级指引</h3><h4 id="内置组件"><a href="#内置组件" class="headerlink" title="内置组件"></a>内置组件</h4><ol>
+<li><code>Fragments</code>相当于<code>Vue</code>中的<code>template</code>，不会渲染真实<code>DOM</code>，这在封装组件时将会非常有用<ol>
+<li>不同于<code>template</code>的地方是循环时，可以为<code>Fragment</code>增加<code>key</code>属性</li>
+<li>当你不需要在<code>Fragments</code>标签中添加任何<code>prop</code>且工具支持的情况下，可以使用短语法来代替<code>&lt;&gt;&lt;/&gt;</code></li>
+</ol>
+</li>
+<li><code>Suspend</code>用于包裹异步组件，可以包裹任意多个，异步组件必须用它包裹，使用<code>fallback</code>属性指定异步组件没有加载完成时的样式</li>
+<li><code>StrictMode</code>包裹的子组件在<strong>开发模式</strong>会进行一些严格的检查，目前有：<ol>
+<li>识别不安全的生命周期</li>
+<li>关于使用过时字符串<code>ref API</code>的警告</li>
+<li>关于使用废弃的<code>findDOMNode</code>方法的警告</li>
+<li>检测意外的副作用</li>
+</ol>
+</li>
+</ol>
+<h4 id="DOM操作"><a href="#DOM操作" class="headerlink" title="DOM操作"></a>DOM操作</h4><ol>
+<li><p>通过<code>React.createRef()</code>来获取真实DOM，或则设置<code>ref</code>属性，绑定一个回调方法，接收一个参数为DOM对象的回调方法</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CustomTextInput</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span> (props) &#123;</span><br><span class="line">        <span class="keyword">super</span>(props);</span><br><span class="line">        <span class="keyword">this</span>.textInput = React.createRef()</span><br><span class="line">    &#125;</span><br><span class="line">    render () &#123;</span><br><span class="line">        <span class="keyword">return</span> (</span><br><span class="line">         &lt;input</span><br><span class="line">             type=<span class="string">"text"</span></span><br><span class="line">             ref=&#123; <span class="keyword">this</span>.textInput &#125;/&gt;</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line">    focus () &#123;</span><br><span class="line">        <span class="keyword">this</span>.textInput.current.focus()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取子组件内的真实DOM</p>
+<ol>
+<li>父组件利用<code>React.createRef</code>创建ref，然后作为<code>prop</code>传递给子组件，给子组件内的元素设置<code>ref</code>属性</li>
+<li><p>父组件利用<code>React.createRef</code>创建ref，然后设置子组件的<code>ref</code>为创建的ref，然后通过<code>React.forwardRef</code>定义子组件，其接收一个<code>callback</code>（最好使用具名<code>function</code>或者设置<code>function.displayName</code>，这样在<code>react devtools</code>中能够友好显示），通过参数来获取传递给它的<code>ref</code></p>
+  <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> FancyButton = React.forwardRef(<span class="function">(<span class="params">props, ref</span>) =&gt;</span> (</span><br><span class="line">&lt;button ref=&#123;ref&#125; className=<span class="string">"FancyButton"</span>&gt;</span><br><span class="line">    &#123;props.children&#125;</span><br><span class="line">&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">));</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/ 你可以直接获取 DOM button 的 ref：</span></span><br><span class="line"><span class="regexp">const ref = React.createRef();</span></span><br><span class="line"><span class="regexp">&lt;FancyButton ref=&#123;ref&#125;&gt;Click me!&lt;/</span>FancyButton&gt;;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>当使用第三方库操作<code>DOM</code>时，为了避免冲突，最好使用空的<code>HTML</code>元素，即这个元素既没有属性也没有子元素，例如<code>&lt;div /&gt;</code>，这样<code>React</code>就没有理由去更新它，避免冲突</p>
+</li>
+<li><code>ref</code>会在<code>componentDidMount</code>或<code>componentDidUpdate</code>生命钩子触发前更新</li>
+<li><strong>函数式组件</strong>上不能使用<code>ref</code>属性</li>
+</ol>
+<h4 id="组件间通信"><a href="#组件间通信" class="headerlink" title="组件间通信"></a>组件间通信</h4><ol>
+<li>通过<code>props</code>和<code>callback</code>的方式</li>
+<li><p>通过<code>Context</code>，使用方式如下：</p>
+<ol>
+<li>当<code>Provider</code>的<code>value</code>值发生变化时，它内部的所有消费组件都会重新渲染</li>
+<li><code>Provider</code>及其内部的<code>consumer</code>（消费者）组件都不受制于<code>shouldComponentUpdate</code>函数</li>
+<li>挂载在<code>class</code>上的<code>contextType</code>属性会被重赋值为一个由<code>React.createContext()</code>创建的<code>Context</code>对象，这能让你使用<code>this.context</code>来消费最近<code>Context</code>上的那个值</li>
+<li>使用<code>Context.Consumer</code>能让函数式组件订阅<code>context</code>，这需要<strong>函数作为子元素</strong>，因为函数式组件没有实例，不能采用定义<code>Component.contextType</code>的方法</li>
+<li>如果在子组件中想要更新<code>context</code>，可以通过<code>context</code>传递一个函数</li>
+<li><p>为了确保<code>context</code>快速进行重渲染，<code>React</code>需要使每一个<code>consumers</code>组件的<code>context</code>在组件树中成为一个单独的节点，即每个<code>consumer</code>必须包含一个单独节点</p>
+ <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;MyContext.Consume&gt;</span><br><span class="line">    &#123;</span><br><span class="line">        value =&gt; &#123;</span><br><span class="line">            <span class="keyword">return</span> (</span><br><span class="line">                &lt;p&gt;&#123; value &#125;&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">            )</span></span><br><span class="line"><span class="regexp">        &#125;</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">&lt;/</span>MyContext.Consume&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Context 可以让我们无须明确地传遍每一个组件，就能将值深入传递进组件树。</span></span><br><span class="line"><span class="comment">// 为当前的 theme 创建一个 context（“light”为默认值）。</span></span><br><span class="line"><span class="keyword">const</span> ThemeContext = React.createContext(<span class="string">'light'</span>);</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">render() &#123;</span><br><span class="line">    <span class="comment">// 使用一个 Provider 来将当前的 theme 传递给以下的组件树。</span></span><br><span class="line">    <span class="comment">// 无论多深，任何组件都能读取这个值。</span></span><br><span class="line">    <span class="comment">// 在这个例子中，我们将 “dark” 作为当前的值传递下去。</span></span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">        &lt;ThemeContext.Provider value=<span class="string">"dark"</span>&gt;</span><br><span class="line">            &lt;Toolbar /&gt;</span><br><span class="line">        &lt;<span class="regexp">/ThemeContext.Provider&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/ 中间的组件再也不必指明往下传递 theme 了。</span></span><br><span class="line"><span class="regexp">function Toolbar(props) &#123;</span></span><br><span class="line"><span class="regexp">    return (</span></span><br><span class="line"><span class="regexp">        &lt;div&gt;</span></span><br><span class="line"><span class="regexp">        &lt;ThemedButton /</span>&gt;</span><br><span class="line">        &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">class ThemedButton extends React.Component &#123;</span></span><br><span class="line"><span class="regexp">    /</span><span class="regexp">/ 指定 contextType 读取当前的 theme context。</span></span><br><span class="line"><span class="regexp">    /</span><span class="regexp">/ React 会往上找到最近的 theme Provider，然后使用它的值。</span></span><br><span class="line"><span class="regexp">    /</span><span class="regexp">/ 在这个例子中，当前的 theme 值为 “dark”。</span></span><br><span class="line"><span class="regexp">    static contextType = ThemeContext;</span></span><br><span class="line"><span class="regexp">    render() &#123;</span></span><br><span class="line"><span class="regexp">        return &lt;Button theme=&#123;this.context&#125; /</span>&gt;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ol>
+<h4 id="组件加载"><a href="#组件加载" class="headerlink" title="组件加载"></a>组件加载</h4><ol>
+<li><p>使用<code>React.lazy</code>来动态引入组件，<code>React.lazy</code>目前只支持默认导出，如果需要使用命名导出，可以创建一个中间模块，使用<code>export { xxx as default } from</code>来重新导出为默认模块</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> OtherComponent = React.lazy(<span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="string">'./OtherComponent'</span>))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">MyComponent</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">             &lt;OtherComponent /&gt;</span><br><span class="line">        &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    )</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="动态组件"><a href="#动态组件" class="headerlink" title="动态组件"></a>动态组件</h4><ol>
+<li><p>在<code>React</code>中，要实现类似于<code>Vue</code>的<code>component</code>（动态组件）的效果很简单，如下：</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; PhotoStory, VideoStory &#125; <span class="keyword">from</span> <span class="string">'./stories'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> components = &#123;</span><br><span class="line">    photo: PhotoStory,</span><br><span class="line">    video: VideoStory</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Story</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> SpecificStory = components[props.storyType];</span><br><span class="line">    <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">SpecificStory</span> <span class="attr">story</span>=<span class="string">&#123;props.story&#125;</span> /&gt;</span>;</span></span><br><span class="line"><span class="xml">&#125;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h4><ol>
+<li>使用<code>ReactDOM.createPortal(child, container)</code>可以将子节点渲染到存在于父组件以外的<code>DOM</code>节点上，其所有特征与普通的<code>React</code>组件嵌套没有什么不同，包括<strong>事件冒泡</strong></li>
+<li><code>Class.defaultProps</code>用于设置<code>props</code>的默认值</li>
+</ol>
+<h4 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h4><ol>
+<li>错误边界组件：使用正常的<code>class</code>组件定义方式，当定义了<code>getDerivedStateFromError()</code>或<code>componentDidCatch()</code>这两个生命周期方法中的任意一个时，那么它就变成了一个错误边界<ol>
+<li>getDerivedStateFromError：返回一个<strong>对象</strong>，取代<code>state</code>，在<code>render</code>函数中根据<code>state</code>进行判断是否渲染<code>error UI</code></li>
+<li>componentDidCatch: 打印错误信息</li>
+<li>只能捕获子组件的错误，无法捕获自身的错误</li>
+</ol>
+</li>
+</ol>
+<h4 id="高阶组件（HOC）"><a href="#高阶组件（HOC）" class="headerlink" title="高阶组件（HOC）"></a>高阶组件（HOC）</h4><p>高阶组件只是一种<strong>设计模式</strong>，其表现为：组件作为参数，返回值为新组件的函数</p>
+<ol>
+<li>不会修改传入的组件，也不会使用继承来复制其行为</li>
+<li>通过将组件<strong>包装在容器组件中</strong>来组成新组件</li>
+<li>被包装组件接收来自容器组件的所有<code>prop</code></li>
+<li>为了方便调试，可以修改<code>HOC</code>的<code>displayName</code>，通常采用的命名方法是<code>HOCName(WrappedComponent)</code></li>
+<li>不要在<code>render</code>方法中使用<code>HOC</code>，它会导致以下几个问题：<ol>
+<li>每次调用<code>rennder</code>时，都会使用<code>HOC</code>创建一个新的组件，这将导致子树每次渲染都会进行卸载，和重新挂载的操作</li>
+<li>重新挂载将会导致该组件及其所有子组件的状态丢失</li>
+</ol>
+</li>
+<li>当被包裹组件上有静态方法时，使用<code>HOC</code>进行包装之后，新返回的组件并没有这些静态方法，解决这个问题，有以下几种方法<ol>
+<li>使用<code>hoist-non-react-statics</code>库拷贝组件的静态方法到返回的包装组件上</li>
+<li>单独导出组件的静态方法，并在需要使用的时候单独引入它</li>
+</ol>
+</li>
+</ol>
+<h3 id="React原理"><a href="#React原理" class="headerlink" title="React原理"></a>React原理</h3><h4 id="diffing算法"><a href="#diffing算法" class="headerlink" title="diffing算法"></a>diffing算法</h4><p><code>diff</code>步骤：</p>
+<ol>
+<li>对比元素类型，如果不同，则销毁组件实例</li>
+<li>对比元素的属性，仅对比及更新有改变的属性</li>
+</ol>
+<p>注意点：</p>
+<ol>
+<li>当一个组件更新时，组件实例保持不变，这就是<code>state</code>在跨越不同的渲染时能保持一致的原因。在更新时，<code>React</code>将更新该组件实例的<code>props</code>，并且调用该实例的<code>componentWillReceiveProps()</code>和<code>componentWillUpdate()</code>方法</li>
+<li>当往列表末尾插入元素时，开销较小；但是往开头插入时，每一个元素都必须进行<code>mutate</code>，<code>key</code>可以解决这个问题</li>
+</ol>
+<h3 id="React相关库"><a href="#React相关库" class="headerlink" title="React相关库"></a>React相关库</h3><h4 id="编码相关"><a href="#编码相关" class="headerlink" title="编码相关"></a>编码相关</h4><ol>
+<li>react-router</li>
+<li>redux</li>
+<li>relay</li>
+<li>immutable、immer、immutability-helper、seamless-immutable</li>
+<li>prop-types: <code>props</code>类型检查</li>
+<li>hoist-non-react-statics: 静态方法拷贝</li>
+<li>react-window/react-virtualized: 虚拟滚动库</li>
+</ol>
+<h4 id="webpack相关"><a href="#webpack相关" class="headerlink" title="webpack相关"></a>webpack相关</h4><ol>
+<li>@babel/plugin-proposal-class-properties: 可以解决类组件中需要手动调用<code>bind</code>来绑定<code>this</code>的问题，采用箭头函数进行方法的定义</li>
+<li>@babel/plugin-proposal-class-properties: 在<code>React</code>类组件中可以通过声明<code>defaultProps</code>作为静态属性</li>
+</ol>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div class="social_share">
+            
+            
+               <div id="needsharebutton-postbottom">
+                 <span class="btn">
+                    <i class="fa fa-share-alt" aria-hidden="true"></i>
+                 </span>
+               </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/25/Element与Component与Instance.html" rel="next" title="Element与Component与Instance">
+                <i class="fa fa-chevron-left"></i> Element与Component与Instance
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/09/27/VueTypes文档.html" rel="prev" title="VueTypes文档">
+                VueTypes文档 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/uploads/mine/head.jpg" alt="Cong.Wang">
+            
+              <p class="site-author-name" itemprop="name">Cong.Wang</p>
+              <p class="site-description motion-element" itemprop="description">WgCg、Cong.Wang、WangCong、Vue、Webpack、HTML、CSS、JS</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">58</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">37</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">44</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#备注"><span class="nav-number">1.</span> <span class="nav-text">备注</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#核心概念"><span class="nav-number">2.</span> <span class="nav-text">核心概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JSX相关"><span class="nav-number">2.1.</span> <span class="nav-text">JSX相关</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#React哲学"><span class="nav-number">2.2.</span> <span class="nav-text">React哲学</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#组件编写顺序"><span class="nav-number">2.2.1.</span> <span class="nav-text">组件编写顺序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何判断数据是否属于state"><span class="nav-number">2.2.2.</span> <span class="nav-text">如何判断数据是否属于state</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何确定state放置的位置"><span class="nav-number">2.2.3.</span> <span class="nav-text">如何确定state放置的位置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高级指引"><span class="nav-number">2.3.</span> <span class="nav-text">高级指引</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#内置组件"><span class="nav-number">2.3.1.</span> <span class="nav-text">内置组件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DOM操作"><span class="nav-number">2.3.2.</span> <span class="nav-text">DOM操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#组件间通信"><span class="nav-number">2.3.3.</span> <span class="nav-text">组件间通信</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#组件加载"><span class="nav-number">2.3.4.</span> <span class="nav-text">组件加载</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#动态组件"><span class="nav-number">2.3.5.</span> <span class="nav-text">动态组件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其它"><span class="nav-number">2.3.6.</span> <span class="nav-text">其它</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#错误处理"><span class="nav-number">2.3.7.</span> <span class="nav-text">错误处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#高阶组件（HOC）"><span class="nav-number">2.3.8.</span> <span class="nav-text">高阶组件（HOC）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#React原理"><span class="nav-number">2.4.</span> <span class="nav-text">React原理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#diffing算法"><span class="nav-number">2.4.1.</span> <span class="nav-text">diffing算法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#React相关库"><span class="nav-number">2.5.</span> <span class="nav-text">React相关库</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#编码相关"><span class="nav-number">2.5.1.</span> <span class="nav-text">编码相关</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#webpack相关"><span class="nav-number">2.5.2.</span> <span class="nav-text">webpack相关</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Cong.Wang</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">267k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="站点阅读时长">4:02</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+    
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
+  
+
+  
+    <script id="dsq-count-scr" src="https://aaaa.disqus.com/count.js" async></script>
+  
+
+  
+    <script>
+      var disqus_config = function () {
+        this.page.url = "http://yoursite.com/2019/09/26/React官方文档笔记.html";
+        this.page.identifier = "2019/09/26/React官方文档笔记.html";
+        this.page.title = 'React官方文档笔记';
+        };
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://aaaa.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+      
+        loadComments();
+      
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function ({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', `/classes/Counter/${counter.objectId}`, JSON.stringify({ time: { "__op":"Increment", "amount":1 } }))
+            
+            .done(function () {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.time + 1);
+            })
+            
+            .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+            })
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
+            
+          }
+        })
+      .fail(function ({ responseJSON }) {
+        console.log('LeanCloud Counter Error:' + responseJSON.code + " " + responseJSON.error);
+      });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + "Snnrz3T8cyFAvfrigABOEySh-gzGzoHsz")
+        .done(function ({ api_server }) {
+          var Counter = function (method, url, data) {
+            return $.ajax({
+              method: method,
+              url: `https://${api_server}/1.1${url}`,
+              headers: {
+                'X-LC-Id': "Snnrz3T8cyFAvfrigABOEySh-gzGzoHsz",
+                'X-LC-Key': "fvRMLVR3k87Xglv5rclYX1mu",
+                'Content-Type': 'application/json',
+              },
+              data: data,
+            });
+          };
+          
+          addCount(Counter);
+          
+        })
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+  <script>
+    
+      pbOptions = {};
+      
+        pbOptions.iconStyle = "box";
+      
+        pbOptions.boxForm = "horizontal";
+      
+        pbOptions.position = "bottomCenter";
+      
+        pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+</body>
+</html>

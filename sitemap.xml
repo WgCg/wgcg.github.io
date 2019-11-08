@@ -2,9 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2019/10/26/umi%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E7%AC%94%E8%AE%B0.html</loc>
+    
+    <lastmod>2019-10-26T03:06:29.736Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/10/17/redux%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E7%AC%94%E8%AE%B0.html</loc>
+    
+    <lastmod>2019-10-23T12:45:53.361Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/09/26/React%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E7%AC%94%E8%AE%B0.html</loc>
     
-    <lastmod>2019-10-14T07:51:07.398Z</lastmod>
+    <lastmod>2019-10-17T03:35:14.211Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/10/15/react-router%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E7%AC%94%E8%AE%B0.html</loc>
+    
+    <lastmod>2019-10-17T02:09:54.954Z</lastmod>
     
   </url>
   

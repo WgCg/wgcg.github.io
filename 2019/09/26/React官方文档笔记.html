@@ -112,7 +112,7 @@
 <meta property="og:site_name" content="WgCg Blog">
 <meta property="og:description" content="备注当前笔记基于React v16.8.6 核心概念JSX相关 因为JSX最终会编译成React.createElement的调用形式，所以使用JXS之前必须先引入React 在JSX中允许使用点语法来引用一个组件，例如&amp;lt;MyComponents.DatePicker&amp;gt; React自定义组件必须以大写命名，否则会被认为是一个html标签 props的默认值为true JSX中只支持Ja">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-14T07:51:07.398Z">
+<meta property="og:updated_time" content="2019-10-17T03:35:14.211Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React官方文档笔记">
 <meta name="twitter:description" content="备注当前笔记基于React v16.8.6 核心概念JSX相关 因为JSX最终会编译成React.createElement的调用形式，所以使用JXS之前必须先引入React 在JSX中允许使用点语法来引用一个组件，例如&amp;lt;MyComponents.DatePicker&amp;gt; React自定义组件必须以大写命名，否则会被认为是一个html标签 props的默认值为true JSX中只支持Ja">
@@ -304,7 +304,7 @@
       
     
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">37</span></a>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">41</span></a>
 
   </li>
         
@@ -323,7 +323,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">58</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">61</span></a>
 
   </li>
         
@@ -502,7 +502,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-10-14 15:51:07" itemprop="dateModified" datetime="2019-10-14T15:51:07+08:00">2019-10-14</time>
+                <time title="修改时间：2019-10-17 11:35:14" itemprop="dateModified" datetime="2019-10-17T11:35:14+08:00">2019-10-17</time>
               
             
           </span>
@@ -583,7 +583,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">6.1k</span>
+                <span title="本文字数">6.2k</span>
               
 
               
@@ -680,7 +680,7 @@
 <li><p>当使用第三方库操作<code>DOM</code>时，为了避免冲突，最好使用空的<code>HTML</code>元素，即这个元素既没有属性也没有子元素，例如<code>&lt;div /&gt;</code>，这样<code>React</code>就没有理由去更新它，避免冲突</p>
 </li>
 <li><code>ref</code>会在<code>componentDidMount</code>或<code>componentDidUpdate</code>生命钩子触发前更新</li>
-<li><strong>函数式组件</strong>上不能使用<code>ref</code>属性</li>
+<li><strong>函数式组件</strong>上不能使用<code>ref</code>属性，可以使用<code>React.forwardRef</code></li>
 </ol>
 <h4 id="组件间通信"><a href="#组件间通信" class="headerlink" title="组件间通信"></a>组件间通信</h4><ol>
 <li>通过<code>props</code>和<code>callback</code>的方式</li>
@@ -688,9 +688,9 @@
 <ol>
 <li>当<code>Provider</code>的<code>value</code>值发生变化时，它内部的所有消费组件都会重新渲染</li>
 <li><code>Provider</code>及其内部的<code>consumer</code>（消费者）组件都不受制于<code>shouldComponentUpdate</code>函数</li>
-<li>挂载在<code>class</code>上的<code>contextType</code>属性会被重赋值为一个由<code>React.createContext()</code>创建的<code>Context</code>对象，这能让你使用<code>this.context</code>来消费最近<code>Context</code>上的那个值</li>
-<li>使用<code>Context.Consumer</code>能让函数式组件订阅<code>context</code>，这需要<strong>函数作为子元素</strong>，因为函数式组件没有实例，不能采用定义<code>Component.contextType</code>的方法</li>
-<li>如果在子组件中想要更新<code>context</code>，可以通过<code>context</code>传递一个函数</li>
+<li>挂载在<code>class</code>上的<code>contextType</code>属性重赋值为一个由<code>React.createContext()</code>创建的<code>Context</code>对象，这能让你使用<code>this.context</code>来消费最近<code>Context</code>上的那个值</li>
+<li>使用<code>Context.Consumer</code>能让函数式组件订阅<code>context</code>，这需要<strong>函数作为子元素</strong>，因为函数式组件没有实例，不能采用定义<code>Component.contextType</code>的方法，或者采用<code>useContext</code>hook</li>
+<li>如果在子组件中想要更新<code>context</code>，可以通过<code>Context.provide</code>的<code>value</code>传递一个函数</li>
 <li><p>为了确保<code>context</code>快速进行重渲染，<code>React</code>需要使每一个<code>consumers</code>组件的<code>context</code>在组件树中成为一个单独的节点，即每个<code>consumer</code>必须包含一个单独节点</p>
  <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;MyContext.Consume&gt;</span><br><span class="line">    &#123;</span><br><span class="line">        value =&gt; &#123;</span><br><span class="line">            <span class="keyword">return</span> (</span><br><span class="line">                &lt;p&gt;&#123; value &#125;&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">            )</span></span><br><span class="line"><span class="regexp">        &#125;</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">&lt;/</span>MyContext.Consume&gt;</span><br></pre></td></tr></table></figure>
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Context 可以让我们无须明确地传遍每一个组件，就能将值深入传递进组件树。</span></span><br><span class="line"><span class="comment">// 为当前的 theme 创建一个 context（“light”为默认值）。</span></span><br><span class="line"><span class="keyword">const</span> ThemeContext = React.createContext(<span class="string">'light'</span>);</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">render() &#123;</span><br><span class="line">    <span class="comment">// 使用一个 Provider 来将当前的 theme 传递给以下的组件树。</span></span><br><span class="line">    <span class="comment">// 无论多深，任何组件都能读取这个值。</span></span><br><span class="line">    <span class="comment">// 在这个例子中，我们将 “dark” 作为当前的值传递下去。</span></span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">        &lt;ThemeContext.Provider value=<span class="string">"dark"</span>&gt;</span><br><span class="line">            &lt;Toolbar /&gt;</span><br><span class="line">        &lt;<span class="regexp">/ThemeContext.Provider&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/ 中间的组件再也不必指明往下传递 theme 了。</span></span><br><span class="line"><span class="regexp">function Toolbar(props) &#123;</span></span><br><span class="line"><span class="regexp">    return (</span></span><br><span class="line"><span class="regexp">        &lt;div&gt;</span></span><br><span class="line"><span class="regexp">        &lt;ThemedButton /</span>&gt;</span><br><span class="line">        &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">class ThemedButton extends React.Component &#123;</span></span><br><span class="line"><span class="regexp">    /</span><span class="regexp">/ 指定 contextType 读取当前的 theme context。</span></span><br><span class="line"><span class="regexp">    /</span><span class="regexp">/ React 会往上找到最近的 theme Provider，然后使用它的值。</span></span><br><span class="line"><span class="regexp">    /</span><span class="regexp">/ 在这个例子中，当前的 theme 值为 “dark”。</span></span><br><span class="line"><span class="regexp">    static contextType = ThemeContext;</span></span><br><span class="line"><span class="regexp">    render() &#123;</span></span><br><span class="line"><span class="regexp">        return &lt;Button theme=&#123;this.context&#125; /</span>&gt;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -727,7 +727,7 @@
 <li>被包装组件接收来自容器组件的所有<code>prop</code></li>
 <li>为了方便调试，可以修改<code>HOC</code>的<code>displayName</code>，通常采用的命名方法是<code>HOCName(WrappedComponent)</code></li>
 <li>不要在<code>render</code>方法中使用<code>HOC</code>，它会导致以下几个问题：<ol>
-<li>每次调用<code>rennder</code>时，都会使用<code>HOC</code>创建一个新的组件，这将导致子树每次渲染都会进行卸载，和重新挂载的操作</li>
+<li>每次调用<code>render</code>时，都会使用<code>HOC</code>创建一个新的组件，这将导致子树每次渲染都会进行卸载，和重新挂载的操作</li>
 <li>重新挂载将会导致该组件及其所有子组件的状态丢失</li>
 </ol>
 </li>
@@ -739,7 +739,7 @@
 </ol>
 <h3 id="React原理"><a href="#React原理" class="headerlink" title="React原理"></a>React原理</h3><h4 id="diffing算法"><a href="#diffing算法" class="headerlink" title="diffing算法"></a>diffing算法</h4><p><code>diff</code>步骤：</p>
 <ol>
-<li>对比元素类型，如果不同，则销毁组件实例</li>
+<li>对比元素类型，如果不同，则销毁组件实例，然后挂载新组件</li>
 <li>对比元素的属性，仅对比及更新有改变的属性</li>
 </ol>
 <p>注意点：</p>
@@ -901,7 +901,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">58</span>
+                    <span class="site-state-item-count">61</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -988,7 +988,15 @@
                     
                       
                     
-                    <span class="site-state-item-count">37</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">41</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -1171,7 +1179,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">267k</span>
+    <span title="站点总字数">272k</span>
   
 
   
@@ -1180,7 +1188,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">4:02</span>
+    <span title="站点阅读时长">4:08</span>
   
 </div>
 

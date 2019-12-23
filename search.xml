@@ -1,9 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[echart问题记录]]></title>
+    <url>%2F2019%2F12%2F23%2Fechart%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95.html</url>
+    <content type="text"><![CDATA[先绘制 columns，再异步绘制 source，没有动画 指标切换的 label 显示不全，设置 legend.textStyle.lineHeight]]></content>
+      <categories>
+        <category>框架</category>
+        <category>echart</category>
+        <category>问题积累</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[http问题记录]]></title>
+    <url>%2F2019%2F12%2F23%2Fhttp%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95.html</url>
+    <content type="text"><![CDATA[Chrome 302 发起多余的GET请求 浏览器发起一个 post 请求，后端返回 302 会导致原请求变成 GET 请求并且 Post Data 丢失（在 network 中，会出现 3 次请求记录，原请求，原请求的 GET 方法（不应该显示），302 的请求），问题链接，解决方案： 后端请求需要 302 的地址，获取数据后，返回给前端 200 返回 307：告诉浏览器按照 original request 的方法发起新的 redirect request，但是要向用户提示安全警告，但是这并不总是有效的，因为它不是 http common status code（HTTP 常见状态码），不同浏览器实现逻辑不一致 IE7： 不会给予警告 safari: 它不会引发确认对话框并执行重定向，并且丢弃 post data，将 307 转为 302]]></content>
+      <categories>
+        <category>HTTP</category>
+        <category>问题积累</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[ant-design问题记录]]></title>
+    <url>%2F2019%2F12%2F23%2Fant-design%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95.html</url>
+    <content type="text"><![CDATA[Select select dropdownMatchSelectWidth=false 导致设置的 width 没用 会被设置为 min-width select 增加 getPopupContainer 无效，给弹出层的父级增加 postion:relative PageHeader page-header .ant-page-header-content 的 overflow:hidden 导致输入框的 focus 的 box-shadow 不显示 DatePicker DatePicker 组件没有 getPopupContainer 属性，而是 getCalendarContainer 属性，且不能通过 ConfigProvider 统一添加]]></content>
+      <categories>
+        <category>框架</category>
+        <category>ant-design</category>
+        <category>问题积累</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[umi官方文档笔记]]></title>
     <url>%2F2019%2F10%2F26%2Fumi%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E7%AC%94%E8%AE%B0.html</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[路由 src/layouts/index.js(配置式路由下无效): 全局布局，在路由外面套的一层路由。 1234[ &#123; path: "/", component: "./pages/index" &#125;, &#123; path: "/users", component: "./pages/users" &#125;]; 如果有layouts/index.js，那么路由就会变为： 12345678910[ &#123; path: "/", component: "./layouts/index", routes: [ &#123; path: "/", component: "./pages/index" &#125;, &#123; path: "/users", component: "./pages/users" &#125; ] &#125;]; 生成的路由配置字段 Routes: 权限路由配置 routes: 路由配置 API umi/link: 提供Link组件 umi/navLink: 提供NavLink组件 umi/router: 提供router实例 umi/withRouter: 添加router相关的属性到props中 umi/dynamic: 提供按需加载的接口 问题 路由/通过扩展注释路由：Routes字段与嵌套路由的routes不同]]></content>
+      <categories>
+        <category>框架</category>
+        <category>umi</category>
+        <category>笔记</category>
+      </categories>
   </entry>
   <entry>
     <title><![CDATA[redux官方文档笔记]]></title>

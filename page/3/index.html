@@ -304,7 +304,7 @@
       
     
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">41</span></a>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">49</span></a>
 
   </li>
         
@@ -323,7 +323,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">61</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">64</span></a>
 
   </li>
         
@@ -426,6 +426,841 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/24/let和const命令.html">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cong.Wang">
+      <meta itemprop="description" content="WgCg、Cong.Wang、WangCong、Vue、Webpack、HTML、CSS、JS">
+      <meta itemprop="image" content="/uploads/mine/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WgCg Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/06/24/let和const命令.html" class="post-title-link" itemprop="url">let和const命令</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-06-24 20:01:17 / 修改时间：21:04:02" itemprop="dateCreated datePublished" datetime="2019-06-24T20:01:17+08:00">2019-06-24</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/编程语言/" itemprop="url" rel="index"><span itemprop="name">编程语言</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/编程语言/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/编程语言/JavaScript/ES6/" itemprop="url" rel="index"><span itemprop="name">ES6</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/06/24/let和const命令.html#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/06/24/let和const命令.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/06/24/let和const命令.html" class="leancloud_visitors" data-flag-title="let和const命令">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">1.2k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">1 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="let"><a href="#let" class="headerlink" title="let"></a>let</h2><ol>
+<li>只在块级作用域内有效。</li>
+<li>不存在变量提升。</li>
+<li>暂时性死区，只要块级作用域内存在<code>let</code>命令，这个区块对这些命令声明的变量，从一开始就形成了封闭作用域。凡是在声明之前使用这些变量，就会报错（无论父级作用域是否定义了这些变量），这意味着<code>typeof</code>不再是一个百分百的安全操作。</li>
+<li>不允许重复声明同一个变量。</li>
+<li><code>for</code>循环有一个特别之处，就是设置循环变量的那部分是一个父作用域，而循环体内部是一个单独的子作用域。</li>
+</ol>
+<h2 id="块级作用域"><a href="#块级作用域" class="headerlink" title="块级作用域"></a>块级作用域</h2><ol>
+<li>ES5 规定函数只能在顶层作用域和函数作用域进行声明，不能再块级作用域中进行声明，但是浏览器为了兼容以前的旧代码，并没有遵守这个规范。 ES6 明确规定允许在块级作用域中声明函数。</li>
+<li>ES5 中，函数的整条声明语句会被提升到函数头部或顶级作用域头部</li>
+<li>ES6 的浏览器函数声明的限制（其他环境的实现不用遵守，还是将块级作用域中的函数声明当作<code>let</code>处理）：<ul>
+<li>允许在块级作用域内声明函数</li>
+<li>函数声明类似于<code>var</code>，会提升到全局作用域或函数作用域的头部</li>
+<li>同时，函数声明还会提升到块级作用域的头部</li>
+</ul>
+</li>
+<li>考虑到环境的行为差异太大，不建议在块级作用域内进行函数声明，如果要使用，最好使用函数表达式。</li>
+<li>ES6 的块级作用域必须有大括号，如果没有大括号，<code>JS</code>引擎就认为不存在块级作用域。</li>
+</ol>
+<h2 id="const"><a href="#const" class="headerlink" title="const"></a>const</h2><ol>
+<li><code>const</code>声明一个常量，一旦声明，常量的值不允许改变。单对于复合类型数据（例如对象，数组），其只能保证指向内存地址的指针不改变，无法保证其数据结构不变。可以使用<code>Object.freeze</code>进行冻结（只能冻结改对象的属性，如果其属性是一个对象，只能保证指针不变，无法保证子对象的属性不变）。</li>
+<li>必须立即初始化。</li>
+<li>只在块级作用域内有效。</li>
+<li>不存在变量提升。</li>
+<li>暂时性死区。</li>
+<li>不允许重复声明。</li>
+</ol>
+<h2 id="ES6-声明变量的六种方法"><a href="#ES6-声明变量的六种方法" class="headerlink" title="ES6 声明变量的六种方法"></a>ES6 声明变量的六种方法</h2><ol>
+<li>var</li>
+<li>function</li>
+<li>let</li>
+<li>const</li>
+<li>import</li>
+<li>class</li>
+</ol>
+<h3 id="顶层对象属性"><a href="#顶层对象属性" class="headerlink" title="顶层对象属性"></a>顶层对象属性</h3><ol>
+<li><code>var</code>和<code>function</code>命令声明的全局变量，依旧是顶层对象的属性。</li>
+<li><code>let</code>、<code>const</code>、<code>class</code>命令声明的全局变量，不属于顶层对象的属性。</li>
+</ol>
+<h3 id="globalThis-对象"><a href="#globalThis-对象" class="headerlink" title="globalThis 对象"></a>globalThis 对象</h3><ol>
+<li>不同环境中指向顶层对象的变量不同<ul>
+<li>浏览器：self 和 this</li>
+<li>Web Worker：self</li>
+<li>Node: global</li>
+</ul>
+</li>
+<li>全局环境中，<code>this</code>返回的是顶层对象。但是，在<code>ES6</code>模块和<code>Node</code>模块中，<code>this</code>返回的是当前模块。</li>
+<li>函数里面的 this，如果函数不是作为对象的方法允许，而是单纯作为函数允许，<code>this</code>会指向顶层对象。但是，在严格模式下，<code>this</code>会返回<code>undefined</code>。</li>
+<li>不管是在严格模式还是普通模式，<code>new Function(&#39;return this&#39;)()</code>总是返回全局对象。但是，如果浏览器使用了 CSP（Content Security Policy，内容安全策略），那么<code>eval</code>，<code>new Function</code>这些方法可能无法使用。</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/06/面试之Web其它.html">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cong.Wang">
+      <meta itemprop="description" content="WgCg、Cong.Wang、WangCong、Vue、Webpack、HTML、CSS、JS">
+      <meta itemprop="image" content="/uploads/mine/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WgCg Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/05/06/面试之Web其它.html" class="post-title-link" itemprop="url">面试之Web其它</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-06 22:44:43 / 修改时间：23:39:19" itemprop="dateCreated datePublished" datetime="2019-05-06T22:44:43+08:00">2019-05-06</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/面试/" itemprop="url" rel="index"><span itemprop="name">面试</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/05/06/面试之Web其它.html#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/05/06/面试之Web其它.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/05/06/面试之Web其它.html" class="leancloud_visitors" data-flag-title="面试之Web其它">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">1.1k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">1 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="SEO"><a href="#SEO" class="headerlink" title="SEO"></a>SEO</h2><h3 id="什么是SEO"><a href="#什么是SEO" class="headerlink" title="什么是SEO"></a>什么是SEO</h3><p>SEO（Search Engine Optimization），中文译为“搜索引擎优化”，是一种透过了解搜索引擎的运作规则来调整网站，以提高目的网站在有关搜索引擎内的自然排名的方式。</p>
+<h3 id="SEO的分类"><a href="#SEO的分类" class="headerlink" title="SEO的分类"></a>SEO的分类</h3><ol>
+<li>白帽SEO：改良和规范网页的设计，使其对搜索引擎和用户更加友好，是一种搜索引擎推荐的做法。</li>
+<li>黑帽SEO：利用或者放大搜索引擎的缺陷，使用不正当的手段提高目的网站在搜索引擎的排名。</li>
+</ol>
+<h3 id="SEO的主要方面"><a href="#SEO的主要方面" class="headerlink" title="SEO的主要方面"></a>SEO的主要方面</h3><p>白帽SEO：</p>
+<ol>
+<li>合理的<code>title</code>、<code>keywords</code>、<code>description</code></li>
+<li>语义化的HTML</li>
+<li>重要的HTML尽量放在前面。搜索引擎抓取HTML的顺序是从上到下的，有些搜索引擎的抓取长度有限，保证重要内容一定会被抓取</li>
+<li>重要的内容不要用<code>js</code>输出：搜索引擎不会执行<code>js</code>获取内容</li>
+<li>减少<code>iframe</code>的使用：搜索引擎不会抓取<code>iframe</code>中的内容</li>
+<li>非装饰性的图片必须加<code>alt</code></li>
+<li>提高网站速度：网站速度是搜索引擎排序的一个重要指标</li>
+<li>增加与网页内容相关的外链引用</li>
+</ol>
+<p>黑帽SEO：</p>
+<ol>
+<li>垃圾索引：透过欺骗技术和滥用搜索算法来推销毫不相关、主要以商业为着眼的网页。</li>
+<li>斗篷法：用了两版不同的网页来达到最优化的效果。</li>
+<li>关键字隐密字：通常是指设置关键字的颜色和网页背景颜色一样，或透过 css hidden attribute （隐密特性） 来达到优化效果。</li>
+<li>桥页：通常是用软件自动生成大量包含关键词的网页，然后从这些网页做自动转向到主页。</li>
+<li>付费链接：是利用支付费用方式要求其他网站提供链接至自身网站，借此伪装高信任网站来欺骗搜索引擎。</li>
+<li>链接农场：是故意在一些低质量，内容跟自己内容无关的网站上获取大量链接，藉以提高排名。</li>
+</ol>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><ol>
+<li><a href="https://zh.wikipedia.org/wiki/%E6%90%9C%E5%B0%8B%E5%BC%95%E6%93%8E%E6%9C%80%E4%BD%B3%E5%8C%96" target="_blank" rel="noopener">维基百科</a></li>
+<li><a href="https://segmentfault.com/a/1190000002994538" target="_blank" rel="noopener">https://segmentfault.com/a/1190000002994538</a></li>
+</ol>
+<h2 id="会话跟踪"><a href="#会话跟踪" class="headerlink" title="会话跟踪"></a>会话跟踪</h2><h3 id="什么是会话跟踪"><a href="#什么是会话跟踪" class="headerlink" title="什么是会话跟踪"></a>什么是会话跟踪</h3><p>会话跟踪技术是用于维持客户端和服务器端通信信息的技术</p>
+<h3 id="引入会话跟踪的原因"><a href="#引入会话跟踪的原因" class="headerlink" title="引入会话跟踪的原因"></a>引入会话跟踪的原因</h3><p>HTTP是一种无状态协议，每当用户发出请求时，服务器就会做出响应，客户端与服务器之间的联系是离散的、非连续的。当用户在同一网站的多个页面之间转换时，根本无法确定是否是同一个客户以及维持客户的上下文信息，会话跟踪技术就可以解决这个问题。</p>
+<h3 id="Web中会话跟踪的方法有哪些"><a href="#Web中会话跟踪的方法有哪些" class="headerlink" title="Web中会话跟踪的方法有哪些"></a>Web中会话跟踪的方法有哪些</h3><ol>
+<li>cookie</li>
+<li>session</li>
+<li>url重写：动态生成<code>sessionID</code>拼接在<code>url</code>上</li>
+<li>隐藏的表单域</li>
+<li>ip地址</li>
+</ol>
+<h3 id="参考链接-1"><a href="#参考链接-1" class="headerlink" title="参考链接"></a>参考链接</h3><ol>
+<li><a href="https://blog.csdn.net/qq_38363396/article/details/78289344" target="_blank" rel="noopener">https://blog.csdn.net/qq_38363396/article/details/78289344</a></li>
+<li><a href="https://blog.csdn.net/qfs_v/article/details/2652119" target="_blank" rel="noopener">https://blog.csdn.net/qfs_v/article/details/2652119</a></li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/05/面试之HTTP.html">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cong.Wang">
+      <meta itemprop="description" content="WgCg、Cong.Wang、WangCong、Vue、Webpack、HTML、CSS、JS">
+      <meta itemprop="image" content="/uploads/mine/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WgCg Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/05/05/面试之HTTP.html" class="post-title-link" itemprop="url">面试之HTTP</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-05 22:28:49" itemprop="dateCreated datePublished" datetime="2019-05-05T22:28:49+08:00">2019-05-05</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-07-09 19:48:05" itemprop="dateModified" datetime="2019-07-09T19:48:05+08:00">2019-07-09</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/面试/" itemprop="url" rel="index"><span itemprop="name">面试</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/05/05/面试之HTTP.html#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/05/05/面试之HTTP.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/05/05/面试之HTTP.html" class="leancloud_visitors" data-flag-title="面试之HTTP">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">2.3k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">2 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h2><h3 id="HTTP-Method"><a href="#HTTP-Method" class="headerlink" title="HTTP Method"></a>HTTP Method</h3><ol>
+<li>一台服务器要与<code>HTTP 1.1</code>兼容、只要为资源实现<code>GET</code>和<code>HEAD</code>方法即可</li>
+<li><code>GET</code>是最常用的方法，通常用于<strong>请求服务器发送某个资源</strong></li>
+<li><code>HEAD</code>与<code>GET</code>类似，但<strong>服务器在响应中只返回首部，不返回实体的主体部分</strong></li>
+<li><code>PUT</code>让服务器<code>用请求的主体部分来创建一个由所请求的URL命名的新文档，或者，如果那个URL已经存在的话，就用这个主体替代它</code></li>
+<li><code>POST</code>起初是用来向服务器输入数据的。实际上，通常会用它来支持<code>HTML</code>的表单。表单中填好的数据通常会被送给服务器，然后由服务器将其发送到要去的地方</li>
+<li><code>TRACE</code>会在目的服务器端发起一个环回诊断，最后一站的服务器会弹回一个<code>TRACE</code>响应并在响应主体中携带它收到的原始请求报文。<code>TRACE</code>方法主要用于诊断，用于验证请求是否如愿穿过了请求/响应链</li>
+<li><code>DELETE</code>请求服务器删除请求URL指定的资源</li>
+</ol>
+<h3 id="从浏览器地址输入URL到显示页面的步骤"><a href="#从浏览器地址输入URL到显示页面的步骤" class="headerlink" title="从浏览器地址输入URL到显示页面的步骤"></a>从浏览器地址输入URL到显示页面的步骤</h3><ol>
+<li>在浏览器地址中输入URL</li>
+<li>浏览器查看<code>缓存</code>，如果请求资源在缓存中并且没有过期，跳转到15<ol>
+<li>如果资源未缓存，发起新请求</li>
+<li>如果已缓存，检验是否过期，没有过期直接提供给客户端，否则与服务器进行验证。</li>
+<li>检验资源是否过期通常有两个HTTP头进行控制<code>Expires</code>和<code>Cache-Control</code>：<ol>
+<li><code>HTTP1.0</code>提供<code>Expires</code>，值为一个绝对时间表示缓存过期日期</li>
+<li><code>HTTP1.1</code>增加了<code>Cache-Control: max-age=</code>，值为以秒为单位的最大过期时间</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>浏览器<strong>解析URL</strong>获取协议、主机、端口、path</li>
+<li>浏览器<strong>组装一个HTTP请求报文</strong></li>
+<li>浏览器<strong>获取主机ip地址</strong>，过程如下：<ol>
+<li>浏览器缓存</li>
+<li>本机缓存</li>
+<li>hosts文件</li>
+<li>路由器缓存</li>
+<li>ISP DNS缓存</li>
+<li>DNS递归查询（可能存在负载均衡导致每次IP不一样）</li>
+</ol>
+</li>
+<li><strong>打开一个socket与目标IP地址、端口建立TCP连接</strong>，三次握手如下：<ol>
+<li>客户端发送一个TCP的<strong>SYN=1，Seq=X</strong>的包到服务器端口</li>
+<li>服务器返回<strong>SYN=1，ACK=X+1,Seq=Y</strong>的响应包</li>
+<li>客户端发送<strong>ACK=Y+1，Seq=Z</strong></li>
+</ol>
+</li>
+<li>TCP连接建立后<strong>发送HTTP请求</strong></li>
+<li>服务器接收请求并解析，将请求转发到服务程序，如虚拟主机使用HTTP Host头部判断请求的服务程序</li>
+<li>服务器检查<strong>HTTP请求头是否包含缓存验证信息</strong>，如果验证缓存没过期，返回<code>304</code>等对应状态码</li>
+<li>处理程序读取完整请求并准备HTTP响应，可能需要查询数据库等操作</li>
+<li>服务器将<strong>响应报文通过TCP连接发送回浏览器</strong></li>
+<li>浏览器接收HTTP响应后，然后根据情况选择<strong>关闭TCP连接或者保留重用，关闭TCP连接的四次握手如下</strong><ol>
+<li>主动方发送<strong>Fin=1，Ack=Z，Seq=X</strong>报文</li>
+<li>被动方发送<strong>ACK=X+1，Seq=Z</strong>报文</li>
+<li>被动方发送<strong>Fin=1，ACK=X，Seq=Y</strong>报文</li>
+<li>主动方发送<strong>ACK=Y，Seq=X</strong>报文</li>
+</ol>
+</li>
+<li>浏览器检查响应状态码：是否为1XX，3XX，4XX，5XX，这些情况处理与2XX不同</li>
+<li>如果资源可缓存，<strong>进行缓存</strong></li>
+<li>对响应进行解码（例如gzip压缩）</li>
+<li>根据资源类型决定如何处理（假设资源为HTML文档）</li>
+<li><strong>解析HTML，构建DOM树，下载资源，构建CSSOM树，执行js脚本</strong>，这些操作没有严格的先后顺序，以下分别解释</li>
+<li><strong>构建DOM树</strong><ol>
+<li><strong>Tokenizing</strong>：根据HTML规范将字符流解析为标记</li>
+<li><strong>Lexing</strong>：词法分析将标记转换为对象并定义属性和规则</li>
+<li><strong>DOM construction</strong>：根据HTML标记关系将对象组成DOM树</li>
+</ol>
+</li>
+<li>解析过程中遇到图片、样式表、js文件，<strong>启动下载</strong></li>
+<li>构建<strong>CSSOM树</strong><ol>
+<li><strong>Tokenizing</strong>：字符流转换为标记流</li>
+<li><strong>Node</strong>：根据标记创建节点</li>
+<li><strong>CSSOM</strong>：节点创建CSSOM树</li>
+</ol>
+</li>
+<li><strong>根据DOM树和CSSOM树构建渲染树</strong><ol>
+<li>从DOM树的根节点遍历所有<strong>可见节点</strong>，不可见的节点包括<ol>
+<li><code>script、meta</code>这样本身不可见的标签</li>
+<li>被CSS隐藏的节点，如<code>display: none</code></li>
+</ol>
+</li>
+<li>对每一个可见节点，找到恰当的CSSOM规则并应用</li>
+<li>发布可视节点的内容和计算样式</li>
+</ol>
+</li>
+<li><strong>js解析如下</strong><ol>
+<li>浏览器创建Document对象并解析HTML，将解析到的元素和文本节点添加到文档中，此时<strong>document.readystate为loading</strong></li>
+<li>HTML解析器遇到<strong>没有async和defer的script时</strong>，将他们添加到文档中，然后执行行内或外部脚本。这些脚本会同步执行，并且在脚本下载和执行时解析器会暂停。这样就可以用document.write()把文本插入到输入流中。<strong>同步脚本经常简单定义函数和注册时间处理程序，他们可以遍历和操作script和他们之前的文档内容</strong></li>
+<li>当解析器遇到了设置<strong>async</strong>属性的script时，开始下载脚本并继续解析文档。脚本会在它<strong>下载完成后尽快执行</strong>，但是<strong>解析器不会停下来等它下载</strong>。异步脚本<strong>禁止使用document.write()</strong>，它们可以访问自己script和之前的文档元素</li>
+<li>当文档完成解析，document.readyState变成interactive</li>
+<li>所有<strong>defer</strong>脚本会<strong>按照在文档中出现的顺序执行</strong>，延迟脚本<strong>能访问完整DOM树</strong>，禁止使用document.write()</li>
+<li>浏览器<strong>在Document对象上触发DOMContentLoaded事件</strong></li>
+<li>此时文档完全解析完成，浏览器可能还在等待如图片等内容加载，等这些<strong>内容完成载入并且所有异步脚本完成载入和执行</strong>，document.readState变为complete，window触发load事件</li>
+</ol>
+</li>
+<li><strong>显示页面</strong>（HTML解析过程中会逐步显示页面）</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -1894,809 +2729,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/22/webpack加载动态图片.html">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cong.Wang">
-      <meta itemprop="description" content="WgCg、Cong.Wang、WangCong、Vue、Webpack、HTML、CSS、JS">
-      <meta itemprop="image" content="/uploads/mine/head.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WgCg Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/04/22/webpack加载动态图片.html" class="post-title-link" itemprop="url">webpack加载动态图片</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-04-22 16:29:06 / 修改时间：17:26:36" itemprop="dateCreated datePublished" datetime="2019-04-22T16:29:06+08:00">2019-04-22</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/打包工具/" itemprop="url" rel="index"><span itemprop="name">打包工具</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/打包工具/Webpack/" itemprop="url" rel="index"><span itemprop="name">Webpack</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/打包工具/Webpack/问题积累/" itemprop="url" rel="index"><span itemprop="name">问题积累</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/04/22/webpack加载动态图片.html#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/04/22/webpack加载动态图片.html" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2019/04/22/webpack加载动态图片.html" class="leancloud_visitors" data-flag-title="webpack加载动态图片">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数：</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">1.3k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">1 分钟</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>在基于Webpack的项目中，我们加载图片有以下三种方式：</p>
-<ol>
-<li>使用<code>img</code>标签的<code>src</code>属性</li>
-<li>使用<code>css</code>的<code>background-image</code></li>
-<li>使用<code>require</code>或者<code>import</code>导入图片模块</li>
-</ol>
-<p>以上3中方式配合<code>url-loader</code>和<code>file-loader</code>我们可以很轻易对图片进行处理，例如：</p>
-<ol>
-<li>为图片增加<code>hash</code></li>
-<li>处理图片<code>url</code>，为其增加<code>assetsPublicPath</code>，把相对路径转化为绝对路径</li>
-</ol>
-<p>然而在一些情况下，我们无可避免的需要利用<code>js</code>来控制加载图片，例如：我们要加载<code>list-1、list-2、...list-10</code> 10张图片，有可能你会这么做：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">&lt;!-- 在vue中 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">v-for</span>=<span class="string">"index in 10"</span> <span class="attr">:src</span>=<span class="string">"`../assets/imgs/list-$&#123; index + 1 &#125;.png`"</span> <span class="attr">:key</span>=<span class="string">"index"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
-<p>但这么做是存在问题的，<code>webpack</code>构建时采用的是静态分析，它不会导入包含变量的文件并对其进行解析，上面代码将导致如下结果：</p>
-<ol>
-<li>打包出来的图片目录根本没有<code>list</code>图片，因为<code>webpack</code>会认为你没有导入这些文件，就不会将其输出到打包目录中</li>
-<li>图片链接没有进行<code>hash</code>、<code>assetsPublicPath</code>处理</li>
-</ol>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>针对如上问题，我们有两种解决方案：</p>
-<ol>
-<li>将图片放到<code>static</code>目录，不经过<code>webpack</code>处理，采用绝对路径引入，但是这样就无法进行<code>hash</code>处理了，而且对于<code>html</code>放在后端的应用而言，图片的<code>host</code>还需要进行额外处理</li>
-<li><p>动态加载图片，如下：</p>
- <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> imgList = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt;= <span class="number">10</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">const</span> img = <span class="built_in">require</span>(<span class="string">`../assets/imgs/list-<span class="subst">$&#123; i &#125;</span>.png`</span>)</span><br><span class="line">    imgList.push(img)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p> 这里要注意几个问题，<code>require</code>的参数不能完全为一个变量，需要将其定位到某一个目录内，例如，如下方式都将导致<code>can&#39;t find module</code>：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 例1 fail</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">resolveUrl</span>(<span class="params">filename</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'../assets/imgs/'</span> + filename</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">require</span>(<span class="string">'list-1.png'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 例2 fail</span></span><br><span class="line"><span class="keyword">const</span> imgUrl = <span class="string">'../assets/imgs/list-1.png'</span></span><br><span class="line"><span class="built_in">require</span>(imgUrl)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 例3 fail</span></span><br><span class="line"><span class="keyword">const</span> path = <span class="string">'../assets/imgs/'</span></span><br><span class="line"><span class="built_in">require</span>(path + <span class="string">'list-1.png'</span>)</span><br></pre></td></tr></table></figure>
-<p>必须在字符串中将其定义到某个具体目录，例如：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// success</span></span><br><span class="line"><span class="keyword">const</span> imgName = <span class="string">'imgs/list-1.png'</span></span><br><span class="line"><span class="built_in">require</span>(<span class="string">'../assets/'</span> + imgName)</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><p><a href="https://github.com/webpack/webpack/issues/6680" target="_blank" rel="noopener">https://github.com/webpack/webpack/issues/6680</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/15/渲染函数的观察者与进阶的数据响应系统.html">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cong.Wang">
-      <meta itemprop="description" content="WgCg、Cong.Wang、WangCong、Vue、Webpack、HTML、CSS、JS">
-      <meta itemprop="image" content="/uploads/mine/head.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WgCg Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/04/15/渲染函数的观察者与进阶的数据响应系统.html" class="post-title-link" itemprop="url">渲染函数的观察者与进阶的数据响应系统</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-04-15 22:41:37" itemprop="dateCreated datePublished" datetime="2019-04-15T22:41:37+08:00">2019-04-15</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-05-05 15:14:33" itemprop="dateModified" datetime="2019-05-05T15:14:33+08:00">2019-05-05</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/框架/" itemprop="url" rel="index"><span itemprop="name">框架</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/框架/Vue/" itemprop="url" rel="index"><span itemprop="name">Vue</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/框架/Vue/原理/" itemprop="url" rel="index"><span itemprop="name">原理</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/04/15/渲染函数的观察者与进阶的数据响应系统.html#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/04/15/渲染函数的观察者与进阶的数据响应系统.html" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2019/04/15/渲染函数的观察者与进阶的数据响应系统.html" class="leancloud_visitors" data-flag-title="渲染函数的观察者与进阶的数据响应系统">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数：</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">24k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">22 分钟</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>本节主要以<code>Vue.prototype._init</code>函数为切入点来详细的讲解<code>Dep</code>和<code>Watcher</code>的作用。我们在上一节<a href="/2019/04/05/揭开数据响应系统的面纱.html">揭开数据响应系统的面纱</a>中只是假设的认为<code>dep.depend()</code>收集了依赖，<code>dep.notify()</code>触发了依赖，并没有讲解其具体的实现。除此之外，正是因为<code>Watcher</code>对所观察字段的求值才触发了字段的<code>get</code>，从而才有收集到该观察者的机会。</p>
-<h2 id="mount-挂载函数"><a href="#mount-挂载函数" class="headerlink" title="\$mount 挂载函数"></a>\$mount 挂载函数</h2><p>打开<code>src/core/instance/init.js</code>文件，并找到<code>Vue.prototype._init</code>函数，如下所示：</p>
-<figure class="highlight javascript"><figcaption><span>Vue.prototype._init</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">Vue.prototype._init = <span class="function"><span class="keyword">function</span>(<span class="params">options?: Object</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 省略...</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// expose real self</span></span><br><span class="line">    vm._self = vm</span><br><span class="line">    initLifecycle(vm)</span><br><span class="line">    initEvents(vm)</span><br><span class="line">    initRender(vm)</span><br><span class="line">    callHook(vm, <span class="string">'beforeCreate'</span>)</span><br><span class="line">    initInjections(vm) <span class="comment">// resolve injections before data/props</span></span><br><span class="line">    initState(vm)</span><br><span class="line">    initProvide(vm) <span class="comment">// resolve provide after data/props</span></span><br><span class="line">    callHook(vm, <span class="string">'created'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 省略...</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (vm.$options.el) &#123;</span><br><span class="line">        vm.$mount(vm.$options.el)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>上面代码的最后一句，调用<code>vm.$mount</code>方法将组件挂载到固定的元素，而<code>vm.$mount</code>方法分别在两处进行了定义：</p>
-<ol>
-<li><p><code>platforms/web/runtime/index.js</code>，即运行时版<code>Vue</code>的入口文件：</p>
- <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Vue.prototype.$mount = <span class="function"><span class="keyword">function</span>(<span class="params">el?: string | Element, hydrating?: boolean</span>): <span class="title">Component</span> </span>&#123;</span><br><span class="line">    el = el &amp;&amp; inBrowser ? query(el) : <span class="literal">undefined</span></span><br><span class="line">    <span class="keyword">return</span> mountComponent(<span class="keyword">this</span>, el, hydrating)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p> 如果<code>el</code>选项存在且当前处于浏览器环境中，则调用<code>query</code>方法获取<code>el</code>选项对应的<code>DOM</code>元素，如果不存在则手动创建一个<code>div</code>，然后返回<code>DOM</code>元素复写<code>el</code>变量，最后调用<code>mountComponent</code>进行真正的挂载操作</p>
-</li>
-<li><p><code>src/platforms/web/entry-runtime-with-compiler.js</code>，即完整版<code>Vue</code>的入口文件：</p>
- <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> mount = Vue.prototype.$mount</span><br><span class="line">Vue.prototype.$mount = <span class="function"><span class="keyword">function</span>(<span class="params">el?: string | Element, hydrating?: boolean</span>): <span class="title">Component</span> </span>&#123;</span><br><span class="line">    el = el &amp;&amp; query(el)</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* istanbul ignore if */</span></span><br><span class="line">    <span class="keyword">if</span> (el === <span class="built_in">document</span>.body || el === <span class="built_in">document</span>.documentElement) &#123;</span><br><span class="line">        process.env.NODE_ENV !== <span class="string">'production'</span> &amp;&amp; warn(<span class="string">`Do not mount Vue to &lt;html&gt; or &lt;body&gt; - mount to normal elements instead.`</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> options = <span class="keyword">this</span>.$options</span><br><span class="line">    <span class="comment">// resolve template/el and convert to render function</span></span><br><span class="line">    <span class="keyword">if</span> (!options.render) &#123;</span><br><span class="line">        <span class="keyword">let</span> template = options.template</span><br><span class="line">        <span class="keyword">if</span> (template) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">typeof</span> template === <span class="string">'string'</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span> (template.charAt(<span class="number">0</span>) === <span class="string">'#'</span>) &#123;</span><br><span class="line">                    template = idToTemplate(template)</span><br><span class="line">                    <span class="comment">/* istanbul ignore if */</span></span><br><span class="line">                    <span class="keyword">if</span> (process.env.NODE_ENV !== <span class="string">'production'</span> &amp;&amp; !template) &#123;</span><br><span class="line">                        warn(<span class="string">`Template element not found or is empty: <span class="subst">$&#123;options.template&#125;</span>`</span>, <span class="keyword">this</span>)</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (template.nodeType) &#123;</span><br><span class="line">                template = template.innerHTML</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (process.env.NODE_ENV !== <span class="string">'production'</span>) &#123;</span><br><span class="line">                    warn(<span class="string">'invalid template option:'</span> + template, <span class="keyword">this</span>)</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">this</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (el) &#123;</span><br><span class="line">            template = getOuterHTML(el)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (template) &#123;</span><br><span class="line">            <span class="comment">/* istanbul ignore if */</span></span><br><span class="line">            <span class="keyword">if</span> (process.env.NODE_ENV !== <span class="string">'production'</span> &amp;&amp; config.performance &amp;&amp; mark) &#123;</span><br><span class="line">                mark(<span class="string">'compile'</span>)</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">const</span> &#123; render, staticRenderFns &#125; = compileToFunctions(</span><br><span class="line">                template,</span><br><span class="line">                &#123;</span><br><span class="line">                    outputSourceRange: process.env.NODE_ENV !== <span class="string">'production'</span>,</span><br><span class="line">                    shouldDecodeNewlines,</span><br><span class="line">                    shouldDecodeNewlinesForHref,</span><br><span class="line">                    delimiters: options.delimiters,</span><br><span class="line">                    comments: options.comments</span><br><span class="line">                &#125;,</span><br><span class="line">                <span class="keyword">this</span></span><br><span class="line">            )</span><br><span class="line">            options.render = render</span><br><span class="line">            options.staticRenderFns = staticRenderFns</span><br><span class="line"></span><br><span class="line">            <span class="comment">/* istanbul ignore if */</span></span><br><span class="line">            <span class="keyword">if</span> (process.env.NODE_ENV !== <span class="string">'production'</span> &amp;&amp; config.performance &amp;&amp; mark) &#123;</span><br><span class="line">                mark(<span class="string">'compile end'</span>)</span><br><span class="line">                measure(<span class="string">`vue <span class="subst">$&#123;<span class="keyword">this</span>._name&#125;</span> compile`</span>, <span class="string">'compile'</span>, <span class="string">'compile end'</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> mount.call(<span class="keyword">this</span>, el, hydrating)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p> 完整版的<code>Vue</code>只是在运行版的基础上增加了模板编译的能力（把<code>template</code>或者<code>el</code>选项对应的<code>html</code>模板编译成<strong>渲染函数</strong>），其主要逻辑为：</p>
-<ol>
-<li>如果<code>template</code>选项不存在，则使用<code>el</code>元素的<code>outerHTML</code>作为模板内容</li>
-<li><p>如果<code>template</code>选项存在：</p>
-<ul>
-<li>且<code>template</code>的类型是字符串<ul>
-<li>如果第一个字符是<code>#</code>，那么会把改字符作为<code>css</code>选择符去选中对应的元素，并把该元素的<code>innerHTML</code>作为模板</li>
-<li>如果第一个字符不是<code>#</code>，那么什么都不做，就用<code>template</code>自身的字符串作为模板值</li>
-</ul>
-</li>
-<li>且<code>template</code>的类型是元素节点（<code>template.nodeType</code>存在）<ul>
-<li>则使用该元素的<code>innerHTML</code>作为模板</li>
-</ul>
-</li>
-<li>若<code>template</code>既不是字符串又不是元素节点，那么在非生产环境会提示开发者传递的<code>template</code>选项无效</li>
-</ul>
-<p>然后对上述处理后的<code>template</code>选项进行了判断，如果不为空，调用<code>compileToFunctions</code>将字符串编译为渲染函数</p>
-</li>
-</ol>
-</li>
-</ol>
-<h2 id="渲染函数的观察者"><a href="#渲染函数的观察者" class="headerlink" title="渲染函数的观察者"></a>渲染函数的观察者</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">mountComponent</span>(<span class="params">vm: Component, el: ?Element, hydrating?: boolean</span>): <span class="title">Component</span> </span>&#123;</span><br><span class="line">    vm.$el = el</span><br><span class="line">    <span class="keyword">if</span> (!vm.$options.render) &#123;</span><br><span class="line">        vm.$options.render = createEmptyVNode</span><br><span class="line">        <span class="keyword">if</span> (process.env.NODE_ENV !== <span class="string">'production'</span>) &#123;</span><br><span class="line">            <span class="comment">/* istanbul ignore if */</span></span><br><span class="line">            <span class="keyword">if</span> ((vm.$options.template &amp;&amp; vm.$options.template.charAt(<span class="number">0</span>) !== <span class="string">'#'</span>) || vm.$options.el || el) &#123;</span><br><span class="line">                warn(</span><br><span class="line">                    <span class="string">'You are using the runtime-only build of Vue where the template '</span> +</span><br><span class="line">                        <span class="string">'compiler is not available. Either pre-compile the templates into '</span> +</span><br><span class="line">                        <span class="string">'render functions, or use the compiler-included build.'</span>,</span><br><span class="line">                    vm</span><br><span class="line">                )</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                warn(<span class="string">'Failed to mount component: template or render function not defined.'</span>, vm)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    callHook(vm, <span class="string">'beforeMount'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> updateComponent</span><br><span class="line">    <span class="comment">/* istanbul ignore if */</span></span><br><span class="line">    <span class="keyword">if</span> (process.env.NODE_ENV !== <span class="string">'production'</span> &amp;&amp; config.performance &amp;&amp; mark) &#123;</span><br><span class="line">        updateComponent = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">const</span> name = vm._name</span><br><span class="line">            <span class="keyword">const</span> id = vm._uid</span><br><span class="line">            <span class="keyword">const</span> startTag = <span class="string">`vue-perf-start:<span class="subst">$&#123;id&#125;</span>`</span></span><br><span class="line">            <span class="keyword">const</span> endTag = <span class="string">`vue-perf-end:<span class="subst">$&#123;id&#125;</span>`</span></span><br><span class="line"></span><br><span class="line">            mark(startTag)</span><br><span class="line">            <span class="keyword">const</span> vnode = vm._render()</span><br><span class="line">            mark(endTag)</span><br><span class="line">            measure(<span class="string">`vue <span class="subst">$&#123;name&#125;</span> render`</span>, startTag, endTag)</span><br><span class="line"></span><br><span class="line">            mark(startTag)</span><br><span class="line">            vm._update(vnode, hydrating)</span><br><span class="line">            mark(endTag)</span><br><span class="line">            measure(<span class="string">`vue <span class="subst">$&#123;name&#125;</span> patch`</span>, startTag, endTag)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        updateComponent = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            vm._update(vm._render(), hydrating)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// we set this to vm._watcher inside the watcher's constructor</span></span><br><span class="line">    <span class="comment">// since the watcher's initial patch may call $forceUpdate (e.g. inside child</span></span><br><span class="line">    <span class="comment">// component's mounted hook), which relies on vm._watcher being already defined</span></span><br><span class="line">    <span class="keyword">new</span> Watcher(</span><br><span class="line">        vm,</span><br><span class="line">        updateComponent,</span><br><span class="line">        noop,</span><br><span class="line">        &#123;</span><br><span class="line">            before() &#123;</span><br><span class="line">                <span class="keyword">if</span> (vm._isMounted &amp;&amp; !vm._isDestroyed) &#123;</span><br><span class="line">                    callHook(vm, <span class="string">'beforeUpdate'</span>)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="literal">true</span> <span class="comment">/* isRenderWatcher */</span></span><br><span class="line">    )</span><br><span class="line">    hydrating = <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// manually mounted instance, call mounted on self</span></span><br><span class="line">    <span class="comment">// mounted is called for render-created child components in its inserted hook</span></span><br><span class="line">    <span class="keyword">if</span> (vm.$vnode == <span class="literal">null</span>) &#123;</span><br><span class="line">        vm._isMounted = <span class="literal">true</span></span><br><span class="line">        callHook(vm, <span class="string">'mounted'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> vm</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol>
-<li>首先判断了<code>vm.$options.render</code>函数是否存在，如果不存在，则把<code>createEmptyVNode</code>函数赋给<code>vm.$options.render</code>，其作用是渲染一个空的<code>vnode</code>对象</li>
-<li>触发<code>beforeMount</code>生命周期钩子</li>
-<li>定义并初始化<code>updateComponent</code>函数，该函数的作用是以<code>vm._render()</code>的返回值作为一个参数调用<code>vm._update</code>函数，第二个参数<code>hydrating</code>是<code>patch</code>算法，这里可以简单的认为<code>vm._render</code>与<code>vm._update</code>的作用如下：<ul>
-<li><code>vm._render</code>函数的作用是调用<code>vm.$options.render</code>函数并返回生成的虚拟节点（<code>vnode</code>）</li>
-<li><code>vm_update</code>函数的作用是把<code>vm._render</code>函数生成的虚拟节点渲染成真实的<code>DOM</code></li>
-</ul>
-</li>
-<li>实例化<code>Watcher</code>对象</li>
-</ol>
-<p>我们知道，正是因为<code>Watcher</code>对表达式的求值，触发了数据属性的<code>get</code>拦截器函数，从而收集到了依赖，当数据变化时能够触发收集的依赖。在上面的<code>Watcher</code>实例中，会对<code>updateComponent</code>函数进行求值，从而间接的触发渲染函数<code>vm.$options.render</code>的执行，而渲染函数的执行会触发数据属性的的<code>get</code>拦截器函数，从而将依赖（<code>观察者</code>）收集，当数据变化时将重新执行<code>updateComponent</code>函数，这就完成了重新渲染。同时我们把上面代码中实例化的观察者对象称为<code>渲染函数的观察者</code>。</p>
-<h2 id="初识-Watcher"><a href="#初识-Watcher" class="headerlink" title="初识 Watcher"></a>初识 Watcher</h2><p>接下来我们就以渲染函数的观察者对象为例，顺着脉络了解<code>Watcher</code>类，<code>Watcher</code>类定义在<code>src/core/observer/watcher.js</code>中，如下是<code>Watcher</code>类的全部内容：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> uid = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * A watcher parses an expression, collects dependencies,</span></span><br><span class="line"><span class="comment"> * and fires callback when the expression value changes.</span></span><br><span class="line"><span class="comment"> * This is used for both the $watch() api and directives.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Watcher</span> </span>&#123;</span><br><span class="line">    vm: Component</span><br><span class="line">    expression: string</span><br><span class="line">    cb: <span class="built_in">Function</span></span><br><span class="line">    id: number</span><br><span class="line">    deep: boolean</span><br><span class="line">    user: boolean</span><br><span class="line">    lazy: boolean</span><br><span class="line">    sync: boolean</span><br><span class="line">    dirty: boolean</span><br><span class="line">    active: boolean</span><br><span class="line">    deps: <span class="built_in">Array</span>&lt;Dep&gt;</span><br><span class="line">    newDeps: <span class="built_in">Array</span>&lt;Dep&gt;</span><br><span class="line">    depIds: SimpleSet</span><br><span class="line">    newDepIds: SimpleSet</span><br><span class="line">    before: ?<span class="built_in">Function</span></span><br><span class="line">    getter: <span class="built_in">Function</span></span><br><span class="line">    value: any</span><br><span class="line"></span><br><span class="line">    <span class="keyword">constructor</span>(vm: Component, expOrFn: string | Function, cb: Function, options?: ?Object, isRenderWatcher?: boolean) &#123;</span><br><span class="line">        <span class="keyword">this</span>.vm = vm</span><br><span class="line">        <span class="comment">// 如果是渲染函数的观察者，这赋值给组件实例的_watcher属性，所有每个组件实例的_watcher属性指向的都是该实例的渲染函数的观察者</span></span><br><span class="line">        <span class="keyword">if</span> (isRenderWatcher) &#123;</span><br><span class="line">            vm._watcher = <span class="keyword">this</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 组件实例的_watchers属性包含了该组件实例的所有的观察者</span></span><br><span class="line">        vm._watchers.push(<span class="keyword">this</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment">// options</span></span><br><span class="line">        <span class="keyword">if</span> (options) &#123;</span><br><span class="line">            <span class="comment">// 用来告诉当前观察者实例对象是否是深度观测</span></span><br><span class="line">            <span class="keyword">this</span>.deep = !!options.deep</span><br><span class="line">            <span class="comment">// 用来标识当前观察者实例对象是 开发者定义的 还是 内部定义的</span></span><br><span class="line">            <span class="keyword">this</span>.user = !!options.user</span><br><span class="line">            <span class="comment">// 用来标识当前观察者实例对象是否是计算属性的观察者，惰性求值 === 计算属性的观察者</span></span><br><span class="line">            <span class="keyword">this</span>.lazy = !!options.lazy</span><br><span class="line">            <span class="comment">// 用来告诉观察者当数据变化时是否同步求值并执行回调</span></span><br><span class="line">            <span class="keyword">this</span>.sync = !!options.sync</span><br><span class="line">            <span class="comment">// 可以理解为 Watcher 实例的钩子，当数据变化之后，触发更新之前，调用在创建渲染函数的观察者实例对象时传递的 before 选项</span></span><br><span class="line">            <span class="keyword">this</span>.before = options.before</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">this</span>.deep = <span class="keyword">this</span>.user = <span class="keyword">this</span>.lazy = <span class="keyword">this</span>.sync = <span class="literal">false</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">this</span>.cb = cb</span><br><span class="line">        <span class="keyword">this</span>.id = ++uid <span class="comment">// uid for batching</span></span><br><span class="line">        <span class="keyword">this</span>.active = <span class="literal">true</span></span><br><span class="line">        <span class="keyword">this</span>.dirty = <span class="keyword">this</span>.lazy <span class="comment">// for lazy watchers</span></span><br><span class="line">        <span class="keyword">this</span>.deps = []</span><br><span class="line">        <span class="keyword">this</span>.newDeps = []</span><br><span class="line">        <span class="keyword">this</span>.depIds = <span class="keyword">new</span> <span class="built_in">Set</span>()</span><br><span class="line">        <span class="keyword">this</span>.newDepIds = <span class="keyword">new</span> <span class="built_in">Set</span>()</span><br><span class="line">        <span class="keyword">this</span>.expression = process.env.NODE_ENV !== <span class="string">'production'</span> ? expOrFn.toString() : <span class="string">''</span></span><br><span class="line">        <span class="comment">// parse expression for getter</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">typeof</span> expOrFn === <span class="string">'function'</span>) &#123;</span><br><span class="line">            <span class="keyword">this</span>.getter = expOrFn</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// this.$watch('b.a', function () &#123;&#125;) 此时 expOrFn = 'b.a'</span></span><br><span class="line">            <span class="comment">// 如果expOrFn 包含字母 . $之外的符号 则 parsePath 返回undefined 否则</span></span><br><span class="line">            <span class="comment">// 返回一个新函数 新函数接收一个obj参数 其作用是触发b.a的get拦截器函数 并返回b.a的值</span></span><br><span class="line">            <span class="keyword">this</span>.getter = parsePath(expOrFn)</span><br><span class="line">            <span class="keyword">if</span> (!<span class="keyword">this</span>.getter) &#123;</span><br><span class="line">                <span class="keyword">this</span>.getter = noop</span><br><span class="line">                process.env.NODE_ENV !== <span class="string">'production'</span> &amp;&amp;</span><br><span class="line">                    warn(<span class="string">`Failed watching path: "<span class="subst">$&#123;expOrFn&#125;</span>" `</span> + <span class="string">'Watcher only accepts simple dot-delimited paths. '</span> + <span class="string">'For full control, use a function instead.'</span>, vm)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// this.value 保存着被观察的目标的值</span></span><br><span class="line">        <span class="keyword">this</span>.value = <span class="keyword">this</span>.lazy ? <span class="literal">undefined</span> : <span class="keyword">this</span>.get()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 收集依赖&amp;求值</span></span><br><span class="line"><span class="comment">     * 触发访问器属性的 get 方法，返回被观察的目标的值</span></span><br><span class="line"><span class="comment">     * Evaluate the getter, and re-collect dependencies.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    get() &#123;</span><br><span class="line">        <span class="comment">// 设置 Dep.target 为当前观察者实例</span></span><br><span class="line">        pushTarget(<span class="keyword">this</span>)</span><br><span class="line">        <span class="keyword">let</span> value</span><br><span class="line">        <span class="keyword">const</span> vm = <span class="keyword">this</span>.vm</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">// 触发过程 被观察目标的 get 拦截器函数 -&gt; dep.depend() -&gt; Dep.target.addDep(dep)</span></span><br><span class="line">            value = <span class="keyword">this</span>.getter.call(vm, vm)</span><br><span class="line">        &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">this</span>.user) &#123;</span><br><span class="line">                handleError(e, vm, <span class="string">`getter for watcher "<span class="subst">$&#123;<span class="keyword">this</span>.expression&#125;</span>"`</span>)</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">throw</span> e</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="comment">// "touch" every property so they are all tracked as</span></span><br><span class="line">            <span class="comment">// dependencies for deep watching</span></span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">this</span>.deep) &#123;</span><br><span class="line">                traverse(value)</span><br><span class="line">            &#125;</span><br><span class="line">            popTarget()</span><br><span class="line">            <span class="keyword">this</span>.cleanupDeps()</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> value</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Add a dependency to this directive.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    addDep(dep: Dep) &#123;</span><br><span class="line">        <span class="keyword">const</span> id = dep.id</span><br><span class="line">        <span class="comment">// 避免在 一次求值过程中 重复收集依赖</span></span><br><span class="line">        <span class="keyword">if</span> (!<span class="keyword">this</span>.newDepIds.has(id)) &#123;</span><br><span class="line">            <span class="keyword">this</span>.newDepIds.add(id)</span><br><span class="line">            <span class="keyword">this</span>.newDeps.push(dep)</span><br><span class="line">            <span class="comment">// 避免在 多次求值过程中 重复收集依赖</span></span><br><span class="line">            <span class="keyword">if</span> (!<span class="keyword">this</span>.depIds.has(id)) &#123;</span><br><span class="line">                <span class="comment">// 收集观察者 观察者被添加到 dep.subs 数组中</span></span><br><span class="line">                dep.addSub(<span class="keyword">this</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Clean up for dependency collection.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    cleanupDeps() &#123;</span><br><span class="line">        <span class="keyword">let</span> i = <span class="keyword">this</span>.deps.length</span><br><span class="line">        <span class="keyword">while</span> (i--) &#123;</span><br><span class="line">            <span class="keyword">const</span> dep = <span class="keyword">this</span>.deps[i]</span><br><span class="line">            <span class="keyword">if</span> (!<span class="keyword">this</span>.newDepIds.has(dep.id)) &#123;</span><br><span class="line">                <span class="comment">// 移除废弃的观察者</span></span><br><span class="line">                dep.removeSub(<span class="keyword">this</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 清空 newDepIds 和 new Deps 并赋给 depIds 和 newDeps</span></span><br><span class="line">        <span class="keyword">let</span> tmp = <span class="keyword">this</span>.depIds</span><br><span class="line">        <span class="keyword">this</span>.depIds = <span class="keyword">this</span>.newDepIds</span><br><span class="line">        <span class="keyword">this</span>.newDepIds = tmp</span><br><span class="line">        <span class="keyword">this</span>.newDepIds.clear()</span><br><span class="line">        tmp = <span class="keyword">this</span>.deps</span><br><span class="line">        <span class="keyword">this</span>.deps = <span class="keyword">this</span>.newDeps</span><br><span class="line">        <span class="keyword">this</span>.newDeps = tmp</span><br><span class="line">        <span class="keyword">this</span>.newDeps.length = <span class="number">0</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 触发过程 被观察目标的 set 拦截器函数 -&gt; dep.notify() -&gt; 虚幻遍历 dep.subs数组 调用dep.subs[i].update</span></span><br><span class="line"><span class="comment">     * Subscriber interface.</span></span><br><span class="line"><span class="comment">     * Will be called when a dependency changes.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    update() &#123;</span><br><span class="line">        <span class="comment">/* istanbul ignore else */</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.lazy) &#123;</span><br><span class="line">            <span class="keyword">this</span>.dirty = <span class="literal">true</span></span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">this</span>.sync) &#123;</span><br><span class="line">            <span class="comment">// 同步执行</span></span><br><span class="line">            <span class="keyword">this</span>.run()</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// 放到异步队列执行</span></span><br><span class="line">            queueWatcher(<span class="keyword">this</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Scheduler job interface.</span></span><br><span class="line"><span class="comment">     * Will be called by the scheduler.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    run() &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.active) &#123;</span><br><span class="line">            <span class="comment">// 重新求值</span></span><br><span class="line">            <span class="keyword">const</span> value = <span class="keyword">this</span>.get()</span><br><span class="line">            <span class="keyword">if</span> (</span><br><span class="line">                value !== <span class="keyword">this</span>.value ||</span><br><span class="line">                <span class="comment">// Deep watchers and watchers on Object/Arrays should fire even</span></span><br><span class="line">                <span class="comment">// when the value is the same, because the value may</span></span><br><span class="line">                <span class="comment">// have mutated.</span></span><br><span class="line">                isObject(value) ||</span><br><span class="line">                <span class="keyword">this</span>.deep</span><br><span class="line">            ) &#123;</span><br><span class="line">                <span class="comment">// set new value</span></span><br><span class="line">                <span class="keyword">const</span> oldValue = <span class="keyword">this</span>.value</span><br><span class="line">                <span class="keyword">this</span>.value = value</span><br><span class="line">                <span class="keyword">if</span> (<span class="keyword">this</span>.user) &#123;</span><br><span class="line">                    <span class="keyword">try</span> &#123;</span><br><span class="line">                        <span class="keyword">this</span>.cb.call(<span class="keyword">this</span>.vm, value, oldValue)</span><br><span class="line">                    &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">                        handleError(e, <span class="keyword">this</span>.vm, <span class="string">`callback for watcher "<span class="subst">$&#123;<span class="keyword">this</span>.expression&#125;</span>"`</span>)</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">this</span>.cb.call(<span class="keyword">this</span>.vm, value, oldValue)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Evaluate the value of the watcher.</span></span><br><span class="line"><span class="comment">     * This only gets called for lazy watchers.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    evaluate() &#123;</span><br><span class="line">        <span class="keyword">this</span>.value = <span class="keyword">this</span>.get()</span><br><span class="line">        <span class="keyword">this</span>.dirty = <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Depend on all deps collected by this watcher.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    depend() &#123;</span><br><span class="line">        <span class="keyword">let</span> i = <span class="keyword">this</span>.deps.length</span><br><span class="line">        <span class="keyword">while</span> (i--) &#123;</span><br><span class="line">            <span class="keyword">this</span>.deps[i].depend()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Remove self from all dependencies' subscriber list.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    teardown() &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.active) &#123;</span><br><span class="line">            <span class="comment">// remove self from vm's watcher list</span></span><br><span class="line">            <span class="comment">// this is a somewhat expensive operation so we skip it</span></span><br><span class="line">            <span class="comment">// if the vm is being destroyed.</span></span><br><span class="line">            <span class="keyword">if</span> (!<span class="keyword">this</span>.vm._isBeingDestroyed) &#123;</span><br><span class="line">                remove(<span class="keyword">this</span>.vm._watchers, <span class="keyword">this</span>)</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">let</span> i = <span class="keyword">this</span>.deps.length</span><br><span class="line">            <span class="keyword">while</span> (i--) &#123;</span><br><span class="line">                <span class="keyword">this</span>.deps[i].removeSub(<span class="keyword">this</span>)</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">this</span>.active = <span class="literal">false</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><figcaption><span>queueWatcher</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Reset the scheduler's state.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">resetSchedulerState</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    index = queue.length = activatedChildren.length = <span class="number">0</span></span><br><span class="line">    has = &#123;&#125;</span><br><span class="line">    <span class="keyword">if</span> (process.env.NODE_ENV !== <span class="string">'production'</span>) &#123;</span><br><span class="line">        circular = &#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    waiting = flushing = <span class="literal">false</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Async edge case #6566 requires saving the timestamp when event listeners are</span></span><br><span class="line"><span class="comment">// attached. However, calling performance.now() has a perf overhead especially</span></span><br><span class="line"><span class="comment">// if the page has thousands of event listeners. Instead, we take a timestamp</span></span><br><span class="line"><span class="comment">// every time the scheduler flushes and use that for all event listeners</span></span><br><span class="line"><span class="comment">// attached during that flush.</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">let</span> currentFlushTimestamp = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Async edge case fix requires storing an event listener's attach timestamp.</span></span><br><span class="line"><span class="keyword">let</span> getNow: <span class="function"><span class="params">()</span> =&gt;</span> number = <span class="built_in">Date</span>.now</span><br><span class="line"></span><br><span class="line"><span class="comment">// Determine what event timestamp the browser is using. Annoyingly, the</span></span><br><span class="line"><span class="comment">// timestamp can either be hi-res (relative to page load) or low-res</span></span><br><span class="line"><span class="comment">// (relative to UNIX epoch), so in order to compare time we have to use the</span></span><br><span class="line"><span class="comment">// same timestamp type when saving the flush timestamp.</span></span><br><span class="line"><span class="keyword">if</span> (inBrowser &amp;&amp; getNow() &gt; <span class="built_in">document</span>.createEvent(<span class="string">'Event'</span>).timeStamp) &#123;</span><br><span class="line">    <span class="comment">// if the low-res timestamp which is bigger than the event timestamp</span></span><br><span class="line">    <span class="comment">// (which is evaluated AFTER) it means the event is using a hi-res timestamp,</span></span><br><span class="line">    <span class="comment">// and we need to use the hi-res version for event listeners as well.</span></span><br><span class="line">    getNow = <span class="function"><span class="params">()</span> =&gt;</span> performance.now()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Flush both queues and run the watchers.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">flushSchedulerQueue</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    currentFlushTimestamp = getNow()</span><br><span class="line">    flushing = <span class="literal">true</span></span><br><span class="line">    <span class="keyword">let</span> watcher, id</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Sort queue before flush.</span></span><br><span class="line">    <span class="comment">// This ensures that:</span></span><br><span class="line">    <span class="comment">// 1. Components are updated from parent to child. (because parent is always</span></span><br><span class="line">    <span class="comment">//    created before the child)</span></span><br><span class="line">    <span class="comment">// 2. A component's user watchers are run before its render watcher (because</span></span><br><span class="line">    <span class="comment">//    user watchers are created before the render watcher)</span></span><br><span class="line">    <span class="comment">// 3. If a component is destroyed during a parent component's watcher run,</span></span><br><span class="line">    <span class="comment">//    its watchers can be skipped.</span></span><br><span class="line">    queue.sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> a.id - b.id)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// do not cache length because more watchers might be pushed</span></span><br><span class="line">    <span class="comment">// as we run existing watchers</span></span><br><span class="line">    <span class="keyword">for</span> (index = <span class="number">0</span>; index &lt; queue.length; index++) &#123;</span><br><span class="line">        watcher = queue[index]</span><br><span class="line">        <span class="keyword">if</span> (watcher.before) &#123;</span><br><span class="line">            watcher.before()</span><br><span class="line">        &#125;</span><br><span class="line">        id = watcher.id</span><br><span class="line">        has[id] = <span class="literal">null</span></span><br><span class="line">        watcher.run()</span><br><span class="line">        <span class="comment">// in dev build, check and stop circular updates.</span></span><br><span class="line">        <span class="keyword">if</span> (process.env.NODE_ENV !== <span class="string">'production'</span> &amp;&amp; has[id] != <span class="literal">null</span>) &#123;</span><br><span class="line">            circular[id] = (circular[id] || <span class="number">0</span>) + <span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span> (circular[id] &gt; MAX_UPDATE_COUNT) &#123;</span><br><span class="line">                warn(<span class="string">'You may have an infinite update loop '</span> + (watcher.user ? <span class="string">`in watcher with expression "<span class="subst">$&#123;watcher.expression&#125;</span>"`</span> : <span class="string">`in a component render function.`</span>), watcher.vm)</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// keep copies of post queues before resetting state</span></span><br><span class="line">    <span class="keyword">const</span> activatedQueue = activatedChildren.slice()</span><br><span class="line">    <span class="keyword">const</span> updatedQueue = queue.slice()</span><br><span class="line"></span><br><span class="line">    resetSchedulerState()</span><br><span class="line"></span><br><span class="line">    <span class="comment">// call component updated and activated hooks</span></span><br><span class="line">    callActivatedHooks(activatedQueue)</span><br><span class="line">    callUpdatedHooks(updatedQueue)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// devtool hook</span></span><br><span class="line">    <span class="comment">/* istanbul ignore if */</span></span><br><span class="line">    <span class="keyword">if</span> (devtools &amp;&amp; config.devtools) &#123;</span><br><span class="line">        devtools.emit(<span class="string">'flush'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callUpdatedHooks</span>(<span class="params">queue</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> i = queue.length</span><br><span class="line">    <span class="keyword">while</span> (i--) &#123;</span><br><span class="line">        <span class="keyword">const</span> watcher = queue[i]</span><br><span class="line">        <span class="keyword">const</span> vm = watcher.vm</span><br><span class="line">        <span class="keyword">if</span> (vm._watcher === watcher &amp;&amp; vm._isMounted &amp;&amp; !vm._isDestroyed) &#123;</span><br><span class="line">            callHook(vm, <span class="string">'updated'</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Queue a kept-alive component that was activated during patch.</span></span><br><span class="line"><span class="comment"> * The queue will be processed after the entire tree has been patched.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">queueActivatedComponent</span>(<span class="params">vm: Component</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// setting _inactive to false here so that a render function can</span></span><br><span class="line">    <span class="comment">// rely on checking whether it's in an inactive tree (e.g. router-view)</span></span><br><span class="line">    vm._inactive = <span class="literal">false</span></span><br><span class="line">    activatedChildren.push(vm)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callActivatedHooks</span>(<span class="params">queue</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; queue.length; i++) &#123;</span><br><span class="line">        queue[i]._inactive = <span class="literal">true</span></span><br><span class="line">        activateChildComponent(queue[i], <span class="literal">true</span> <span class="comment">/* true */</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Push a watcher into the watcher queue.</span></span><br><span class="line"><span class="comment"> * Jobs with duplicate IDs will be skipped unless it's</span></span><br><span class="line"><span class="comment"> * pushed when the queue is being flushed.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">queueWatcher</span>(<span class="params">watcher: Watcher</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> id = watcher.id</span><br><span class="line">    <span class="comment">// 避免相同的观察者重复入队</span></span><br><span class="line">    <span class="keyword">if</span> (has[id] == <span class="literal">null</span>) &#123;</span><br><span class="line">        has[id] = <span class="literal">true</span></span><br><span class="line">        <span class="comment">// 判断队列中的事件是否处于执行中</span></span><br><span class="line">        <span class="keyword">if</span> (!flushing) &#123;</span><br><span class="line">            <span class="comment">// 如果不处于执行中，将 观察者 添加到队列末尾</span></span><br><span class="line">            queue.push(watcher)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// if already flushing, splice the watcher based on its id</span></span><br><span class="line">            <span class="comment">// if already past its id, it will be run next immediately.</span></span><br><span class="line">            <span class="keyword">let</span> i = queue.length - <span class="number">1</span></span><br><span class="line">            <span class="keyword">while</span> (i &gt; index &amp;&amp; queue[i].id &gt; watcher.id) &#123;</span><br><span class="line">                i--</span><br><span class="line">            &#125;</span><br><span class="line">            queue.splice(i + <span class="number">1</span>, <span class="number">0</span>, watcher)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 只能存在一个异步事件</span></span><br><span class="line">        <span class="comment">// queue the flush</span></span><br><span class="line">        <span class="keyword">if</span> (!waiting) &#123;</span><br><span class="line">            waiting = <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (process.env.NODE_ENV !== <span class="string">'production'</span> &amp;&amp; !config.async) &#123;</span><br><span class="line">                flushSchedulerQueue()</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            &#125;</span><br><span class="line">            nextTick(flushSchedulerQueue)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><figcaption><span>nextTick</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> timerFunc</span><br><span class="line"></span><br><span class="line"><span class="comment">// The nextTick behavior leverages the microtask queue, which can be accessed</span></span><br><span class="line"><span class="comment">// via either native Promise.then or MutationObserver.</span></span><br><span class="line"><span class="comment">// MutationObserver has wider support, however it is seriously bugged in</span></span><br><span class="line"><span class="comment">// UIWebView in iOS &gt;= 9.3.3 when triggered in touch event handlers. It</span></span><br><span class="line"><span class="comment">// completely stops working after triggering a few times... so, if native</span></span><br><span class="line"><span class="comment">// Promise is available, we will use it:</span></span><br><span class="line"><span class="comment">/* istanbul ignore next, $flow-disable-line */</span></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">Promise</span> !== <span class="string">'undefined'</span> &amp;&amp; isNative(<span class="built_in">Promise</span>)) &#123;</span><br><span class="line">    <span class="keyword">const</span> p = <span class="built_in">Promise</span>.resolve()</span><br><span class="line">    timerFunc = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        p.then(flushCallbacks)</span><br><span class="line">        <span class="comment">// In problematic UIWebViews, Promise.then doesn't completely break, but</span></span><br><span class="line">        <span class="comment">// it can get stuck in a weird state where callbacks are pushed into the</span></span><br><span class="line">        <span class="comment">// microtask queue but the queue isn't being flushed, until the browser</span></span><br><span class="line">        <span class="comment">// needs to do some other work, e.g. handle a timer. Therefore we can</span></span><br><span class="line">        <span class="comment">// "force" the microtask queue to be flushed by adding an empty timer.</span></span><br><span class="line">        <span class="keyword">if</span> (isIOS) setTimeout(noop)</span><br><span class="line">    &#125;</span><br><span class="line">    isUsingMicroTask = <span class="literal">true</span></span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (</span><br><span class="line">    !isIE &amp;&amp;</span><br><span class="line">    <span class="keyword">typeof</span> MutationObserver !== <span class="string">'undefined'</span> &amp;&amp;</span><br><span class="line">    (isNative(MutationObserver) ||</span><br><span class="line">        <span class="comment">// PhantomJS and iOS 7.x</span></span><br><span class="line">        MutationObserver.toString() === <span class="string">'[object MutationObserverConstructor]'</span>)</span><br><span class="line">) &#123;</span><br><span class="line">    <span class="comment">// Use MutationObserver where native Promise is not available,</span></span><br><span class="line">    <span class="comment">// e.g. PhantomJS, iOS7, Android 4.4</span></span><br><span class="line">    <span class="comment">// (#6466 MutationObserver is unreliable in IE11)</span></span><br><span class="line">    <span class="keyword">let</span> counter = <span class="number">1</span></span><br><span class="line">    <span class="keyword">const</span> observer = <span class="keyword">new</span> MutationObserver(flushCallbacks)</span><br><span class="line">    <span class="keyword">const</span> textNode = <span class="built_in">document</span>.createTextNode(<span class="built_in">String</span>(counter))</span><br><span class="line">    observer.observe(textNode, &#123;</span><br><span class="line">        characterData: <span class="literal">true</span></span><br><span class="line">    &#125;)</span><br><span class="line">    timerFunc = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        counter = (counter + <span class="number">1</span>) % <span class="number">2</span></span><br><span class="line">        textNode.data = <span class="built_in">String</span>(counter)</span><br><span class="line">    &#125;</span><br><span class="line">    isUsingMicroTask = <span class="literal">true</span></span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">typeof</span> setImmediate !== <span class="string">'undefined'</span> &amp;&amp; isNative(setImmediate)) &#123;</span><br><span class="line">    <span class="comment">// Fallback to setImmediate.</span></span><br><span class="line">    <span class="comment">// Techinically it leverages the (macro) task queue,</span></span><br><span class="line">    <span class="comment">// but it is still a better choice than setTimeout.</span></span><br><span class="line">    timerFunc = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        setImmediate(flushCallbacks)</span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// Fallback to setTimeout.</span></span><br><span class="line">    timerFunc = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        setTimeout(flushCallbacks, <span class="number">0</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">nextTick</span>(<span class="params">cb?: Function, ctx?: Object</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> _resolve</span><br><span class="line">    callbacks.push(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (cb) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                cb.call(ctx)</span><br><span class="line">            &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">                handleError(e, ctx, <span class="string">'nextTick'</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (_resolve) &#123;</span><br><span class="line">            _resolve(ctx)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">if</span> (!pending) &#123;</span><br><span class="line">        pending = <span class="literal">true</span></span><br><span class="line">        timerFunc()</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// $flow-disable-line</span></span><br><span class="line">    <span class="keyword">if</span> (!cb &amp;&amp; <span class="keyword">typeof</span> <span class="built_in">Promise</span> !== <span class="string">'undefined'</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> &#123;</span><br><span class="line">            _resolve = resolve</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/05/揭开数据响应系统的面纱.html">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cong.Wang">
-      <meta itemprop="description" content="WgCg、Cong.Wang、WangCong、Vue、Webpack、HTML、CSS、JS">
-      <meta itemprop="image" content="/uploads/mine/head.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WgCg Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/04/05/揭开数据响应系统的面纱.html" class="post-title-link" itemprop="url">揭开数据响应系统的面纱</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-04-05 17:01:48" itemprop="dateCreated datePublished" datetime="2019-04-05T17:01:48+08:00">2019-04-05</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-04-22 17:26:45" itemprop="dateModified" datetime="2019-04-22T17:26:45+08:00">2019-04-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/框架/" itemprop="url" rel="index"><span itemprop="name">框架</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/框架/Vue/" itemprop="url" rel="index"><span itemprop="name">Vue</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/框架/Vue/原理/" itemprop="url" rel="index"><span itemprop="name">原理</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/04/05/揭开数据响应系统的面纱.html#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/04/05/揭开数据响应系统的面纱.html" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2019/04/05/揭开数据响应系统的面纱.html" class="leancloud_visitors" data-flag-title="揭开数据响应系统的面纱">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数：</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">11k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">10 分钟</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h2><ol>
-<li>优先级关系：props &gt; data &gt; methods：即已经在<code>props</code>中定义的<code>key</code>不允许出现在<code>data</code>与<code>methods</code>中，已经在<code>data</code>中定义的<code>key</code>不允许出现在<code>methods</code>中</li>
-<li><code>vm</code>代理了<code>vm._data</code>对象，<code>vm._data</code>对象是通过<code>vm.$options.data()</code>得到的，即访问<code>vm.a</code>等于访问<code>vm._data.a</code>，对应到源码中<code>src/core/instance/state.js</code>中的<code>proxy</code>方法</li>
-</ol>
-<h2 id="响应式数据处理"><a href="#响应式数据处理" class="headerlink" title="响应式数据处理"></a>响应式数据处理</h2><p>本节主要针对<code>src/core/instance/state.js</code>中的<code>initData</code>方法最后一句<code>observe(data, true)</code>的执行逻辑进行说明</p>
-<p><code>observe</code>方法具体的内容如下：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">observe</span>(<span class="params">value: any, asRootData: ?boolean</span>): <span class="title">Observer</span> | <span class="title">void</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!isObject(value) || value <span class="keyword">instanceof</span> VNode) &#123;</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> ob: Observer | <span class="keyword">void</span></span><br><span class="line">    <span class="comment">// 如果value上有__ob__属性且是Observer实例，说明该对象已经被观测</span></span><br><span class="line">    <span class="keyword">if</span> (hasOwn(value, <span class="string">'__ob__'</span>) &amp;&amp; value.__ob__ <span class="keyword">instanceof</span> Observer) &#123;</span><br><span class="line">        ob = value.__ob__</span><br><span class="line">        <span class="comment">// shouldObserve控制是否允许观测的开关</span></span><br><span class="line">        <span class="comment">// isServerRendering 判断是否是服务端渲染</span></span><br><span class="line">        <span class="comment">// Array.isArray(value) || isPlainObject(value) 判断是否是数组或纯对象</span></span><br><span class="line">        <span class="comment">// Object.isExtensible(value) 判断是否是可扩展的</span></span><br><span class="line">        <span class="comment">// !value._isVue 判断是否是Vue实例</span></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (shouldObserve &amp;&amp; !isServerRendering() &amp;&amp; (<span class="built_in">Array</span>.isArray(value) || isPlainObject(value)) &amp;&amp; <span class="built_in">Object</span>.isExtensible(value) &amp;&amp; !value._isVue) &#123;</span><br><span class="line">        ob = <span class="keyword">new</span> Observer(value)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (asRootData &amp;&amp; ob) &#123;</span><br><span class="line">        ob.vmCount++</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ob</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><code>Observer</code>（观察者类）定义如下：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Observer</span> </span>&#123;</span><br><span class="line">    value: any <span class="comment">// 要观察的对象本身的引用</span></span><br><span class="line">    dep: Dep <span class="comment">// 依赖实例，用于收集依赖，为了使Vue.set和Vue.delete能够监听对象和数组属性的添加和删除等</span></span><br><span class="line">    vmCount: number <span class="comment">// 除非是根数据，即vm.data，其值大于0，否则等于0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">constructor</span>(value: any) &#123;</span><br><span class="line">        <span class="keyword">this</span>.value = value</span><br><span class="line">        <span class="keyword">this</span>.dep = <span class="keyword">new</span> Dep()</span><br><span class="line">        <span class="keyword">this</span>.vmCount = <span class="number">0</span></span><br><span class="line">        def(value, <span class="string">'__ob__'</span>, <span class="keyword">this</span>)</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">Array</span>.isArray(value)) &#123;</span><br><span class="line">            <span class="keyword">if</span> (hasProto) &#123;</span><br><span class="line">                protoAugment(value, arrayMethods)</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                copyAugment(value, arrayMethods, arrayKeys)</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">this</span>.observeArray(value)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">this</span>.walk(value)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    walk(obj: <span class="built_in">Object</span>) &#123;</span><br><span class="line">        <span class="keyword">const</span> keys = <span class="built_in">Object</span>.keys(obj)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; keys.length; i++) &#123;</span><br><span class="line">            defineReactive(obj, keys[i])</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    observeArray(items: <span class="built_in">Array</span>&lt;any&gt;) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>, l = items.length; i &lt; l; i++) &#123;</span><br><span class="line">            observe(items[i])</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><code>constructor</code>做的事情：</p>
-<ol>
-<li>初始化数据：<code>value</code>引用数据对象本身、<code>dep</code>为<code>Dep</code>类的实例（用于<code>Vue.set &amp; Vue.delete</code>实现对象或数组的添加、删除操作）、初始化<code>vmCount</code>的值为 0（如果是根数据在<code>observe</code>函数中对<code>vmCount</code>进行了自加 1，说明只有根数据即<code>vm.data</code>本身的<code>vmCount</code>会大于 0）</li>
-<li>往数据对象上添加了<code>__ob__</code>属性，其值为当前<code>Observer</code>实例</li>
-<li><p>判断数据对象是否是数组</p>
-<p> 如果是数组，判断浏览器是否支持<code>__proto__</code>属性</p>
-<ul>
-<li><p>如果支持，利用原型链，使<code>value.__proto__</code>属性指向<code>arrMethods</code>，<code>arrMethods</code>是用以<code>Array.prototype</code>为原型创建的对象，其对数组的变异方法（即能修改自身值得方法）进行了重写，这样当使用数组的变异方法时，就会查找原型链，查找到<code>arrMethods</code>对象上定义的方法，在这些方法中我们就能进行<strong>依赖收集</strong>与<strong>事件发布</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/core/observer/index.js</span></span><br><span class="line">protoAugment(value, arrayMethods)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">protoAugment</span> (<span class="params">target, src: Object</span>) </span>&#123;</span><br><span class="line">    target.__proto__ = src</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// src/core/observer/array.js</span></span><br><span class="line"><span class="keyword">const</span> arrayProto = <span class="built_in">Array</span>.prototype</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> arrayMethods = <span class="built_in">Object</span>.create(arrayProto)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> methodsToPatch = [</span><br><span class="line">    <span class="string">'push'</span>,</span><br><span class="line">    <span class="string">'pop'</span>,</span><br><span class="line">    <span class="string">'shift'</span>,</span><br><span class="line">    <span class="string">'unshift'</span>,</span><br><span class="line">    <span class="string">'splice'</span>,</span><br><span class="line">    <span class="string">'sort'</span>,</span><br><span class="line">    <span class="string">'reverse'</span></span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* Intercept mutating methods and emit events</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">methodsToPatch.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">method</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// cache original method</span></span><br><span class="line">    <span class="keyword">const</span> original = arrayProto[method]</span><br><span class="line">    def(arrayMethods, method, <span class="function"><span class="keyword">function</span> <span class="title">mutator</span> (<span class="params">...args</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">const</span> result = original.apply(<span class="keyword">this</span>, args)</span><br><span class="line">        <span class="keyword">const</span> ob = <span class="keyword">this</span>.__ob__</span><br><span class="line">        <span class="keyword">let</span> inserted</span><br><span class="line">        <span class="keyword">switch</span> (method) &#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">'push'</span>:</span><br><span class="line">            <span class="keyword">case</span> <span class="string">'unshift'</span>:</span><br><span class="line">                inserted = args</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">case</span> <span class="string">'splice'</span>:</span><br><span class="line">                inserted = args.slice(<span class="number">2</span>)</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// inserted的值为往数组中添加的元素，其作用是用于确定当前数组的操作为添加操作，当添加一个新的元素后，要确保对新的元素进行了观测，所以当存在inserted时，调用当前数组的`__ob__`对象的observeArray方法</span></span><br><span class="line">        <span class="keyword">if</span> (inserted) ob.observeArray(inserted)</span><br><span class="line">        <span class="comment">// notify change</span></span><br><span class="line">        ob.dep.notify()</span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// src/core/observer/index.js Observer.observeArray：该方法的作用是循环数组，对数组中的每一项进行观测</span></span><br><span class="line">    observeArray (items: <span class="built_in">Array</span>&lt;any&gt;) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>, l = items.length; i &lt; l; i++) &#123;</span><br><span class="line">            observe(items[i])</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>如果不支持<code>__proto__</code>方法，则直接把重写的<strong>变异数组</strong>方法添加到数据对象本身上</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/core/observer/index.js</span></span><br><span class="line"><span class="keyword">const</span> arrayKeys = <span class="built_in">Object</span>.getOwnPropertyNames(arrayMethods)</span><br><span class="line"></span><br><span class="line">copyAugment(value, arrayMethods, arrayKeys)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">copyAugment</span>(<span class="params">target: Object, src: Object, keys: Array&lt;string&gt;</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>, l = keys.length; i &lt; l; i++) &#123;</span><br><span class="line">        <span class="keyword">const</span> key = keys[i]</span><br><span class="line">        def(target, key, src[key])</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>如果不是数组（即对象），则调用<code>Observer</code>的<code>walk</code>方法，遍历对象上的属性，调用<code>defineReactive</code>方法，对每一个属性进行观测</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">walk (obj: <span class="built_in">Object</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> keys = <span class="built_in">Object</span>.keys(obj)</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; keys.length; i++) &#123;</span><br><span class="line">        defineReactive(obj, keys[i])</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><code>defineReactive</code>定义在<code>src/core/observer/index.js</code>中</p>
-<figure class="highlight javascript"><figcaption><span>defineReactive</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">defineReactive</span>(<span class="params">obj: Object, key: string, val: any, customSetter?: ?Function, shallow?: boolean</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> dep = <span class="keyword">new</span> Dep()</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 获取属性的描述信息</span></span><br><span class="line">    <span class="keyword">const</span> property = <span class="built_in">Object</span>.getOwnPropertyDescriptor(obj, key)</span><br><span class="line">    <span class="comment">// 如果该属性是不可配置的，则没必要也无法进行观测，因为要实现观测必须修改属性的`get`和`set`方法</span></span><br><span class="line">    <span class="keyword">if</span> (property &amp;&amp; property.configurable === <span class="literal">false</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 缓存原来的geeter和setter</span></span><br><span class="line">    <span class="keyword">const</span> getter = property &amp;&amp; property.get</span><br><span class="line">    <span class="keyword">const</span> setter = property &amp;&amp; property.set</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 首先要明确的一点是，如果if中的代码不执行，那么val的值有可能为undefined，则这时候下方的深度观测语句`let childOb = !shallow &amp;&amp; observe(val)`中的val为undefined，即不会进行深度观测</span></span><br><span class="line">    <span class="comment">// !getter &amp;&amp; arguments.length == 2：如果属性本身存在着`getter`函数，在这里是不希望触发用户所写的`getter`函数的，所以当属性本身不存在`getter`函数时，再获取其值，而付出的代价是如果存在`getters`函数不会进行深度观测</span></span><br><span class="line">    <span class="comment">// !getter || setter：如果不加setter的判断，当第一次观测之后且是深度观测之后，属性上有了下方代码添加的`getter`函数，这时候将属性值赋予一个新的对象，则时候对象上有`getter`函数，造成的结果就是不会进行深度观测，这跟之前的深度观测是相违背的，所以加上setter是否存在的判断</span></span><br><span class="line">    <span class="keyword">if</span> ((!getter || setter) &amp;&amp; <span class="built_in">arguments</span>.length === <span class="number">2</span>) &#123;</span><br><span class="line">        val = obj[key]</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 进行深度观测，可以把shallow看做一个控制深度观测的开关</span></span><br><span class="line">    <span class="keyword">let</span> childOb = !shallow &amp;&amp; observe(val)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 依赖收集&amp;事件发布</span></span><br><span class="line">    <span class="built_in">Object</span>.defineProperty(obj, key, &#123;</span><br><span class="line">        enumerable: <span class="literal">true</span>,</span><br><span class="line">        configurable: <span class="literal">true</span>,</span><br><span class="line">        get: <span class="function"><span class="keyword">function</span> <span class="title">reactiveGetter</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="comment">// 利用闭包，保留对getter的引用，如果存在getter，则调用getter获取其值，否则为val</span></span><br><span class="line">            <span class="keyword">const</span> value = getter ? getter.call(obj) : val</span><br><span class="line">            <span class="comment">// Dep.target为要收集的依赖</span></span><br><span class="line">            <span class="keyword">if</span> (Dep.target) &#123;</span><br><span class="line">                <span class="comment">// 收集依赖</span></span><br><span class="line">                dep.depend()</span><br><span class="line"></span><br><span class="line">                <span class="comment">// 如果子对象也是观测对象</span></span><br><span class="line">                <span class="keyword">if</span> (childOb) &#123;</span><br><span class="line">                    <span class="comment">// 收集依赖，因为当一个事件依赖一个对象后，则相当于这个事件也依赖于其子对象，因为修改了子对象，其父对象也变了，这样当修改子对象是，才能正确的发布事件</span></span><br><span class="line">                    childOb.dep.depend()</span><br><span class="line">                    <span class="keyword">if</span> (<span class="built_in">Array</span>.isArray(value)) &#123;</span><br><span class="line">                        <span class="comment">// 如果是数组，则递归调用dependArray进行依赖收集</span></span><br><span class="line">                        dependArray(value)</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> value</span><br><span class="line">        &#125;,</span><br><span class="line">        set: <span class="function"><span class="keyword">function</span> <span class="title">reactiveSetter</span>(<span class="params">newVal</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">const</span> value = getter ? getter.call(obj) : val</span><br><span class="line">            <span class="comment">// 如果数据没有发生改变，或者之前为NaN改变之后也为NaN（我们都知道NaN !== NaN），则什么都不做</span></span><br><span class="line">            <span class="keyword">if</span> (newVal === value || (newVal !== newVal &amp;&amp; value !== value)) &#123;</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// customSetter：允许在非生产环境进行监听时提供一个函数为参数作为拦截，例如不允许修改内置的属性时会提示错误信息</span></span><br><span class="line">            <span class="keyword">if</span> (process.env.NODE_ENV !== <span class="string">'production'</span> &amp;&amp; customSetter) &#123;</span><br><span class="line">                customSetter()</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// #7981: for accessor properties without setter</span></span><br><span class="line">            <span class="keyword">if</span> (getter &amp;&amp; !setter) <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">// 如果本身存在setter，则调用本身提供的setter进行赋值</span></span><br><span class="line">            <span class="keyword">if</span> (setter) &#123;</span><br><span class="line">                setter.call(obj, newVal)</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                val = newVal</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 深度观测</span></span><br><span class="line">            childOb = !shallow &amp;&amp; observe(newVal)</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 事件发布</span></span><br><span class="line">            dep.notify()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">dependArray</span>(<span class="params">value: Array&lt;any&gt;</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> e, i = <span class="number">0</span>, l = value.length; i &lt; l; i++) &#123;</span><br><span class="line">        e = value[i]</span><br><span class="line">        e &amp;&amp; e.__ob__ &amp;&amp; e.__ob__.dep.depend()</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">Array</span>.isArray(e)) &#123;</span><br><span class="line">            dependArray(e)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ol>
-<h2 id="Vue-set-amp-Vue-delete-的实现"><a href="#Vue-set-amp-Vue-delete-的实现" class="headerlink" title="Vue.set &amp; Vue.delete 的实现"></a>Vue.set &amp; Vue.delete 的实现</h2><figure class="highlight javascript"><figcaption><span>Vue.set</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">set</span>(<span class="params">target: Array&lt;any&gt; | Object, key: any, val: any</span>): <span class="title">any</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 在非生产环境对target的类型进行判断，如果是基本数据类型undefined、Number、String、Boolean、Symblo则不进行处理</span></span><br><span class="line">    <span class="keyword">if</span> (process.env.NODE_ENV !== <span class="string">'production'</span> &amp;&amp; (isUndef(target) || isPrimitive(target))) &#123;</span><br><span class="line">        warn(<span class="string">`Cannot set reactive property on undefined, null, or primitive value: <span class="subst">$&#123;(target: any)&#125;</span>`</span>)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 如果是数组且索引key &gt;= 0 且 是整数 且 isFinite(key)为true</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">Array</span>.isArray(target) &amp;&amp; isValidArrayIndex(key)) &#123;</span><br><span class="line">        <span class="comment">// 将数组的长度修改为 target.length 和 key 中的较大者，否则如果当要设置的元素的索引大于数组长度时 splice 无效</span></span><br><span class="line">        target.length = <span class="built_in">Math</span>.max(target.length, key)</span><br><span class="line">        <span class="comment">// 利用splice实现数据观测</span></span><br><span class="line">        target.splice(key, <span class="number">1</span>, val)</span><br><span class="line">        <span class="keyword">return</span> val</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 如果是对象，直接改变其值就行，会触发对应的setter方法</span></span><br><span class="line">    <span class="keyword">if</span> (key <span class="keyword">in</span> target &amp;&amp; !(key <span class="keyword">in</span> <span class="built_in">Object</span>.prototype)) &#123;</span><br><span class="line">        target[key] = val</span><br><span class="line">        <span class="keyword">return</span> val</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">const</span> ob = (target: any).__ob__</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 不允许给Vue实例添加属性：为了避免属性覆盖</span></span><br><span class="line">    <span class="comment">// 不允许给Vue根数据对象添加属性：根数据对象是永远都触发不了依赖的，原因是因为根数据对象的Observer实例无法收集到依赖（观察者）。如果想要在跟数据上使用Vue.set/Vue.delete触发响应，则data必须是响应式数据才行，这样当 data 字段被依赖时，才能够收集依赖(观察者)到两个“筐”中(data属性自身的 dep以及data.__ob__)。这样在 Vue.set/$set 函数中才有机会触发根数据的响应。但 data 本身并不是响应的，这就是问题所在</span></span><br><span class="line">    <span class="keyword">if</span> (target._isVue || (ob &amp;&amp; ob.vmCount)) &#123;</span><br><span class="line">        process.env.NODE_ENV !== <span class="string">'production'</span> &amp;&amp; warn(<span class="string">'Avoid adding reactive properties to a Vue instance or its root $data '</span> + <span class="string">'at runtime - declare it upfront in the data option.'</span>)</span><br><span class="line">        <span class="keyword">return</span> val</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 如果target原本不是响应的，则直接设置其值</span></span><br><span class="line">    <span class="keyword">if</span> (!ob) &#123;</span><br><span class="line">        target[key] = val</span><br><span class="line">        <span class="keyword">return</span> val</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 调用defineReactive方法设置属性值，确保新添加的属性是响应式的</span></span><br><span class="line">    defineReactive(ob.value, key, val)</span><br><span class="line">    <span class="comment">// 触发响应</span></span><br><span class="line">    ob.dep.notify()</span><br><span class="line">    <span class="keyword">return</span> val</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><figcaption><span>Vue.delete</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">del</span>(<span class="params">target: Array&lt;any&gt; | Object, key: any</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (process.env.NODE_ENV !== <span class="string">'production'</span> &amp;&amp; (isUndef(target) || isPrimitive(target))) &#123;</span><br><span class="line">        warn(<span class="string">`Cannot delete reactive property on undefined, null, or primitive value: <span class="subst">$&#123;(target: any)&#125;</span>`</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">Array</span>.isArray(target) &amp;&amp; isValidArrayIndex(key)) &#123;</span><br><span class="line">        target.splice(key, <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">const</span> ob = (target: any).__ob__</span><br><span class="line">    <span class="keyword">if</span> (target._isVue || (ob &amp;&amp; ob.vmCount)) &#123;</span><br><span class="line">        process.env.NODE_ENV !== <span class="string">'production'</span> &amp;&amp; warn(<span class="string">'Avoid deleting properties on a Vue instance or its root $data '</span> + <span class="string">'- just set it to null.'</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (!hasOwn(target, key)) &#123;</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">delete</span> target[key]</span><br><span class="line">    <span class="keyword">if</span> (!ob) &#123;</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line">    ob.dep.notify()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>下一章：<a href="/2019/04/15/渲染函数的观察者与进阶的数据响应系统.html">渲染函数的观察者与进阶的数据响应系统</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2746,7 +2778,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">61</span>
+                    <span class="site-state-item-count">64</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2841,7 +2873,23 @@
                     
                       
                     
-                    <span class="site-state-item-count">41</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">49</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -3007,7 +3055,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">272k</span>
+    <span title="站点总字数">274k</span>
   
 
   
@@ -3016,7 +3064,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">4:08</span>
+    <span title="站点阅读时长">4:09</span>
   
 </div>
 

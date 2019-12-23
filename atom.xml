@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-10-26T03:06:29.736Z</updated>
+  <updated>2019-12-23T13:19:35.918Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,15 +17,113 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>echart问题记录</title>
+    <link href="http://yoursite.com/2019/12/23/echart%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95.html"/>
+    <id>http://yoursite.com/2019/12/23/echart问题记录.html</id>
+    <published>2019-12-23T13:15:17.000Z</published>
+    <updated>2019-12-23T13:19:35.918Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li>先绘制 <code>columns</code>，再异步绘制 <code>source</code>，没有动画</li><li>指标切换的 <code>label</code> 显示不全，设置 <code>legend.textStyle.lineHeight</code></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ol&gt;
+&lt;li&gt;先绘制 &lt;code&gt;columns&lt;/code&gt;，再异步绘制 &lt;code&gt;source&lt;/code&gt;，没有动画&lt;/li&gt;
+&lt;li&gt;指标切换的 &lt;code&gt;label&lt;/code&gt; 显示不全，设置 &lt;code&gt;legend.textStyle.lineHeight
+      
+    
+    </summary>
+    
+      <category term="框架" scheme="http://yoursite.com/categories/%E6%A1%86%E6%9E%B6/"/>
+    
+      <category term="echart" scheme="http://yoursite.com/categories/%E6%A1%86%E6%9E%B6/echart/"/>
+    
+      <category term="问题积累" scheme="http://yoursite.com/categories/%E6%A1%86%E6%9E%B6/echart/%E9%97%AE%E9%A2%98%E7%A7%AF%E7%B4%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>http问题记录</title>
+    <link href="http://yoursite.com/2019/12/23/http%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95.html"/>
+    <id>http://yoursite.com/2019/12/23/http问题记录.html</id>
+    <published>2019-12-23T13:15:02.000Z</published>
+    <updated>2019-12-23T13:20:31.713Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Chrome-302-发起多余的GET请求"><a href="#Chrome-302-发起多余的GET请求" class="headerlink" title="Chrome 302 发起多余的GET请求"></a>Chrome 302 发起多余的<code>GET</code>请求</h2><ol><li>浏览器发起一个 post 请求，后端返回 302 会导致原请求变成 GET 请求并且 Post Data 丢失（在 network 中，会出现 3 次请求记录，原请求，原请求的 GET 方法（不应该显示），302 的请求），<a href="https://stackoverflow.com/questions/12548341/how-to-work-around-post-being-changed-to-get-on-302-redirect" target="_blank" rel="noopener">问题链接</a>，解决方案：<ol><li>后端请求需要 302 的地址，获取数据后，返回给前端 200</li><li>返回 307：告诉浏览器按照 original request 的方法发起新的 redirect request，但是要向用户提示安全警告，但是这并不总是有效的，因为它不是 http common status code（HTTP 常见状态码），<a href="https://ilia.ws/archives/152-Cross-Domain-POST-Redirection.html" target="_blank" rel="noopener">不同浏览器实现逻辑不一致</a><ol><li>IE7： 不会给予警告</li><li>safari: 它不会引发确认对话框并执行重定向，并且丢弃 post data，将 307 转为 302</li></ol></li></ol></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Chrome-302-发起多余的GET请求&quot;&gt;&lt;a href=&quot;#Chrome-302-发起多余的GET请求&quot; class=&quot;headerlink&quot; title=&quot;Chrome 302 发起多余的GET请求&quot;&gt;&lt;/a&gt;Chrome 302 发起多余的&lt;code&gt;G
+      
+    
+    </summary>
+    
+      <category term="HTTP" scheme="http://yoursite.com/categories/HTTP/"/>
+    
+      <category term="问题积累" scheme="http://yoursite.com/categories/HTTP/%E9%97%AE%E9%A2%98%E7%A7%AF%E7%B4%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>ant-design问题记录</title>
+    <link href="http://yoursite.com/2019/12/23/ant-design%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95.html"/>
+    <id>http://yoursite.com/2019/12/23/ant-design问题记录.html</id>
+    <published>2019-12-23T13:14:45.000Z</published>
+    <updated>2019-12-23T13:21:22.110Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Select"><a href="#Select" class="headerlink" title="Select"></a>Select</h2><ol><li><code>select</code> <code>dropdownMatchSelectWidth=false</code> 导致设置的 <code>width</code> 没用 会被设置为 <code>min-width</code></li><li><code>select</code> 增加 <code>getPopupContainer</code> 无效，给弹出层的父级增加 <code>postion:relative</code></li></ol><h2 id="PageHeader"><a href="#PageHeader" class="headerlink" title="PageHeader"></a>PageHeader</h2><ol><li><code>page-header</code> <code>.ant-page-header-content</code> 的 <code>overflow:hidden</code> 导致输入框的 <code>focus</code> 的 <code>box-shadow</code> 不显示</li></ol><h2 id="DatePicker"><a href="#DatePicker" class="headerlink" title="DatePicker"></a>DatePicker</h2><ol><li><code>DatePicker</code> 组件没有 <code>getPopupContainer</code> 属性，而是 <code>getCalendarContainer</code> 属性，且不能通过 <code>ConfigProvider</code> 统一添加</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Select&quot;&gt;&lt;a href=&quot;#Select&quot; class=&quot;headerlink&quot; title=&quot;Select&quot;&gt;&lt;/a&gt;Select&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;select&lt;/code&gt; &lt;code&gt;dropdownMatchSelectWid
+      
+    
+    </summary>
+    
+      <category term="框架" scheme="http://yoursite.com/categories/%E6%A1%86%E6%9E%B6/"/>
+    
+      <category term="ant-design" scheme="http://yoursite.com/categories/%E6%A1%86%E6%9E%B6/ant-design/"/>
+    
+      <category term="问题积累" scheme="http://yoursite.com/categories/%E6%A1%86%E6%9E%B6/ant-design/%E9%97%AE%E9%A2%98%E7%A7%AF%E7%B4%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>umi官方文档笔记</title>
     <link href="http://yoursite.com/2019/10/26/umi%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E7%AC%94%E8%AE%B0.html"/>
     <id>http://yoursite.com/2019/10/26/umi官方文档笔记.html</id>
     <published>2019-10-26T03:06:29.000Z</published>
-    <updated>2019-10-26T03:06:29.736Z</updated>
+    <updated>2019-12-23T13:12:22.962Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h2><ol><li><p>src/layouts/index.js(配置式路由下无效):</p><ol><li>全局布局，在路由外面套的一层路由。</li></ol><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  &#123; <span class="attr">path</span>: <span class="string">"/"</span>, <span class="attr">component</span>: <span class="string">"./pages/index"</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">path</span>: <span class="string">"/users"</span>, <span class="attr">component</span>: <span class="string">"./pages/users"</span> &#125;</span><br><span class="line">];</span><br></pre></td></tr></table></figure><p>如果有<code>layouts/index.js</code>，那么路由就会变为：</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  &#123;</span><br><span class="line">    path: <span class="string">"/"</span>,</span><br><span class="line">    component: <span class="string">"./layouts/index"</span>,</span><br><span class="line">    routes: [</span><br><span class="line">      &#123; <span class="attr">path</span>: <span class="string">"/"</span>, <span class="attr">component</span>: <span class="string">"./pages/index"</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">path</span>: <span class="string">"/users"</span>, <span class="attr">component</span>: <span class="string">"./pages/users"</span> &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">];</span><br></pre></td></tr></table></figure></li><li><p>生成的路由配置字段</p><ol><li><code>Routes</code>: 权限路由配置</li><li><code>routes</code>: 路由配置</li></ol></li></ol><h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><ol><li><code>umi/link</code>: 提供<code>Link</code>组件</li><li><code>umi/navLink</code>: 提供<code>NavLink</code>组件</li><li><code>umi/router</code>: 提供<code>router</code>实例</li><li><code>umi/withRouter</code>: 添加<code>router</code>相关的属性到<code>props</code>中</li><li><code>umi/dynamic</code>: 提供按需加载的接口</li></ol><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><ol><li>路由/通过扩展注释路由：<code>Routes</code>字段与<code>嵌套路由</code>的<code>routes</code>不同</li></ol>]]></content>
     
     <summary type="html">
     
+      
+      
+        &lt;h2 id=&quot;路由&quot;&gt;&lt;a href=&quot;#路由&quot; class=&quot;headerlink&quot; title=&quot;路由&quot;&gt;&lt;/a&gt;路由&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;src/layouts/index.js(配置式路由下无效):&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;全局布局，在路由外面套的一层路由
+      
+    
     </summary>
+    
+      <category term="框架" scheme="http://yoursite.com/categories/%E6%A1%86%E6%9E%B6/"/>
+    
+      <category term="umi" scheme="http://yoursite.com/categories/%E6%A1%86%E6%9E%B6/umi/"/>
+    
+      <category term="笔记" scheme="http://yoursite.com/categories/%E6%A1%86%E6%9E%B6/umi/%E7%AC%94%E8%AE%B0/"/>
     
     
   </entry>
@@ -451,86 +549,6 @@
     
     
       <category term="ES6" scheme="http://yoursite.com/tags/ES6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>let和const命令</title>
-    <link href="http://yoursite.com/2019/06/24/let%E5%92%8Cconst%E5%91%BD%E4%BB%A4.html"/>
-    <id>http://yoursite.com/2019/06/24/let和const命令.html</id>
-    <published>2019-06-24T12:01:17.000Z</published>
-    <updated>2019-06-24T13:04:02.706Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="let"><a href="#let" class="headerlink" title="let"></a>let</h2><ol><li>只在块级作用域内有效。</li><li>不存在变量提升。</li><li>暂时性死区，只要块级作用域内存在<code>let</code>命令，这个区块对这些命令声明的变量，从一开始就形成了封闭作用域。凡是在声明之前使用这些变量，就会报错（无论父级作用域是否定义了这些变量），这意味着<code>typeof</code>不再是一个百分百的安全操作。</li><li>不允许重复声明同一个变量。</li><li><code>for</code>循环有一个特别之处，就是设置循环变量的那部分是一个父作用域，而循环体内部是一个单独的子作用域。</li></ol><h2 id="块级作用域"><a href="#块级作用域" class="headerlink" title="块级作用域"></a>块级作用域</h2><ol><li>ES5 规定函数只能在顶层作用域和函数作用域进行声明，不能再块级作用域中进行声明，但是浏览器为了兼容以前的旧代码，并没有遵守这个规范。 ES6 明确规定允许在块级作用域中声明函数。</li><li>ES5 中，函数的整条声明语句会被提升到函数头部或顶级作用域头部</li><li>ES6 的浏览器函数声明的限制（其他环境的实现不用遵守，还是将块级作用域中的函数声明当作<code>let</code>处理）：<ul><li>允许在块级作用域内声明函数</li><li>函数声明类似于<code>var</code>，会提升到全局作用域或函数作用域的头部</li><li>同时，函数声明还会提升到块级作用域的头部</li></ul></li><li>考虑到环境的行为差异太大，不建议在块级作用域内进行函数声明，如果要使用，最好使用函数表达式。</li><li>ES6 的块级作用域必须有大括号，如果没有大括号，<code>JS</code>引擎就认为不存在块级作用域。</li></ol><h2 id="const"><a href="#const" class="headerlink" title="const"></a>const</h2><ol><li><code>const</code>声明一个常量，一旦声明，常量的值不允许改变。单对于复合类型数据（例如对象，数组），其只能保证指向内存地址的指针不改变，无法保证其数据结构不变。可以使用<code>Object.freeze</code>进行冻结（只能冻结改对象的属性，如果其属性是一个对象，只能保证指针不变，无法保证子对象的属性不变）。</li><li>必须立即初始化。</li><li>只在块级作用域内有效。</li><li>不存在变量提升。</li><li>暂时性死区。</li><li>不允许重复声明。</li></ol><h2 id="ES6-声明变量的六种方法"><a href="#ES6-声明变量的六种方法" class="headerlink" title="ES6 声明变量的六种方法"></a>ES6 声明变量的六种方法</h2><ol><li>var</li><li>function</li><li>let</li><li>const</li><li>import</li><li>class</li></ol><h3 id="顶层对象属性"><a href="#顶层对象属性" class="headerlink" title="顶层对象属性"></a>顶层对象属性</h3><ol><li><code>var</code>和<code>function</code>命令声明的全局变量，依旧是顶层对象的属性。</li><li><code>let</code>、<code>const</code>、<code>class</code>命令声明的全局变量，不属于顶层对象的属性。</li></ol><h3 id="globalThis-对象"><a href="#globalThis-对象" class="headerlink" title="globalThis 对象"></a>globalThis 对象</h3><ol><li>不同环境中指向顶层对象的变量不同<ul><li>浏览器：self 和 this</li><li>Web Worker：self</li><li>Node: global</li></ul></li><li>全局环境中，<code>this</code>返回的是顶层对象。但是，在<code>ES6</code>模块和<code>Node</code>模块中，<code>this</code>返回的是当前模块。</li><li>函数里面的 this，如果函数不是作为对象的方法允许，而是单纯作为函数允许，<code>this</code>会指向顶层对象。但是，在严格模式下，<code>this</code>会返回<code>undefined</code>。</li><li>不管是在严格模式还是普通模式，<code>new Function(&#39;return this&#39;)()</code>总是返回全局对象。但是，如果浏览器使用了 CSP（Content Security Policy，内容安全策略），那么<code>eval</code>，<code>new Function</code>这些方法可能无法使用。</li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;let&quot;&gt;&lt;a href=&quot;#let&quot; class=&quot;headerlink&quot; title=&quot;let&quot;&gt;&lt;/a&gt;let&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;只在块级作用域内有效。&lt;/li&gt;
-&lt;li&gt;不存在变量提升。&lt;/li&gt;
-&lt;li&gt;暂时性死区，只要块级作用域内存在&lt;code
-      
-    
-    </summary>
-    
-      <category term="编程语言" scheme="http://yoursite.com/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
-    
-      <category term="JavaScript" scheme="http://yoursite.com/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/JavaScript/"/>
-    
-      <category term="ES6" scheme="http://yoursite.com/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/JavaScript/ES6/"/>
-    
-    
-      <category term="ES6" scheme="http://yoursite.com/tags/ES6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>面试之Web其它</title>
-    <link href="http://yoursite.com/2019/05/06/%E9%9D%A2%E8%AF%95%E4%B9%8BWeb%E5%85%B6%E5%AE%83.html"/>
-    <id>http://yoursite.com/2019/05/06/面试之Web其它.html</id>
-    <published>2019-05-06T14:44:43.000Z</published>
-    <updated>2019-05-06T15:39:19.348Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="SEO"><a href="#SEO" class="headerlink" title="SEO"></a>SEO</h2><h3 id="什么是SEO"><a href="#什么是SEO" class="headerlink" title="什么是SEO"></a>什么是SEO</h3><p>SEO（Search Engine Optimization），中文译为“搜索引擎优化”，是一种透过了解搜索引擎的运作规则来调整网站，以提高目的网站在有关搜索引擎内的自然排名的方式。</p><h3 id="SEO的分类"><a href="#SEO的分类" class="headerlink" title="SEO的分类"></a>SEO的分类</h3><ol><li>白帽SEO：改良和规范网页的设计，使其对搜索引擎和用户更加友好，是一种搜索引擎推荐的做法。</li><li>黑帽SEO：利用或者放大搜索引擎的缺陷，使用不正当的手段提高目的网站在搜索引擎的排名。</li></ol><h3 id="SEO的主要方面"><a href="#SEO的主要方面" class="headerlink" title="SEO的主要方面"></a>SEO的主要方面</h3><p>白帽SEO：</p><ol><li>合理的<code>title</code>、<code>keywords</code>、<code>description</code></li><li>语义化的HTML</li><li>重要的HTML尽量放在前面。搜索引擎抓取HTML的顺序是从上到下的，有些搜索引擎的抓取长度有限，保证重要内容一定会被抓取</li><li>重要的内容不要用<code>js</code>输出：搜索引擎不会执行<code>js</code>获取内容</li><li>减少<code>iframe</code>的使用：搜索引擎不会抓取<code>iframe</code>中的内容</li><li>非装饰性的图片必须加<code>alt</code></li><li>提高网站速度：网站速度是搜索引擎排序的一个重要指标</li><li>增加与网页内容相关的外链引用</li></ol><p>黑帽SEO：</p><ol><li>垃圾索引：透过欺骗技术和滥用搜索算法来推销毫不相关、主要以商业为着眼的网页。</li><li>斗篷法：用了两版不同的网页来达到最优化的效果。</li><li>关键字隐密字：通常是指设置关键字的颜色和网页背景颜色一样，或透过 css hidden attribute （隐密特性） 来达到优化效果。</li><li>桥页：通常是用软件自动生成大量包含关键词的网页，然后从这些网页做自动转向到主页。</li><li>付费链接：是利用支付费用方式要求其他网站提供链接至自身网站，借此伪装高信任网站来欺骗搜索引擎。</li><li>链接农场：是故意在一些低质量，内容跟自己内容无关的网站上获取大量链接，藉以提高排名。</li></ol><h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><ol><li><a href="https://zh.wikipedia.org/wiki/%E6%90%9C%E5%B0%8B%E5%BC%95%E6%93%8E%E6%9C%80%E4%BD%B3%E5%8C%96" target="_blank" rel="noopener">维基百科</a></li><li><a href="https://segmentfault.com/a/1190000002994538" target="_blank" rel="noopener">https://segmentfault.com/a/1190000002994538</a></li></ol><h2 id="会话跟踪"><a href="#会话跟踪" class="headerlink" title="会话跟踪"></a>会话跟踪</h2><h3 id="什么是会话跟踪"><a href="#什么是会话跟踪" class="headerlink" title="什么是会话跟踪"></a>什么是会话跟踪</h3><p>会话跟踪技术是用于维持客户端和服务器端通信信息的技术</p><h3 id="引入会话跟踪的原因"><a href="#引入会话跟踪的原因" class="headerlink" title="引入会话跟踪的原因"></a>引入会话跟踪的原因</h3><p>HTTP是一种无状态协议，每当用户发出请求时，服务器就会做出响应，客户端与服务器之间的联系是离散的、非连续的。当用户在同一网站的多个页面之间转换时，根本无法确定是否是同一个客户以及维持客户的上下文信息，会话跟踪技术就可以解决这个问题。</p><h3 id="Web中会话跟踪的方法有哪些"><a href="#Web中会话跟踪的方法有哪些" class="headerlink" title="Web中会话跟踪的方法有哪些"></a>Web中会话跟踪的方法有哪些</h3><ol><li>cookie</li><li>session</li><li>url重写：动态生成<code>sessionID</code>拼接在<code>url</code>上</li><li>隐藏的表单域</li><li>ip地址</li></ol><h3 id="参考链接-1"><a href="#参考链接-1" class="headerlink" title="参考链接"></a>参考链接</h3><ol><li><a href="https://blog.csdn.net/qq_38363396/article/details/78289344" target="_blank" rel="noopener">https://blog.csdn.net/qq_38363396/article/details/78289344</a></li><li><a href="https://blog.csdn.net/qfs_v/article/details/2652119" target="_blank" rel="noopener">https://blog.csdn.net/qfs_v/article/details/2652119</a></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;SEO&quot;&gt;&lt;a href=&quot;#SEO&quot; class=&quot;headerlink&quot; title=&quot;SEO&quot;&gt;&lt;/a&gt;SEO&lt;/h2&gt;&lt;h3 id=&quot;什么是SEO&quot;&gt;&lt;a href=&quot;#什么是SEO&quot; class=&quot;headerlink&quot; title=&quot;什么是SEO&quot;&gt;&lt;
-      
-    
-    </summary>
-    
-      <category term="面试" scheme="http://yoursite.com/categories/%E9%9D%A2%E8%AF%95/"/>
-    
-    
-      <category term="面试" scheme="http://yoursite.com/tags/%E9%9D%A2%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>面试之HTTP</title>
-    <link href="http://yoursite.com/2019/05/05/%E9%9D%A2%E8%AF%95%E4%B9%8BHTTP.html"/>
-    <id>http://yoursite.com/2019/05/05/面试之HTTP.html</id>
-    <published>2019-05-05T14:28:49.000Z</published>
-    <updated>2019-07-09T11:48:05.111Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h2><h3 id="HTTP-Method"><a href="#HTTP-Method" class="headerlink" title="HTTP Method"></a>HTTP Method</h3><ol><li>一台服务器要与<code>HTTP 1.1</code>兼容、只要为资源实现<code>GET</code>和<code>HEAD</code>方法即可</li><li><code>GET</code>是最常用的方法，通常用于<strong>请求服务器发送某个资源</strong></li><li><code>HEAD</code>与<code>GET</code>类似，但<strong>服务器在响应中只返回首部，不返回实体的主体部分</strong></li><li><code>PUT</code>让服务器<code>用请求的主体部分来创建一个由所请求的URL命名的新文档，或者，如果那个URL已经存在的话，就用这个主体替代它</code></li><li><code>POST</code>起初是用来向服务器输入数据的。实际上，通常会用它来支持<code>HTML</code>的表单。表单中填好的数据通常会被送给服务器，然后由服务器将其发送到要去的地方</li><li><code>TRACE</code>会在目的服务器端发起一个环回诊断，最后一站的服务器会弹回一个<code>TRACE</code>响应并在响应主体中携带它收到的原始请求报文。<code>TRACE</code>方法主要用于诊断，用于验证请求是否如愿穿过了请求/响应链</li><li><code>DELETE</code>请求服务器删除请求URL指定的资源</li></ol><h3 id="从浏览器地址输入URL到显示页面的步骤"><a href="#从浏览器地址输入URL到显示页面的步骤" class="headerlink" title="从浏览器地址输入URL到显示页面的步骤"></a>从浏览器地址输入URL到显示页面的步骤</h3><ol><li>在浏览器地址中输入URL</li><li>浏览器查看<code>缓存</code>，如果请求资源在缓存中并且没有过期，跳转到15<ol><li>如果资源未缓存，发起新请求</li><li>如果已缓存，检验是否过期，没有过期直接提供给客户端，否则与服务器进行验证。</li><li>检验资源是否过期通常有两个HTTP头进行控制<code>Expires</code>和<code>Cache-Control</code>：<ol><li><code>HTTP1.0</code>提供<code>Expires</code>，值为一个绝对时间表示缓存过期日期</li><li><code>HTTP1.1</code>增加了<code>Cache-Control: max-age=</code>，值为以秒为单位的最大过期时间</li></ol></li></ol></li><li>浏览器<strong>解析URL</strong>获取协议、主机、端口、path</li><li>浏览器<strong>组装一个HTTP请求报文</strong></li><li>浏览器<strong>获取主机ip地址</strong>，过程如下：<ol><li>浏览器缓存</li><li>本机缓存</li><li>hosts文件</li><li>路由器缓存</li><li>ISP DNS缓存</li><li>DNS递归查询（可能存在负载均衡导致每次IP不一样）</li></ol></li><li><strong>打开一个socket与目标IP地址、端口建立TCP连接</strong>，三次握手如下：<ol><li>客户端发送一个TCP的<strong>SYN=1，Seq=X</strong>的包到服务器端口</li><li>服务器返回<strong>SYN=1，ACK=X+1,Seq=Y</strong>的响应包</li><li>客户端发送<strong>ACK=Y+1，Seq=Z</strong></li></ol></li><li>TCP连接建立后<strong>发送HTTP请求</strong></li><li>服务器接收请求并解析，将请求转发到服务程序，如虚拟主机使用HTTP Host头部判断请求的服务程序</li><li>服务器检查<strong>HTTP请求头是否包含缓存验证信息</strong>，如果验证缓存没过期，返回<code>304</code>等对应状态码</li><li>处理程序读取完整请求并准备HTTP响应，可能需要查询数据库等操作</li><li>服务器将<strong>响应报文通过TCP连接发送回浏览器</strong></li><li>浏览器接收HTTP响应后，然后根据情况选择<strong>关闭TCP连接或者保留重用，关闭TCP连接的四次握手如下</strong><ol><li>主动方发送<strong>Fin=1，Ack=Z，Seq=X</strong>报文</li><li>被动方发送<strong>ACK=X+1，Seq=Z</strong>报文</li><li>被动方发送<strong>Fin=1，ACK=X，Seq=Y</strong>报文</li><li>主动方发送<strong>ACK=Y，Seq=X</strong>报文</li></ol></li><li>浏览器检查响应状态码：是否为1XX，3XX，4XX，5XX，这些情况处理与2XX不同</li><li>如果资源可缓存，<strong>进行缓存</strong></li><li>对响应进行解码（例如gzip压缩）</li><li>根据资源类型决定如何处理（假设资源为HTML文档）</li><li><strong>解析HTML，构建DOM树，下载资源，构建CSSOM树，执行js脚本</strong>，这些操作没有严格的先后顺序，以下分别解释</li><li><strong>构建DOM树</strong><ol><li><strong>Tokenizing</strong>：根据HTML规范将字符流解析为标记</li><li><strong>Lexing</strong>：词法分析将标记转换为对象并定义属性和规则</li><li><strong>DOM construction</strong>：根据HTML标记关系将对象组成DOM树</li></ol></li><li>解析过程中遇到图片、样式表、js文件，<strong>启动下载</strong></li><li>构建<strong>CSSOM树</strong><ol><li><strong>Tokenizing</strong>：字符流转换为标记流</li><li><strong>Node</strong>：根据标记创建节点</li><li><strong>CSSOM</strong>：节点创建CSSOM树</li></ol></li><li><strong>根据DOM树和CSSOM树构建渲染树</strong><ol><li>从DOM树的根节点遍历所有<strong>可见节点</strong>，不可见的节点包括<ol><li><code>script、meta</code>这样本身不可见的标签</li><li>被CSS隐藏的节点，如<code>display: none</code></li></ol></li><li>对每一个可见节点，找到恰当的CSSOM规则并应用</li><li>发布可视节点的内容和计算样式</li></ol></li><li><strong>js解析如下</strong><ol><li>浏览器创建Document对象并解析HTML，将解析到的元素和文本节点添加到文档中，此时<strong>document.readystate为loading</strong></li><li>HTML解析器遇到<strong>没有async和defer的script时</strong>，将他们添加到文档中，然后执行行内或外部脚本。这些脚本会同步执行，并且在脚本下载和执行时解析器会暂停。这样就可以用document.write()把文本插入到输入流中。<strong>同步脚本经常简单定义函数和注册时间处理程序，他们可以遍历和操作script和他们之前的文档内容</strong></li><li>当解析器遇到了设置<strong>async</strong>属性的script时，开始下载脚本并继续解析文档。脚本会在它<strong>下载完成后尽快执行</strong>，但是<strong>解析器不会停下来等它下载</strong>。异步脚本<strong>禁止使用document.write()</strong>，它们可以访问自己script和之前的文档元素</li><li>当文档完成解析，document.readyState变成interactive</li><li>所有<strong>defer</strong>脚本会<strong>按照在文档中出现的顺序执行</strong>，延迟脚本<strong>能访问完整DOM树</strong>，禁止使用document.write()</li><li>浏览器<strong>在Document对象上触发DOMContentLoaded事件</strong></li><li>此时文档完全解析完成，浏览器可能还在等待如图片等内容加载，等这些<strong>内容完成载入并且所有异步脚本完成载入和执行</strong>，document.readState变为complete，window触发load事件</li></ol></li><li><strong>显示页面</strong>（HTML解析过程中会逐步显示页面）</li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;HTTP&quot;&gt;&lt;a href=&quot;#HTTP&quot; class=&quot;headerlink&quot; title=&quot;HTTP&quot;&gt;&lt;/a&gt;HTTP&lt;/h2&gt;&lt;h3 id=&quot;HTTP-Method&quot;&gt;&lt;a href=&quot;#HTTP-Method&quot; class=&quot;headerlink&quot; ti
-      
-    
-    </summary>
-    
-      <category term="面试" scheme="http://yoursite.com/categories/%E9%9D%A2%E8%AF%95/"/>
-    
     
   </entry>
   
